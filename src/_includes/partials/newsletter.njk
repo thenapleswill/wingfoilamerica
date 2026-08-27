@@ -1,0 +1,19 @@
+<div class="newsletter {{ extraClass }}">
+  <div class="newsletter-inner">
+    <h3>{{ heading or "Get the drop when new guides land" }}</h3>
+    <p>{{ subheading or "No spam. Just wing foiling knowledge as we build this thing out." }}</p>
+    <!--
+      TODO (site owner): wire this up to your email provider.
+      Buttondown is already used for verticaladvice.com and its free tier only supports one
+      newsletter, so this site needs a separate provider (ConvertKit, MailerLite, Substack, etc.).
+      Once you have one, set data-action to the provider's form endpoint and update the field
+      name below if needed (most providers use "email"). See README.md > "Newsletter setup".
+    -->
+    <form class="newsletter-form" data-newsletter-form data-action="REPLACE_WITH_YOUR_PROVIDER_ENDPOINT" method="post">
+      <label class="sr-only" for="newsletter-email-{{ extraClass }}">Email address</label>
+      <input type="email" id="newsletter-email-{{ extraClass }}" name="email" placeholder="you@example.com" required>
+      <button type="submit" class="btn btn-accent">Sign me up</button>
+    </form>
+    <p class="newsletter-status" data-newsletter-status hidden></p>
+  </div>
+</div>

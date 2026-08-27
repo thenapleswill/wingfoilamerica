@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+---
+<section class="guide-page wrap">
+  <nav class="breadcrumb"><a href="{{ '/beginner-guide/' | url }}">Beginner Guide</a> <span>/</span> <span>{{ title }}</span></nav>
+  <div class="guide-page-header">
+    <p class="eyebrow">Beginner Guide</p>
+    <h1>{{ title }}</h1>
+    {% if description %}<p class="guide-page-lede">{{ description }}</p>{% endif %}
+  </div>
+  <div class="guide-page-body">
+    {{ content | safe }}
+  </div>
+  {% set guideItems = collections.guide %}
+  {% for item in guideItems %}
+    {% if item.url == page.url %}
+      <div class="guide-pager">
+        {% if loop.index0 > 0 %}
+          {% set prev = guideItems[loop.index0 - 1] %}
+          <a class="guide-pager-link prev" href="{{ prev.url | url }}"><span>&larr; Previous</span>{{ prev.data.title }}</a>
+        {% else %}<span></span>{% endif %}
+        {% if not loop.last %}
+          {% set next = guideItems[loop.index0 + 1] %}
+          <a class="guide-pager-link next" href="{{ next.url | url }}"><span>Next &rarr;</span>{{ next.data.title }}</a>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</section>

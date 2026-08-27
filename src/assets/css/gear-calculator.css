@@ -1,0 +1,6 @@
+/* Paste your gear calculator prototype's CSS here.
+   It loads only on the "What Gear Do You Actually Need" page (see extraCss in
+   src/beginner-guide/what-gear-do-you-need.md), so it won't affect the rest of the site.
+   If your prototype's CSS used generic selectors (body, .container, button, etc.),
+   scope them under #gear-calculator-root so they don't leak into the nav/footer, e.g.
+   change `button { ... }` to `#gear-calculator-root button { ... }`. */

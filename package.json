@@ -1,0 +1,13 @@
+{
+  "name": "wingfoilamerica",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wing Foil America — a wing-foiling resource site.",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
