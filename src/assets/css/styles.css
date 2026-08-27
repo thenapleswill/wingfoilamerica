@@ -211,6 +211,19 @@ img{ max-width: 100%; display: block; }
 .article-page-body li{ margin-bottom: 0.5em; }
 .article-page-body strong{ color: var(--foam); }
 .article-page-body a{ text-decoration: underline; text-underline-offset: 3px; }
+.article-page-body table{
+  width: 100%; border-collapse: collapse; margin: 1.6em 0; font-size: 0.94rem;
+  background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden;
+}
+.article-page-body th, .article-page-body td{
+  padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--line);
+}
+.article-page-body th{
+  font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--teal); background: var(--ink-3);
+}
+.article-page-body tr:last-child td{ border-bottom: none; }
 
 /* ==========================================================================
    Coming soon

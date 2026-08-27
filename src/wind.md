@@ -19,14 +19,18 @@ That's why a good wing foiler ends up reading wind forecasts the way a surfer re
 
 ## How much wind do you actually need
 
-Most wing foiling happens somewhere in the **10–25+ mph** range, though the useful window depends heavily on your weight, skill, and wing size:
+Most wing foiling happens somewhere in the **10–25+ mph** range, though the useful window depends heavily on your weight, skill, and wing size. Below roughly 8–10 mph, most wings can't generate enough power to get an average rider up on foil — that's "go get lunch" wind. Above that, here's roughly how it breaks down, including the wing size that typically pairs with each range:
 
-- **Below ~8–10 mph:** most wings can't generate enough power to get an average rider up on foil. This is "go get lunch" wind.
-- **~12–18 mph:** the sweet spot for learning — enough power to get up and stay up without the wing constantly trying to rip out of your hands.
-- **~18–25 mph:** solid, sporty conditions for a confident rider on the right wing size.
-- **25+ mph:** possible, but physical and unforgiving. This is small-wing, experienced-rider territory, and a rough place to be learning.
+| Wind tier | Speed | Typical wing size | Feel |
+|---|---|---|---|
+| Light | 10–15 mph | ~5–6.5 m² | Enough power to get up, but soft — fine on glassy days, harder if it's gusty-light |
+| Moderate | 15–20 mph | ~4–5.5 m² | The sweet spot for learning — steady power without a fight |
+| Strong | 20–25 mph | ~3–4.5 m² | Sporty and physical, for a confident rider on the right size |
+| Very strong | 25+ mph | ~2–3.5 m² | Small-wing, experienced-rider territory |
 
-Steady wind in the 12–18 mph range, without big gusts, is about as good as it gets for a beginner.
+Exact wing size depends on your weight and experience level as much as the wind speed — run your own numbers through the [gear calculator](/beginner-guide/what-gear-do-you-need/) for a personalized recommendation rather than treating this table as gospel.
+
+Steady wind in the Light-to-Moderate range (roughly 10–20 mph), without big gusts, is about as good as it gets for a beginner.
 
 ## True wind vs. apparent wind
 
@@ -64,13 +68,21 @@ Not all wind behaves the same way, and knowing which kind you're dealing with te
 
 ## Wind direction and shore safety
 
-Direction relative to the shoreline matters as much as speed — arguably more, from a safety standpoint. There are three basic cases:
+Direction relative to the shoreline matters as much as speed — arguably more, from a safety standpoint. It's more nuanced than a simple "onshore good, offshore bad" rule:
 
-- **Onshore** (blowing from the water toward the land) — generally the **safest condition for beginners**. If something goes wrong — you're exhausted, gear fails, you can't relaunch — the wind pushes you back toward the beach, not away from it.
-- **Cross-shore** (blowing roughly parallel to the shoreline) — very rideable and common at good spots, but pay attention to how far you're drifting down the beach over a session so you don't end up walking back.
-- **Offshore** (blowing from the land out toward open water) — the **highest-risk condition for beginners**. A problem on the water means the wind is actively working against you and pushing you further from help. Beginners should avoid launching in offshore wind entirely; even experienced riders should treat pure offshore days with real respect — ride with others, tell someone your plan, and know your limits.
+- **Side-shore to side-onshore wind is the best condition for beginners.** It gives you a real safety margin — you can self-rescue toward shore if you're tired or the wind shifts — without the hazards of a straight onshore approach.
+- **Straight onshore wind is *not* ideal for beginners**, despite blowing toward shore. Because a beginner can't yet ride upwind, straight onshore wind means getting continuously pushed through breaking waves and over sandbars into the shorebreak/impact zone — a real hazard with a foil underneath you. It's better suited to flat, protected, shallow spots, or to more experienced riders who can handle the shorebreak.
+- **Offshore wind (straight or angled) is the most dangerous condition at any experience level.** It blows you away from shore with no self-rescue option, and shouldn't be ridden without a safety boat and real experience.
 
 When in doubt about direction, ask a local shop or experienced rider at the spot before you launch. See [Safety Basics](/beginner-guide/safety-basics/) for more.
+
+## Beach orientation: why the "right" wind depends on where you are
+
+Not every beach faces the same way, and that changes everything about what "good wind direction" actually means on a given day. A direction that's a clean side-shore breeze at one beach might slam straight onshore into a different beach a mile away, simply because the coastline bends or the two spots face different compass directions. There's no universally good or bad wind direction in the abstract — it depends entirely on which way the beach in front of you happens to face relative to the wind.
+
+The practical fix is to scout a small rotation of spots with different orientations rather than relying on just one beach. If you find, say, one launch that runs roughly north–south and another nearby that runs east–west, you've effectively covered most wind directions — whichever way the wind is blowing on a given day, one of those two spots is likely catching it side-shore or side-onshore instead of straight onshore or offshore.
+
+This is exactly why the [Where to Ride](/where-to-ride/) section of this site will eventually note each spot's orientation and which wind directions work best there — so you can match today's forecast to the right beach instead of forcing a session at the wrong one.
 
 ## Check the Wind Right Now
 
