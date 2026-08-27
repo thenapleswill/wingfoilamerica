@@ -21,6 +21,7 @@
 }
 
 *, *::before, *::after{ box-sizing: border-box; }
+[hidden]{ display: none !important; }
 html{ scroll-behavior: smooth; }
 body{
   margin: 0;
@@ -116,34 +117,42 @@ img{ max-width: 100%; display: block; }
               radial-gradient(50% 50% at 85% 20%, rgba(255,95,69,0.2), transparent 70%);
   pointer-events: none;
 }
-.hero-inner{ position: relative; z-index: 1; max-width: 720px; }
+.hero-inner{ position: relative; z-index: 1; max-width: 680px; margin: 0 auto; text-align: center; }
 .hero h1{ font-size: clamp(2.4rem, 5.5vw, 4rem); margin-bottom: 22px; }
 .hero h1 .accent{ color: var(--coral); }
-.hero-sub{ font-size: 1.15rem; max-width: 560px; margin-bottom: 8px; }
+.hero-sub{ font-size: 1.15rem; max-width: 560px; margin: 0 auto 8px; }
 
-.experience-prompt{ margin: 56px 0 20px; position: relative; z-index: 1; }
-.experience-prompt h2{ font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.welcome-back{
+  display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+  text-align: center; background: var(--ink-2); border: 1px solid var(--teal);
+  border-radius: var(--radius); padding: 18px 28px; margin: 0 0 8px; position: relative; z-index: 1;
+}
+.welcome-back-text{ margin: 0; font-size: 1rem; }
+.welcome-back-text strong{ color: var(--teal); }
+
+.experience-prompt{ margin: 56px 0 28px; position: relative; z-index: 1; text-align: center; }
+.experience-prompt h2{ font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
 
 .experience-grid{
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
   background: var(--line); border: 1px solid var(--line); border-radius: var(--radius);
   overflow: hidden; position: relative; z-index: 1;
+  max-width: 900px; margin: 0 auto;
 }
-@media (max-width: 980px){ .experience-grid{ grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px){ .experience-grid{ grid-template-columns: 1fr; } }
+@media (max-width: 720px){ .experience-grid{ grid-template-columns: 1fr; } }
 
 .experience-card{
-  background: var(--ink-2); padding: 30px 26px; display: block; cursor: pointer;
-  border-top: 3px solid transparent; transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  background: var(--ink-2); padding: 48px 40px; display: block; cursor: pointer;
+  border-top: 4px solid transparent; transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
 .experience-card:hover{ background: var(--ink-3); border-top-color: var(--teal); transform: translateY(-4px); }
 .experience-card .level{
-  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--coral); margin-bottom: 14px; display: block;
+  font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--coral); margin-bottom: 18px; display: block;
 }
-.experience-card h3{ font-size: 1.15rem; margin-bottom: 10px; color: var(--foam); }
-.experience-card p{ font-size: 0.9rem; margin-bottom: 16px; }
-.experience-card .go{ font-size: 0.85rem; color: var(--teal); display: flex; align-items: center; gap: 6px; transition: gap 0.15s; }
+.experience-card h3{ font-size: 1.6rem; margin-bottom: 14px; color: var(--foam); }
+.experience-card p{ font-size: 1rem; margin-bottom: 22px; }
+.experience-card .go{ font-size: 0.95rem; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: 6px; transition: gap 0.15s; }
 .experience-card:hover .go{ gap: 10px; }
 
 /* ==========================================================================
@@ -191,6 +200,17 @@ img{ max-width: 100%; display: block; }
 }
 .guide-pager-link.next{ text-align: right; margin-left: auto; }
 .guide-pager-link span{ font-family: var(--font-mono); font-size: 0.75rem; color: var(--teal); font-weight: 400; }
+
+/* ---------- generic long-form article page (e.g. Wind) ---------- */
+.article-page{ padding: 60px 0 90px; max-width: 760px; }
+.article-page-header h1{ font-size: clamp(2rem, 4.5vw, 2.8rem); }
+.article-page-lede{ font-size: 1.1rem; }
+.article-page-body h2{ font-size: 1.4rem; margin-top: 1.7em; color: var(--foam); }
+.article-page-body h3{ font-size: 1.15rem; margin-top: 1.4em; color: var(--foam); }
+.article-page-body ul, .article-page-body ol{ color: var(--foam-dim); padding-left: 1.3em; }
+.article-page-body li{ margin-bottom: 0.5em; }
+.article-page-body strong{ color: var(--foam); }
+.article-page-body a{ text-decoration: underline; text-underline-offset: 3px; }
 
 /* ==========================================================================
    Coming soon

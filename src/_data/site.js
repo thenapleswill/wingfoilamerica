@@ -5,6 +5,7 @@ module.exports = {
     { title: "Beginner Guide", url: "/beginner-guide/" },
     { title: "Intermediate & Advanced", url: "/intermediate-advanced/" },
     { title: "Gear & Brands", url: "/gear-and-brands/" },
+    { title: "Wind", url: "/wind/" },
     { title: "Where to Ride", url: "/where-to-ride/" },
     { title: "Community", url: "/community/" },
   ],

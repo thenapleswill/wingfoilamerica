@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+---
+<section class="article-page wrap">
+  <div class="article-page-header">
+    <p class="eyebrow">{{ eyebrow or site.name }}</p>
+    <h1>{{ title }}</h1>
+    {% if description %}<p class="article-page-lede">{{ description }}</p>{% endif %}
+  </div>
+  <div class="article-page-body">
+    {{ content | safe }}
+  </div>
+</section>

@@ -2,6 +2,8 @@
 layout: layouts/base.njk
 title: null
 description: "Wing Foil America is a home base for learning to wing foil — beginner guides, gear advice, and where to ride, built by and for the community."
+extraJs:
+  - /assets/js/home.js
 ---
 <section class="hero">
   <div class="hero-bg"></div>
@@ -12,31 +14,38 @@ description: "Wing Foil America is a home base for learning to wing foil — beg
   </div>
 </section>
 
+<section class="wrap">
+  <div class="welcome-back" id="welcomeBack" hidden>
+    <p class="welcome-back-text">Welcome back — continue as a <strong id="welcomeBackLevel"></strong>.</p>
+    <a class="btn btn-accent" id="welcomeBackLink" href="{{ '/beginner-guide/' | url }}">Jump back in &rarr;</a>
+  </div>
+</section>
+
 <section class="experience-prompt wrap">
   <h2>What's your wing foiling experience?</h2>
 </section>
 
 <section class="wrap">
   <div class="experience-grid">
-    <a class="experience-card" href="{{ '/beginner-guide/' | url }}">
+    <a class="experience-card" data-level="new" data-level-label="Never wing foiled before" href="{{ '/beginner-guide/' | url }}">
       <span class="level">Level 0</span>
       <h3>Never wing foiled before</h3>
       <p>Interested, looking into it, and excited to learn.</p>
       <span class="go">Start here &rarr;</span>
     </a>
-    <a class="experience-card" href="{{ '/beginner-guide/' | url }}">
+    <a class="experience-card" data-level="beginner" data-level-label="Beginner" href="{{ '/beginner-guide/' | url }}">
       <span class="level">Level 1</span>
       <h3>Been a few times</h3>
       <p>Very much a beginner, still learning the basics.</p>
       <span class="go">Start here &rarr;</span>
     </a>
-    <a class="experience-card" href="{{ '/intermediate-advanced/' | url }}">
+    <a class="experience-card" data-level="intermediate" data-level-label="Intermediate" href="{{ '/intermediate-advanced/' | url }}">
       <span class="level">Level 2</span>
       <h3>A couple years in</h3>
       <p>Intermediate, comfortable on the water, looking to build more knowledge and skill.</p>
       <span class="go">Go further &rarr;</span>
     </a>
-    <a class="experience-card" href="{{ '/gear-and-brands/' | url }}">
+    <a class="experience-card" data-level="expert" data-level-label="Competent / Expert Rider" href="{{ '/gear-and-brands/' | url }}">
       <span class="level">Level 3</span>
       <h3>Competent / expert rider</h3>
       <p>Looking to hone skills in new and exciting ways — new gear, new challenges.</p>
