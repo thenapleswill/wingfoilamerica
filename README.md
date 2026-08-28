@@ -91,14 +91,13 @@ files in `src/assets/vendor/leaflet/` or `src/assets/vendor/leaflet.markercluste
 
 ### Submit a Spot form
 
-The "Submit a Spot" button on that page reveals a form pointed at a placeholder endpoint,
-following the same pattern as the newsletter signup. To wire it up:
+The "Submit a Spot" section on that page embeds an Airtable form via an `<iframe>` in
+`src/where-to-ride/index.md`. Submissions land as new rows in the connected Airtable base —
+review them there before adding a spot to `src/assets/data/where-to-ride-spots.json`.
 
-1. Create a free form at [Formspree](https://formspree.io/) with the fields already in the
-   form (spot name, location, water type, wind direction, skill level, why it's worth adding).
-2. In `src/where-to-ride/index.md`, replace `REPLACE_WITH_YOUR_FORMSPREE_ENDPOINT` in the
-   form's `data-action="..."` attribute with your Formspree endpoint URL.
-3. Push the change — submissions will come to your Formspree dashboard/email for review.
+To change the fields or where submissions go, edit the form in Airtable (Table view > your
+form view > Share form), then in Airtable's "Embed this view" panel grab the updated `src`
+URL and swap it into the `iframe` in `src/where-to-ride/index.md`.
    Nothing on the site publishes a submitted spot automatically; you (or Claude) still add it
    to `where-to-ride-spots.json` by hand once you've reviewed it.
 

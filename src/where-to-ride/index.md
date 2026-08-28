@@ -36,43 +36,8 @@ full rundown, or jump straight to the bottom to tell us about a spot that's miss
 ## Know a spot that should be here?
 
 <div class="submit-spot">
-  <button type="button" id="submitSpotToggle" class="btn btn-accent" aria-expanded="false" aria-controls="submitSpotPanel">Submit a Spot</button>
-
-  <div id="submitSpotPanel" class="submit-spot-panel" hidden>
-    <form id="submitSpotForm" data-action="REPLACE_WITH_YOUR_FORMSPREE_ENDPOINT" method="post">
-      <div class="field">
-        <label for="spotName">Spot name</label>
-        <input type="text" id="spotName" name="spot_name" required>
-      </div>
-      <div class="field">
-        <label for="spotLocation">Location (city, state)</label>
-        <input type="text" id="spotLocation" name="location" required>
-      </div>
-      <div class="field">
-        <label for="spotWater">Water type</label>
-        <input type="text" id="spotWater" name="water_type" placeholder="e.g. flat bay, ocean chop, lake" required>
-      </div>
-      <div class="field">
-        <label for="spotWind">Best wind direction</label>
-        <input type="text" id="spotWind" name="wind_direction" placeholder="e.g. SW, onshore" required>
-      </div>
-      <div class="field">
-        <label for="spotSkill">Skill level</label>
-        <select id="spotSkill" name="skill_level" required>
-          <option value="">Choose one</option>
-          <option>Beginner</option>
-          <option>Intermediate</option>
-          <option>Advanced</option>
-          <option>All levels</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="spotWhy">Why it's worth adding</label>
-        <textarea id="spotWhy" name="why" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-accent">Send it in</button>
-      <p class="submit-spot-status" id="submitSpotStatus" hidden></p>
-    </form>
-    <p class="submit-spot-note">Submissions come straight to Will for review — nothing publishes automatically.</p>
+  <p class="submit-spot-note">Submissions come straight to Will for review — nothing publishes automatically.</p>
+  <div class="submit-spot-embed">
+    <iframe class="airtable-embed" src="https://airtable.com/embed/appJHchIsjqLQ4gvL/shr9crEhnDAMc3X2U" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent;"></iframe>
   </div>
 </div>
