@@ -33,6 +33,18 @@ gear calculator prototype. To integrate it:
 Both of those asset files only load on that one page, so they won't affect the rest of the
 site's styling or scripts.
 
+## Analytics setup
+
+The site is wired for [Plausible Analytics](https://plausible.io) (cookieless, no
+consent banner needed), but the script only renders once it's configured:
+
+1. Create a free Plausible account and add this site — Plausible will give you a
+   domain string to use (usually just the site's domain).
+2. In `src/_data/site.js`, replace `REPLACE_WITH_YOUR_PLAUSIBLE_DOMAIN` with that value.
+3. Push the change — the analytics script tag in `src/_includes/layouts/base.njk` only
+   renders once `plausibleDomain` is no longer the placeholder, so nothing is sent
+   anywhere until it's configured.
+
 ## Newsletter setup
 
 The signup form (`src/_includes/partials/newsletter.njk`) is wired up but pointed at a
