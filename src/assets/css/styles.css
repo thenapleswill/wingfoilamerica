@@ -81,6 +81,7 @@ img{ max-width: 100%; display: block; }
   padding: 6px 9px; border-radius: 8px; font-size: 0.85rem; letter-spacing: 0.02em;
 }
 .brand-name{ font-family: var(--font-display); font-size: 1.05rem; }
+.site-nav{ display: flex; align-items: center; gap: 16px; }
 .site-nav ul{ list-style: none; display: flex; gap: 6px; margin: 0; padding: 0; }
 .site-nav a{
   display: block; color: var(--foam-dim); font-weight: 600; font-size: 0.92rem;
@@ -93,12 +94,16 @@ img{ max-width: 100%; display: block; }
 
 @media (max-width: 880px){
   .site-nav{
-    position: fixed; inset: 74px 0 0 0; background: var(--ink);
+    flex-direction: column; align-items: stretch;
+    position: fixed; top: 74px; left: 0; right: 0; height: calc(100vh - 74px);
+    background: var(--ink);
     transform: translateY(-110%); transition: transform 0.25s ease; overflow-y: auto;
   }
   .site-nav.is-open{ transform: translateY(0); }
   .site-nav ul{ flex-direction: column; padding: 20px; gap: 4px; }
   .site-nav a{ font-size: 1.2rem; padding: 16px; }
+  .nav-search{ padding: 0 20px 20px; width: auto; }
+  .nav-search .pagefind-ui__drawer{ position: static; margin-top: 12px; width: auto; max-height: none; }
   .nav-toggle{
     display: flex; flex-direction: column; justify-content: center; gap: 5px;
     width: 40px; height: 40px; background: transparent; border: 1px solid var(--line);
@@ -106,6 +111,33 @@ img{ max-width: 100%; display: block; }
   }
   .nav-toggle span{ height: 2px; background: var(--foam); margin: 0 8px; border-radius: 2px; }
 }
+
+/* ---------- nav search (Pagefind) ---------- */
+.nav-search{
+  width: 190px; flex-shrink: 0; position: relative;
+}
+.nav-search .pagefind-ui{
+  --pagefind-ui-scale: 0.62;
+  --pagefind-ui-primary: var(--teal);
+  --pagefind-ui-text: var(--foam);
+  --pagefind-ui-background: var(--ink-2);
+  --pagefind-ui-border: var(--line);
+  --pagefind-ui-tag: var(--ink-3);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 999px;
+  --pagefind-ui-font: var(--font-body);
+}
+.nav-search .pagefind-ui__search-input{ font-weight: 400; }
+.nav-search .pagefind-ui__search-input::placeholder{ opacity: 0.5; }
+.nav-search .pagefind-ui__drawer{
+  position: absolute; top: calc(100% + 10px); right: 0;
+  width: min(420px, 90vw); max-height: 70vh; overflow-y: auto;
+  background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px; z-index: 200; display: block;
+}
+.nav-search .pagefind-ui__results-area{ margin-top: 0; }
+.nav-search .pagefind-ui__result:first-child{ border-top: none; padding-top: 0; }
+.nav-search mark{ background: var(--coral); color: var(--ink); border-radius: 2px; }
 
 /* ==========================================================================
    Hero + experience selector

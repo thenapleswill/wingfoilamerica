@@ -49,6 +49,17 @@ already used by another project. Once you've picked a provider for this site:
    fires while the endpoint still says `REPLACE_WITH_YOUR_PROVIDER_ENDPOINT`, so once you
    swap in a real URL the form will submit for real automatically.
 
+## Site search
+
+Search is powered by [Pagefind](https://pagefind.app), which indexes the built HTML directly
+— no database, no backend, nothing to host separately. It runs automatically after every
+build (`npm run build` triggers it via the `postbuild` script in `package.json`), so any new
+page or content edit becomes searchable the next time the site deploys. Nothing needs to be
+done by hand.
+
+The search box lives in the top nav (`src/_includes/partials/nav.njk`, the `#navSearch` div)
+and is themed in `src/assets/css/styles.css` under "nav search (Pagefind)".
+
 ## Local development (optional)
 
 You don't need this to edit content, but if you want to preview changes before pushing:
@@ -58,7 +69,9 @@ npm install
 npm start
 ```
 
-Then open the URL it prints (usually `http://localhost:8080`).
+Then open the URL it prints (usually `http://localhost:8080`). Note: the search box won't
+find anything in this mode unless you've run `npm run build` at least once first — `npm start`
+watches and rebuilds pages but doesn't re-run the Pagefind indexing step.
 
 ## Deployment
 

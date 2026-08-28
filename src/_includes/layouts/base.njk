@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/pagefind/pagefind-ui.css' | url }}">
 <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}">
 {% for href in extraCss %}
 <link rel="stylesheet" href="{{ href | url }}">
@@ -19,7 +20,9 @@
 {{ content | safe }}
 </main>
 {% include "partials/footer.njk" %}
+<script src="{{ '/pagefind/pagefind-ui.js' | url }}"></script>
 <script src="{{ '/assets/js/main.js' | url }}"></script>
+<script src="{{ '/assets/js/search-init.js' | url }}"></script>
 {% for src in extraJs %}
 <script src="{{ src | url }}"></script>
 {% endfor %}
