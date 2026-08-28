@@ -24,6 +24,12 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  eleventyConfig.addCollection("intermediate", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("src/intermediate-advanced/*.md").sort((a, b) => {
+      return (a.data.order || 0) - (b.data.order || 0);
+    });
+  });
+
   return {
     dir: {
       input: "src",

@@ -1,6 +1,25 @@
 ---
 layout: layouts/base.njk
 title: "Intermediate & Advanced"
-description: "Intermediate and advanced wing foiling content — coming soon to Wing Foil America."
+description: "Jumping, freestyle, and the rest of what comes after the fundamentals — for riders ready to move past beginner gear."
 ---
-{% include "partials/coming-soon.njk" %}
+<section class="section-header wrap">
+  <p class="eyebrow">Level Up</p>
+  <h1>Intermediate &amp; Advanced</h1>
+  <p class="section-header-lede">For riders who already have the fundamentals down and are ready to push further.</p>
+</section>
+
+<section class="wrap">
+  <div class="guide-grid">
+    {% for item in collections.intermediate %}
+    <article class="guide-card">
+      <span class="num">{{ "0" if item.data.order < 10 }}{{ item.data.order }}</span>
+      <h2><a class="card-link" href="{{ item.url | url }}">{{ item.data.title }}</a></h2>
+      <p>{{ item.data.description }}</p>
+      <a class="go" href="{{ item.url | url }}" aria-label="Read guide: {{ item.data.title }}">Read guide &rarr;</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% include "partials/newsletter.njk" %}
