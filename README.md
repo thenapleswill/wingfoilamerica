@@ -85,9 +85,10 @@ automatically on the next deploy.
 The map itself runs on [Leaflet](https://leafletjs.com/) and the
 [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) plugin, both
 self-hosted (not loaded from a CDN) in `src/assets/vendor/`, with map tiles from
-[CARTO's free dark basemap](https://carto.com/basemaps) (no API key required). To update
-either library later, download the new version's `dist/` files and replace the matching
-files in `src/assets/vendor/leaflet/` or `src/assets/vendor/leaflet.markercluster/`.
+[Esri's free dark basemap](https://server.arcgisonline.com/arcgis/rest/services/Canvas/World_Dark_Gray_Base)
+(no API key required — CARTO's free tiles started requiring one, so this switched providers).
+To update either library later, download the new version's `dist/` files and replace the
+matching files in `src/assets/vendor/leaflet/` or `src/assets/vendor/leaflet.markercluster/`.
 
 ### Submit a Spot form
 
