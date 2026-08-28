@@ -310,13 +310,25 @@ img{ max-width: 100%; display: block; }
   border: 1px solid var(--line); border-radius: var(--radius);
 }
 .newsletter h2{ font-size: 1.5rem; margin-bottom: 8px; }
-.newsletter-form{ display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; max-width: 480px; }
-.newsletter-form input{
-  flex: 1 1 220px; padding: 14px 18px; border-radius: 999px; border: 1px solid var(--line);
-  background: var(--ink); color: var(--foam); font-family: var(--font-body); font-size: 0.95rem;
+.newsletter-embed{ margin-top: 20px; max-width: 480px; }
+
+/* Best-effort reskin of Kit's inline form to the site palette. Kit renders its own
+   markup/CSS at runtime (this sandbox can't reach kit.com to confirm exact class
+   names), so these target Kit's long-standing "formkit-*" classes with !important
+   to win against Kit's injected styles. If a color still shows Kit's default,
+   set it directly in Kit's own form editor (Style/Design tab) instead:
+   background #06232c, accent/button #ff5f45, text #eafaf7. */
+.newsletter-embed .formkit-input{
+  background: var(--ink) !important; color: var(--foam) !important;
+  border: 1px solid var(--line) !important; border-radius: 999px !important;
 }
-.newsletter-form input:focus{ outline: 2px solid var(--teal); outline-offset: 2px; }
-.newsletter-status{ margin-top: 14px; font-size: 0.9rem; color: var(--teal); }
+.newsletter-embed .formkit-submit,
+.newsletter-embed button[data-element="submit"]{
+  background: var(--coral) !important; color: var(--ink) !important; border: none !important;
+}
+.newsletter-embed .formkit-submit:hover,
+.newsletter-embed button[data-element="submit"]:hover{ background: var(--coral-bright) !important; }
+.newsletter-embed .formkit-alert-success{ color: var(--teal) !important; }
 
 /* ==========================================================================
    Gear calculator placeholder

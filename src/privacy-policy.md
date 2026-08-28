@@ -11,7 +11,7 @@ Wing Foil America is a personal, independent project. This page explains what in
 
 ## What we collect
 
-**Email address, if you sign up for the newsletter.** Newsletter signups are handled by a third-party email provider. Your email is used only to send you updates from this site and is never sold or shared with anyone else. You can unsubscribe at any time using the link in any email.
+**Email address, if you sign up for the newsletter.** Newsletter signups are handled by [Kit](https://kit.com) (formerly ConvertKit), our third-party email provider. Your email is used only to send you updates from this site and is never sold or shared with anyone else. You can unsubscribe at any time using the link in any email.
 
 **Your location, only if you allow it, only in your browser.** The Wind page and the Where to Ride map can use your device's location (with your explicit browser permission) to show you relevant wind conditions or nearby spots. This happens entirely in your browser — your location is never sent to or stored on our servers.
 
@@ -31,7 +31,7 @@ We don't sell your information. We don't run ads. We don't have user accounts or
 
 ## Third-party services this site uses
 
-This site links out to, or embeds content from, third-party services that have their own privacy practices, including: our email newsletter provider, YouTube (embedded/linked instructional videos), Windy.com (embedded wind map), and various gear retailers we link to for buying equipment. We encourage you to review their privacy policies separately — we don't control how they handle data.
+This site links out to, or embeds content from, third-party services that have their own privacy practices, including: Kit (our email newsletter provider), YouTube (embedded/linked instructional videos), Windy.com (embedded wind map), and various gear retailers we link to for buying equipment. We encourage you to review their privacy policies separately — we don't control how they handle data.
 
 ## Children's privacy
 

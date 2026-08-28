@@ -47,19 +47,17 @@ consent banner needed), but the script only renders once it's configured:
 
 ## Newsletter setup
 
-The signup form (`src/_includes/partials/newsletter.njk`) is wired up but pointed at a
-placeholder endpoint, since Buttondown's free tier only supports one newsletter and that's
-already used by another project. Once you've picked a provider for this site:
+The signup form (`src/_includes/partials/newsletter.njk`) embeds a [Kit](https://kit.com)
+(formerly ConvertKit) inline form via Kit's own `<script>` snippet, shared across the
+homepage, Community, and Intermediate & Advanced pages.
 
-1. Get that provider's signup **form action URL** (every provider calls this something
-   slightly different — "embed form," "hosted form," "subscribe endpoint").
-2. In `src/_includes/partials/newsletter.njk`, replace `REPLACE_WITH_YOUR_PROVIDER_ENDPOINT`
-   in the `data-action="..."` attribute with that URL.
-3. Check the provider's docs for the expected email field name — most use `name="email"`
-   (already set), but a few (like Mailchimp) use something like `EMAIL` instead.
-4. Push the change — the placeholder "coming soon" message in `src/assets/js/main.js` only
-   fires while the endpoint still says `REPLACE_WITH_YOUR_PROVIDER_ENDPOINT`, so once you
-   swap in a real URL the form will submit for real automatically.
+To change the form's fields or which Kit account it points to, edit the form in your Kit
+dashboard (Audience growth > Landing pages & forms), then swap the `data-uid` and `src` in
+`src/_includes/partials/newsletter.njk` for the new form's embed code. Kit's own form editor
+(Style/Design tab) is the most reliable way to color-match the form to the site palette
+(ink `#06232c`, coral `#ff5f45`, teal `#2fd1c5`) — `src/assets/css/styles.css` also has a
+best-effort CSS override block targeting Kit's standard class names, but Kit renders its
+own markup at runtime so it's worth checking the form still looks right after any changes.
 
 ## Where to Ride map
 
