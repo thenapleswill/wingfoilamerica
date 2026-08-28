@@ -91,5 +91,14 @@ A note on all three: package availability and pricing shift with stock, so if on
 
 Not every brand sells direct to consumer — some of these are better for researching specs and comparing gear than for actually checking out, but worth a look either way:
 
-- [Armstrong Foils](https://armstrongfoils.com/)
-- [Slingshot Sports](https://slingshotsports.com/pages/foil)
+<div class="brand-links">
+  <a href="https://armstrongfoils.com/" target="_blank" rel="noopener">Armstrong Foils</a>
+  <a href="https://slingshotsports.com/pages/foil" target="_blank" rel="noopener">Slingshot Sports</a>
+  <a href="https://www.duotonesports.com/" target="_blank" rel="noopener">Duotone</a>
+  <a href="https://www.f-one.world/" target="_blank" rel="noopener">F-One</a>
+  <a href="https://www.naish.com/" target="_blank" rel="noopener">Naish</a>
+  <a href="https://northactionsports.com/" target="_blank" rel="noopener">North</a>
+  <a href="https://www.cabrinha.com/" target="_blank" rel="noopener">Cabrinha</a>
+  <a href="https://ozonekites.com/wing/" target="_blank" rel="noopener">Ozone</a>
+  <a href="https://www.axisfoils.com/" target="_blank" rel="noopener">Axis Foils</a>
+</div>

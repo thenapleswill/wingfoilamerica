@@ -269,6 +269,13 @@ img{ max-width: 100%; display: block; }
 .shop-at-more a{ color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
 .shop-at-more a:hover{ color: var(--coral-bright); }
 
+.brand-links{ display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; }
+.brand-links a{
+  font-weight: 600; font-size: 0.9rem; padding: 9px 16px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--foam); text-decoration: none;
+}
+.brand-links a:hover{ border-color: var(--teal); color: var(--teal); }
+
 /* ---------- package cards ---------- */
 .package-grid{
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0 8px;
