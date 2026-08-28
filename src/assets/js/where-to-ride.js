@@ -171,4 +171,40 @@
     }
   }
 
+  // ---- Submit a Spot modal ----
+  var submitOpenBtn = document.getElementById("submitSpotOpen");
+  var submitModal = document.getElementById("submitSpotModal");
+  if (submitOpenBtn && submitModal) {
+    var submitIframe = document.getElementById("submitSpotIframe");
+    var lastFocused = null;
+
+    function openSubmitModal() {
+      lastFocused = document.activeElement;
+      if (submitIframe && !submitIframe.getAttribute("src")) {
+        submitIframe.setAttribute("src", submitIframe.getAttribute("data-src"));
+      }
+      submitModal.removeAttribute("hidden");
+      document.body.classList.add("modal-open");
+      var closeBtn = submitModal.querySelector(".submit-spot-modal-close");
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeSubmitModal() {
+      submitModal.setAttribute("hidden", "");
+      document.body.classList.remove("modal-open");
+      if (lastFocused) lastFocused.focus();
+    }
+
+    submitOpenBtn.addEventListener("click", openSubmitModal);
+
+    submitModal.querySelectorAll("[data-modal-close]").forEach(function (el) {
+      el.addEventListener("click", closeSubmitModal);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !submitModal.hasAttribute("hidden")) {
+        closeSubmitModal();
+      }
+    });
+  }
 })();

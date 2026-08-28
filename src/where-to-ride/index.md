@@ -37,7 +37,16 @@ full rundown, or jump straight to the bottom to tell us about a spot that's miss
 
 <div class="submit-spot">
   <p class="submit-spot-note">Submissions come straight to Will for review — nothing publishes automatically.</p>
-  <div class="submit-spot-embed">
-    <iframe class="airtable-embed" src="https://airtable.com/embed/appJHchIsjqLQ4gvL/shr9crEhnDAMc3X2U" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent;"></iframe>
+  <button type="button" id="submitSpotOpen" class="btn btn-accent">Submit a Spot</button>
+</div>
+
+<div class="submit-spot-modal" id="submitSpotModal" hidden>
+  <div class="submit-spot-modal-backdrop" data-modal-close></div>
+  <div class="submit-spot-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="submitSpotModalTitle">
+    <div class="submit-spot-modal-header">
+      <h2 id="submitSpotModalTitle" class="sr-only">Submit a Spot</h2>
+      <button type="button" class="submit-spot-modal-close" data-modal-close aria-label="Close">&times;</button>
+    </div>
+    <iframe id="submitSpotIframe" class="airtable-embed" data-src="https://airtable.com/embed/appJHchIsjqLQ4gvL/shr9crEhnDAMc3X2U" frameborder="0" width="100%" height="533" style="background: transparent;"></iframe>
   </div>
 </div>

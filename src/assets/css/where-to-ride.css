@@ -97,7 +97,25 @@
 /* ---------- Submit a Spot ---------- */
 .submit-spot{ margin: 8px 0 40px; }
 .submit-spot-note{ margin: 0 0 20px; font-size: 0.92rem; color: var(--foam-dim); max-width: 640px; }
-.submit-spot-embed{
-  border-radius: var(--radius); border: 1px solid var(--line); overflow: hidden;
+
+body.modal-open{ overflow: hidden; }
+.submit-spot-modal{
+  position: fixed; inset: 0; z-index: 300;
+  display: flex; align-items: center; justify-content: center; padding: 24px;
 }
-.submit-spot-embed iframe{ display: block; width: 100%; border: none !important; }
+.submit-spot-modal[hidden]{ display: none; }
+.submit-spot-modal-backdrop{ position: absolute; inset: 0; background: rgba(6,35,44,0.82); }
+.submit-spot-modal-dialog{
+  position: relative; z-index: 1; width: 100%; max-width: 560px; max-height: 90vh;
+  overflow-y: auto; background: var(--ink-2); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 12px;
+}
+.submit-spot-modal-header{ display: flex; justify-content: flex-end; }
+.submit-spot-modal-close{
+  background: none; border: none; color: var(--foam-dim); font-size: 1.7rem; line-height: 1;
+  cursor: pointer; padding: 4px 10px; border-radius: 8px;
+}
+.submit-spot-modal-close:hover{ color: var(--foam); background: var(--ink-3); }
+.submit-spot-modal-dialog iframe{
+  display: block; width: 100%; border: none !important; border-radius: 10px; margin-top: 4px;
+}

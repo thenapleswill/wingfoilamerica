@@ -44,18 +44,21 @@ As a rough starting point by rider weight:
 When in doubt, size up — a bigger board costs you nothing once you're foiling, but a too-small board can cost you weeks of struggling just to balance.
 
 <a class="btn btn-accent shop-link" href="https://www.mackiteboarding.com/wing-foil-boards/" target="_blank" rel="noopener">Shop wing foil boards at MACkite &rarr;</a>
+<p class="shop-at-more">Also shop at: <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a> &middot; <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a></p>
 
 ### Hydrofoil (front wing size)
 
 For your first foil, look for a front wing in the **1,500–2,000 cm²** range. A bigger front wing means more lift at slower speed and a wider, more forgiving stability window — that's what makes a foil "sturdy" and beginner-friendly. Smaller, high-aspect foils are faster and more precise, but twitchy — they're a step for later, once you've got your balance dialed in.
 
 <a class="btn btn-accent shop-link" href="https://www.mackiteboarding.com/hydrofoil/" target="_blank" rel="noopener">Shop hydrofoils at MACkite &rarr;</a>
+<p class="shop-at-more">Also shop at: <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a> &middot; <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a></p>
 
 ### Wing (measured in square meters)
 
 Handheld wings are sized in square meters (m²), and the size you need depends on the wind: bigger wings (6-7m²) catch more power and work in lighter wind, smaller wings (3-4m²) hold less power so they're manageable in strong wind. Most beginners start with one wing around **5-6m²** — it covers the widest range of everyday conditions — and add other sizes later once they know what they actually ride most. (For the full wind-speed-to-wing-size breakdown, see the [Wind](/wind/) page.)
 
 <a class="btn btn-accent shop-link" href="https://www.mackiteboarding.com/foil-wings/" target="_blank" rel="noopener">Shop wings at MACkite &rarr;</a>
+<p class="shop-at-more">Also shop at: <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a> &middot; <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a></p>
 
 <div class="step-header">
   <span class="step-num">3</span>
@@ -83,3 +86,10 @@ Buying the three pieces separately gives you more control, but plenty of retaile
 </div>
 
 A note on all three: package availability and pricing shift with stock, so if one you like is sold out, check back or browse that retailer's full package list for their next comparable option — it's still a shorter path than researching every board/foil/wing combination yourself.
+
+## Shop Direct From the Brands
+
+Not every brand sells direct to consumer — some of these are better for researching specs and comparing gear than for actually checking out, but worth a look either way:
+
+- [Armstrong Foils](https://armstrongfoils.com/)
+- [Slingshot Sports](https://slingshotsports.com/pages/foil)
