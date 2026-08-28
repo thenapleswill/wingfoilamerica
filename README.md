@@ -49,6 +49,47 @@ already used by another project. Once you've picked a provider for this site:
    fires while the endpoint still says `REPLACE_WITH_YOUR_PROVIDER_ENDPOINT`, so once you
    swap in a real URL the form will submit for real automatically.
 
+## Where to Ride map
+
+`src/assets/data/where-to-ride-spots.json` is the entire dataset behind the map and list on
+the Where to Ride page — it's a plain JSON file you can open and edit directly, no code
+needed. Each spot is one object with these fields:
+
+- `name`, `city`, `state`, `region` — display text (region isn't grouped on yet, just stored
+  for later).
+- `lat`, `lng` — decimal coordinates for the pin.
+- `waterType`, `windDirection`, `skillLevel`, `description` — shown in the popup/list.
+- `localsMeetHere` — `true`/`false`, shows a "Locals meet here" badge.
+- `verified` — set to `"community-reported"` for a researched-but-not-ridden spot (renders
+  as an **outlined** pin), or to `"firsthand-verified"` once you've confirmed it yourself
+  (renders as a **filled** pin). This exact string is what the map checks — typos will just
+  fall back to the outlined style.
+- `sourceNote` — optional; a small italic caveat shown at the bottom of the popup. Delete
+  this field once a spot is firsthand-verified, since the caveat no longer applies.
+
+To add, edit, or remove a spot, just edit this array — the map and list both rebuild from it
+automatically on the next deploy.
+
+The map itself runs on [Leaflet](https://leafletjs.com/) and the
+[Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) plugin, both
+self-hosted (not loaded from a CDN) in `src/assets/vendor/`, with map tiles from
+[CARTO's free dark basemap](https://carto.com/basemaps) (no API key required). To update
+either library later, download the new version's `dist/` files and replace the matching
+files in `src/assets/vendor/leaflet/` or `src/assets/vendor/leaflet.markercluster/`.
+
+### Submit a Spot form
+
+The "Submit a Spot" button on that page reveals a form pointed at a placeholder endpoint,
+following the same pattern as the newsletter signup. To wire it up:
+
+1. Create a free form at [Formspree](https://formspree.io/) with the fields already in the
+   form (spot name, location, water type, wind direction, skill level, why it's worth adding).
+2. In `src/where-to-ride/index.md`, replace `REPLACE_WITH_YOUR_FORMSPREE_ENDPOINT` in the
+   form's `data-action="..."` attribute with your Formspree endpoint URL.
+3. Push the change — submissions will come to your Formspree dashboard/email for review.
+   Nothing on the site publishes a submitted spot automatically; you (or Claude) still add it
+   to `where-to-ride-spots.json` by hand once you've reviewed it.
+
 ## Site search
 
 Search is powered by [Pagefind](https://pagefind.app), which indexes the built HTML directly
