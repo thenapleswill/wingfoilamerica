@@ -336,4 +336,7 @@ img{ max-width: 100%; display: block; }
 .site-footer-inner{ display: flex; flex-direction: column; gap: 8px; }
 .footer-brand{ display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 0.95rem; }
 .footer-note{ font-size: 0.88rem; }
+.footer-links{ font-size: 0.82rem; margin: 4px 0; }
+.footer-links a{ color: var(--foam-dim); text-decoration: underline; text-underline-offset: 2px; }
+.footer-links a:hover{ color: var(--teal); }
 .footer-copy{ font-size: 0.8rem; color: var(--foam-faint); margin: 0; }
