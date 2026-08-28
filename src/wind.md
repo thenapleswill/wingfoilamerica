@@ -82,7 +82,7 @@ Not every beach faces the same way, and that changes everything about what "good
 
 The practical fix is to scout a small rotation of spots with different orientations rather than relying on just one beach. If you find, say, one launch that runs roughly north–south and another nearby that runs east–west, you've effectively covered most wind directions — whichever way the wind is blowing on a given day, one of those two spots is likely catching it side-shore or side-onshore instead of straight onshore or offshore.
 
-This is exactly why the [Where to Ride](/where-to-ride/) section of this site will eventually note each spot's orientation and which wind directions work best there — so you can match today's forecast to the right beach instead of forcing a session at the wrong one.
+This is exactly why the [Where to Ride](/where-to-ride/) map on this site notes each spot's best wind directions — so you can match today's forecast to the right beach instead of forcing a session at the wrong one.
 
 ## Check the Wind Right Now
 
