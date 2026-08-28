@@ -3,8 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% set pageTitle = (title + " — " + site.name) if title else (site.name + " — " + site.tagline) %}
+{% set pageDescription = description or site.tagline %}
+{% set pageImage = ogImage or '/assets/images/og-image.png' %}
+{% set canonicalUrl = site.siteUrl + (page.url | url) %}
 <title>{% if title %}{{ title }} — {{ site.name }}{% else %}{{ site.name }} — {{ site.tagline }}{% endif %}</title>
-<meta name="description" content="{{ description or site.tagline }}">
+<meta name="description" content="{{ pageDescription }}">
+<link rel="canonical" href="{{ canonicalUrl }}">
+
+<link rel="icon" href="{{ '/assets/images/favicon.ico' | url }}" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon-32x32.png' | url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon-16x16.png' | url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/apple-touch-icon.png' | url }}">
+
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDescription }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ canonicalUrl }}">
+<meta property="og:image" content="{{ site.siteUrl }}{{ pageImage | url }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ pageTitle }}">
+<meta name="twitter:description" content="{{ pageDescription }}">
+<meta name="twitter:image" content="{{ site.siteUrl }}{{ pageImage | url }}">
+
 {% if site.plausibleDomain != "REPLACE_WITH_YOUR_PLAUSIBLE_DOMAIN" %}
 <script defer data-domain="{{ site.plausibleDomain }}" src="https://plausible.io/js/script.js"></script>
 {% endif %}

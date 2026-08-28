@@ -14,9 +14,9 @@ description: "Everything you need to go from curious to confident on a wing foil
     {% for item in collections.guide %}
     <article class="guide-card">
       <span class="num">{{ "0" if item.data.order < 10 }}{{ item.data.order }}</span>
-      <h3><a class="card-link" href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
+      <h2><a class="card-link" href="{{ item.url | url }}">{{ item.data.title }}</a></h2>
       <p>{{ item.data.description }}</p>
-      <a class="go" href="{{ item.url | url }}">Read guide &rarr;</a>
+      <a class="go" href="{{ item.url | url }}" aria-label="Read guide: {{ item.data.title }}">Read guide &rarr;</a>
     </article>
     {% endfor %}
   </div>

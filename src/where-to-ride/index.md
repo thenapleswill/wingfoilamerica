@@ -19,8 +19,8 @@ real, ridden reports come in. Zoom in to split up clusters, click any pin or lis
 full rundown, or jump straight to the bottom to tell us about a spot that's missing.
 
 <div class="map-legend">
-  <span><span class="spot-pin spot-pin--verified"></span> Firsthand verified</span>
-  <span><span class="spot-pin spot-pin--community"></span> Community-reported</span>
+  <span><span class="spot-pin spot-pin--verified" aria-hidden="true"></span> Firsthand verified</span>
+  <span><span class="spot-pin spot-pin--community" aria-hidden="true"></span> Community-reported</span>
 </div>
 
 <div id="where-to-ride-app" data-spots-url="{{ '/assets/data/where-to-ride-spots.json' | url }}">

@@ -68,17 +68,17 @@ Buying the three pieces separately gives you more control, but plenty of retaile
   <div class="package-card">
     <h3><a href="https://www.mackiteboarding.com/wing-foil-packages/" target="_blank" rel="noopener">MACkite — Wing Foil Beginner Packages</a></h3>
     <p>Several complete packages including one built specifically for first-timers (board + foil + wing).</p>
-    <a class="btn btn-outline" href="https://www.mackiteboarding.com/wing-foil-packages/" target="_blank" rel="noopener">View packages &rarr;</a>
+    <a class="btn btn-outline" href="https://www.mackiteboarding.com/wing-foil-packages/" target="_blank" rel="noopener" aria-label="View MACkite wing foil beginner packages (opens in a new tab)">View packages &rarr;</a>
   </div>
   <div class="package-card">
     <h3><a href="https://www.windance.com/collections/wing-foil-packages" target="_blank" rel="noopener">Windance — Wing Foil Packages</a></h3>
     <p>Multiple packages tagged "Beginner Friendly," bundling board, foil, and wing together.</p>
-    <a class="btn btn-outline" href="https://www.windance.com/collections/wing-foil-packages" target="_blank" rel="noopener">View packages &rarr;</a>
+    <a class="btn btn-outline" href="https://www.windance.com/collections/wing-foil-packages" target="_blank" rel="noopener" aria-label="View Windance wing foil packages (opens in a new tab)">View packages &rarr;</a>
   </div>
   <div class="package-card">
     <h3><a href="https://houstonkiteboarding.com/products/cold-front-intro-to-wing-foiling-package-sale" target="_blank" rel="noopener">Houston Kiteboarding — Wing Foil Starter Package</a></h3>
     <p>A complete starter set (board, wing, foil, pump, and both leashes) built for someone starting from zero.</p>
-    <a class="btn btn-outline" href="https://houstonkiteboarding.com/products/cold-front-intro-to-wing-foiling-package-sale" target="_blank" rel="noopener">View package &rarr;</a>
+    <a class="btn btn-outline" href="https://houstonkiteboarding.com/products/cold-front-intro-to-wing-foiling-package-sale" target="_blank" rel="noopener" aria-label="View Houston Kiteboarding wing foil starter package (opens in a new tab)">View package &rarr;</a>
   </div>
 </div>
 

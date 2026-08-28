@@ -204,7 +204,7 @@ img{ max-width: 100%; display: block; }
 }
 .guide-card:hover{ transform: translateY(-4px); border-color: var(--teal); }
 .guide-card .num{ font-family: var(--font-mono); color: var(--coral); font-size: 0.85rem; }
-.guide-card h3{ font-size: 1.2rem; margin: 10px 0; }
+.guide-card h2{ font-size: 1.2rem; margin: 10px 0; }
 .guide-card a.card-link{ color: var(--foam); }
 .guide-card a.card-link:hover{ color: var(--teal); }
 .guide-card .go{ font-size: 0.85rem; color: var(--teal); }
@@ -309,7 +309,7 @@ img{ max-width: 100%; display: block; }
   background: linear-gradient(135deg, var(--ink-3), var(--ink-2));
   border: 1px solid var(--line); border-radius: var(--radius);
 }
-.newsletter h3{ font-size: 1.5rem; margin-bottom: 8px; }
+.newsletter h2{ font-size: 1.5rem; margin-bottom: 8px; }
 .newsletter-form{ display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; max-width: 480px; }
 .newsletter-form input{
   flex: 1 1 220px; padding: 14px 18px; border-radius: 999px; border: 1px solid var(--line);

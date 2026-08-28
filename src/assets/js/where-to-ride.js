@@ -27,9 +27,11 @@
 
   function makeIcon(spot) {
     var verifiedClass = spot.verified === VERIFIED_VALUE ? "spot-pin--verified" : "spot-pin--community";
+    var statusLabel = spot.verified === VERIFIED_VALUE ? "Firsthand-verified spot" : "Community-reported spot";
+    var label = escapeHTML(spot.name) + " — " + statusLabel;
     return L.divIcon({
       className: "spot-pin-wrapper",
-      html: '<span class="spot-pin ' + verifiedClass + '"></span>',
+      html: '<span class="spot-pin ' + verifiedClass + '" role="img" aria-label="' + label + '" title="' + label + '"></span>',
       iconSize: [20, 20],
       iconAnchor: [10, 10],
       popupAnchor: [0, -12],
@@ -72,12 +74,14 @@
     li.setAttribute("tabindex", "0");
     li.setAttribute("role", "button");
     var verifiedClass = spot.verified === VERIFIED_VALUE ? "spot-pin--verified" : "spot-pin--community";
+    var statusLabel = spot.verified === VERIFIED_VALUE ? "Firsthand verified" : "Community-reported";
+    li.setAttribute("aria-label", spot.name + " — " + statusLabel);
     li.innerHTML =
-      '<span class="spot-pin spot-list-item-pin ' + verifiedClass + '"></span>' +
+      '<span class="spot-pin spot-list-item-pin ' + verifiedClass + '" aria-hidden="true"></span>' +
       '<span class="spot-list-item-body">' +
       '<span class="spot-list-item-name">' + escapeHTML(spot.name) + "</span>" +
       '<span class="spot-list-item-meta">' + escapeHTML(spot.city) + ", " + escapeHTML(spot.state) +
-      " &middot; " + escapeHTML(spot.skillLevel) + "</span>" +
+      " &middot; " + escapeHTML(spot.skillLevel) + " &middot; " + escapeHTML(statusLabel) + "</span>" +
       "</span>";
     return li;
   }
