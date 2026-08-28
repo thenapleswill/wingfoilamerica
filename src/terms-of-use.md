@@ -39,8 +39,7 @@ These terms may be updated from time to time; the current version will always be
 
 ## Governing law
 
-<!-- TODO (site owner): confirm this is the right state before treating the page as final. -->
-These terms are governed by the laws of the State of Florida. (Placeholder assumption based on where I'm based — let me know if this should be different.)
+These terms are governed by the laws of the State of Florida.
 
 ## Contact
 
