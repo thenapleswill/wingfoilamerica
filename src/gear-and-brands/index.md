@@ -101,4 +101,7 @@ Not every brand sells direct to consumer — some of these are better for resear
   <a href="https://www.cabrinha.com/" target="_blank" rel="noopener">Cabrinha</a>
   <a href="https://ozonekites.com/wing/" target="_blank" rel="noopener">Ozone</a>
   <a href="https://www.axisfoils.com/" target="_blank" rel="noopener">Axis Foils</a>
+  <a href="https://gofoil.com" target="_blank" rel="noopener">GO Foil</a>
+  <a href="https://reedin.com" target="_blank" rel="noopener">Reedin</a>
+  <a href="https://ridecore.com" target="_blank" rel="noopener">CORE</a>
 </div>
