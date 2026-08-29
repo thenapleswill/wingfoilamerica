@@ -91,7 +91,7 @@ Not currently, by design — we'd rather build a smaller number of genuinely use
 
 **Who runs Wing Foil America?**
 
-An independent, personal passion project built to help people learn wing foiling — not a business, and not built or backed by any single gear brand. A full About page with the story behind the site is coming soon.
+An independent, personal passion project built to help people learn wing foiling — not a business, and not built or backed by any single gear brand. Read more on the [About page](/about/).
 
 **Is this site sponsored by any brand?**
 

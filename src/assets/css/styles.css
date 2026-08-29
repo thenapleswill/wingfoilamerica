@@ -89,7 +89,7 @@ img{ max-width: 100%; display: block; }
 .site-nav a.is-active{ color: var(--ink); background: var(--teal); }
 .nav-toggle{ display: none; }
 
-@media (max-width: 1100px){
+@media (max-width: 1160px){
   .site-nav{
     flex-direction: column; align-items: stretch;
     position: fixed; top: 74px; left: 0; right: 0; height: calc(100vh - 74px);

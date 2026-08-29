@@ -15,5 +15,6 @@ module.exports = {
     { title: "Wind", url: "/wind/" },
     { title: "Where to Ride", url: "/where-to-ride/" },
     { title: "Community", url: "/community/" },
+    { title: "Bio", url: "/about/" },
   ],
 };
