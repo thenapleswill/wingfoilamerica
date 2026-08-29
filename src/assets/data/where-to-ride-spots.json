@@ -312,11 +312,11 @@
     "lat": 19.32638089953957,
     "lng": -69.52825624948042,
     "waterType": "Sand beach with shallow reef both north and south of the sailing area — open water in between. Waves can be good for wave riding depending on swell orientation.",
-    "windDirection": "NE in winter, E in summer (trade winds) — side-shore; best season roughly April–September (not independently confirmed for this exact spot)",
+    "windDirection": "NE and E (trade winds) — side-shore in this direction; best season roughly April through September",
     "skillLevel": "Advanced/expert only",
     "localsMeetHere": true,
-    "description": "An advanced-only spot on a sand beach in Las Terrenas, bordered by shallow reef to the north and south with open water in between — good wave riding depending on swell direction, but not a place to learn the basics. The reefs sit downwind of the sailing area, so a mistake here compounds: if you get in trouble, you're getting swept toward the hazard, not away from it. Know exactly where you are relative to both reefs at all times. Small but good, welcoming local community.",
-    "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-29); wind direction and season not yet confirmed against firsthand experience at this exact spot."
+    "description": "An advanced-only spot on a sandy beach in Las Terrenas, bordered by shallow reef to the north and south with open water in between — good wave riding depending on swell direction, but not a place to learn the basics. The reefs sit downwind of the sailing area, so a mistake here compounds: if you get in trouble, you're getting swept toward the hazard, not away from it. Know exactly where you are relative to both reefs at all times. Met Julian, a local kiteboarding and wing foiling instructor, while sailing here — didn't take a lesson from him, but he was generous with advice and pointers. Find him at wingfoil-lasterrenas.com.",
+    "verified": "firsthand-verified",
+    "sourceNote": "Firsthand-verified (2026-08-29) by Will."
   }
 ]
