@@ -204,6 +204,7 @@ img{ max-width: 100%; display: block; }
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; padding: 40px 0 90px;
 }
 @media (max-width: 720px){ .guide-grid{ grid-template-columns: 1fr; } }
+.section-footnote{ margin: -60px 0 60px; font-size: 0.9rem; color: var(--foam-dim); max-width: 640px; }
 .guide-card{
   background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 26px; transition: transform 0.2s, border-color 0.2s;
