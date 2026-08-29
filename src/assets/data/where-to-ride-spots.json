@@ -286,5 +286,21 @@
     "description": "A second Great Lakes entry alongside Muskegon — Sheboygan has a long-running wind-sports community and steady summer thermal wind.",
     "verified": "community-reported",
     "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand."
+  },
+  {
+    "id": "curry-hammock-state-park",
+    "name": "Curry Hammock State Park",
+    "city": "Marathon",
+    "state": "FL",
+    "region": "Florida Keys",
+    "lat": 24.741149491715333,
+    "lng": -80.98012529112601,
+    "waterType": "Flat, shallow water, with a sandbar about a quarter-mile east offering extra riding space. Watch for submerged rocks, urchins, and coralline algae near shore — foot protection recommended. Marine life (rays, small sharks, tarpon, bonefish) present.",
+    "windDirection": "ENE through E to WSW",
+    "skillLevel": "Beginner-to-intermediate friendly",
+    "localsMeetHere": true,
+    "description": "A well-known Florida Keys kiteboarding and wing foiling spot at the state park, with a big stretch of flat, shallow water and a nearby sandbar. Note the slippery marl mud at the waterline and watch for golf cart traffic crossing lines near the campground.",
+    "verified": "community-reported",
+    "sourceNote": "Research-sourced (2026-08-29), not yet confirmed firsthand."
   }
 ]
