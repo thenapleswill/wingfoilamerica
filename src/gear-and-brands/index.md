@@ -20,7 +20,7 @@ There are dozens of brands, a hundred board shapes, and an overwhelming amount o
 
 Enter your weight, the wind you'll usually ride in, and your budget, and it'll spit out a starting size for all three pieces of gear. Treat the result as a smart starting point, not a locked-in answer — the explanations below tell you why those numbers matter so you're not just trusting a black box.
 
-<div class="step-header">
+<div class="step-header" id="shop-gear">
   <span class="step-num">2</span>
   <h2>Understand What You're Buying</h2>
 </div>
@@ -87,7 +87,7 @@ Buying the three pieces separately gives you more control, but plenty of retaile
 
 A note on all three: package availability and pricing shift with stock, so if one you like is sold out, check back or browse that retailer's full package list for their next comparable option — it's still a shorter path than researching every board/foil/wing combination yourself.
 
-## Shop Direct From the Brands
+<h2 id="shop-brands">Shop Direct From the Brands</h2>
 
 Not every brand sells direct to consumer — some of these are better for researching specs and comparing gear than for actually checking out, but worth a look either way:
 

@@ -1,0 +1,75 @@
+<div id="gear-calculator-root">
+<div class="calc-wrap">
+
+  <div class="card">
+    <div class="field">
+      <label>Your weight <span class="hint">(affects wing sizing)</span></label>
+      <input type="range" id="luWeight" min="90" max="260" step="5" value="165">
+      <div class="range-value"><span>90 lb</span><strong id="luWeightOut">165 lb</strong><span>260 lb</span></div>
+    </div>
+
+    <div class="field">
+      <label>Typical wind where you'll ride</label>
+      <div class="segmented" id="luWind">
+        <button data-value="light"><strong>Light</strong>10–15 mph</button>
+        <button data-value="moderate"><strong>Moderate</strong>15–20 mph</button>
+        <button data-value="strong"><strong>Strong</strong>20–25 mph</button>
+        <button data-value="verystrong"><strong>Very strong</strong>25+ mph</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>What's holding you back right now? <span class="hint">(select any that apply)</span></label>
+      <div class="checkbox-group" id="luBlockers">
+        <label class="checkbox-card"><input type="checkbox" value="A"><span>Can't get up and going in light wind</span></label>
+        <label class="checkbox-card"><input type="checkbox" value="B"><span>My gear feels sluggish or too big now that I've improved</span></label>
+        <label class="checkbox-card"><input type="checkbox" value="C"><span>I want to start jumping</span></label>
+        <label class="checkbox-card"><input type="checkbox" value="D"><span>I want to try downwinding</span></label>
+        <label class="checkbox-card"><input type="checkbox" value="E"><span>I can't hold an edge or feel stable at speed</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Where do you want to focus?</label>
+      <div class="segmented" id="luFocus">
+        <button data-value="freeride"><strong>Freeride</strong>General improvement</button>
+        <button data-value="jumping"><strong>Jumping &amp; Freestyle</strong>Airs, tricks, spins</button>
+        <button data-value="downwind"><strong>Downwinding</strong>Point-to-point runs</button>
+      </div>
+    </div>
+
+    <button class="btn-primary" id="luCalcBtn">Get My Recommendation</button>
+  </div>
+
+  <div class="card results" id="luResults">
+
+    <div class="result-block">
+      <div class="result-block-title">Wing Quiver</div>
+      <p id="luWingOut"></p>
+      <p id="luWingNote" hidden></p>
+    </div>
+
+    <div class="result-block">
+      <div class="result-block-title">Foil Direction</div>
+      <p id="luFoilOut"></p>
+      <p id="luFoilNote" hidden></p>
+    </div>
+
+    <div class="result-block">
+      <div class="result-block-title">Board Direction</div>
+      <p id="luBoardOut"></p>
+    </div>
+
+    <div class="result-block">
+      <div class="result-block-title">Keep Going</div>
+      <div class="result-links" id="luLinks"
+        data-jumping="{{ '/intermediate-advanced/jumping-and-freestyle/' | url }}"
+        data-downwind="{{ '/intermediate-advanced/downwinding/' | url }}"
+        data-shop-gear="{{ '/gear-and-brands/' | url }}#shop-gear"
+        data-shop-brands="{{ '/gear-and-brands/' | url }}#shop-brands"></div>
+    </div>
+
+  </div>
+
+</div>
+</div>
