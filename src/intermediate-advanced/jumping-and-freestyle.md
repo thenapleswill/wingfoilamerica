@@ -46,3 +46,54 @@ Some riders eventually run two different setups depending on what they're doing 
 ## Staying Safe While You Progress
 
 Give every trick room before you try it — clear water, no one in your landing zone, and a realistic sense of your own consistency before you push for more height or rotation. Progression in this sport rewards patience: riders who nail the basic jump solidly before adding rotation end up progressing faster than riders who rush straight to spins. There's no prize for skipping steps here, just a much higher chance of a bad landing.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "The Basic Jump",
+  "description": "How to do a basic wing foil jump, from building speed to landing clean.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Build speed on a crosswind line",
+      "text": "You need real speed before you try to leave the water — approach the jump moving across the wind, not upwind or downwind."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Sheet the wing in and angle slightly upwind",
+      "text": "As you set up, load the wing with power right before takeoff."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Bend your knees and keep your weight on your front foot",
+      "text": "As you approach, keep the nose of the board angled down slightly — don't lean too far forward."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Shift your weight to your back foot and lift the foil out of the water",
+      "text": "This is the actual pop. It's a weight-transfer move, not a big muscular jump."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Keep the wing pulled in close once you're airborne",
+      "text": "The wing wants to rise naturally as you leave the water — let it, but keep control of it rather than letting it float away from you."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Stay centered and upright in the air",
+      "text": "Don't lean back or throw your weight around trying to gain height — a stable, centered body position is what keeps the landing clean."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Spot your landing before you touch down",
+      "text": "Look at where you're aiming, and start tilting the nose slightly down as you descend so you land nose-first rather than flat."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Bend your knees on impact to absorb the landing",
+      "text": "Keep your weight balanced evenly across both feet rather than dumped onto one side."
+    }
+  ]
+}
+</script>

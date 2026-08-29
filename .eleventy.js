@@ -3,6 +3,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
 
+  // Safely embeds a string inside a JSON-LD <script> block (escapes quotes, etc.)
+  // so schema markup can't break if page content ever contains a literal quote.
+  eleventyConfig.addFilter("jsonify", (value) => JSON.stringify(value));
+
   // Content is authored as plain Markdown links (e.g. "[Safety Basics](/beginner-guide/safety-basics/)"),
   // which never pass through the `url` filter that templates use to prepend PAGES_BASE_PATH. Without this,
   // every hand-written internal link breaks the moment the site is served from a subpath (GitHub Pages

@@ -105,3 +105,29 @@ Not every brand sells direct to consumer — some of these are better for resear
   <a href="https://reedin.com" target="_blank" rel="noopener">Reedin</a>
   <a href="https://ridecore.com" target="_blank" rel="noopener">CORE</a>
 </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Get Your Beginner Wing Foil Gear",
+  "description": "The three things a beginner actually needs to buy, and how to get from zero to a starting gear setup.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Use the Calculator",
+      "text": "Enter your weight, the wind you'll usually ride in, and your budget, and it'll spit out a starting size for all three pieces of gear — a wing, a board, and a hydrofoil."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Understand What You're Buying",
+      "text": "Learn what the numbers mean: board volume measured in liters, hydrofoil front wing size measured in cm², and wing size measured in square meters."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Choose a Beginner Package",
+      "text": "Buy the three pieces separately for more control, or choose a complete beginner package that bundles board, foil, and wing together at one price."
+    }
+  ]
+}
+</script>

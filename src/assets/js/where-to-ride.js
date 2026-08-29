@@ -49,6 +49,17 @@
     var sourceNote = spot.sourceNote
       ? '<p class="spot-popup-source">' + escapeHTML(spot.sourceNote) + "</p>"
       : "";
+    var windWidget =
+      typeof window.WFA_buildWindyEmbedUrl === "function"
+        ? '<div class="spot-popup-wind">' +
+          '<p class="spot-popup-wind-label">Live wind here</p>' +
+          '<div class="spot-popup-wind-frame">' +
+          '<iframe src="' + window.WFA_buildWindyEmbedUrl(spot.lat, spot.lng) + '" title="Live wind map for ' +
+          escapeHTML(spot.name) + '" frameborder="0"></iframe>' +
+          "</div>" +
+          '<p class="spot-popup-wind-attribution">Powered by <a href="https://www.windy.com" target="_blank" rel="noopener">Windy.com</a></p>' +
+          "</div>"
+        : "";
 
     return (
       '<div class="spot-popup">' +
@@ -63,6 +74,7 @@
       "</dl>" +
       '<p class="spot-popup-desc">' + escapeHTML(spot.description) + "</p>" +
       sourceNote +
+      windWidget +
       "</div>"
     );
   }
@@ -122,7 +134,7 @@
 
     spots.forEach(function (spot) {
       var marker = L.marker([spot.lat, spot.lng], { icon: makeIcon(spot) });
-      marker.bindPopup(buildPopupHTML(spot));
+      marker.bindPopup(buildPopupHTML(spot), { maxWidth: 320, minWidth: 260, maxHeight: 420 });
       marker.on("popupopen", function () { setActive(spot.id); });
       clusterGroup.addLayer(marker);
       markersById[spot.id] = marker;

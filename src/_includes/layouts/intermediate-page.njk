@@ -27,3 +27,16 @@ layout: layouts/base.njk
     {% endif %}
   {% endfor %}
 </section>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ title | jsonify | safe }},
+  "description": {{ (description or "") | jsonify | safe }},
+  "url": "{{ site.siteUrl }}{{ page.url | url }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.name | jsonify | safe }}
+  }
+}
+</script>

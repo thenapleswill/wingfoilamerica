@@ -20,17 +20,7 @@
     var latF = lat.toFixed(3);
     var lonF = lon.toFixed(3);
 
-    // Windy's free embeddable widget (embed2.html). Non-commercial embedding is
-    // permitted per Windy's public embed terms as of this writing — the widget's
-    // own on-map branding must stay visible (do not crop/hide it with CSS).
-    // NOTE: verify current terms at windy.com if this site's traffic grows or
-    // the use case shifts toward commercial.
-    windyEmbed.src =
-      "https://embed.windy.com/embed2.html?lat=" + latF + "&lon=" + lonF +
-      "&detailLat=" + latF + "&detailLon=" + lonF +
-      "&width=650&height=450&zoom=8&level=surface&overlay=wind&product=ecmwf" +
-      "&menu=&message=true&marker=true&calendar=now&pressure=&type=map" +
-      "&location=coordinates&detail=&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1";
+    windyEmbed.src = window.WFA_buildWindyEmbedUrl(lat, lon);
     mapContainer.hidden = false;
 
     windyLink.href = "https://www.windy.com/" + latF + "/" + lonF + "?wind," + latF + "," + lonF + ",8";

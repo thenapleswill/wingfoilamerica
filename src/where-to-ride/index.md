@@ -11,6 +11,7 @@ extraCss:
 extraJs:
   - /assets/vendor/leaflet/leaflet.js
   - /assets/vendor/leaflet.markercluster/leaflet.markercluster.js
+  - /assets/js/windy-embed.js
   - /assets/js/where-to-ride.js
 ---
 

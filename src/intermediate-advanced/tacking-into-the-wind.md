@@ -40,3 +40,44 @@ Don't expect to keep the board up through the whole turn right away — touching
 ## Practice Tips
 
 Pick a flat, open, uncrowded stretch of water for this — you'll fall more than you're used to while you're building the habit, and you don't want traffic to worry about on top of it. Expect a real adjustment period. Riders who've been solid on flat water for a while sometimes get humbled by how different tacking feels the first several tries — that's normal, not a sign you're doing something fundamentally wrong.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "The Basic Tack",
+  "description": "How to tack a wing foil upwind through the wind without dropping off the foil.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Approach with your wing held high",
+      "text": "Coming into the tack, keep the wing elevated rather than sheeted low and flat — height gives you more control through the turn and keeps the wing out of the water as you rotate."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Start the turn without changing your board's speed yet",
+      "text": "Begin steering upwind with your feet and body before you touch the wing."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Rotate the wing overhead to the new side",
+      "text": "As you turn through the wind, swing the wing up and over so it's ready to catch wind on the new tack."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Switch your hands — top hand first",
+      "text": "Release and re-grip with your top hand as the wing comes across, then follow with your bottom hand to pull the wing in and power it up on the new side."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Shift your weight onto your front foot immediately",
+      "text": "The instant the wing switches, weight naturally wants to fall backward — resist that. Front-foot pressure right away keeps the nose down and the foil doing its job."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Pump if you feel speed dropping",
+      "text": "A tack costs you speed by nature — a pump or two right after the switch can be the difference between staying up and dropping off the foil."
+    }
+  ]
+}
+</script>

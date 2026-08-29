@@ -7,6 +7,7 @@ extraCss:
   - /assets/css/wind-checker.css
   - /assets/css/wind-tabs.css
 extraJs:
+  - /assets/js/windy-embed.js
   - /assets/js/wind-checker.js
   - /assets/js/wind-tabs.js
 ---
