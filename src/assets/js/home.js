@@ -34,3 +34,24 @@
   linkEl.href = matchingCard.getAttribute("href");
   banner.hidden = false;
 })();
+
+function syncBrandWaveWidth() {
+  document.querySelectorAll(".brand-lockup-inner").forEach(function (inner) {
+    var main = inner.querySelector(".brand-lockup-main");
+    var wave = inner.querySelector(".brand-wave");
+    var windLines = inner.querySelector(".wind-lines");
+    if (!main || !wave || !windLines) return;
+    var leftEdge = main.getBoundingClientRect().left;
+    var rightEdge = windLines.getBoundingClientRect().right;
+    var w = rightEdge - leftEdge;
+    if (w > 0) {
+      wave.style.width = w + "px";
+    }
+  });
+}
+syncBrandWaveWidth();
+window.addEventListener("resize", syncBrandWaveWidth);
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(syncBrandWaveWidth);
+}
+window.addEventListener("load", syncBrandWaveWidth);

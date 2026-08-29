@@ -1,7 +1,8 @@
 <header class="site-header">
   <div class="wrap site-header-inner">
     <a class="brand" href="{{ '/' | url }}">
-      <span class="brand-mark">WFA</span>
+      {% set iconClass = "brand-mark-icon" %}
+      {% include "partials/brand-icon.njk" %}
       <span class="brand-name">Wing Foil America</span>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav">
