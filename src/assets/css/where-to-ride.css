@@ -118,22 +118,36 @@
 
 body.modal-open{ overflow: hidden; }
 .submit-spot-modal{
-  position: fixed; inset: 0; z-index: 300;
+  position: fixed; inset: 0; z-index: 2000;
   display: flex; align-items: center; justify-content: center; padding: 24px;
 }
 .submit-spot-modal[hidden]{ display: none; }
-.submit-spot-modal-backdrop{ position: absolute; inset: 0; background: rgba(6,35,44,0.82); }
+.submit-spot-modal-backdrop{
+  position: absolute; inset: 0; background: rgba(6,35,44,0.82); backdrop-filter: blur(4px);
+}
 .submit-spot-modal-dialog{
   position: relative; z-index: 1; width: 100%; max-width: 560px; max-height: 90vh;
   overflow-y: auto; background: var(--ink-2); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 12px;
+  border-top: 2px solid var(--teal); border-radius: var(--radius); padding: 20px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  animation: submitSpotModalIn 0.18s ease;
 }
-.submit-spot-modal-header{ display: flex; justify-content: flex-end; }
+@keyframes submitSpotModalIn{
+  from{ opacity: 0; transform: translateY(8px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+.submit-spot-modal-header{
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+  padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--line);
+}
+.submit-spot-modal-eyebrow{ margin-bottom: 6px; }
+.submit-spot-modal-title{ margin: 0; font-size: 1.3rem; }
 .submit-spot-modal-close{
-  background: none; border: none; color: var(--foam-dim); font-size: 1.7rem; line-height: 1;
-  cursor: pointer; padding: 4px 10px; border-radius: 8px;
+  flex: none; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+  background: none; border: none; color: var(--foam-dim); font-size: 1.6rem; line-height: 1;
+  cursor: pointer; border-radius: 8px; transition: color 0.15s, background 0.15s;
 }
 .submit-spot-modal-close:hover{ color: var(--foam); background: var(--ink-3); }
 .submit-spot-modal-dialog iframe{
-  display: block; width: 100%; border: none !important; border-radius: 10px; margin-top: 4px;
+  display: block; width: 100%; border: none !important; border-radius: 10px;
 }

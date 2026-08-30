@@ -11,7 +11,7 @@
     "windDirection": "Prevailing westerly Gorge thermal",
     "skillLevel": "Intermediate+",
     "localsMeetHere": true,
-    "description": "The most consistently cited wing foil destination in the US. The Gorge's venturi effect (desert heat inland vs. cool coastal air) makes wind reliable almost all season, and river current adds extra glide. Gusty, with real river traffic to watch for — a beginner is better served nearby at 'the Hook.'",
+    "description": "The most consistently cited wing foil destination in the US. The Gorge's venturi effect (desert heat inland vs. cool coastal air) makes wind reliable almost all season, and river current adds extra glide. Gusty, with real river traffic to watch for — a beginner is better served nearby at 'the Hook.' Personal note from Will: I've been to Hood River twice, though the first trip was before I'd gotten into wing foiling — I mostly just watched people out on the water. The second time was a family trip and I hadn't brought gear, so I still didn't get out there. I've done a lot of research on this spot since, and actually planned a trip out this past summer, but the wind forecast wasn't cooperating enough to justify the cost, so I did something else in Oregon instead. Haven't sailed it myself yet, but it's on the list.",
     "verified": "community-reported",
     "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand — see project notes."
   },
@@ -78,22 +78,6 @@
     "description": "The classic Outer Banks wind-sports beach — a 30-mile-wide shallow sound gives long, forgiving, obstruction-free rides, with real ocean swell available just across the road for riders who want it. Steady wind April through November.",
     "verified": "community-reported",
     "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand — see project notes."
-  },
-  {
-    "id": "lowdermilk-park",
-    "name": "Lowdermilk Park",
-    "city": "Naples",
-    "state": "FL",
-    "region": "Florida Gulf Coast",
-    "lat": 26.146,
-    "lng": -81.808,
-    "waterType": "Gulf water, generally flat to moderate",
-    "windDirection": "S-SW, W, and NW-N all work well; E wind is offshore — avoid",
-    "skillLevel": "All levels",
-    "localsMeetHere": true,
-    "description": "One of the most reliable Naples-area launches — full beach amenities and a wide range of workable wind directions thanks to the beach's north-south orientation, so fewer 'skunked' days than more restricted nearby spots.",
-    "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28); Naples/Sanibel is Will's home region, so expect this entry to be replaced or confirmed firsthand soon."
   },
   {
     "id": "scenic-view-skyway-north",

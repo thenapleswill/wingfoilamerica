@@ -45,7 +45,10 @@ full rundown, or jump straight to the bottom to tell us about a spot that's miss
   <div class="submit-spot-modal-backdrop" data-modal-close></div>
   <div class="submit-spot-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="submitSpotModalTitle">
     <div class="submit-spot-modal-header">
-      <h2 id="submitSpotModalTitle" class="sr-only">Submit a Spot</h2>
+      <div>
+        <p class="eyebrow submit-spot-modal-eyebrow">Where to Ride</p>
+        <h2 id="submitSpotModalTitle" class="submit-spot-modal-title">Submit a Spot</h2>
+      </div>
       <button type="button" class="submit-spot-modal-close" data-modal-close aria-label="Close">&times;</button>
     </div>
     <iframe id="submitSpotIframe" class="airtable-embed" data-src="https://airtable.com/embed/appJHchIsjqLQ4gvL/shr9crEhnDAMc3X2U" frameborder="0" width="100%" height="533" style="background: transparent;"></iframe>
