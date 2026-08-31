@@ -81,7 +81,7 @@ Yes — use the Submit a Spot button on the [Where to Ride page](/where-to-ride/
 
 **Can I submit my own story, trip report, or photos?**
 
-That's coming as the Community section grows — check back, or [sign up for the newsletter](/) to hear when it opens up.
+That's coming soon — check back, or [sign up for the newsletter](/) to hear when it opens up.
 
 **Is there a forum or comment section?**
 
@@ -243,7 +243,7 @@ Reach out any way you already have — a dedicated contact method is coming soon
       "name": "Can I submit my own story, trip report, or photos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "That's coming as the Community section grows — check back, or sign up for the newsletter to hear when it opens up."
+        "text": "That's coming soon — check back, or sign up for the newsletter to hear when it opens up."
       }
     },
     {
