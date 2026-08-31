@@ -33,7 +33,7 @@ Highly variable — some people get a short ride within their first few sessions
 
 **What gear do I actually need to get started?**
 
-A wing, a board, and a hydrofoil, sized to your weight and the wind you'll be riding in most often. Use the [gear calculator](/beginner-guide/what-gear-do-you-need/) for a personalized starting point rather than guessing.
+A wing, a board, and a hydrofoil, sized to your weight and the wind you'll be riding in most often. Use the [gear calculator](/beginner-guide/gear-and-budget/) for a personalized starting point rather than guessing.
 
 **Should I buy new or used gear as a beginner?**
 
@@ -41,7 +41,7 @@ Used gear is a completely reasonable way to start, especially for your first set
 
 **What size wing do I need?**
 
-Depends on your weight and the wind speed you're riding in — smaller wings for stronger wind, larger for light wind. Rough starting tiers: Light wind (10-15 mph) → ~5-6.5m², Moderate (15-20 mph) → ~4-5.5m², Strong (20-25 mph) → ~3-4.5m², Very strong (25+ mph) → ~2-3.5m². Use the [gear calculator](/beginner-guide/what-gear-do-you-need/) for a number tuned to you specifically.
+Depends on your weight and the wind speed you're riding in — smaller wings for stronger wind, larger for light wind. Rough starting tiers: Light wind (10-15 mph) → ~5-6.5m², Moderate (15-20 mph) → ~4-5.5m², Strong (20-25 mph) → ~3-4.5m², Very strong (25+ mph) → ~2-3.5m². Use the [gear calculator](/beginner-guide/gear-and-budget/) for a number tuned to you specifically.
 
 **Do I need foot straps?**
 

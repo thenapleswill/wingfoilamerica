@@ -45,7 +45,6 @@ Your first setup was sized to get you started safely — it may not be the right
 
 The mistakes that end progress at this stage are usually predictable — and avoidable if you know they're coming.
 
-- **[Common Beginner Mistakes](/beginner-guide/common-beginner-mistakes/)**
-- **[Safety Basics](/beginner-guide/safety-basics/)**
+- **[Mistakes & Safety](/beginner-guide/mistakes-and-safety/)**
 
 None of this is a race. The riders who end up loving this sport for life aren't the ones who progressed fastest — they're the ones who kept showing up. You already are. Now go put in the work and earn the good stuff.

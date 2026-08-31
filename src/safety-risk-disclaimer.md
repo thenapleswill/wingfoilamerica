@@ -29,4 +29,4 @@ To the fullest extent permitted by law, Wing Foil America and its creator aren't
 
 ## If you're new to this
 
-Start with [Safety Basics](/beginner-guide/safety-basics/) and [Common Beginner Mistakes](/beginner-guide/common-beginner-mistakes/) in the Beginner Guide, and please consider certified lessons before your first independent session.
+Start with [Mistakes & Safety](/beginner-guide/mistakes-and-safety/) in the Beginner Guide, and please consider certified lessons before your first independent session.

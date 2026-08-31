@@ -61,7 +61,7 @@ Direction relative to the shoreline matters as much as speed — arguably more, 
 - **Straight onshore — not ideal for beginners**, despite blowing toward shore. You can't yet ride upwind, so you get pushed through breaking waves and sandbars into the impact zone. Better suited to flat, protected, shallow spots, or to experienced riders who can handle the shorebreak.
 - **Offshore (straight or angled) — the most dangerous condition at any level.** It blows you away from shore with no self-rescue option. Don't ride it without a safety boat and real experience.
 
-Not sure about a spot's direction? Ask a local shop or experienced rider before you launch. More in [Safety Basics](/beginner-guide/safety-basics/).
+Not sure about a spot's direction? Ask a local shop or experienced rider before you launch. More in [Mistakes & Safety](/beginner-guide/mistakes-and-safety/).
 
   </div>
 
@@ -86,7 +86,7 @@ Most wing foiling happens somewhere in the **10–25+ mph** range. Below roughly
 | Strong | 20–25 mph | ~3–4.5 m² | Sporty and physical, for a confident rider |
 | Very strong | 25+ mph | ~2–3.5 m² | Small-wing, experienced-rider territory |
 
-Wing size also depends on your weight and experience — run your numbers through the [gear calculator](/beginner-guide/what-gear-do-you-need/) for a personalized size rather than treating this table as gospel.
+Wing size also depends on your weight and experience — run your numbers through the [gear calculator](/beginner-guide/gear-and-budget/) for a personalized size rather than treating this table as gospel.
 
 Steady 10–20 mph without big gusts is about as good as it gets for a beginner.
 

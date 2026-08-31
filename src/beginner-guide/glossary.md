@@ -2,7 +2,7 @@
 layout: layouts/guide-page.njk
 title: "Wing Foiling Glossary"
 description: "Every wing foiling term a beginner is likely to hear, explained in plain language and organized by gear, wind, technique, and progression."
-order: 3
+order: 4
 ---
 
 Wing foiling borrows words from sailing, kiteboarding, and surfing, then adds a few of its own — which means the first few sessions can feel like learning a new language on top of a new sport. This page collects the terms you'll actually hear at the beach or in a lesson, explained simply. Bookmark it and come back whenever something doesn't click.
