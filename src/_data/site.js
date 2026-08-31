@@ -9,12 +9,11 @@ module.exports = {
   // value with the exact domain string Plausible gives you.
   plausibleDomain: "REPLACE_WITH_YOUR_PLAUSIBLE_DOMAIN",
   nav: [
+    { title: "Find a Spot", url: "/where-to-ride/" },
     { title: "Beginner Guide", url: "/beginner-guide/" },
     { title: "Intermediate & Advanced", url: "/intermediate-advanced/" },
     { title: "Gear & Brands", url: "/gear-and-brands/" },
     { title: "Wind", url: "/wind/" },
-    { title: "Where to Ride", url: "/where-to-ride/" },
-    { title: "Community", url: "/community/" },
     { title: "Bio", url: "/about/" },
   ],
 };

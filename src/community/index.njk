@@ -1,6 +1,17 @@
 ---
 layout: layouts/base.njk
 title: "Community"
-description: "Meet other wing foilers — coming soon to Wing Foil America."
+description: "This page has moved — the community lives at Where to Ride now."
+eleventyExcludeFromCollections: true
 ---
-{% include "partials/coming-soon.njk" %}
+<meta http-equiv="refresh" content="0;url={{ '/where-to-ride/' | url }}">
+<script>window.location.replace("{{ '/where-to-ride/' | url }}");</script>
+
+<section class="error-page wrap" data-pagefind-ignore>
+  <p class="error-code">&rarr;</p>
+  <h1>This page has moved.</h1>
+  <p class="error-sub">Community lives inside Where to Ride now — spots, submissions, and the map all in one place.</p>
+  <div class="error-actions">
+    <a href="{{ '/where-to-ride/' | url }}" class="btn btn-accent">Go to Where to Ride</a>
+  </div>
+</section>
