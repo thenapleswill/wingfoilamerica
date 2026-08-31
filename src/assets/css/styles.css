@@ -136,6 +136,13 @@ img{ max-width: 100%; display: block; }
 .nav-search .pagefind-ui__result:first-child{ border-top: none; padding-top: 0; }
 .nav-search mark{ background: var(--coral); color: var(--ink); border-radius: 2px; }
 
+/* ---------- social icon (nav) ---------- */
+.social-icon-link{
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  color: var(--foam-dim); transition: color 0.15s;
+}
+.site-nav a.social-icon-link:hover{ color: var(--coral); background: none; }
+
 /* ==========================================================================
    Hero + experience selector
    ========================================================================== */
