@@ -24,8 +24,6 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm run build
-        env:
-          PAGES_BASE_PATH: /${{ github.event.repository.name }}
       - name: Ensure CNAME is present in build output
         run: |
           expected="wingfoilamerica.com"
