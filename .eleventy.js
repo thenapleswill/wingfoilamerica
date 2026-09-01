@@ -8,6 +8,15 @@ module.exports = function (eleventyConfig) {
   // so schema markup can't break if page content ever contains a literal quote.
   eleventyConfig.addFilter("jsonify", (value) => JSON.stringify(value));
 
+  // Truncates a description to a word boundary for the plain-HTML spot list
+  // on /where-to-ride/, rather than cutting mid-word.
+  eleventyConfig.addFilter("excerpt", (str, length = 160) => {
+    if (!str || str.length <= length) return str || "";
+    const truncated = str.slice(0, length);
+    const lastSpace = truncated.lastIndexOf(" ");
+    return (lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated) + "…";
+  });
+
   // Content is authored as plain Markdown links (e.g. "[Safety Basics](/beginner-guide/safety-basics/)"),
   // which never pass through the `url` filter that templates use to prepend PAGES_BASE_PATH. Without this,
   // every hand-written internal link breaks the moment the site is served from a subpath (GitHub Pages

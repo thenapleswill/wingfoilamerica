@@ -34,6 +34,23 @@ full rundown, or jump straight to the bottom to tell us about a spot that's miss
   </div>
 </div>
 
+<section class="spots-directory" aria-labelledby="spots-directory-heading">
+  <h2 id="spots-directory-heading">Browse All Spots</h2>
+  <p>Every spot on the map above, listed here as plain text too — useful if you're skimming on a slow connection, or just prefer to read.</p>
+  {%- for group in spotsByState %}
+  <h3>{{ group.state }}</h3>
+  <ul class="spots-directory-list">
+    {%- for spot in group.spots %}
+    <li id="spot-{{ spot.id }}">
+      <strong>{{ spot.name }}</strong> — {{ spot.city }}, {{ spot.state }} ({{ spot.region }})<br>
+      Skill level: {{ spot.skillLevel }}<br>
+      {{ spot.description | excerpt(200) }}
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- endfor %}
+</section>
+
 ## Know a spot that should be here?
 
 <div class="submit-spot">
