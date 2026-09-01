@@ -26,6 +26,15 @@ jobs:
       - run: npm run build
         env:
           PAGES_BASE_PATH: /${{ github.event.repository.name }}
+      - name: Ensure CNAME is present in build output
+        run: |
+          expected="wingfoilamerica.com"
+          if [ "$(cat _site/CNAME 2>/dev/null)" != "$expected" ]; then
+            echo "::warning::_site/CNAME was missing or incorrect (source src/CNAME or its passthrough copy may have been removed) — writing it directly so the custom domain doesn't silently break."
+            echo "$expected" > _site/CNAME
+          fi
+          echo "_site/CNAME contents going into this deploy:"
+          cat _site/CNAME
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
