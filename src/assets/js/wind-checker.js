@@ -1,4 +1,5 @@
 (function () {
+  var wrapperEl = document.getElementById("wind-checker");
   var useLocationBtn = document.getElementById("useLocationBtn");
   var searchForm = document.getElementById("locationSearchForm");
   var searchInput = document.getElementById("locationSearchInput");
@@ -9,8 +10,40 @@
   var windyLink = document.getElementById("windyLink");
   var windfinderLink = document.getElementById("windfinderLink");
   var noaaLink = document.getElementById("noaaLink");
+  var nearestSpotInfo = document.getElementById("nearestSpotInfo");
+  var nearestSpotName = document.getElementById("nearestSpotName");
+  var nearestSpotDistance = document.getElementById("nearestSpotDistance");
+  var nearestSpotLink = document.getElementById("nearestSpotLink");
+  var nearestSpotBadge = document.getElementById("nearestSpotConditionsBadge");
 
   if (!useLocationBtn || !searchForm) return;
+
+  // Only wired into the "Use My Location" geolocation flow below, never the
+  // manual search — a searched place isn't "the visitor's own location."
+  var NEAREST_SPOT_RADIUS_MILES = 100;
+  function showNearestSpot(lat, lon) {
+    if (!nearestSpotInfo || !wrapperEl || typeof window.WFA_findNearestSpot !== "function") return;
+    nearestSpotInfo.hidden = true;
+    var spotsUrl = wrapperEl.dataset.spotsUrl;
+    var spotBaseUrl = wrapperEl.dataset.spotBaseUrl;
+    if (!spotsUrl || !spotBaseUrl) return;
+    fetch(spotsUrl)
+      .then(function (response) { return response.json(); })
+      .then(function (spots) {
+        var result = window.WFA_findNearestSpot(spots, lat, lon);
+        if (!result || result.distanceMiles > NEAREST_SPOT_RADIUS_MILES) return;
+        nearestSpotName.textContent = result.spot.name;
+        nearestSpotDistance.textContent = Math.round(result.distanceMiles);
+        nearestSpotLink.href = spotBaseUrl + result.spot.id + "/";
+        nearestSpotInfo.hidden = false;
+        if (nearestSpotBadge && typeof window.WFA_renderConditionsBadge === "function") {
+          window.WFA_renderConditionsBadge(nearestSpotBadge, result.spot.lat, result.spot.lng, result.spot.idealWindDirections || []);
+        }
+      })
+      .catch(function () {
+        // Bonus add-on only — never break the existing wind-checker flow.
+      });
+  }
 
   function setStatus(message) {
     statusEl.textContent = message || "";
@@ -60,6 +93,7 @@
     navigator.geolocation.getCurrentPosition(
       function (position) {
         showWidgets(position.coords.latitude, position.coords.longitude, "your current location");
+        showNearestSpot(position.coords.latitude, position.coords.longitude);
       },
       handleGeolocationError,
       { timeout: 10000 }

@@ -1,4 +1,14 @@
 (function () {
+  var badgeEl = document.getElementById("spotConditionsBadge");
+  if (badgeEl && typeof window.WFA_renderConditionsBadge === "function") {
+    var badgeLat = parseFloat(badgeEl.dataset.lat);
+    var badgeLng = parseFloat(badgeEl.dataset.lng);
+    var idealDirections = (badgeEl.dataset.idealDirections || "").split(",").filter(Boolean);
+    if (!isNaN(badgeLat) && !isNaN(badgeLng)) {
+      window.WFA_renderConditionsBadge(badgeEl, badgeLat, badgeLng, idealDirections);
+    }
+  }
+
   var mapEl = document.getElementById("spotMap");
   if (!mapEl || typeof L === "undefined") return;
 

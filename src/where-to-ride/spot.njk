@@ -13,9 +13,11 @@ eleventyComputed:
 extraCss:
   - /assets/vendor/leaflet/leaflet.css
   - /assets/css/where-to-ride.css
+  - /assets/css/conditions-badge.css
 extraJs:
   - /assets/vendor/leaflet/leaflet.js
   - /assets/js/windy-embed.js
+  - /assets/js/conditions-badge.js
   - /assets/js/spot-page.js
 ---
 <nav class="breadcrumb"><a href="{{ '/where-to-ride/' | url }}">Where to Ride</a> <span>/</span> <span>{{ spot.name }}</span></nav>
@@ -50,6 +52,9 @@ extraJs:
     <iframe id="spotWindFrame" title="Live wind map for {{ spot.name }}" loading="lazy" frameborder="0"></iframe>
   </div>
   <p class="spot-popup-wind-attribution">Powered by <a href="https://www.windy.com" target="_blank" rel="noopener">Windy.com</a></p>
+  <div class="conditions-badge-block" id="spotConditionsBadge"
+    data-lat="{{ spot.lat }}" data-lng="{{ spot.lng }}"
+    data-ideal-directions="{{ spot.idealWindDirections | join(',') if spot.idealWindDirections else '' }}" hidden></div>
 </div>
 
 <h2>Satellite View</h2>

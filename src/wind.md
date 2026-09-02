@@ -6,15 +6,17 @@ description: "Wing foiling doesn't work without wind. Here's what's actually hap
 extraCss:
   - /assets/css/wind-checker.css
   - /assets/css/wind-tabs.css
+  - /assets/css/conditions-badge.css
 extraJs:
   - /assets/js/windy-embed.js
+  - /assets/js/conditions-badge.js
   - /assets/js/wind-checker.js
   - /assets/js/wind-tabs.js
 ---
 
 ## Check the Wind Right Now
 
-<div id="wind-checker" class="wind-checker">
+<div id="wind-checker" class="wind-checker" data-spots-url="{{ '/assets/data/where-to-ride-spots.json' | url }}" data-spot-base-url="{{ '/where-to-ride/' | url }}">
   <div class="wind-checker-card">
     <p class="wind-checker-intro">See live wind conditions for your spot — share your location, or search for one manually.</p>
     <div class="wind-checker-actions">
@@ -33,6 +35,12 @@ extraJs:
         <iframe id="windyEmbed" title="Live wind map" loading="lazy" frameborder="0"></iframe>
       </div>
       <p class="wind-checker-attribution">Live map powered by <a href="https://www.windy.com" target="_blank" rel="noopener">Windy.com</a></p>
+    </div>
+
+    <div class="nearest-spot-info" id="nearestSpotInfo" hidden>
+      <p class="nearest-spot-line">Closest listed spot: <strong id="nearestSpotName"></strong>, <span id="nearestSpotDistance"></span> mi away —
+        <a id="nearestSpotLink" href="#">view full spot page &rarr;</a></p>
+      <div class="conditions-badge-block" id="nearestSpotConditionsBadge" hidden></div>
     </div>
 
     <div class="wind-checker-links" id="windLinksContainer" hidden>

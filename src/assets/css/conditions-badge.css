@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Conditions Right Now — shared badge (spot pages + Wind page)
+   Status colors are deliberately standard green/amber/red, not the site's
+   sunset-orange/teal brand palette — this is a status indicator, not a
+   themed UI element.
+   ========================================================================== */
+
+.conditions-badge-block{ margin: 14px 0 0; }
+.conditions-badge-heading{
+  margin: 0 0 8px; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.05em; color: var(--foam-faint);
+}
+.conditions-badge{
+  display: inline-flex; align-items: center; font-weight: 700; font-size: 0.85rem;
+  padding: 4px 12px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em;
+}
+.conditions-badge--good{ background: #1f8a4c; color: #eafff1; }
+.conditions-badge--marginal{ background: #b8860b; color: #fff8e6; }
+.conditions-badge--poor{ background: #c0392b; color: #ffecec; }
+.conditions-badge-detail{ margin: 8px 0 0; font-size: 0.85rem; color: var(--foam-dim); }
+.conditions-badge-unavailable{ margin: 8px 0 0; font-size: 0.82rem; color: var(--foam-faint); font-style: italic; }
+
+/* ---------- Wind page nearest-spot companion ---------- */
+.nearest-spot-info{
+  margin: 14px 0 0; padding: 14px 16px; background: var(--ink-2); border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.nearest-spot-line{ margin: 0; font-size: 0.9rem; color: var(--foam-dim); }
+.nearest-spot-line strong{ color: var(--foam); }
+.nearest-spot-line a{ font-weight: 600; }
