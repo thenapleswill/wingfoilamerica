@@ -29,9 +29,9 @@
     "idealWindDirections": ["NNW", "NW", "WNW"],
     "skillLevel": "Advanced",
     "localsMeetHere": true,
-    "description": "The Bay Area's most iconic launch, right at the Golden Gate — powerful, highly reliable summer thermal wind, but strong current and boat traffic make this an experienced-riders-only spot. Beginners should look toward Coyote Point or Berkeley instead.",
-    "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand — see project notes."
+    "description": "The Bay Area's most iconic launch, right at the Golden Gate — powerful, highly reliable summer thermal wind, but strong current and boat traffic make this an experienced-riders-only spot. Beginners should look toward Coyote Point or Berkeley instead. SF Wing Foil Academy operates lessons at this location, confirming it as a real, active launch.",
+    "verified": "firsthand-verified",
+    "sourceNote": "Firsthand-verified (2026-09-02) — confirmed via SF Wing Foil Academy, see description."
   },
   {
     "id": "waddell-creek-beach",
@@ -39,8 +39,8 @@
     "city": "Santa Cruz County",
     "state": "CA",
     "region": "Northern California Coast",
-    "lat": 37.097,
-    "lng": -122.285,
+    "lat": 37.096083,
+    "lng": -122.279359,
     "waterType": "Open-ocean swell over reef/rock bottom",
     "windDirection": "Northwest (prevailing NW coastal thermal)",
     "idealWindDirections": ["NW"],
@@ -48,7 +48,7 @@
     "localsMeetHere": true,
     "description": "A legendary NorCal windsurf spot now drawing wing foilers too — real ocean swell, not flat water, plus a reef/rock bottom. Powerful and beautiful, but for experienced riders only.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand — see project notes."
+    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand — see project notes. Coordinates corrected to the paid parking lot at 3600 Hwy 1, Davenport, per californiabeaches.com (2026-09-02)."
   },
   {
     "id": "mission-bay-east",
@@ -56,16 +56,16 @@
     "city": "San Diego",
     "state": "CA",
     "region": "San Diego",
-    "lat": 32.782,
-    "lng": -117.210,
+    "lat": 32.7793,
+    "lng": -117.2109,
     "waterType": "Flat, protected bay water",
     "windDirection": "Typically onshore/westerly afternoon sea breeze (not independently confirmed for this exact spot)",
     "idealWindDirections": ["W"],
     "skillLevel": "Beginner",
     "localsMeetHere": true,
-    "description": "San Diego's go-to wing foil spot and the local favorite for lessons — flat, protected bay water instead of open SoCal coast chop, which makes it one of the friendlier beginner launches on this list.",
-    "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand — wind direction inferred from regional pattern, not directly sourced."
+    "description": "San Diego's go-to wing foil spot and the local favorite for lessons — flat, protected bay water instead of open SoCal coast chop, which makes it one of the friendlier beginner launches on this list. MANTA Wind and Water Sports (chief instructor John Arthur) teaches wing foil lessons here, confirming it as a real, active launch.",
+    "verified": "firsthand-verified",
+    "sourceNote": "Firsthand-verified (2026-09-02) — confirmed via MANTA Wind and Water Sports (chief instructor John Arthur), see description. Coordinates corrected to the Hilton San Diego Resort & Marina, the local launch reference point (2026-09-02)."
   },
   {
     "id": "canadian-hole",
@@ -73,15 +73,15 @@
     "city": "Avon/Buxton",
     "state": "NC",
     "region": "Outer Banks / Pamlico Sound",
-    "lat": 35.358,
-    "lng": -75.531,
+    "lat": 35.298,
+    "lng": -75.514,
     "waterType": "Shallow, wide-open sound on one side of the highway; ocean swell on the other",
     "windDirection": "Side-shore off the sound; varies by which side of NC-12 you launch from",
     "skillLevel": "Beginner (sound side) to Intermediate/Advanced (ocean side)",
     "localsMeetHere": true,
-    "description": "The classic Outer Banks wind-sports beach — a 30-mile-wide shallow sound gives long, forgiving, obstruction-free rides, with real ocean swell available just across the road for riders who want it. Steady wind April through November.",
-    "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand — see project notes."
+    "description": "The classic Outer Banks wind-sports beach — a 30-mile-wide shallow sound gives long, forgiving, obstruction-free rides, with real ocean swell available just across the road for riders who want it. Steady wind April through November. Kitty Hawk Kiteboarding runs lessons at this location, confirming it as a real, active launch.",
+    "verified": "firsthand-verified",
+    "sourceNote": "Firsthand-verified (2026-09-02) — confirmed via Kitty Hawk Kiteboarding, see description. Coordinates corrected to the actual Haulover Day Use Area — previous pin was roughly 7km off, sitting at Avon village instead (2026-09-02)."
   },
   {
     "id": "scenic-view-skyway-north",
@@ -106,8 +106,8 @@
     "city": "Padre Island National Seashore",
     "state": "TX",
     "region": "Texas Gulf Coast",
-    "lat": 27.471,
-    "lng": -97.321,
+    "lat": 27.46644,
+    "lng": -97.3135,
     "waterType": "Shallow, warm lagoon (Laguna Madre)",
     "windDirection": "Typically SE Gulf sea breeze in summer (not independently confirmed for this exact spot)",
     "idealWindDirections": ["SE"],
@@ -115,7 +115,7 @@
     "localsMeetHere": true,
     "description": "One of the most historically famous wind-sports spots in the country — steady wind, warm shallow water, and almost nothing to run into. Widely regarded as a strong place to learn as well as a serious spot for experienced riders.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand — wind direction inferred from regional pattern, not directly sourced."
+    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand — wind direction inferred from regional pattern, not directly sourced. Coordinates corrected to the NPS's official Bird Island Basin Day Use Area location (2026-09-02)."
   },
   {
     "id": "pere-marquette-park-beach",
@@ -189,15 +189,15 @@
     "city": "San Mateo",
     "state": "CA",
     "region": "SF Bay Area",
-    "lat": 37.588,
-    "lng": -122.318,
+    "lat": 37.5889,
+    "lng": -122.3278,
     "waterType": "Flat, protected bay water",
     "windDirection": "Reliable summer afternoon thermal",
     "skillLevel": "Beginner-friendly",
     "localsMeetHere": true,
     "description": "The beginner-friendly Bay Area counterpart to Crissy Field — flat, protected water and a steady thermal without the Golden Gate's current and boat traffic.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand."
+    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand. Coordinates corrected to Boardsports California, the shop operating the launch beach (2026-09-02)."
   },
   {
     "id": "sherman-island",
@@ -221,15 +221,15 @@
     "city": "Frisco/Dillon",
     "state": "CO",
     "region": "Rocky Mountains",
-    "lat": 39.62,
-    "lng": -106.05,
+    "lat": 39.5786,
+    "lng": -106.0885,
     "waterType": "High-altitude mountain reservoir, flat water",
     "windDirection": "Afternoon mountain thermal, variable by season",
     "skillLevel": "Intermediate+ (thinner air at altitude affects wing power)",
     "localsMeetHere": false,
     "description": "A rare inland, high-altitude option — a good reminder that wing foiling isn't just a coastal sport. Worth noting for riders that altitude changes how gear performs.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand."
+    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand. Coordinates corrected to Frisco Bay Marina, a public boat launch — lower-confidence pending local confirmation, since one other spot guide cites a nearby but different point (2026-09-02)."
   },
   {
     "id": "jupiter-fl",
@@ -253,15 +253,15 @@
     "city": "Charleston",
     "state": "SC",
     "region": "South Carolina Coast",
-    "lat": 32.655,
-    "lng": -79.940,
+    "lat": 32.6442,
+    "lng": -79.9628,
     "waterType": "Ocean, generally moderate swell",
     "windDirection": "Varies by season, side-shore days most common",
     "skillLevel": "All levels",
     "localsMeetHere": true,
     "description": "Charleston's main wind-sports beach and the first South Carolina entry on this list — fills a real geographic gap between the Outer Banks and Florida.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand."
+    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand. Coordinates corrected to Folly Beach County Park, the actual kiteboard/wing launch area (2026-09-02)."
   },
   {
     "id": "sheboygan",
@@ -269,15 +269,15 @@
     "city": "Sheboygan",
     "state": "WI",
     "region": "Great Lakes",
-    "lat": 43.750,
-    "lng": -87.700,
+    "lat": 43.7541,
+    "lng": -87.7028,
     "waterType": "Lake Michigan",
     "windDirection": "Reliable summer thermal off the lake",
     "skillLevel": "All levels",
     "localsMeetHere": true,
     "description": "A second Great Lakes entry alongside Muskegon — Sheboygan has a long-running wind-sports community and steady summer thermal wind.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand."
+    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand. Coordinates are a tentative, lower-confidence refinement and may need local confirmation (2026-09-02)."
   },
   {
     "id": "curry-hammock-state-park",
@@ -450,15 +450,15 @@
     "city": "Paia",
     "state": "HI",
     "region": "Maui",
-    "lat": 20.9339,
-    "lng": -156.3572,
+    "lat": 20.934795,
+    "lng": -156.359705,
     "waterType": "Ocean, exposed reef with a powerful wave break",
     "windDirection": "NE trade winds",
     "idealWindDirections": ["NE"],
     "skillLevel": "Advanced/Expert only",
     "description": "The historic proving ground of wind and wing sports on Maui — big, powerful waves and a long-running wave-riding mecca where many of the sport's top athletes train. Not a learning spot; exposed reef and serious surf.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates given a minor precision refinement — the previous pin was already close (2026-09-02)."
   },
   {
     "id": "sugar-beach",
@@ -481,15 +481,15 @@
     "city": "Kailua",
     "state": "HI",
     "region": "Oahu",
-    "lat": 21.3972,
-    "lng": -157.7294,
+    "lat": 21.3976,
+    "lng": -157.7271,
     "waterType": "Ocean, sandy beach; outer reef breaks up incoming swell",
     "windDirection": "NE trade winds, consistent",
     "idealWindDirections": ["NE"],
     "skillLevel": "All levels — widely considered Oahu's most popular and most beginner-friendly wind-sports beach",
     "description": "The go-to Oahu spot for wing foiling — steady wind, sandy beach, and a protective outer reef that keeps the inside water calmer than most ocean spots.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected to the Kailua Beach Park boat-ramp lot, the actual launch area (2026-09-02)."
   },
   {
     "id": "lac-bay-sorobon",
@@ -497,15 +497,15 @@
     "city": "Sorobon",
     "state": "Caribbean Netherlands",
     "region": "Bonaire",
-    "lat": 12.1013,
-    "lng": -68.2461,
+    "lat": 12.0950,
+    "lng": -68.2370,
     "waterType": "Shallow, flat, sheltered lagoon",
     "windDirection": "Consistent easterly trade winds",
     "idealWindDirections": ["E"],
     "skillLevel": "Beginner to advanced — one of the most beginner-friendly wing/wind spots in the world",
     "description": "A world-famous flat-water lagoon, shallow enough to stand in most of it, with steady trade winds nearly year-round. Home to Bonaire Windsurf Place and several other long-running schools.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected to Bonaire.com's official Sorobon Beach location (2026-09-02)."
   },
   {
     "id": "hadicurari-beach",
@@ -513,14 +513,14 @@
     "city": "Palm Beach",
     "state": "Aruba",
     "region": "Aruba",
-    "lat": 12.554,
-    "lng": -70.0466,
+    "lat": 12.5856,
+    "lng": -70.0461,
     "waterType": "Shallow, calm, sandy with a rocky strip nearby",
     "windDirection": "Steady trade winds, strongest around Aruba's June/July Hi-Winds season",
     "skillLevel": "All levels",
     "description": "Aruba's most popular spot to learn wind sports — shallow and calm close to shore, with several schools right on the beach, while also hosting the annual Aruba Hi-Winds competition.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected — the previous pin was significantly off; Aruba.com and Mapcarta agree on this location (2026-09-02)."
   },
   {
     "id": "bahia-salinas-playa-copal",
@@ -528,15 +528,15 @@
     "city": "La Cruz",
     "state": "Costa Rica",
     "region": "Guanacaste",
-    "lat": 11.05,
-    "lng": -85.7333,
+    "lat": 11.0289,
+    "lng": -85.7032,
     "waterType": "Shallow near shore, flatter close in, choppier offshore",
     "windDirection": "NNE/NE trade winds, strongest Dec-April, kiteable roughly 90% of days Nov-May plus July",
     "idealWindDirections": ["NNE", "NE"],
     "skillLevel": "All levels",
     "description": "Costa Rica's wind-sports capital, with reliably strong trade winds most of the year. Watch for stingrays close to shore (shuffle your feet) and sharp shells/stones underfoot — water shoes recommended.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected to Playa Copal beach per Mapcarta (2026-09-02)."
   },
   {
     "id": "la-ventana",
@@ -559,14 +559,14 @@
     "city": "Providenciales",
     "state": "Turks and Caicos",
     "region": "Caicos Islands",
-    "lat": 21.7833,
-    "lng": -72.2167,
+    "lat": 21.7966,
+    "lng": -72.1496,
     "waterType": "Shallow, flat, sandy bottom, extends out for a long way",
     "windDirection": "Onshore to side-onshore; roughly a 10-month wind season (Nov-Aug), strongest May-Aug",
     "skillLevel": "All levels, especially beginner-friendly",
     "description": "Waist-deep water extending out a long way with no shore break, rocks, or real hazards — about as safe and forgiving a spot as exists anywhere. Home to several watersports schools in the area.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected to the actual public beach access point — the previous pin was roughly 6km off (2026-09-02)."
   },
   {
     "id": "orient-bay",
@@ -574,14 +574,14 @@
     "city": "Orient Bay",
     "state": "Saint Martin",
     "region": "French West Indies",
-    "lat": 18.0833,
-    "lng": -63.0333,
+    "lat": 18.0832,
+    "lng": -63.0142,
     "waterType": "Calm, minimal waves",
     "windDirection": "Steady Caribbean trade winds",
     "skillLevel": "Beginner-friendly",
     "description": "A calm, protected bay that's been a wind-sports hub since the early 1990s — Wind Adventures, one of the island's longest-running schools, is based here.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected to the actual bay/beach — the previous pin was roughly 2km inland (2026-09-02)."
   },
   {
     "id": "combate-boqueron-bay",
@@ -589,14 +589,14 @@
     "city": "Cabo Rojo",
     "state": "PR",
     "region": "Southwest Puerto Rico",
-    "lat": 17.9958,
-    "lng": -67.1811,
+    "lat": 17.968,
+    "lng": -67.213,
     "waterType": "Calm, flat, shallow",
     "windDirection": "Consistent trade winds, best season Nov-July",
     "skillLevel": "Beginner to intermediate, foil-friendly",
     "description": "Calm, flat water on Puerto Rico's southwest corner — good progression conditions rather than wave riding, with foiling specifically called out as well-suited here.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected to Playa El Combate — the previous pin was roughly 3.5km off (2026-09-02)."
   },
   {
     "id": "fort-de-soto-park-east-beach",
