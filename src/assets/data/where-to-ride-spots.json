@@ -417,14 +417,14 @@
     "city": "Cabarete",
     "state": "Dominican Republic",
     "region": "Puerto Plata Province",
-    "lat": 19.7514,
-    "lng": -70.4227,
+    "lat": 19.750374810210108,
+    "lng": -70.40660786492339,
     "waterType": "Mixed — flatter water close in, with wave/swell further out; consistent cross-shore trade winds.",
     "windDirection": "Cross-shore trade winds, typically E/ESE",
     "skillLevel": "Intermediate+ for the open bay conditions, though Vela's on-site instructors run structured lessons for beginners too",
-    "description": "Sailed from Vela, the long-established windsurf/kite/wing shop right on Cabarete Bay — shop, rentals, and lessons all in one spot, and a fixture of the bay for many years. Three separate trips here (of many more sessions).",
+    "description": "Cabarete Bay is a genuine international meeting place for wing foilers — sailed here on three separate trips and met riders from the US, Canada, Europe, South America, and beyond. Local tip: Vela Watersports Center (https://velawatersportscabarete.com/), run by Jens — knowledgeable, helpful, a great guy — is a full-service shop for everything wing foiling related: gear rentals, lessons, on-site gear storage (so you don't have to haul your own gear from the hotel), and repairs. There's also a public parking lot just across the street, a couple pesos for a safe place to leave your car.",
     "verified": "firsthand-verified",
-    "sourceNote": "Firsthand-verified (2026-08-29) by Will. Coordinates approximate — general Cabarete Bay area; the exact Vela Cabarete pin wasn't independently confirmed via research."
+    "sourceNote": "Firsthand-verified (2026-08-29) by Will. Coordinates updated to Will's own precise pin (2026-09-02)."
   },
   {
     "id": "hookipa-beach-park",
