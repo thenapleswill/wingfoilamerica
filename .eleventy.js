@@ -17,6 +17,26 @@ module.exports = function (eleventyConfig) {
     return (lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated) + "…";
   });
 
+  // HTML-escapes free-text spot descriptions (still user-authored strings, not
+  // markup) and then wraps any bare URL written in them — "https://site.com/",
+  // "www.site.com", or a plain "site.com" — in a real, clickable <a> tag. Escape
+  // always runs first so this stays safe even if a description ever contains a
+  // literal <, >, or &; linkification is strictly a second pass on top of that.
+  eleventyConfig.addFilter("linkify", (value) => {
+    if (!value) return "";
+    const escaped = String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+    const urlPattern = /((?:https?:\/\/|www\.)[^\s<>"')]+|\b[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com|net|org|io|co)\b(?:\/[^\s<>"')]*)?)/gi;
+    return escaped.replace(urlPattern, (match) => {
+      const href = /^https?:\/\//i.test(match) ? match : "https://" + match;
+      return '<a href="' + href + '" target="_blank" rel="noopener">' + match + "</a>";
+    });
+  });
+
   // Content is authored as plain Markdown links (e.g. "[Safety Basics](/beginner-guide/safety-basics/)"),
   // which never pass through the `url` filter that templates use to prepend PAGES_BASE_PATH. Without this,
   // every hand-written internal link breaks the moment the site is served from a subpath (GitHub Pages

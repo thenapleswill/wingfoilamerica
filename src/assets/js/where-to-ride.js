@@ -9,8 +9,13 @@
   var VERIFIED_VALUE = "firsthand-verified";
 
   var spotsUrl = root.dataset.spotsUrl;
+  var spotBaseUrl = root.dataset.spotBaseUrl;
   var mapEl = document.getElementById("spotsMap");
   var listEl = document.getElementById("spotsList");
+
+  function goToSpot(spot) {
+    window.location.href = spotBaseUrl + spot.id + "/";
+  }
 
   fetch(spotsUrl)
     .then(function (response) { return response.json(); })
@@ -34,49 +39,7 @@
       html: '<span class="spot-pin ' + verifiedClass + '" role="img" aria-label="' + label + '" title="' + label + '"></span>',
       iconSize: [20, 20],
       iconAnchor: [10, 10],
-      popupAnchor: [0, -12],
     });
-  }
-
-  function buildPopupHTML(spot) {
-    var verifiedBadge =
-      spot.verified === VERIFIED_VALUE
-        ? '<span class="spot-badge spot-badge--verified">Firsthand verified</span>'
-        : '<span class="spot-badge spot-badge--community">Community-reported</span>';
-    var localsBadge = spot.localsMeetHere
-      ? '<span class="spot-badge spot-badge--locals">Locals meet here</span>'
-      : "";
-    var sourceNote = spot.sourceNote
-      ? '<p class="spot-popup-source">' + escapeHTML(spot.sourceNote) + "</p>"
-      : "";
-    var windWidget =
-      typeof window.WFA_buildWindyEmbedUrl === "function"
-        ? '<div class="spot-popup-wind">' +
-          '<p class="spot-popup-wind-label">Live wind here</p>' +
-          '<div class="spot-popup-wind-frame">' +
-          '<iframe src="' + window.WFA_buildWindyEmbedUrl(spot.lat, spot.lng) + '" title="Live wind map for ' +
-          escapeHTML(spot.name) + '" frameborder="0"></iframe>' +
-          "</div>" +
-          '<p class="spot-popup-wind-attribution">Powered by <a href="https://www.windy.com" target="_blank" rel="noopener">Windy.com</a></p>' +
-          "</div>"
-        : "";
-
-    return (
-      '<div class="spot-popup">' +
-      '<div class="spot-popup-badges">' + verifiedBadge + localsBadge + "</div>" +
-      "<h3>" + escapeHTML(spot.name) + "</h3>" +
-      '<p class="spot-popup-location">' + escapeHTML(spot.city) + ", " + escapeHTML(spot.state) +
-      " &mdash; " + escapeHTML(spot.region) + "</p>" +
-      '<dl class="spot-popup-facts">' +
-      "<dt>Water</dt><dd>" + escapeHTML(spot.waterType) + "</dd>" +
-      "<dt>Best wind</dt><dd>" + escapeHTML(spot.windDirection) + "</dd>" +
-      "<dt>Skill level</dt><dd>" + escapeHTML(spot.skillLevel) + "</dd>" +
-      "</dl>" +
-      '<p class="spot-popup-desc">' + escapeHTML(spot.description) + "</p>" +
-      sourceNote +
-      windWidget +
-      "</div>"
-    );
   }
 
   function buildListItem(spot) {
@@ -102,9 +65,7 @@
     var countEl = document.getElementById("spotsListCount");
     if (countEl) countEl.textContent = spots.length + (spots.length === 1 ? " spot" : " spots");
 
-    // closePopupOnClick is disabled here on purpose — see the guarded map click
-    // listener below for why (mobile touch popups were closing themselves).
-    var map = L.map(mapEl, { scrollWheelZoom: true, closePopupOnClick: false });
+    var map = L.map(mapEl, { scrollWheelZoom: true });
 
     // CARTO's free raster basemap started requiring an API key, so this uses Esri's
     // free, no-key dark basemap instead (base tiles + a reference layer for labels).
@@ -134,67 +95,25 @@
     L.control.layers({ "Map": darkLayer, "Satellite": satelliteLayer }, null, { position: "topright" }).addTo(map);
 
     var clusterGroup = L.markerClusterGroup({ maxClusterRadius: 50 });
-    var markersById = {};
-    var listItemsById = {};
-
-    function setActive(id) {
-      Object.keys(listItemsById).forEach(function (key) {
-        listItemsById[key].classList.toggle("is-active", key === id);
-      });
-      if (listItemsById[id]) {
-        listItemsById[id].scrollIntoView({ block: "nearest", behavior: "smooth" });
-      }
-    }
+    var spotsById = {};
 
     spots.forEach(function (spot) {
       var marker = L.marker([spot.lat, spot.lng], { icon: makeIcon(spot) });
-      // autoPan is off on purpose: see the note by the click-guard below — a popup's
-      // own autoPan was the actual cause of popups closing themselves right after
-      // opening on mobile.
-      marker.bindPopup(buildPopupHTML(spot), { maxWidth: 320, minWidth: 260, maxHeight: 420, autoPan: false });
-      marker.on("popupopen", function () { setActive(spot.id); });
+      marker.on("click", function () { goToSpot(spot); });
       clusterGroup.addLayer(marker);
-      markersById[spot.id] = marker;
+      spotsById[spot.id] = spot;
 
       var li = buildListItem(spot);
       listEl.appendChild(li);
-      listItemsById[spot.id] = li;
     });
 
     map.addLayer(clusterGroup);
 
-    // The real cause of popups closing themselves right after opening on mobile:
-    // a popup's default autoPan behavior pans the map, which fires "moveend" —
-    // and Leaflet.markercluster reflows (removes and re-adds) every marker layer
-    // on "moveend" as part of its normal dynamic clustering. If the marker whose
-    // popup is open gets removed during that reflow, its popup is destroyed as a
-    // side effect, without ever going through a "close" the way a click would.
-    // Confirmed by instrumenting Leaflet's own event bus: click -> popupopen ->
-    // autopanstart -> movestart -> (pan animation) -> moveend -> layerremove
-    // (the marker + its popup) -> popupclose, all with no further user input.
-    // autoPan: false above removes the trigger for the direct-marker-tap path.
-    // The list-tap path had its own extra map.panTo() call below doing the same
-    // thing on purpose (redundantly — zoomToShowLayer already reveals the
-    // marker), so that's removed rather than disabled.
-    //
-    // closePopupOnClick is still turned off, with this guarded listener standing
-    // in for it: it closes the popup on a later genuine tap on the map, but
-    // ignores one arriving within 500ms of a popup opening, in case any other
-    // path still produces a near-immediate map click/moveend around that time.
-    var lastPopupOpenedAt = 0;
-    map.on("popupopen", function () { lastPopupOpenedAt = Date.now(); });
-    map.on("click", function () {
-      if (Date.now() - lastPopupOpenedAt > 500) map.closePopup();
-    });
-
     listEl.addEventListener("click", function (event) {
       var li = event.target.closest("[data-spot-id]");
       if (!li) return;
-      var marker = markersById[li.getAttribute("data-spot-id")];
-      if (!marker) return;
-      clusterGroup.zoomToShowLayer(marker, function () {
-        marker.openPopup();
-      });
+      var spot = spotsById[li.getAttribute("data-spot-id")];
+      if (spot) goToSpot(spot);
     });
 
     listEl.addEventListener("keydown", function (event) {

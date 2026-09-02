@@ -11,7 +11,6 @@ extraCss:
 extraJs:
   - /assets/vendor/leaflet/leaflet.js
   - /assets/vendor/leaflet.markercluster/leaflet.markercluster.js
-  - /assets/js/windy-embed.js
   - /assets/js/where-to-ride.js
 ---
 
@@ -24,7 +23,7 @@ full rundown, or jump straight to the bottom to tell us about a spot that's miss
   <span><span class="spot-pin spot-pin--community" aria-hidden="true"></span> Community-reported</span>
 </div>
 
-<div id="where-to-ride-app" data-spots-url="{{ '/assets/data/where-to-ride-spots.json' | url }}">
+<div id="where-to-ride-app" data-spots-url="{{ '/assets/data/where-to-ride-spots.json' | url }}" data-spot-base-url="{{ '/where-to-ride/' | url }}">
   <div class="wtr-layout">
     <div id="spotsMap"></div>
     <div class="spots-list-panel">
@@ -42,9 +41,9 @@ full rundown, or jump straight to the bottom to tell us about a spot that's miss
   <ul class="spots-directory-list">
     {%- for spot in group.spots %}
     <li id="spot-{{ spot.id }}">
-      <strong>{{ spot.name }}</strong> — {{ spot.city }}, {{ spot.state }} ({{ spot.region }})<br>
+      <strong><a href="{{ ('/where-to-ride/' + spot.id + '/') | url }}">{{ spot.name }}</a></strong> — {{ spot.city }}, {{ spot.state }} ({{ spot.region }})<br>
       Skill level: {{ spot.skillLevel }}<br>
-      {{ spot.description | excerpt(200) }}
+      {{ spot.description | excerpt(200) | linkify | safe }}
     </li>
     {%- endfor %}
   </ul>

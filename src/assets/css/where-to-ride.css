@@ -55,14 +55,6 @@
 .spot-pin-wrapper .spot-pin{ width: 18px; height: 18px; box-shadow: 0 0 0 2px rgba(6,35,44,0.6); }
 
 /* ---------- Leaflet overrides ---------- */
-.leaflet-popup-content-wrapper{
-  background: var(--ink-2); color: var(--foam); border: 1px solid var(--line);
-  border-radius: var(--radius); box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-}
-.leaflet-popup-tip{ background: var(--ink-2); }
-.leaflet-popup-content{ margin: 16px 18px; line-height: 1.5; }
-.leaflet-popup-close-button{ color: var(--foam-dim) !important; }
-.leaflet-popup-close-button:hover{ color: var(--foam) !important; }
 .leaflet-container{ font-family: var(--font-body); }
 .leaflet-control-attribution{ background: rgba(6,35,44,0.75) !important; color: var(--foam-faint) !important; }
 .leaflet-control-attribution a{ color: var(--foam-dim) !important; }
@@ -85,8 +77,6 @@
 }
 .marker-cluster span{ color: var(--ink); font-weight: 700; }
 
-.spot-popup h3{ font-size: 1.1rem; margin: 8px 0 6px; color: var(--foam); }
-.spot-popup-location{ font-size: 0.85rem; color: var(--foam-faint); margin: 0 0 10px; }
 .spot-popup-badges{ display: flex; gap: 6px; flex-wrap: wrap; }
 .spot-badge{
   font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em;
@@ -95,23 +85,29 @@
 .spot-badge--verified{ background: var(--coral); color: var(--ink); }
 .spot-badge--community{ background: transparent; border: 1px solid var(--coral); color: var(--coral); }
 .spot-badge--locals{ background: var(--ink-3); color: var(--teal); border: 1px solid var(--teal); }
-.spot-popup-facts{ margin: 10px 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 0.85rem; }
-.spot-popup-facts dt{ color: var(--foam-faint); font-weight: 600; }
-.spot-popup-facts dd{ margin: 0; color: var(--foam-dim); }
-.spot-popup-desc{ font-size: 0.88rem; margin: 8px 0 0; color: var(--foam-dim); }
 .spot-popup-source{ font-size: 0.76rem; font-style: italic; color: var(--foam-faint); margin: 10px 0 0; padding-top: 8px; border-top: 1px solid var(--line); }
+.spot-popup-wind-attribution{ font-size: 0.72rem; color: var(--foam-faint); margin: 6px 0 0; }
 
-.spot-popup-wind{ margin: 12px 0 0; padding-top: 10px; border-top: 1px solid var(--line); }
-.spot-popup-wind-label{
-  margin: 0 0 8px; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase;
-  letter-spacing: 0.05em; color: var(--teal);
+/* ---------- Spot detail page ---------- */
+.spot-page-badges{ margin: 8px 0 0; }
+.spot-page-location{ font-size: 0.95rem; color: var(--foam-faint); margin: 10px 0 0; }
+.spot-page-desc{ font-size: 1rem; color: var(--foam-dim); margin: 14px 0 0; }
+
+.spot-page-facts{
+  margin: 12px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 20px; font-size: 0.95rem;
 }
-.spot-popup-wind-frame{
-  position: relative; width: 100%; padding-bottom: 68%; border-radius: 8px; overflow: hidden;
+.spot-page-facts dt{ color: var(--foam-faint); font-weight: 600; }
+.spot-page-facts dd{ margin: 0; color: var(--foam-dim); }
+
+.spot-page-wind-frame{
+  position: relative; width: 100%; padding-bottom: 68%; border-radius: var(--radius); overflow: hidden;
   border: 1px solid var(--line);
 }
-.spot-popup-wind-frame iframe{ position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.spot-popup-wind-attribution{ font-size: 0.72rem; color: var(--foam-faint); margin: 6px 0 0; }
+.spot-page-wind-frame iframe{ position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.spot-page-map{
+  height: 420px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--ink-2);
+}
 
 /* ---------- Submit a Spot ---------- */
 .submit-spot{ margin: 8px 0 40px; }

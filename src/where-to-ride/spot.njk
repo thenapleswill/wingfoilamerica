@@ -1,0 +1,58 @@
+---
+pagination:
+  data: spots
+  size: 1
+  alias: spot
+  addAllPagesToCollections: true
+permalink: "/where-to-ride/{{ spot.id }}/"
+layout: layouts/article-page.njk
+eleventyComputed:
+  title: "{{ spot.name }}"
+  eyebrow: "Where to Ride"
+  description: "{{ spot.city }}, {{ spot.state }} — {{ spot.description | excerpt(150) }}"
+extraCss:
+  - /assets/vendor/leaflet/leaflet.css
+  - /assets/css/where-to-ride.css
+extraJs:
+  - /assets/vendor/leaflet/leaflet.js
+  - /assets/js/windy-embed.js
+  - /assets/js/spot-page.js
+---
+<nav class="breadcrumb"><a href="{{ '/where-to-ride/' | url }}">Where to Ride</a> <span>/</span> <span>{{ spot.name }}</span></nav>
+
+<div class="spot-popup-badges spot-page-badges">
+  {%- if spot.verified == "firsthand-verified" %}
+  <span class="spot-badge spot-badge--verified">Firsthand verified</span>
+  {%- else %}
+  <span class="spot-badge spot-badge--community">Community-reported</span>
+  {%- endif %}
+  {%- if spot.localsMeetHere %}
+  <span class="spot-badge spot-badge--locals">Locals meet here</span>
+  {%- endif %}
+</div>
+
+<p class="spot-page-location">{{ spot.city }}, {{ spot.state }} &mdash; {{ spot.region }}</p>
+
+<p class="spot-page-desc">{{ spot.description | linkify | safe }}</p>
+
+{% if spot.sourceNote %}<p class="spot-popup-source">{{ spot.sourceNote }}</p>{% endif %}
+
+<h2>Key Facts</h2>
+<dl class="spot-page-facts">
+  <dt>Water type</dt><dd>{{ spot.waterType }}</dd>
+  <dt>Best wind direction</dt><dd>{{ spot.windDirection }}</dd>
+  <dt>Skill level</dt><dd>{{ spot.skillLevel }}</dd>
+</dl>
+
+<h2>Live Wind Here</h2>
+<div class="spot-page-wind">
+  <div class="spot-page-wind-frame">
+    <iframe id="spotWindFrame" title="Live wind map for {{ spot.name }}" loading="lazy" frameborder="0"></iframe>
+  </div>
+  <p class="spot-popup-wind-attribution">Powered by <a href="https://www.windy.com" target="_blank" rel="noopener">Windy.com</a></p>
+</div>
+
+<h2>Satellite View</h2>
+<div id="spotMap" class="spot-page-map" data-lat="{{ spot.lat }}" data-lng="{{ spot.lng }}" data-name="{{ spot.name }}"></div>
+
+<p><a href="{{ '/where-to-ride/' | url }}">&larr; Back to the full map</a></p>
