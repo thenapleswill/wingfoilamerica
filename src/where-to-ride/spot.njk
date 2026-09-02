@@ -19,6 +19,7 @@ extraJs:
   - /assets/js/windy-embed.js
   - /assets/js/conditions-badge.js
   - /assets/js/spot-page.js
+  - /assets/js/spot-feedback.js
 ---
 <nav class="breadcrumb"><a href="{{ '/where-to-ride/' | url }}">Where to Ride</a> <span>/</span> <span>{{ spot.name }}</span></nav>
 
@@ -61,3 +62,44 @@ extraJs:
 <div id="spotMap" class="spot-page-map" data-lat="{{ spot.lat }}" data-lng="{{ spot.lng }}" data-name="{{ spot.name }}"></div>
 
 <p><a href="{{ '/where-to-ride/' | url }}">&larr; Back to the full map</a></p>
+
+<p class="spot-feedback-link">
+  <a href="#" id="spotFeedbackOpen"
+    data-spot-id="{{ spot.id }}" data-spot-name="{{ spot.name }}"
+    data-spot-lat="{{ spot.lat }}" data-spot-lng="{{ spot.lng }}">See something wrong, or ride here yourself? Let us know</a>
+</p>
+
+<div class="submit-spot-modal" id="spotFeedbackModal" hidden>
+  <div class="submit-spot-modal-backdrop" data-modal-close></div>
+  <div class="submit-spot-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="spotFeedbackModalTitle">
+    <div class="submit-spot-modal-header">
+      <div>
+        <p class="eyebrow submit-spot-modal-eyebrow">{{ spot.name }}</p>
+        <h2 id="spotFeedbackModalTitle" class="submit-spot-modal-title">Help Improve This Spot</h2>
+      </div>
+      <button type="button" class="submit-spot-modal-close" data-modal-close aria-label="Close">&times;</button>
+    </div>
+
+    <div id="spotFeedbackChoice" class="spot-feedback-choice">
+      <button type="button" class="btn btn-outline spot-feedback-choice-btn" data-feedback-type="correction">Suggest a correction</button>
+      <button type="button" class="btn btn-outline spot-feedback-choice-btn" data-feedback-type="confirmation">I ride/teach here &mdash; confirm this spot</button>
+    </div>
+
+    <form id="spotFeedbackForm" class="spot-feedback-form" hidden>
+      <p class="spot-feedback-form-intro" id="spotFeedbackFormIntro"></p>
+      <label for="spotFeedbackMessage">What should we know?</label>
+      <textarea id="spotFeedbackMessage" rows="4" required></textarea>
+      <label for="spotFeedbackEmail">Email (optional, in case we have questions)</label>
+      <input type="email" id="spotFeedbackEmail">
+      <div id="spotFeedbackMapWrap" class="spot-feedback-map-wrap" hidden>
+        <p class="spot-feedback-map-label">Drag the pin to the exact launch spot</p>
+        <div id="spotFeedbackMap" class="spot-feedback-map"></div>
+      </div>
+      <button type="submit" class="btn btn-accent">Continue</button>
+    </form>
+
+    <div id="spotFeedbackAirtableWrap" hidden>
+      <iframe id="spotFeedbackIframe" class="airtable-embed" title="Submit spot feedback" frameborder="0" width="100%" height="533" style="background: transparent;"></iframe>
+    </div>
+  </div>
+</div>

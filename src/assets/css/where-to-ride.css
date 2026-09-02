@@ -157,3 +157,30 @@ body.modal-open{ overflow: hidden; }
 .submit-spot-modal-dialog iframe{
   display: block; width: 100%; border: none !important; border-radius: 10px;
 }
+
+/* ---------- Spot feedback (Suggest a correction / Confirm this spot) ---------- */
+.spot-feedback-link{ margin: 24px 0 0; }
+.spot-feedback-link a{
+  font-size: 0.82rem; color: var(--foam-faint); text-decoration: underline; text-underline-offset: 2px;
+}
+.spot-feedback-link a:hover{ color: var(--foam-dim); }
+
+.spot-feedback-choice{ display: flex; flex-direction: column; gap: 10px; }
+.spot-feedback-choice-btn{ width: 100%; text-align: left; }
+
+.spot-feedback-form{ display: flex; flex-direction: column; gap: 12px; }
+.spot-feedback-form-intro{ margin: 0; font-size: 0.88rem; color: var(--foam-dim); }
+.spot-feedback-form label{ font-size: 0.82rem; color: var(--foam-faint); margin-bottom: -6px; }
+.spot-feedback-form textarea,
+.spot-feedback-form input[type="email"]{
+  width: 100%; box-sizing: border-box; background: var(--ink-3); border: 1px solid var(--line);
+  border-radius: 10px; padding: 10px 12px; color: var(--foam); font-family: var(--font-body); font-size: 0.92rem;
+}
+.spot-feedback-form textarea:focus,
+.spot-feedback-form input[type="email"]:focus{ outline: 2px solid var(--teal); outline-offset: 1px; }
+.spot-feedback-map-wrap{ display: flex; flex-direction: column; gap: 8px; }
+.spot-feedback-map-label{ margin: 0; font-size: 0.82rem; color: var(--foam-faint); }
+.spot-feedback-map{
+  height: 220px; border-radius: 10px; border: 1px solid var(--line); background: var(--ink-3);
+}
+.spot-feedback-form .btn{ align-self: flex-start; }
