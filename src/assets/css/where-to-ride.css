@@ -64,7 +64,14 @@
 .spot-pin-wrapper .spot-pin{ width: 18px; height: 18px; box-shadow: 0 0 0 2px rgba(6,35,44,0.6); }
 
 /* ---------- Leaflet overrides ---------- */
-.leaflet-container{ font-family: var(--font-body); }
+/* Leaflet's internal panes (.leaflet-map-pane etc.) default to z-index 400+.
+   Without an explicit z-index here, .leaflet-container never establishes its
+   own stacking context, so those panes compete directly against the sticky
+   site header (z-index: 50) instead of staying scoped under this container —
+   and win, rendering on top of the header when scrolled. z-index: 1 here is
+   enough to contain them; the internal pane z-indexes (400+) stay untouched
+   so markers/popups still layer correctly within the map itself. */
+.leaflet-container{ font-family: var(--font-body); position: relative; z-index: 1; }
 .leaflet-control-attribution{ background: rgba(6,35,44,0.75) !important; color: var(--foam-faint) !important; }
 .leaflet-control-attribution a{ color: var(--foam-dim) !important; }
 .leaflet-control-zoom a{
