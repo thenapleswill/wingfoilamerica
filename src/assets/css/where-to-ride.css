@@ -2,6 +2,13 @@
    Where to Ride — map, list, popups, submit-a-spot form
    ========================================================================== */
 
+/* The shared article-page layout caps content at 760px for comfortable prose
+   reading, which is far too narrow for the map to feel like the primary
+   element on this page. Widen just this page (via bodyClass) rather than
+   the article-page layout itself, which every other guide/article page
+   still wants narrow. */
+.wtr-page .article-page{ max-width: 1240px; }
+
 .map-legend{
   display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0 0;
   font-size: 0.85rem; color: var(--foam-dim);
@@ -10,24 +17,26 @@
 .map-legend .spot-pin{ flex-shrink: 0; }
 
 .wtr-layout{
-  display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  display: grid; grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
   gap: 20px; margin: 32px 0 40px;
 }
 @media (max-width: 900px){ .wtr-layout{ grid-template-columns: 1fr; } }
 
 #spotsMap{
   position: relative; z-index: 0;
-  height: 560px; border-radius: var(--radius); border: 1px solid var(--line);
+  height: min(78vh, 820px); min-height: 640px;
+  border-radius: var(--radius); border: 1px solid var(--line);
   background: var(--ink-2);
 }
-@media (max-width: 900px){ #spotsMap{ height: 420px; } }
+@media (max-width: 900px){ #spotsMap{ height: min(65vh, 560px); min-height: 460px; } }
+
 .map-error{ padding: 24px; color: var(--foam-dim); }
 
 .spots-list-panel{
   background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
-  display: flex; flex-direction: column; max-height: 560px;
+  display: flex; flex-direction: column; max-height: min(78vh, 820px);
 }
-@media (max-width: 900px){ .spots-list-panel{ max-height: 420px; } }
+@media (max-width: 900px){ .spots-list-panel{ max-height: min(65vh, 560px); } }
 .spots-list-header{
   padding: 16px 18px; border-bottom: 1px solid var(--line);
   font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase;

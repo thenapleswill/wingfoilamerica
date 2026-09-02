@@ -65,7 +65,7 @@ Handheld wings are sized in square meters (m²), and the size you need depends o
   <h2>Choose a Beginner Package</h2>
 </div>
 
-Buying the three pieces separately gives you more control, but plenty of retailers sell complete beginner packages — board, foil, and wing bundled together at one price, built to work together out of the box. To keep this simple, here are three real options instead of an endless list:
+Buying the three pieces separately gives you more control, but plenty of retailers sell complete beginner packages — board, foil, and wing bundled together at one price, built to work together out of the box. To keep this simple, here are a few real options instead of an endless list:
 
 <div class="package-grid">
   <div class="package-card">
@@ -82,6 +82,11 @@ Buying the three pieces separately gives you more control, but plenty of retaile
     <h3><a href="https://houstonkiteboarding.com/products/cold-front-intro-to-wing-foiling-package-sale" target="_blank" rel="noopener">Houston Kiteboarding — Wing Foil Starter Package</a></h3>
     <p>A complete starter set (board, wing, foil, pump, and both leashes) built for someone starting from zero.</p>
     <a class="btn btn-outline" href="https://houstonkiteboarding.com/products/cold-front-intro-to-wing-foiling-package-sale" target="_blank" rel="noopener" aria-label="View Houston Kiteboarding wing foil starter package (opens in a new tab)">View package &rarr;</a>
+  </div>
+  <div class="package-card">
+    <h3><a href="https://adventuresportsusa.com/collections/wings" target="_blank" rel="noopener">Adventure Sports USA — Wing + Foil</a></h3>
+    <p>A South Florida shop (Doral, Jupiter/Tequesta, and Coconut Grove) with a dedicated Wing + Foil section — boards, foils, wings, and accessories, plus lessons and rentals.</p>
+    <a class="btn btn-outline" href="https://adventuresportsusa.com/collections/wings" target="_blank" rel="noopener" aria-label="View Adventure Sports USA Wing + Foil gear (opens in a new tab)">View gear &rarr;</a>
   </div>
 </div>
 

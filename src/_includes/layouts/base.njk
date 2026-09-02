@@ -40,7 +40,7 @@
 <link rel="stylesheet" href="{{ href | url }}">
 {% endfor %}
 </head>
-<body>
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
 {% include "partials/nav.njk" %}
 <main>
 {{ content | safe }}

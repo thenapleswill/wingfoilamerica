@@ -293,9 +293,10 @@ img{ max-width: 100%; display: block; }
 
 /* ---------- package cards ---------- */
 .package-grid{
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0 8px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0 8px;
 }
-@media (max-width: 860px){ .package-grid{ grid-template-columns: 1fr; } }
+@media (max-width: 1000px){ .package-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px){ .package-grid{ grid-template-columns: 1fr; } }
 .package-card{
   background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 24px; display: flex; flex-direction: column; gap: 10px;

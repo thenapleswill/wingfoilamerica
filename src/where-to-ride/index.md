@@ -1,5 +1,6 @@
 ---
 layout: layouts/article-page.njk
+bodyClass: "wtr-page"
 title: "Where to Ride"
 eyebrow: "Find a Spot"
 description: "A growing map of U.S. wing foil launches — water type, best wind direction, skill level, and who to expect on the water, plotted so you can find a spot wherever you are."
