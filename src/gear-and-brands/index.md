@@ -100,7 +100,7 @@ Buying the three pieces separately gives you more control, but plenty of retaile
   </div>
   <div class="package-card">
     <h3><a href="https://adventuresportsusa.com/collections/wings" target="_blank" rel="noopener">Adventure Sports USA — Wing + Foil</a></h3>
-    <p>A South Florida shop (Doral, Jupiter/Tequesta, and Coconut Grove) with a dedicated Wing + Foil section — boards, foils, wings, and accessories, plus lessons and rentals.</p>
+    <p>A South Florida wing foil shop (Doral, Jupiter/Tequesta, Coconut Grove) with boards, foils, wings, lessons, and rentals.</p>
     <a class="btn btn-outline" href="https://adventuresportsusa.com/collections/wings" target="_blank" rel="noopener" aria-label="View Adventure Sports USA Wing + Foil gear (opens in a new tab)">View gear &rarr;</a>
   </div>
 </div>
