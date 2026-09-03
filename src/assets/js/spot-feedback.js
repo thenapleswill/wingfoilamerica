@@ -1,12 +1,11 @@
 (function () {
-  // Reuses the same Airtable base as Submit-a-Spot (index.md), in a
-  // separate "Spot Corrections" table + Form view that a base owner needs
-  // to create there — see README note at the bottom of this file for the
-  // exact fields expected. Submission still happens on Airtable's own
-  // hosted form (safe: no API key ships to the browser), we just get there
-  // pre-filled from our own richer form (free text + optional pin drag).
+  // Reuses the same Airtable base as Submit-a-Spot (index.md), in its own
+  // "Spot Corrections" table + Form view. Submission happens on Airtable's
+  // own hosted form (safe: no API key ships to the browser) — we just get
+  // there pre-filled from our own richer form (free text + optional pin
+  // drag), via the form's prefill_<Field Name> URL params.
   var AIRTABLE_BASE_ID = "appJHchIsjqLQ4gvL";
-  var AIRTABLE_FORM_SHARE_ID = "REPLACE_WITH_SPOT_CORRECTIONS_FORM_SHARE_ID";
+  var AIRTABLE_FORM_SHARE_ID = "shruxXMTJf28vUXnj";
 
   var openLink = document.getElementById("spotFeedbackOpen");
   var modal = document.getElementById("spotFeedbackModal");
@@ -125,32 +124,10 @@
       params.set("prefill_Submitted Lat", pos.lat.toFixed(6));
       params.set("prefill_Submitted Lng", pos.lng.toFixed(6));
     }
-    params.set("prefill_Status", "new");
+    params.set("prefill_Status", "New");
 
     iframe.src = "https://airtable.com/embed/" + AIRTABLE_BASE_ID + "/" + AIRTABLE_FORM_SHARE_ID + "?" + params.toString();
     formEl.hidden = true;
     airtableWrap.hidden = false;
   });
 })();
-
-// ---------------------------------------------------------------------------
-// SETUP NEEDED IN AIRTABLE (not something code can do — see CLAUDE.md's note
-// on things that live outside this repo):
-//
-// In the same base as Submit-a-Spot (appJHchIsjqLQ4gvL), add a table named
-// "Spot Corrections" with these fields (names must match exactly, since
-// Airtable's prefill URL params match by field name):
-//   - Spot ID           (single line text)
-//   - Spot Name         (single line text)
-//   - Submission Type   (single select: "Correction", "Confirmation")
-//   - Message           (long text)
-//   - Submitted Lat      (number, allow negative, several decimal places)
-//   - Submitted Lng      (number, allow negative, several decimal places)
-//   - Email             (email, optional)
-//   - Status            (single select: "new", "reviewed", "applied", "declined")
-//
-// Create a Form view on that table, hide the "Status" field from respondents
-// (it's still set via the prefill_Status=new param even while hidden), get
-// its share link (airtable.com/embed/appXXXXXXX/shrXXXXXXX), and paste the
-// shr... id in AIRTABLE_FORM_SHARE_ID above.
-// ---------------------------------------------------------------------------
