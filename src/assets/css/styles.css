@@ -278,12 +278,12 @@ img{ max-width: 100%; display: block; }
 }
 .step-header h2{ margin: 0; font-size: 1.5rem; }
 
-.shop-link{ margin: 4px 0 6px; }
-.shop-at-more{ font-size: 0.85rem; color: var(--foam-dim); margin: 0 0 1.6em; }
-.shop-at-more a{ color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
-.shop-at-more a:hover{ color: var(--coral-bright); }
+.shop-at-label{
+  margin: 0 0 10px; font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--teal);
+}
 
-.brand-links{ display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; }
+.brand-links{ display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 1.6em; }
 .brand-links a{
   font-weight: 600; font-size: 0.9rem; padding: 9px 16px; border-radius: 999px;
   border: 1px solid var(--line); color: var(--foam); text-decoration: none;

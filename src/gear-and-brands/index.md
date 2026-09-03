@@ -43,22 +43,37 @@ As a rough starting point by rider weight:
 
 When in doubt, size up — a bigger board costs you nothing once you're foiling, but a too-small board can cost you weeks of struggling just to balance.
 
-<a class="btn btn-accent shop-link" href="https://www.mackiteboarding.com/wing-foil-boards/" target="_blank" rel="noopener">Shop wing foil boards at MACkite &rarr;</a>
-<p class="shop-at-more">Also shop at: <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a> &middot; <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a></p>
+<p class="shop-at-label">Shop wing foil boards at:</p>
+<div class="brand-links">
+  <a href="https://www.mackiteboarding.com/wing-foil-boards/" target="_blank" rel="noopener">MACkite</a>
+  <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a>
+  <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a>
+  <a href="https://adventuresportsusa.com/collections/wing-boards" target="_blank" rel="noopener">Adventure Sports USA</a>
+</div>
 
 ### Hydrofoil (front wing size)
 
 For your first foil, look for a front wing in the **1,500–2,000 cm²** range. A bigger front wing means more lift at slower speed and a wider, more forgiving stability window — that's what makes a foil "sturdy" and beginner-friendly. Smaller, high-aspect foils are faster and more precise, but twitchy — they're a step for later, once you've got your balance dialed in.
 
-<a class="btn btn-accent shop-link" href="https://www.mackiteboarding.com/hydrofoil/" target="_blank" rel="noopener">Shop hydrofoils at MACkite &rarr;</a>
-<p class="shop-at-more">Also shop at: <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a> &middot; <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a></p>
+<p class="shop-at-label">Shop hydrofoils at:</p>
+<div class="brand-links">
+  <a href="https://www.mackiteboarding.com/hydrofoil/" target="_blank" rel="noopener">MACkite</a>
+  <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a>
+  <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a>
+  <a href="https://adventuresportsusa.com/collections/foils" target="_blank" rel="noopener">Adventure Sports USA</a>
+</div>
 
 ### Wing (measured in square meters)
 
 Handheld wings are sized in square meters (m²), and the size you need depends on the wind: bigger wings (6-7m²) catch more power and work in lighter wind, smaller wings (3-4m²) hold less power so they're manageable in strong wind. Most beginners start with one wing around **5-6m²** — it covers the widest range of everyday conditions — and add other sizes later once they know what they actually ride most. (For the full wind-speed-to-wing-size breakdown, see the [Wind](/wind/) page.)
 
-<a class="btn btn-accent shop-link" href="https://www.mackiteboarding.com/foil-wings/" target="_blank" rel="noopener">Shop wings at MACkite &rarr;</a>
-<p class="shop-at-more">Also shop at: <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a> &middot; <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a></p>
+<p class="shop-at-label">Shop wings at:</p>
+<div class="brand-links">
+  <a href="https://www.mackiteboarding.com/foil-wings/" target="_blank" rel="noopener">MACkite</a>
+  <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a>
+  <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a>
+  <a href="https://adventuresportsusa.com/collections/wings" target="_blank" rel="noopener">Adventure Sports USA</a>
+</div>
 
 <div class="step-header">
   <span class="step-num">3</span>
