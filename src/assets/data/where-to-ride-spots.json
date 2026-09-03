@@ -661,5 +661,21 @@
     "description": "On the Gulf side of North Padre Island, the wave-riding counterpart to the flat Laguna Madre bay spots nearby (like Bird Island Basin) — real Gulf swell instead of standing-depth flats, a good next step for a wing foiler ready to ride waves. Stay well clear of the pier pilings, and watch for swimmers and fishing lines off the pier, especially in summer.",
     "verified": "community-reported",
     "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes."
+  },
+  {
+    "id": "constitution-bicentennial-park",
+    "name": "Constitution Bicentennial Park (\"520 Slick\")",
+    "city": "Cocoa Beach",
+    "state": "FL",
+    "region": "Space Coast",
+    "lat": 28.357484,
+    "lng": -80.628614,
+    "waterType": "Shallow, protected water in the Banana River Lagoon between Cocoa Beach and Merritt Island",
+    "windDirection": "Not yet independently confirmed for this exact spot",
+    "skillLevel": "Beginner-friendly — an active jet-ski-supported lesson site",
+    "localsMeetHere": true,
+    "description": "Known locally as the 520 Slick, this is Good Breeze Kiteboarding's home lesson site, teaching wing foil and kiteboard lessons here in shallow, jet-ski-supported water since 2007. Confirms it as a real, active launch.",
+    "verified": "firsthand-verified",
+    "sourceNote": "Firsthand-verified (2026-09-03) — confirmed via Good Breeze Kiteboarding's current lesson-location page; address and coordinates from the City of Cocoa Beach and OpenStreetMap."
   }
 ]
