@@ -1,4 +1,27 @@
 (function () {
+  // Only fetch the hero background video on wide-enough viewports, and only
+  // if the visitor hasn't asked for reduced motion — no <source> is ever
+  // added otherwise, so mobile/reduced-motion visitors never download it at
+  // all (CSS also hides the element as a second line of defense).
+  var heroVideo = document.getElementById("heroVideo");
+  if (heroVideo) {
+    var isWideEnough = window.matchMedia("(min-width: 701px)").matches;
+    var okToAnimate = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (isWideEnough && okToAnimate && heroVideo.dataset.src) {
+      var source = document.createElement("source");
+      source.src = heroVideo.dataset.src;
+      source.type = "video/mp4";
+      heroVideo.appendChild(source);
+      heroVideo.load();
+      heroVideo.play().catch(function () {
+        // Autoplay blocked by the browser — the poster frame stays put, which
+        // is a fine fallback.
+      });
+    }
+  }
+})();
+
+(function () {
   var STORAGE_KEY = "wfa_experience_level";
   var cards = document.querySelectorAll(".experience-card[data-level]");
   if (!cards.length) return;

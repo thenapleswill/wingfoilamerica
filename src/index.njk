@@ -6,7 +6,12 @@ extraJs:
   - /assets/js/home.js
 ---
 <section class="hero">
+  <video class="hero-video" id="heroVideo" muted loop playsinline
+    poster="{{ '/assets/images/hero-poster.jpg' | url }}"
+    data-src="{{ '/assets/video/hero-background.mp4' | url }}"
+    aria-hidden="true"></video>
   <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="wrap hero-inner">
     <div class="brand-lockup">
       <div class="brand-lockup-inner">
