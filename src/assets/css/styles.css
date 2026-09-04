@@ -278,6 +278,11 @@ img{ max-width: 100%; display: block; }
 }
 .step-header h2{ margin: 0; font-size: 1.5rem; }
 
+.gear-photo{
+  width: 200px; height: 260px; object-fit: cover; border-radius: var(--radius);
+  border: 1px solid var(--line); margin: 4px 0 16px;
+}
+
 .shop-at-label{
   margin: 0 0 10px; font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase;
   letter-spacing: 0.06em; color: var(--teal);

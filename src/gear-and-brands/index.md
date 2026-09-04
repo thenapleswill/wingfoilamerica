@@ -43,6 +43,8 @@ As a rough starting point by rider weight:
 
 When in doubt, size up — a bigger board costs you nothing once you're foiling, but a too-small board can cost you weeks of struggling just to balance.
 
+<img class="gear-photo" src="/assets/images/gear/board-naish-hover-standing.jpg" alt="Naish Hover wing foil board" width="200" height="260" loading="lazy">
+
 <p class="shop-at-label">Shop wing foil boards at:</p>
 <div class="brand-links">
   <a href="https://www.mackiteboarding.com/wing-foil-boards/" target="_blank" rel="noopener">MACkite</a>
@@ -55,6 +57,8 @@ When in doubt, size up — a bigger board costs you nothing once you're foiling,
 
 For your first foil, look for a front wing in the **1,500–2,000 cm²** range. A bigger front wing means more lift at slower speed and a wider, more forgiving stability window — that's what makes a foil "sturdy" and beginner-friendly. Smaller, high-aspect foils are faster and more precise, but twitchy — they're a step for later, once you've got your balance dialed in.
 
+<img class="gear-photo" src="/assets/images/gear/hydrofoil-armstrong-full-rig.jpg" alt="Armstrong hydrofoil, fully assembled" width="200" height="260" loading="lazy">
+
 <p class="shop-at-label">Shop hydrofoils at:</p>
 <div class="brand-links">
   <a href="https://www.mackiteboarding.com/hydrofoil/" target="_blank" rel="noopener">MACkite</a>
@@ -66,6 +70,8 @@ For your first foil, look for a front wing in the **1,500–2,000 cm²** range. 
 ### Wing (measured in square meters)
 
 Handheld wings are sized in square meters (m²), and the size you need depends on the wind: bigger wings (6-7m²) catch more power and work in lighter wind, smaller wings (3-4m²) hold less power so they're manageable in strong wind. Most beginners start with one wing around **5-6m²** — it covers the widest range of everyday conditions — and add other sizes later once they know what they actually ride most. (For the full wind-speed-to-wing-size breakdown, see the [Wind](/wind/) page.)
+
+<img class="gear-photo" src="/assets/images/gear/wing-naish-adx-front-full.jpg" alt="Naish ADX wing foil, 6m" width="200" height="260" loading="lazy">
 
 <p class="shop-at-label">Shop wings at:</p>
 <div class="brand-links">
