@@ -9,7 +9,7 @@
   --calc-text-dim: #9fb4c2;
   --calc-accent: #ff6b35;
   --calc-accent-2: #2ec4b6;
-  --calc-radius: 14px;
+  --calc-radius: 4px;
 }
 #gear-calculator-root, #gear-calculator-root *{ box-sizing: border-box; }
 
@@ -113,7 +113,7 @@
 #gear-calculator-root .result-block p:last-child{ margin-bottom: 0; }
 #gear-calculator-root .result-links{ display: flex; flex-wrap: wrap; gap: 10px; }
 #gear-calculator-root .result-links a{
-  font-weight: 600; font-size: 0.86rem; padding: 9px 16px; border-radius: 999px;
+  font-weight: 600; font-size: 0.86rem; padding: 9px 16px; border-radius: 5px;
   border: 1px solid var(--calc-panel-border); color: var(--calc-text); text-decoration: none;
 }
 #gear-calculator-root .result-links a:hover{ border-color: var(--calc-accent-2); color: var(--calc-accent-2); }

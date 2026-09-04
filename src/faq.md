@@ -77,7 +77,7 @@ Check the [Where to Ride map](/where-to-ride/) — it lists real spots with wate
 
 **Can I suggest a spot that's not on the map?**
 
-Yes — use the Submit a Spot button on the [Where to Ride page](/where-to-ride/). Submissions are reviewed before anything gets added to the map.
+Yes — use the Add a Spot button on the [Where to Ride page](/where-to-ride/). Submissions are reviewed before anything gets added to the map.
 
 **Can I submit my own story, trip report, or photos?**
 
@@ -235,7 +235,7 @@ Reach out any way you already have — a dedicated contact method is coming soon
       "name": "Can I suggest a spot that's not on the map?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — use the Submit a Spot button on the Where to Ride page. Submissions are reviewed before anything gets added to the map."
+        "text": "Yes — use the Add a Spot button on the Where to Ride page. Submissions are reviewed before anything gets added to the map."
       }
     },
     {

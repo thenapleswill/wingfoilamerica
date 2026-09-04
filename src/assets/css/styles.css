@@ -14,9 +14,9 @@
   --teal-dim: #1f8b83;
   --line: rgba(244,249,247,0.14);
   --font-display: "Archivo Black", "Arial Black", sans-serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Libre Franklin", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --radius: 14px;
+  --radius: 4px;
   --wrap: 1120px;
 }
 
@@ -54,7 +54,7 @@ img{ max-width: 100%; display: block; }
 /* ---------- buttons ---------- */
 .btn{
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 14px 26px; border-radius: 999px; font-weight: 700; font-size: 0.95rem;
+  padding: 14px 26px; border-radius: 5px; font-weight: 700; font-size: 0.95rem;
   border: 1px solid transparent; cursor: pointer; transition: transform 0.15s ease, background 0.15s ease;
 }
 .btn-accent{ background: var(--coral); color: var(--ink); }
@@ -168,7 +168,7 @@ img{ max-width: 100%; display: block; }
 .brand-icon{ width: calc(var(--wm-size) * 2.04); height: calc(var(--wm-size) * 2.04); flex: none; }
 .brand-wave{ width: 100%; height: auto; display: block; }
 
-.hero h1{ font-size: clamp(2.4rem, 5.5vw, 4rem); margin-bottom: 22px; }
+.hero h1{ font-size: clamp(2.8rem, 7.5vw, 5.75rem); margin-bottom: 22px; }
 .hero h1 .accent{ color: var(--coral); }
 .hero-sub{ font-size: 1.15rem; max-width: 560px; margin: 0 auto 8px; }
 .hero-cta{ margin-top: 20px; }
@@ -181,37 +181,72 @@ img{ max-width: 100%; display: block; }
 .welcome-back-text{ margin: 0; font-size: 1rem; }
 .welcome-back-text strong{ color: var(--teal); }
 
-.experience-prompt{ margin: 56px 0 28px; position: relative; z-index: 1; text-align: center; }
-.experience-prompt h2{ font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
-
-.experience-grid{
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
-  background: var(--line); border: 1px solid var(--line); border-radius: var(--radius);
-  overflow: hidden; position: relative; z-index: 1;
-  max-width: 900px; margin: 0 auto;
+/* Section rhythm: this whole block (prompt + progression) sits on a light
+   foam band between the dark hero and the dark newsletter section below —
+   full-bleed via the same box-shadow/clip-path technique as .section-header. */
+.experience-band{
+  padding: 64px 0 84px; margin-top: 40px; position: relative; z-index: 1;
+  background: var(--foam); box-shadow: 0 0 0 100vmax var(--foam); clip-path: inset(0 -100vmax);
 }
-@media (max-width: 720px){ .experience-grid{ grid-template-columns: 1fr; } }
+
+.experience-prompt{ margin: 0 0 28px; text-align: center; }
+.experience-prompt h2{ font-size: clamp(1.9rem, 4vw, 2.6rem); color: var(--ink); }
+
+/* Editorial numbered progression, not four uniform bordered cards: a single
+   list of rows divided by thin rules, with a big index numeral doing the
+   visual work a card border/shadow used to do. */
+.experience-grid{
+  display: flex; flex-direction: column;
+  max-width: 900px; margin: 0 auto;
+  border-top: 1px solid rgba(6,35,44,0.16);
+}
 
 .experience-card{
-  background: var(--ink-2); padding: 48px 40px; display: block; cursor: pointer;
-  border-top: 4px solid transparent; transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  display: flex; align-items: flex-start; gap: 24px; cursor: pointer;
+  padding: 32px 4px; border-bottom: 1px solid rgba(6,35,44,0.16);
+  text-decoration: none; transition: gap 0.2s ease;
 }
-.experience-card:hover{ background: var(--ink-3); border-top-color: var(--teal); transform: translateY(-4px); }
-.experience-card .level{
-  font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--coral); margin-bottom: 18px; display: block;
-}
-.experience-card h3{ font-size: 1.6rem; margin-bottom: 14px; color: var(--foam); }
-.experience-card p{ font-size: 1rem; margin-bottom: 22px; }
-.experience-card .go{ font-size: 0.95rem; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: 6px; transition: gap 0.15s; }
+.experience-card:hover{ gap: 32px; }
+.experience-card:hover .experience-card-num{ color: var(--ink); }
 .experience-card:hover .go{ gap: 10px; }
+
+.experience-card-num{
+  flex: none; padding-top: 4px; line-height: 1; transition: color 0.2s ease;
+  font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); color: var(--ink-3);
+}
+.experience-card-body{ flex: 1; min-width: 0; }
+.experience-card .level{
+  font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--teal-dim); margin-bottom: 8px; display: block;
+}
+.experience-card h3{ font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 0 0 8px; color: var(--ink); }
+.experience-card p{ font-size: 0.98rem; margin: 0 0 14px; color: var(--ink-3); }
+.experience-card .go{
+  font-size: 0.92rem; font-weight: 600; color: var(--teal-dim);
+  display: inline-flex; align-items: center; gap: 6px; transition: gap 0.15s, color 0.15s;
+}
+
+@media (max-width: 640px){
+  .experience-card{ gap: 16px; padding: 24px 2px; }
+  .experience-card:hover{ gap: 16px; }
+  .experience-card-num{ font-size: 2rem; }
+}
 
 /* ==========================================================================
    Guide index + cards
    ========================================================================== */
-.section-header{ padding: 72px 0 8px; text-align: left; }
-.section-header h1{ font-size: clamp(2rem, 4.5vw, 2.8rem); }
-.section-header-lede{ max-width: 640px; font-size: 1.05rem; }
+/* Light foam band behind the page header — breaks up the otherwise uniform
+   dark background. box-shadow + clip-path bleeds the fill to full viewport
+   width without touching this element's own layout box (so it can't
+   introduce horizontal scroll), even though the element itself stays
+   centered/max-width via .wrap. */
+.section-header{
+  padding: 64px 0 52px; text-align: left;
+  background: var(--foam); box-shadow: 0 0 0 100vmax var(--foam); clip-path: inset(0 -100vmax);
+}
+.section-header .eyebrow{ color: var(--teal-dim); }
+.section-header h1{ font-size: clamp(2.4rem, 6vw, 4rem); color: var(--ink); }
+.section-header-lede{ max-width: 640px; font-size: 1.05rem; color: var(--ink-3); }
 
 .guide-grid{
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; padding: 40px 0 90px;
@@ -224,7 +259,7 @@ img{ max-width: 100%; display: block; }
 }
 .guide-card:hover{ transform: translateY(-4px); border-color: var(--teal); }
 .guide-card .num{ font-family: var(--font-mono); color: var(--coral); font-size: 0.85rem; }
-.guide-card h2{ font-size: 1.2rem; margin: 10px 0; }
+.guide-card h2{ font-size: 1.35rem; margin: 10px 0; }
 .guide-card a.card-link{ color: var(--foam); }
 .guide-card a.card-link:hover{ color: var(--teal); }
 .guide-card .go{ font-size: 0.85rem; color: var(--teal); }
@@ -233,10 +268,10 @@ img{ max-width: 100%; display: block; }
 .guide-page{ padding: 60px 0 40px; max-width: 760px; }
 .breadcrumb{ font-size: 0.85rem; color: var(--foam-faint); margin-bottom: 28px; }
 .breadcrumb span{ margin: 0 6px; }
-.guide-page-header h1{ font-size: clamp(2rem, 4vw, 2.6rem); }
+.guide-page-header h1{ font-size: clamp(2.3rem, 5vw, 3.4rem); }
 .guide-page-lede{ font-size: 1.1rem; }
-.guide-page-body h2{ font-size: 1.4rem; margin-top: 1.6em; color: var(--foam); }
-.guide-page-body h3{ font-size: 1.15rem; margin-top: 1.4em; color: var(--foam); }
+.guide-page-body h2{ font-size: 1.65rem; margin-top: 1.6em; color: var(--foam); }
+.guide-page-body h3{ font-size: 1.25rem; margin-top: 1.4em; color: var(--foam); }
 .guide-page-body ul, .guide-page-body ol{ color: var(--foam-dim); padding-left: 1.3em; }
 .guide-page-body li{ margin-bottom: 0.5em; }
 .guide-page-body strong{ color: var(--foam); }
@@ -255,15 +290,30 @@ img{ max-width: 100%; display: block; }
 
 /* ---------- generic long-form article page (e.g. Wind) ---------- */
 .article-page{ padding: 60px 0 90px; max-width: 760px; }
-.article-page-header h1{ font-size: clamp(2rem, 4.5vw, 2.8rem); }
+.article-page-header h1{ font-size: clamp(2.3rem, 5vw, 3.4rem); }
 .article-page-lede{ font-size: 1.1rem; }
-.article-page-body h2{ font-size: 1.4rem; margin-top: 1.7em; color: var(--foam); }
-.article-page-body h3{ font-size: 1.15rem; margin-top: 1.4em; color: var(--foam); }
+.article-page-body h2{ font-size: 1.65rem; margin-top: 1.7em; color: var(--foam); }
+.article-page-body h3{ font-size: 1.25rem; margin-top: 1.4em; color: var(--foam); }
 .article-page-body ul, .article-page-body ol{ color: var(--foam-dim); padding-left: 1.3em; }
 .article-page-body li{ margin-bottom: 0.5em; }
 .article-page-body strong{ color: var(--foam); }
 .article-page-body a{ text-decoration: underline; text-underline-offset: 3px; }
 .article-page-body a.btn{ text-decoration: none; }
+
+/* Section rhythm: a couple of major landing pages opt into the same light
+   foam header band as .section-header, scoped via bodyClass so it never
+   touches the many other pages (Wind included) that share this layout. */
+.gear-page .article-page-header,
+.wtr-page .article-page-header{
+  padding: 56px 0 44px; margin: 0 0 8px;
+  background: var(--foam); box-shadow: 0 0 0 100vmax var(--foam); clip-path: inset(0 -100vmax);
+}
+.gear-page .article-page-header .eyebrow,
+.wtr-page .article-page-header .eyebrow{ color: var(--teal-dim); }
+.gear-page .article-page-header h1,
+.wtr-page .article-page-header h1{ color: var(--ink); }
+.gear-page .article-page-lede,
+.wtr-page .article-page-lede{ color: var(--ink-3); }
 
 /* ---------- numbered step headers (e.g. Gear & Brands) ---------- */
 .step-header{
@@ -276,7 +326,7 @@ img{ max-width: 100%; display: block; }
   width: 40px; height: 40px; border-radius: 50%; background: var(--coral); color: var(--ink);
   font-family: var(--font-display); font-size: 1.1rem;
 }
-.step-header h2{ margin: 0; font-size: 1.5rem; }
+.step-header h2{ margin: 0; font-size: 1.75rem; }
 
 .gear-photo{
   width: 200px; height: 260px; object-fit: cover; border-radius: var(--radius);
@@ -290,7 +340,7 @@ img{ max-width: 100%; display: block; }
 
 .brand-links{ display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px; margin: 0 0 1.6em; }
 .brand-links a{
-  font-weight: 600; font-size: 0.9rem; padding: 9px 16px; border-radius: 999px;
+  font-weight: 600; font-size: 0.9rem; padding: 9px 16px; border-radius: 5px;
   border: 1px solid var(--line); color: var(--foam); text-decoration: none; text-align: center;
   min-height: 44px; display: flex; align-items: center; justify-content: center; box-sizing: border-box;
 }
@@ -329,7 +379,7 @@ img{ max-width: 100%; display: block; }
    Coming soon
    ========================================================================== */
 .coming-soon{ padding: 90px 0 40px; max-width: 680px; }
-.coming-soon h1{ font-size: clamp(2rem, 4.5vw, 2.8rem); }
+.coming-soon h1{ font-size: clamp(2.3rem, 5vw, 3.4rem); }
 .coming-soon-lede{ font-size: 1.1rem; }
 .coming-soon-card{
   background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
@@ -400,7 +450,7 @@ img{ max-width: 100%; display: block; }
   font-family: var(--font-display); color: var(--coral); font-size: clamp(3.5rem, 10vw, 6rem);
   line-height: 1; margin: 0 0 16px;
 }
-.error-page h1{ font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 16px; }
+.error-page h1{ font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin-bottom: 16px; }
 .error-sub{ font-size: 1.05rem; margin-bottom: 32px; }
 .error-actions{ margin-bottom: 24px; }
 .error-hint{ font-size: 0.9rem; color: var(--foam-dim); }

@@ -55,7 +55,7 @@ full rundown, or jump straight to the bottom to tell us about a spot that's miss
 
 <div class="submit-spot">
   <p class="submit-spot-note">Submissions come straight to Will for review — nothing publishes automatically.</p>
-  <button type="button" id="submitSpotOpen" class="btn btn-accent">Submit a Spot</button>
+  <button type="button" id="submitSpotOpen" class="btn btn-accent">Add a Spot</button>
 </div>
 
 <div class="submit-spot-modal" id="submitSpotModal" hidden>
@@ -64,7 +64,7 @@ full rundown, or jump straight to the bottom to tell us about a spot that's miss
     <div class="submit-spot-modal-header">
       <div>
         <p class="eyebrow submit-spot-modal-eyebrow">Where to Ride</p>
-        <h2 id="submitSpotModalTitle" class="submit-spot-modal-title">Submit a Spot</h2>
+        <h2 id="submitSpotModalTitle" class="submit-spot-modal-title">Add a Spot</h2>
       </div>
       <button type="button" class="submit-spot-modal-close" data-modal-close aria-label="Close">&times;</button>
     </div>

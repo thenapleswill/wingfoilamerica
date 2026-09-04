@@ -1,5 +1,6 @@
 ---
 layout: layouts/article-page.njk
+bodyClass: "gear-page"
 title: "Gear & Brands — Getting Started"
 eyebrow: "Gear & Brands"
 description: "The three things a beginner actually needs to buy, explained simply, with direct links to buy them and to real beginner package deals."
