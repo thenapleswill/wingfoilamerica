@@ -5,9 +5,14 @@
   // all (CSS also hides the element as a second line of defense).
   var heroVideo = document.getElementById("heroVideo");
   if (heroVideo) {
-    var isWideEnough = window.matchMedia("(min-width: 701px)").matches;
+    // Mirrors the CSS breakpoint that hides .hero-video: off below 700px
+    // wide, and off on short/landscape phones too (not just portrait), so
+    // JS never fetches a video CSS is about to hide anyway.
+    var isHiddenByCss = window.matchMedia(
+      "(max-width: 700px), (max-height: 700px) and (orientation: landscape)"
+    ).matches;
     var okToAnimate = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (isWideEnough && okToAnimate && heroVideo.dataset.src) {
+    if (!isHiddenByCss && okToAnimate && heroVideo.dataset.src) {
       var source = document.createElement("source");
       source.src = heroVideo.dataset.src;
       source.type = "video/mp4";

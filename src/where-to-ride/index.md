@@ -66,6 +66,7 @@ or add one yourself below the map if you know a spot that's missing.
 
     <div id="submitSpotMapStep">
       <p class="submit-spot-map-instruction">Click exactly where you'd launch from.</p>
+      <p class="submit-spot-map-note">After choosing your location, you'll add details like water type, wind, and skill level next.</p>
       <div id="submitSpotMap" class="submit-spot-map"></div>
       <p class="submit-spot-map-coords" id="submitSpotCoords" hidden></p>
       <button type="button" class="btn btn-accent" id="submitSpotContinueBtn" disabled>Continue</button>
