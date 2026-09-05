@@ -16,8 +16,8 @@ extraJs:
 ---
 
 A living map of places wing foilers actually ride — built from research so far, and growing as
-real, ridden reports come in. Zoom in to split up clusters, click any pin or list entry for the
-full rundown, or jump straight to the bottom to tell us about a spot that's missing.
+real, ridden reports come in. Zoom in to split up clusters, click any pin for the full rundown,
+or add one yourself below the map if you know a spot that's missing.
 
 <div class="map-legend">
   <span><span class="spot-pin spot-pin--verified" aria-hidden="true"></span> Firsthand verified</span>
@@ -25,13 +25,15 @@ full rundown, or jump straight to the bottom to tell us about a spot that's miss
 </div>
 
 <div id="where-to-ride-app" data-spots-url="{{ '/assets/data/where-to-ride-spots.json' | url }}" data-spot-base-url="{{ '/where-to-ride/' | url }}">
-  <div class="wtr-layout">
-    <div id="spotsMap"></div>
-    <div class="spots-list-panel">
-      <div class="spots-list-header"><span id="spotsListCount">Loading spots&hellip;</span></div>
-      <ul id="spotsList" class="spots-list"></ul>
-    </div>
+  <div id="spotsMap"></div>
+</div>
+
+<div class="add-spot-callout">
+  <div class="add-spot-callout-text">
+    <h2>Know a spot that should be here?</h2>
+    <p class="submit-spot-note">Submissions come straight to Will for review — nothing publishes automatically.</p>
   </div>
+  <button type="button" id="submitSpotOpen" class="btn btn-accent add-spot-callout-btn">Add a Spot</button>
 </div>
 
 <section class="spots-directory" aria-labelledby="spots-directory-heading">
@@ -51,13 +53,6 @@ full rundown, or jump straight to the bottom to tell us about a spot that's miss
   {%- endfor %}
 </section>
 
-## Know a spot that should be here?
-
-<div class="submit-spot">
-  <p class="submit-spot-note">Submissions come straight to Will for review — nothing publishes automatically.</p>
-  <button type="button" id="submitSpotOpen" class="btn btn-accent">Add a Spot</button>
-</div>
-
 <div class="submit-spot-modal" id="submitSpotModal" hidden>
   <div class="submit-spot-modal-backdrop" data-modal-close></div>
   <div class="submit-spot-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="submitSpotModalTitle">
@@ -68,6 +63,16 @@ full rundown, or jump straight to the bottom to tell us about a spot that's miss
       </div>
       <button type="button" class="submit-spot-modal-close" data-modal-close aria-label="Close">&times;</button>
     </div>
-    <iframe id="submitSpotIframe" class="airtable-embed" data-src="https://airtable.com/embed/appJHchIsjqLQ4gvL/shr9crEhnDAMc3X2U" frameborder="0" width="100%" height="533" style="background: transparent;"></iframe>
+
+    <div id="submitSpotMapStep">
+      <p class="submit-spot-map-instruction">Click exactly where you'd launch from.</p>
+      <div id="submitSpotMap" class="submit-spot-map"></div>
+      <p class="submit-spot-map-coords" id="submitSpotCoords" hidden></p>
+      <button type="button" class="btn btn-accent" id="submitSpotContinueBtn" disabled>Continue</button>
+    </div>
+
+    <div id="submitSpotAirtableWrap" hidden>
+      <iframe id="submitSpotIframe" class="airtable-embed" frameborder="0" width="100%" height="533" style="background: transparent;"></iframe>
+    </div>
   </div>
 </div>

@@ -11,7 +11,6 @@
   var spotsUrl = root.dataset.spotsUrl;
   var spotBaseUrl = root.dataset.spotBaseUrl;
   var mapEl = document.getElementById("spotsMap");
-  var listEl = document.getElementById("spotsList");
 
   function goToSpot(spot) {
     window.location.href = spotBaseUrl + spot.id + "/";
@@ -42,29 +41,7 @@
     });
   }
 
-  function buildListItem(spot) {
-    var li = document.createElement("li");
-    li.className = "spot-list-item";
-    li.setAttribute("data-spot-id", spot.id);
-    li.setAttribute("tabindex", "0");
-    li.setAttribute("role", "button");
-    var verifiedClass = spot.verified === VERIFIED_VALUE ? "spot-pin--verified" : "spot-pin--community";
-    var statusLabel = spot.verified === VERIFIED_VALUE ? "Firsthand verified" : "Community-reported";
-    li.setAttribute("aria-label", spot.name + " — " + statusLabel);
-    li.innerHTML =
-      '<span class="spot-pin spot-list-item-pin ' + verifiedClass + '" aria-hidden="true"></span>' +
-      '<span class="spot-list-item-body">' +
-      '<span class="spot-list-item-name">' + escapeHTML(spot.name) + "</span>" +
-      '<span class="spot-list-item-meta">' + escapeHTML(spot.city) + ", " + escapeHTML(spot.state) +
-      " &middot; " + escapeHTML(spot.skillLevel) + " &middot; " + escapeHTML(statusLabel) + "</span>" +
-      "</span>";
-    return li;
-  }
-
   function initMap(spots) {
-    var countEl = document.getElementById("spotsListCount");
-    if (countEl) countEl.textContent = spots.length + (spots.length === 1 ? " spot" : " spots");
-
     var map = L.map(mapEl, { scrollWheelZoom: true });
 
     // CARTO's free raster basemap started requiring an API key, so this uses Esri's
@@ -81,7 +58,7 @@
       "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}",
       { maxZoom: 16 }
     );
-    var darkLayer = L.layerGroup([darkBase, darkReference]).addTo(map);
+    var darkLayer = L.layerGroup([darkBase, darkReference]);
 
     var satelliteLayer = L.tileLayer(
       "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
@@ -90,39 +67,19 @@
           '&copy; <a href="https://www.esri.com">Esri</a>, Maxar, Earthstar Geographics, and the GIS User Community',
         maxZoom: 18,
       }
-    );
+    ).addTo(map);
 
-    L.control.layers({ "Map": darkLayer, "Satellite": satelliteLayer }, null, { position: "topright" }).addTo(map);
+    L.control.layers({ "Satellite": satelliteLayer, "Map": darkLayer }, null, { position: "topright" }).addTo(map);
 
     var clusterGroup = L.markerClusterGroup({ maxClusterRadius: 50 });
-    var spotsById = {};
 
     spots.forEach(function (spot) {
       var marker = L.marker([spot.lat, spot.lng], { icon: makeIcon(spot) });
       marker.on("click", function () { goToSpot(spot); });
       clusterGroup.addLayer(marker);
-      spotsById[spot.id] = spot;
-
-      var li = buildListItem(spot);
-      listEl.appendChild(li);
     });
 
     map.addLayer(clusterGroup);
-
-    listEl.addEventListener("click", function (event) {
-      var li = event.target.closest("[data-spot-id]");
-      if (!li) return;
-      var spot = spotsById[li.getAttribute("data-spot-id")];
-      if (spot) goToSpot(spot);
-    });
-
-    listEl.addEventListener("keydown", function (event) {
-      if (event.key !== "Enter" && event.key !== " ") return;
-      var li = event.target.closest("[data-spot-id]");
-      if (!li) return;
-      event.preventDefault();
-      li.click();
-    });
 
     var bounds = clusterGroup.getBounds();
     function fallbackView() {
@@ -165,20 +122,88 @@
     }
   }
 
-  // ---- Submit a Spot modal ----
+  // ---- Add a Spot modal: click-a-map-point step, then the Airtable embed ----
+  // Same Airtable base/table as before ("Table 1"); the two lat/lng fields are
+  // now set by clicking the map instead of guessed/researched after the fact,
+  // via the same prefill_<Field Name>/hide_<Field Name> URL params already
+  // used by the spot-feedback flow on individual spot pages.
+  var AIRTABLE_BASE_ID = "appJHchIsjqLQ4gvL";
+  var AIRTABLE_FORM_SHARE_ID = "shr9crEhnDAMc3X2U";
+
   var submitOpenBtn = document.getElementById("submitSpotOpen");
   var submitModal = document.getElementById("submitSpotModal");
   if (submitOpenBtn && submitModal) {
+    var mapStepEl = document.getElementById("submitSpotMapStep");
+    var pickerMapEl = document.getElementById("submitSpotMap");
+    var coordsEl = document.getElementById("submitSpotCoords");
+    var continueBtn = document.getElementById("submitSpotContinueBtn");
+    var airtableWrap = document.getElementById("submitSpotAirtableWrap");
     var submitIframe = document.getElementById("submitSpotIframe");
     var lastFocused = null;
+    var pickerMap = null;
+    var pickerMarker = null;
+    var pickedLatLng = null;
+
+    function updateCoordsDisplay() {
+      if (!pickedLatLng) {
+        coordsEl.hidden = true;
+        continueBtn.disabled = true;
+        return;
+      }
+      coordsEl.textContent = pickedLatLng.lat.toFixed(6) + ", " + pickedLatLng.lng.toFixed(6);
+      coordsEl.hidden = false;
+      continueBtn.disabled = false;
+    }
+
+    function placeMarker(latlng) {
+      pickedLatLng = latlng;
+      if (pickerMarker) {
+        pickerMarker.setLatLng(latlng);
+      } else {
+        pickerMarker = L.marker(latlng, { draggable: true }).addTo(pickerMap);
+        pickerMarker.on("dragend", function () {
+          pickedLatLng = pickerMarker.getLatLng();
+          updateCoordsDisplay();
+        });
+      }
+      updateCoordsDisplay();
+    }
+
+    function initPickerMapIfNeeded() {
+      if (pickerMap || typeof L === "undefined") return;
+      pickerMap = L.map(pickerMapEl, { scrollWheelZoom: true }).setView([39.5, -98.35], 4);
+      L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        {
+          attribution:
+            '&copy; <a href="https://www.esri.com">Esri</a>, Maxar, Earthstar Geographics, and the GIS User Community',
+          maxZoom: 18,
+        }
+      ).addTo(pickerMap);
+      pickerMap.on("click", function (event) { placeMarker(event.latlng); });
+      // The map starts inside a hidden modal, which gives Leaflet a zero-size
+      // box to measure; fix its size once it's actually visible.
+      setTimeout(function () { pickerMap.invalidateSize(); }, 50);
+    }
+
+    function resetModal() {
+      mapStepEl.hidden = false;
+      airtableWrap.hidden = true;
+      submitIframe.removeAttribute("src");
+      pickedLatLng = null;
+      if (pickerMarker && pickerMap) {
+        pickerMap.removeLayer(pickerMarker);
+        pickerMarker = null;
+      }
+      updateCoordsDisplay();
+    }
 
     function openSubmitModal() {
       lastFocused = document.activeElement;
-      if (submitIframe && !submitIframe.getAttribute("src")) {
-        submitIframe.setAttribute("src", submitIframe.getAttribute("data-src"));
-      }
+      resetModal();
       submitModal.removeAttribute("hidden");
       document.body.classList.add("modal-open");
+      initPickerMapIfNeeded();
       var closeBtn = submitModal.querySelector(".submit-spot-modal-close");
       if (closeBtn) closeBtn.focus();
     }
@@ -190,6 +215,18 @@
     }
 
     submitOpenBtn.addEventListener("click", openSubmitModal);
+
+    continueBtn.addEventListener("click", function () {
+      if (!pickedLatLng) return;
+      var params = new URLSearchParams();
+      params.set("prefill_Submitted Lat", pickedLatLng.lat.toFixed(6));
+      params.set("prefill_Submitted Lng", pickedLatLng.lng.toFixed(6));
+      params.set("hide_Submitted Lat", "true");
+      params.set("hide_Submitted Lng", "true");
+      submitIframe.src = "https://airtable.com/embed/" + AIRTABLE_BASE_ID + "/" + AIRTABLE_FORM_SHARE_ID + "?" + params.toString();
+      mapStepEl.hidden = true;
+      airtableWrap.hidden = false;
+    });
 
     submitModal.querySelectorAll("[data-modal-close]").forEach(function (el) {
       el.addEventListener("click", closeSubmitModal);
