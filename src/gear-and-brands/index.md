@@ -44,7 +44,14 @@ As a rough starting point by rider weight:
 
 When in doubt, size up — a bigger board costs you nothing once you're foiling, but a too-small board can cost you weeks of struggling just to balance.
 
-<img class="gear-photo" src="/assets/images/gear/board-naish-hover-standing.jpg" alt="Naish Hover wing foil board" width="200" height="260" loading="lazy">
+<div class="gear-photo-row">
+  <img class="gear-photo" src="/assets/images/gear/board-naish-hover-standing.jpg" alt="Naish Hover wing foil board" width="200" height="260" loading="lazy">
+  <img class="gear-photo" src="/assets/images/gear/board-cabrinha-swift-standing.jpg" alt="Cabrinha Swift wing foil board" width="200" height="260" loading="lazy">
+</div>
+
+**Beginner board vs. midlength board.** The Naish Hover above is what I started on, and it's still what I'd point a first-timer toward — its size and volume make it stable and forgiving while you're just learning to balance and get up. The Cabrinha Swift next to it is the board I've since moved to: narrower, with noticeably less volume and stability, but its shape gets you up on foil faster once you've actually got your balance dialed in. It's a natural next step once the basics are solid, not a first board — see [Level Up Your Gear](/gear-and-brands/level-up/) for more on when and how to make that jump.
+
+<img class="gear-photo" src="/assets/images/gear/boards-naish-cabrinha-lineup.jpg" alt="Naish Hover and Cabrinha Swift wing foil boards side by side" width="200" height="260" loading="lazy">
 
 <p class="shop-at-label">Shop wing foil boards at:</p>
 <div class="brand-links">

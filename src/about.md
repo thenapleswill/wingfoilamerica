@@ -24,6 +24,9 @@ Jack is an accomplished windsurfer who'd gotten into wing foiling a year or two 
 
 When we finally met on the beach, he introduced himself and spent time talking us through the fundamentals — what we needed to learn, what to work on. We had the same home beach, so we started sailing together. He'd sail, and I'd mostly get blown downwind, fall, get up, and walk my gear back upwind — again and again. People on the beach used to say things like "good for you, that looks tough" or "wow, you look tired." Somewhere along the way that shifted to "that looks like so much fun" and "that looks so cool." Jack and I still joke about that transition.
 
+![Will, Jack, and a friend standing on the beach with a wing laid out in front of them, ready to launch.](/assets/images/about/three-riders-beach.jpg)
+*Me, Jack, and a friend gearing up for a session.*
+
 Part of learning this sport was understanding how wind direction relates to the beach you're standing on. Naples runs north-south, and that pushed us to start taking trips to Sanibel Island, which runs east-west — between the two, we're within an hour of every wind orientation we need for good side or side-onshore conditions.
 
 Buying used gear came with its own problems, and again Jack came through — he started lending me gear he'd outgrown, and I eventually bought some of it outright, which meant I finally had solid equipment. I call him my meteorologist, half-joking, because he's constantly sending me wind updates, and early on he taught me to read whitecaps, wind lines, and ripples to spot gusts in light wind — techniques he'd carried over from years of windsurfing.
