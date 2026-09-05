@@ -108,14 +108,14 @@ Buying the three pieces separately gives you more control, but plenty of retaile
     <a class="btn btn-outline" href="https://www.windance.com/collections/wing-foil-packages" target="_blank" rel="noopener" aria-label="View Windance wing foil packages (opens in a new tab)">View packages &rarr;</a>
   </div>
   <div class="package-card">
-    <h3><a href="https://houstonkiteboarding.com/products/cold-front-intro-to-wing-foiling-package-sale" target="_blank" rel="noopener">Houston Kiteboarding — Wing Foil Starter Package</a></h3>
+    <h3><a href="https://houstonkiteboarding.com/collections/wingfoil-complete-packages" target="_blank" rel="noopener">Houston Kiteboarding — Wing Foil Starter Package</a></h3>
     <p>A complete starter set (board, wing, foil, pump, and both leashes) built for someone starting from zero.</p>
-    <a class="btn btn-outline" href="https://houstonkiteboarding.com/products/cold-front-intro-to-wing-foiling-package-sale" target="_blank" rel="noopener" aria-label="View Houston Kiteboarding wing foil starter package (opens in a new tab)">View package &rarr;</a>
+    <a class="btn btn-outline" href="https://houstonkiteboarding.com/collections/wingfoil-complete-packages" target="_blank" rel="noopener" aria-label="View Houston Kiteboarding wing foil starter package (opens in a new tab)">View package &rarr;</a>
   </div>
   <div class="package-card">
-    <h3><a href="https://adventuresportsusa.com/collections/wings" target="_blank" rel="noopener">Adventure Sports USA — Wing + Foil</a></h3>
-    <p>A South Florida wing foil shop (Doral, Jupiter/Tequesta, Coconut Grove) with boards, foils, wings, lessons, and rentals.</p>
-    <a class="btn btn-outline" href="https://adventuresportsusa.com/collections/wings" target="_blank" rel="noopener" aria-label="View Adventure Sports USA Wing + Foil gear (opens in a new tab)">View gear &rarr;</a>
+    <h3><a href="https://adventuresportsusa.com/collections/wing-foils" target="_blank" rel="noopener">Adventure Sports USA — Wing + Foil</a></h3>
+    <p>A South Florida wing foil shop (Doral, Jupiter/Tequesta, Coconut Grove). Shop wings, boards & foils individually — no pre-bundled package here.</p>
+    <a class="btn btn-outline" href="https://adventuresportsusa.com/collections/wing-foils" target="_blank" rel="noopener" aria-label="View Adventure Sports USA Wing + Foil gear (opens in a new tab)">View gear &rarr;</a>
   </div>
 </div>
 
