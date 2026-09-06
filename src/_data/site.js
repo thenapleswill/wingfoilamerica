@@ -13,6 +13,12 @@ module.exports = {
     { title: "Beginner Guide", url: "/beginner-guide/" },
     { title: "Intermediate & Advanced", url: "/intermediate-advanced/" },
     { title: "Gear & Brands", url: "/gear-and-brands/" },
+    {
+      title: "Shop",
+      url: "https://wingfoilamerica.printful.me",
+      external: true,
+      ariaLabel: "Wing Foil America shop on Printful, opens in a new tab",
+    },
     { title: "Wind", url: "/wind/" },
     { title: "Bio", url: "/about/" },
   ],
