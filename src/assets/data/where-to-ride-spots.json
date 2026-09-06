@@ -52,20 +52,20 @@
   },
   {
     "id": "mission-bay-east",
-    "name": "Mission Bay (East / Hilton Area)",
+    "name": "Fiesta Island - Enchanted Cove",
     "city": "San Diego",
     "state": "CA",
     "region": "San Diego",
-    "lat": 32.7793,
-    "lng": -117.2109,
+    "lat": 32.769,
+    "lng": -117.223,
     "waterType": "Flat, protected bay water",
     "windDirection": "Typically onshore/westerly afternoon sea breeze (not independently confirmed for this exact spot)",
     "idealWindDirections": ["W"],
     "skillLevel": "Beginner",
     "localsMeetHere": true,
-    "description": "San Diego's go-to wing foil spot and the local favorite for lessons — flat, protected bay water instead of open SoCal coast chop, which makes it one of the friendlier beginner launches on this list. MANTA Wind and Water Sports (chief instructor John Arthur) teaches wing foil lessons here, confirming it as a real, active launch.",
+    "description": "San Diego's go-to wing foil spot at Fiesta Island's Enchanted Cove — flat, protected bay water instead of open SoCal coast chop, which makes it one of the friendlier beginner launches on this list. MANTA Wind and Water Sports (chief instructor John Arthur) teaches here: kiteboarding on the cove's northwest corner, wing foiling on the southwest corner.",
     "verified": "firsthand-verified",
-    "sourceNote": "Firsthand-verified (2026-09-02) — confirmed via MANTA Wind and Water Sports (chief instructor John Arthur), see description. Coordinates corrected to the Hilton San Diego Resort & Marina, the local launch reference point (2026-09-02)."
+    "sourceNote": "Firsthand-verified (2026-09-02) — confirmed via MANTA Wind and Water Sports (chief instructor John Arthur), see description. Renamed from \"Mission Bay (East / Hilton Area)\" and re-pinned to Fiesta Island, Enchanted Cove (2026-09-06) — the \"Hilton Area\" label and prior Hilton San Diego Resort & Marina pin didn't match any real source; MANTA's own site places their lessons specifically at Enchanted Cove. Source: mantawatersports.com/where-to-kiteboard-in-san-diego/. Coordinates are approximate (from research, not GPS-confirmed) — worth a visual map check before treating as exact."
   },
   {
     "id": "canadian-hole",
@@ -173,15 +173,16 @@
     "city": "Langlois",
     "state": "OR",
     "region": "Southern Oregon Coast",
-    "lat": 42.9028,
-    "lng": -124.5021,
+    "lat": 42.898,
+    "lng": -124.479,
     "waterType": "Flat freshwater lake, separated from the Pacific by a narrow strip of dunes",
-    "windDirection": "Strong, steady summer sea breeze",
+    "windDirection": "Strong, steady summer thermal; ideal wind is north, roughly April through October and peaking June–August. South wind is rideable but gets gusty near the trees at the south end of the lake.",
+    "idealWindDirections": ["N"],
     "skillLevel": "Beginner-friendly",
     "localsMeetHere": true,
-    "description": "A flat-water alternative to the Gorge — strong, steady summer thermals over completely protected lake water make this one of the more forgiving strong-wind spots on the West Coast.",
+    "description": "A flat-water alternative to the Gorge — strong, steady summer thermals over completely protected lake water make this one of the more forgiving strong-wind spots on the West Coast. Launch is from the lake itself (freshwater), not the ocean beach on the dune side — the pin marks the east-side boat ramp / launch area.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand."
+    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand. Re-pinned from the ocean/dune side to the lake's east-side boat ramp launch area, and wind detail added (2026-09-06) — sources: Floras Lake Windsports FAQ (floraslakewindsports.com) and Kite Zombies' Floras Lake guide. Coordinates are approximate (from research, not GPS-confirmed) — worth a visual map check before treating as exact."
   },
   {
     "id": "coyote-point",
@@ -302,16 +303,16 @@
     "city": "Las Terrenas",
     "state": "Dominican Republic",
     "region": "Samaná Province",
-    "lat": 19.32638089953957,
-    "lng": -69.52825624948042,
-    "waterType": "Sand beach with shallow reef both north and south of the sailing area — open water in between. Waves can be good for wave riding depending on swell orientation.",
+    "lat": 19.323861487054717,
+    "lng": -69.52533912515764,
+    "waterType": "Sand beach with shallow reef both east and west of the sailing area — open water in between. Waves can be good for wave riding depending on swell orientation.",
     "windDirection": "NE and E (trade winds) — side-shore in this direction; best season roughly April through September",
     "idealWindDirections": ["NE", "E"],
     "skillLevel": "Advanced/expert only",
     "localsMeetHere": true,
-    "description": "An advanced-only spot on a sandy beach in Las Terrenas, bordered by shallow reef to the north and south with open water in between — good wave riding depending on swell direction, but not a place to learn the basics. The reefs sit downwind of the sailing area, so a mistake here compounds: if you get in trouble, you're getting swept toward the hazard, not away from it. Know exactly where you are relative to both reefs at all times. Met Julian, a local kiteboarding and wing foiling instructor, while sailing here — didn't take a lesson from him, but he was generous with advice and pointers. Find him at wingfoil-lasterrenas.com.",
+    "description": "An advanced-only spot on a sandy beach in Las Terrenas, bordered by shallow reef to the east and west with open water in between — good wave riding depending on swell direction, but not a place to learn the basics. The reefs sit downwind of the sailing area, so a mistake here compounds: if you get in trouble, you're getting swept toward the hazard, not away from it. Know exactly where you are relative to both reefs at all times. Met Julian, a local kiteboarding and wing foiling instructor, while sailing here — didn't take a lesson from him, but he was generous with advice and pointers. Find him at wingfoil-lasterrenas.com.",
     "verified": "firsthand-verified",
-    "sourceNote": "Firsthand-verified (2026-08-29) by Will."
+    "sourceNote": "Firsthand-verified (2026-08-29) by Will. Corrected reef direction (north/south -> east/west, in both waterType and description) and updated coordinates to exact values provided (2026-09-06)."
   },
   {
     "id": "sanibel-island-causeway",
@@ -564,9 +565,9 @@
     "waterType": "Shallow, flat, sandy bottom, extends out for a long way",
     "windDirection": "Onshore to side-onshore; roughly a 10-month wind season (Nov-Aug), strongest May-Aug",
     "skillLevel": "All levels, especially beginner-friendly",
-    "description": "Waist-deep water extending out a long way with no shore break, rocks, or real hazards — about as safe and forgiving a spot as exists anywhere. Home to several watersports schools in the area.",
+    "description": "Waist-deep water extending out a long way with no shore break, rocks, or real hazards — about as safe and forgiving a spot as exists anywhere. Open to the public, not hotel-only — parking and beach access via Shore Club Road or Long Bay Hills Road off Leeward Highway. KiteProvo, a local school, teaches kiteboarding and wing boarding lessons on the beach's eastern side on every windy day.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected to the actual public beach access point — the previous pin was roughly 6km off (2026-09-02)."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected to the actual public beach access point — the previous pin was roughly 6km off (2026-09-02). Confirmed public (not hotel-only) with parking/access detail and KiteProvo mention added (2026-09-06) — sources: kiteprovo.com/long-bay-kite-beach/ and visittci.com/providenciales/long-bay-beach."
   },
   {
     "id": "orient-bay",
@@ -585,18 +586,18 @@
   },
   {
     "id": "combate-boqueron-bay",
-    "name": "Combate / Boqueron Bay",
+    "name": "Balneario Boqueron",
     "city": "Cabo Rojo",
     "state": "PR",
     "region": "Southwest Puerto Rico",
-    "lat": 17.968,
-    "lng": -67.213,
+    "lat": 18.0197,
+    "lng": -67.177,
     "waterType": "Calm, flat, shallow",
     "windDirection": "Consistent trade winds, best season Nov-July",
     "skillLevel": "Beginner to intermediate, foil-friendly",
-    "description": "Calm, flat water on Puerto Rico's southwest corner — good progression conditions rather than wave riding, with foiling specifically called out as well-suited here.",
+    "description": "A calm, flat bay reported as beginner- and foil-friendly, at the public Balneario Boqueron beach facility (parking, restrooms, showers). We don't have a confirmed local wing/kite school operating here currently — if you know of one, let us know.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected to Playa El Combate — the previous pin was roughly 3.5km off (2026-09-02)."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Renamed from \"Combate / Boqueron Bay\" and re-pinned to Balneario Boqueron (2026-09-06) — the old entry conflated two separate beaches (Combate Beach and Boqueron Bay aren't the same place), and its previously-cited operator (Puerto Rico Adventure Water Sports) now shows as permanently closed; this spot also doesn't appear in Kiteforum's list of 41 Puerto Rico kite spots. Re-pinned instead to the real, government-run public Balneario Boqueron beach facility. Coordinates are approximate (from research, not GPS-confirmed) — worth a visual map check before treating as exact."
   },
   {
     "id": "fort-de-soto-park-east-beach",
