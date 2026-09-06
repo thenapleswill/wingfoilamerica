@@ -67,6 +67,19 @@ or add one yourself below the map if you know a spot that's missing.
     <div id="submitSpotMapStep">
       <p class="submit-spot-map-instruction">Click exactly where you'd launch from.</p>
       <p class="submit-spot-map-note">After choosing your location, you'll add details like water type, wind, and skill level next.</p>
+
+      <div class="submit-spot-map-actions">
+        <button type="button" id="submitSpotLocateBtn" class="btn btn-outline submit-spot-locate-btn">Use My Location</button>
+        <span class="submit-spot-map-or">or</span>
+        <form id="submitSpotSearchForm" class="submit-spot-search-form">
+          <label class="sr-only" for="submitSpotSearchInput">Search for a place</label>
+          <input type="text" id="submitSpotSearchInput" list="submitSpotSearchSuggestions" placeholder="Search a place (e.g. Sanibel Causeway)" autocomplete="off">
+          <datalist id="submitSpotSearchSuggestions"></datalist>
+          <button type="submit" class="btn btn-outline">Search</button>
+        </form>
+      </div>
+      <p class="submit-spot-map-status" id="submitSpotMapStatus" role="status" aria-live="polite" hidden></p>
+
       <div id="submitSpotMap" class="submit-spot-map"></div>
       <p class="submit-spot-map-coords" id="submitSpotCoords" hidden></p>
       <button type="button" class="btn btn-accent" id="submitSpotContinueBtn" disabled>Continue</button>

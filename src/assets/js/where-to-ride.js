@@ -139,10 +139,34 @@
     var continueBtn = document.getElementById("submitSpotContinueBtn");
     var airtableWrap = document.getElementById("submitSpotAirtableWrap");
     var submitIframe = document.getElementById("submitSpotIframe");
+    var locateBtn = document.getElementById("submitSpotLocateBtn");
+    var searchForm = document.getElementById("submitSpotSearchForm");
+    var searchInput = document.getElementById("submitSpotSearchInput");
+    var searchSuggestions = document.getElementById("submitSpotSearchSuggestions");
+    var mapStatusEl = document.getElementById("submitSpotMapStatus");
     var lastFocused = null;
     var pickerMap = null;
     var pickerMarker = null;
     var pickedLatLng = null;
+
+    // Esri's free World Geocoding Service — the same tile-service family (Esri/
+    // ArcGIS Online) already powering the satellite basemap below, used here for
+    // "suggest" (light autocomplete) and "findAddressCandidates" (resolving a
+    // typed place to coordinates). Both operations are usable keyless for this
+    // kind of light, single-lookup, non-bulk/non-stored use.
+    var ESRI_GEOCODE_BASE = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer";
+    var suggestDebounceTimer = null;
+
+    function setMapStatus(message) {
+      if (!mapStatusEl) return;
+      if (!message) {
+        mapStatusEl.hidden = true;
+        mapStatusEl.textContent = "";
+        return;
+      }
+      mapStatusEl.textContent = message;
+      mapStatusEl.hidden = false;
+    }
 
     function updateCoordsDisplay() {
       if (!pickedLatLng) {
@@ -180,10 +204,94 @@
           maxZoom: 18,
         }
       ).addTo(pickerMap);
+      // Stacked on top of the satellite imagery so place names, roads, and
+      // landmarks are visible without zooming way in first — same free,
+      // no-key Esri reference layer used for this purpose elsewhere.
+      L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
+        { maxZoom: 18 }
+      ).addTo(pickerMap);
       pickerMap.on("click", function (event) { placeMarker(event.latlng); });
       // The map starts inside a hidden modal, which gives Leaflet a zero-size
       // box to measure; fix its size once it's actually visible.
       setTimeout(function () { pickerMap.invalidateSize(); }, 50);
+    }
+
+    function flyToAndDropPin(lat, lng, zoom) {
+      var latlng = L.latLng(lat, lng);
+      pickerMap.setView(latlng, zoom || 15);
+      placeMarker(latlng);
+    }
+
+    if (locateBtn) {
+      locateBtn.addEventListener("click", function () {
+        if (!("geolocation" in navigator) || !pickerMap) return;
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            flyToAndDropPin(position.coords.latitude, position.coords.longitude, 16);
+          },
+          function () {
+            // Denied or unavailable — fail quietly, map just stays as-is.
+          },
+          { timeout: 8000 }
+        );
+      });
+    }
+
+    function populateSuggestions(query) {
+      if (!searchSuggestions) return;
+      fetch(ESRI_GEOCODE_BASE + "/suggest?f=json&maxSuggestions=5&text=" + encodeURIComponent(query))
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+          searchSuggestions.innerHTML = "";
+          if (!data || !data.suggestions) return;
+          data.suggestions.forEach(function (suggestion) {
+            var option = document.createElement("option");
+            option.value = suggestion.text;
+            searchSuggestions.appendChild(option);
+          });
+        })
+        .catch(function () {
+          // Autocomplete is a nice-to-have; silently skip on failure and let
+          // the visitor keep typing and hit Search.
+        });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", function () {
+        var query = searchInput.value.trim();
+        clearTimeout(suggestDebounceTimer);
+        if (query.length < 3) return;
+        suggestDebounceTimer = setTimeout(function () { populateSuggestions(query); }, 300);
+      });
+    }
+
+    if (searchForm) {
+      searchForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (!pickerMap) return;
+        var query = searchInput.value.trim();
+        if (!query) return;
+
+        setMapStatus("Searching for “" + query + "”…");
+
+        fetch(
+          ESRI_GEOCODE_BASE + "/findAddressCandidates?f=json&maxLocations=1&singleLine=" + encodeURIComponent(query)
+        )
+          .then(function (response) { return response.json(); })
+          .then(function (data) {
+            if (!data || !data.candidates || !data.candidates.length) {
+              setMapStatus("Couldn't find “" + query + "” — try a nearby city or landmark, or drop the pin manually.");
+              return;
+            }
+            var candidate = data.candidates[0];
+            setMapStatus("");
+            flyToAndDropPin(candidate.location.y, candidate.location.x, 14);
+          })
+          .catch(function () {
+            setMapStatus("Search isn't working right now — drop the pin manually instead.");
+          });
+      });
     }
 
     function resetModal() {
@@ -196,6 +304,8 @@
         pickerMarker = null;
       }
       updateCoordsDisplay();
+      if (searchInput) searchInput.value = "";
+      setMapStatus("");
     }
 
     function openSubmitModal() {
