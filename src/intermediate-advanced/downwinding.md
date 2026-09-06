@@ -3,7 +3,11 @@ layout: layouts/intermediate-page.njk
 title: "Downwinding"
 description: "Point-to-point riding using wind and swell — how it works, what gear you need, and how to plan a run safely."
 order: 2
+extraJs:
+  - /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 Downwinding is the moment wing foiling stops feeling like a session in one spot and starts feeling like a journey. Instead of riding back and forth in front of a beach, you point downwind and link one bump of wind swell to the next — pumping just enough to stay connected, gliding the rest — covering real distance on nothing but wind and water. It's one of the most addictive things you can do on a foil, and it's genuinely different from anything you've done up to this point. Here's how to get into it.
 
@@ -30,6 +34,8 @@ Don't ride straight into a swell — approach each bump at roughly a 30–45° a
 Your pumping rhythm should sync with the bumps themselves, not run on its own separate cadence: compress as you come down the back of one bump, drive hard through the trough, extend up and forward into the next one — compress, explode, glide, repeat. Keep pressure light on your front foot when you're in a trough (so the nose doesn't dig in) and more weight on your back foot as you steer and set up for the next bump.
 
 None of this clicks immediately. Expect your first several downwind attempts to feel like a lot of pumping and not much gliding — the timing comes with reps, not with reading about it.
+
+{{ videoCallout(videoId="VqBY9-DT4fg", title="Wing Foil Downwinding | Tutorial", blurb="Real downwind footage showing how to link swell bumps together, which is hard to picture from text alone.") }}
 
 ## Planning a Safe Run
 

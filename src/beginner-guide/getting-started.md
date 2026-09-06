@@ -3,7 +3,11 @@ layout: layouts/guide-page.njk
 title: "Getting Started"
 description: "A plain-English introduction to wing foiling and what actually makes a good first spot to learn at."
 order: 1
+extraJs:
+  - /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 A plain-English introduction to wing foiling — what the gear is, how it's different from kiteboarding and windsurfing, why people get hooked — plus what actually makes a first session safe and fun.
 
@@ -34,6 +38,8 @@ Part of the appeal is genuinely practical. A wing setup packs down small, doesn'
 But the real hook is the feeling once you're up on the foil: the drag drops away, the water noise disappears, and you're just gliding — silent, smooth, a couple feet above the surface. Nothing else in wind sports quite replicates it.
 
 Here's the honest part, though: it looks effortless in videos, and it is not effortless the first few sessions. Balancing on a foil board before you're up and planing, timing when to stand, managing the wing with both hands while your legs are doing something new — there's a real learning curve, and most people eat it (literally, into the water) a fair amount early on. The good news is that it's a genuinely learnable curve, not a talent ceiling — with the right gear sized for a beginner and a sensible progression, most people get a real taste of flying within their first few sessions and keep improving from there.
+
+{{ videoCallout(videoId="N2-k-B6GUpc", title="How to Wing Foil - Complete Beginner Tutorial", blurb="A full visual walkthrough of what a first session actually looks like, if you want to see it before you try it.") }}
 
 ## Picking where to start
 

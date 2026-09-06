@@ -3,7 +3,11 @@ layout: layouts/intermediate-page.njk
 title: "Parawinging"
 description: "A packable, hands-free wing for downwind runs and wave riding — what it is, the gear it needs, and how it's different from standard wing foiling."
 order: 7
+extraJs:
+  - /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 Parawinging is one of the fastest-growing offshoots of wing foiling, and it solves a problem every wing foiler eventually runs into: the wing is great for getting you up and powered, but it's one more thing to manage the moment you actually want to ride a wave or link swell downwind. A parawing is a soft, ultralight, packable wing — no pump, a fraction of the weight of a normal wing — that you use to launch and get up on foil, then fold and stash on your body once you're riding. From there you're riding hands-free: both hands free for the board, the wave, the bumps, exactly like foiling without a wing at all, except you've still got it stashed and ready to redeploy the moment you need power again.
 
@@ -12,6 +16,8 @@ Parawinging is one of the fastest-growing offshoots of wing foiling, and it solv
 A standard wing is inflatable — it needs a pump before every session, weighs several kilograms, and you're holding it the entire time you're riding. A parawing is a single piece of ultralight fabric, closer to paraglider material than a normal wing, weighing a fraction as much and packing down into a bag you could fit in a backpack. There's no pump, no boom, and once you're up and moving, you fold it down and stow it — most riders use a waist pack or stash belt — so it's out of the way entirely until you want it back.
 
 This isn't a replacement for your normal wing setup. It's a specialized tool for a specific job: getting up on foil efficiently, then getting the wing out of your hands so you can actually surf the bump or the wave you're riding. Most people who get into parawinging are already competent wing foilers looking to add this to their existing quiver, not beginners picking it as a first wing.
+
+{{ videoCallout(videoId="GwiEY4px9aA", title="How to Parawing in 5 Minutes.", blurb="A quick visual intro to the parawing-specific water start and handling described above.") }}
 
 ## Not a Beginner Discipline
 

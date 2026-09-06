@@ -3,7 +3,11 @@ layout: layouts/intermediate-page.njk
 title: "Wing-Handling & Power Control"
 description: "The skill underneath every other skill — how hand position and wing angle control power, and how to depower fast when a gust hits."
 order: 5
+extraJs:
+  - /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 Every other topic in this section — jumping, downwinding, wave riding, racing — quietly assumes one thing underneath it: that you can control how much power your wing is putting out at any given moment, quickly and without thinking about it. That control comes almost entirely from where your hands are and how you angle the wing to the wind, not from the wing size you bought. Two riders on the same wing in the same wind can have completely different sessions depending on how well they manage this.
 
@@ -14,6 +18,8 @@ Every other topic in this section — jumping, downwinding, wave riding, racing 
 **Back hand**, on the central strut, is your power dial. Slide it back toward the trailing edge and power builds immediately; slide it forward toward the center and it drops off. This should become a small, near-constant, almost unconscious adjustment as you ride — not something you stop to think about, more like breathing.
 
 **Central handle** is the wing's balance point — used on land, in light wind, or any time you want to hold the wing with minimal power and drag.
+
+{{ videoCallout(videoId="XLGTL2YCVOI", title="How to Wing Foil | Session with Damo", creator="Damien LeRoy", blurb="Damien LeRoy again, this time focused on wing handling and power control on the water.") }}
 
 ## Reading the Wing's Angle
 

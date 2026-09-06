@@ -3,7 +3,11 @@ layout: layouts/guide-page.njk
 title: "Mistakes & Safety"
 description: "The gear, wind, technique, and mindset mistakes that trip up almost every new wing foiler, plus the safety habits that keep a session fun instead of scary."
 order: 3
+extraJs:
+  - /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 The gear, wind, technique, safety, and mindset mistakes that trip up almost every new wing foiler — and the habits, gear, and judgment calls that keep a session fun instead of scary. Read this before your first time on the water.
 
@@ -87,6 +91,8 @@ Things go sideways sometimes — gear breaks, the wind dies, you get more tired 
 - Signal early rather than late. Wave one arm overhead in a slow, deliberate motion — the universal "I need help" signal on the water — rather than waiting until you're exhausted to ask.
 - Carry a phone in a waterproof pouch or case, ideally on your body rather than strapped to the board. It's the fastest way to call for help if you can't get back in on your own.
 - If you regularly ride somewhere remote or exposed, a whistle or small strobe light helps you get noticed without cell signal.
+
+{{ videoCallout(videoId="Z_XEqNSimfM", title="Wing Board School | Safety and Self Rescue", blurb="Seeing a self-rescue actually performed makes it much easier to remember than reading about it.") }}
 
 ### Share the water
 

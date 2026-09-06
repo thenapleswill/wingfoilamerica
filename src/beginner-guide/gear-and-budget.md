@@ -7,7 +7,10 @@ extraCss:
   - /assets/css/gear-calculator.css
 extraJs:
   - /assets/js/gear-calculator.js
+  - /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 A quick calculator that turns your weight, experience, and local wind into a real starting-point gear setup — plus the principles behind every wing foil gear decision, including whether to buy new or used and what to actually expect to spend.
 
@@ -36,6 +39,8 @@ However you use the calculator, it's worth understanding why those four inputs a
 One more reality worth expecting early: almost nobody rides one wing size forever. As you progress, you'll likely build a small "quiver" of a couple of wing sizes for different wind strengths, since no single wing covers a truly light day and a truly windy one equally well. Boards and foils change less often — the wing is the piece most riders end up doubling up on.
 
 If you're a total beginner, size your board up slightly beyond what feels minimally necessary. Extra volume buys stability while you're finding your balance, and that stability is what lets you log time on the water instead of fighting to stay on the board. Resist buying "advanced" gear on day one to save a step later — smaller, twitchier equipment is a reward you earn with hours, not a shortcut to them. Let your gear evolve alongside your skill.
+
+{{ videoCallout(videoId="KHT1zT57Lrc", title="Wing-Foil Gear Guide: Boards (volume & shape)", blurb="A closer visual look at how board volume and shape affect how a beginner board actually feels on the water.") }}
 
 ## New vs. Used Gear & Realistic Budgets
 

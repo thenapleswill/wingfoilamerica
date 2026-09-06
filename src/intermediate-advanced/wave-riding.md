@@ -3,7 +3,11 @@ layout: layouts/intermediate-page.njk
 title: "Wave Riding"
 description: "Using the wing as support while you actually surf — how to catch and read a wave, what changes about your technique, and the gear and etiquette that come with it."
 order: 4
+extraJs:
+  - /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 Wave riding is where wing foiling starts to feel less like a wind sport and more like surfing that happens to have a wing attached. Once you're on the wave, the wing mostly stops being your engine and starts being a balance tool — something to hold out of the way while you actually surf the face, the same way a surfer's arms help them balance without powering them down the line. It's a different skill than anything covered in flat-water riding or downwinding, and it comes with its own etiquette to learn alongside the technique.
 
@@ -14,6 +18,8 @@ On flat water, the wing is doing the work the whole time. On a wave, once you're
 ## Before You Try This
 
 This is not a place to bring beginner-level fundamentals. Get genuinely solid on flat water first — confident speed control, clean turns, a comfortable jibe — before adding breaking waves, other water users, and a foil under your feet into the same equation. Waves add real consequences to mistakes that are just an annoying fall on flat water.
+
+{{ videoCallout(videoId="yYAzwbQy02g", title="Wing Foil: Catching your 1st waves", blurb="Watching wave selection and timing in real time helps a lot more than a written description.") }}
 
 ## Catching and Riding a Wave, Step by Step
 

@@ -453,6 +453,54 @@ img{ max-width: 100%; display: block; }
 #gear-calculator-root{ margin-top: 24px; text-align: left; }
 
 /* ==========================================================================
+   Video callout ("watch this") — reuses the site's standard card look
+   (ink-2 surface, line border, standard radius) used by guide-card,
+   package-card, coming-soon-card etc., since there's no separate
+   tip/callout box style elsewhere on the site to match instead.
+   ========================================================================== */
+.video-callout{
+  background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px; margin: 1.6em 0; display: flex; gap: 20px; flex-wrap: wrap;
+}
+.video-callout-media{
+  flex: none; width: 240px; aspect-ratio: 16 / 9; position: relative;
+  border-radius: 8px; overflow: hidden; padding: 0; border: none; cursor: pointer;
+  background: var(--ink-3);
+}
+.video-callout-thumb{
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; margin: 0;
+}
+.video-callout-play{
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(6,35,44,0.28); transition: background 0.15s;
+}
+.video-callout-media:hover .video-callout-play{ background: rgba(6,35,44,0.45); }
+.video-callout-play svg{
+  width: 52px; height: 52px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+}
+.video-callout-media:focus-visible{ outline: 2px solid var(--teal); outline-offset: 2px; }
+.video-callout-iframe{
+  flex: none; width: 240px; aspect-ratio: 16 / 9; border: 0; display: block; border-radius: 8px;
+}
+.video-callout-body{ flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.video-callout-eyebrow{
+  font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--teal); margin: 0 0 2px;
+}
+.video-callout-title{ margin: 0; font-size: 1rem; font-weight: 700; color: var(--foam); line-height: 1.3; }
+.video-callout-creator{ margin: 0; font-size: 0.82rem; color: var(--foam-faint); }
+.video-callout-blurb{ margin: 6px 0 0; font-size: 0.9rem; color: var(--foam-dim); }
+.video-callout-link{
+  margin-top: 8px; font-size: 0.85rem; font-weight: 600; color: var(--teal);
+  text-decoration: none; align-self: flex-start;
+}
+.video-callout-link:hover{ color: var(--coral-bright); }
+@media (max-width: 520px){
+  .video-callout{ flex-direction: column; }
+  .video-callout-media, .video-callout-iframe{ width: 100%; }
+}
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 .site-footer{ border-top: 1px solid var(--line); padding: 40px 0; }

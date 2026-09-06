@@ -3,7 +3,11 @@ layout: layouts/intermediate-page.njk
 title: "Racing"
 description: "What wing foil racing actually looks like, the gear it takes, and how to get into it — starting with your friends, not a start line."
 order: 6
+extraJs:
+  - /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 Racing is where a lot of wing foiling's raw speed and upwind ability actually gets tested against other riders, not just the conditions. It's also more approachable than it looks from the outside — you don't need a start line, a fleet, or race-cut gear to get a real taste of it.
 
@@ -32,6 +36,8 @@ If you've been riding a while, you already have most of what racing actually tes
 - Pumping — generating speed without wind power, essential for starts and light-air legs.
 - Tacking and jibing on foil — mark-roundings are just tacks and jibes under time pressure.
 - Basic right-of-way — the same starboard/port and windward/leeward rules from everyday riding apply on a race course, just enforced more strictly.
+
+{{ videoCallout(videoId="vH1WA4KgIsE", title="Wing Foil Pumping / Light-Wind Take Off (all steps from basic to advanced)", blurb="Pumping technique is one of the hardest things to learn from text alone — worth watching.") }}
 
 Racing doesn't require a new skill set so much as it demands your existing skills work reliably under pressure, back to back, for longer than a casual session usually does.
 

@@ -3,7 +3,11 @@ layout: layouts/article-page.njk
 title: "You've Got Gear — Now What?"
 eyebrow: "Just Getting Started"
 description: "You own your beginner setup and you've been out a few times. Here's the actual path from 'surviving a session' to 'comfortable rider.'"
+extraJs:
+  - /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 Look at you — you bought the gear, you got out there, and you keep coming back for more. That's the part most people who talk about "trying wing foiling someday" never actually do. You're not one of them anymore. You're in it.
 
@@ -16,11 +20,27 @@ Here's the good news: the gap between "surviving a session" and "I can't wait to
 
 Five skills, five short videos from Damien LeRoy — a former world champion kiteboarder turned wing foil instructor whose tutorials are some of the clearest out there. Work through these in order; each one builds on the last.
 
-1. **Consistent takeoffs.** Getting up and *staying* up, not just popping onto the foil for a second before falling back off. &rarr; <a href="https://www.youtube.com/watch?v=vRHEk1HaqbM" target="_blank" rel="noopener">How to Wing Foil, Part 2: Getting Up and Foiling</a>
-2. **Efficient pumping.** The difference between exhausting yourself in ten minutes and riding all session. &rarr; <a href="https://www.youtube.com/watch?v=qRYX77SqfLc" target="_blank" rel="noopener">The Proper Pumping Technique</a>
-3. **Holding a controlled line.** Riding steady and on-purpose instead of white-knuckling wherever the wing takes you. &rarr; <a href="https://www.youtube.com/watch?v=xsMJZZMJcv0" target="_blank" rel="noopener">How to Wing Foil, Part 1: Your First Session</a> (worth rewatching even past session one — most of it clicks differently once you've actually fallen a bunch)
-4. **Your first turns.** &rarr; <a href="https://www.youtube.com/watch?v=KgR9EtWfxJw" target="_blank" rel="noopener">Pro Tip to Improve Your Jibe</a>
-5. **What's actually holding you back.** The habits that keep people stuck at this exact stage. &rarr; <a href="https://www.youtube.com/watch?v=EuCoPsuEwZE" target="_blank" rel="noopener">5 Common Beginner Mistakes</a> and <a href="https://www.youtube.com/watch?v=z7HCMGE46C4" target="_blank" rel="noopener">3 Common Gear Mistakes</a>
+**1. Consistent takeoffs.** Getting up and *staying* up, not just popping onto the foil for a second before falling back off.
+
+{{ videoCallout(videoId="vRHEk1HaqbM", title="How to Wing Foil, Part 2: Getting Up and Foiling", creator="Damien LeRoy", blurb="Getting up and staying up, not just popping onto the foil for a second before falling back off.") }}
+
+**2. Efficient pumping.** The difference between exhausting yourself in ten minutes and riding all session.
+
+{{ videoCallout(videoId="qRYX77SqfLc", title="The Proper Pumping Technique", creator="Damien LeRoy", blurb="The difference between exhausting yourself in ten minutes and riding all session.") }}
+
+**3. Holding a controlled line.** Riding steady and on-purpose instead of white-knuckling wherever the wing takes you — worth rewatching even past session one, since most of it clicks differently once you've actually fallen a bunch.
+
+{{ videoCallout(videoId="xsMJZZMJcv0", title="How to Wing Foil, Part 1: Your First Session", creator="Damien LeRoy", blurb="Riding steady and on-purpose instead of white-knuckling wherever the wing takes you.") }}
+
+**4. Your first turns.**
+
+{{ videoCallout(videoId="KgR9EtWfxJw", title="Pro Tip to Improve Your Jibe", creator="Damien LeRoy", blurb="Your first turns — the habit to build early so it doesn't need unlearning later.") }}
+
+**5. What's actually holding you back.** The habits that keep people stuck at this exact stage.
+
+{{ videoCallout(videoId="EuCoPsuEwZE", title="5 Common Beginner Mistakes", creator="Damien LeRoy", blurb="The habits that keep people stuck at this exact stage.") }}
+
+{{ videoCallout(videoId="z7HCMGE46C4", title="3 Common Gear Mistakes", creator="Damien LeRoy", blurb="Gear-related habits that hold beginners back, companion to the video above.") }}
 
 <div class="step-header">
   <span class="step-num">2</span>

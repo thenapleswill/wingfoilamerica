@@ -3,7 +3,11 @@ layout: layouts/intermediate-page.njk
 title: "Jumping & Freestyle"
 description: "Taking it to the air — the basic jump, foot straps, and the progression path into freestyle tricks."
 order: 1
+extraJs:
+  - /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 There's a specific moment every foiler remembers: the first time you leave the water on purpose instead of by accident. Jumping is the gateway to everything that comes after it in freestyle — spins, tweaks, combos — and the good news is the basic jump itself isn't nearly as complicated as it looks from the beach. Here's how to get there, and where it leads.
 
@@ -23,6 +27,8 @@ Jumping isn't a beginner skill, and it shouldn't be your first goal. You want to
 8. **Bend your knees on impact to absorb the landing**, with your weight balanced evenly across both feet rather than dumped onto one side.
 
 Give yourself real space before you try this — clear water, no other riders, boats, or obstacles anywhere near your landing zone. A bad landing with company nearby is a real hazard, not just an embarrassing wipeout.
+
+{{ videoCallout(videoId="AVhW2weG89Y", title="Wing Foil - Learn to Jump With 4 Top Tips", blurb="Visual breakdown of the jump technique described above.") }}
 
 ## Foot Straps: A Real Gear Decision
 

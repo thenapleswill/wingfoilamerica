@@ -1,0 +1,17 @@
+{% macro videoCallout(videoId, title, blurb, creator="") %}
+<div class="video-callout">
+  <button type="button" class="video-callout-media" data-video-id="{{ videoId }}" data-video-title="{{ title }}" aria-label="Play video: {{ title }}">
+    <img class="video-callout-thumb" src="https://img.youtube.com/vi/{{ videoId }}/hqdefault.jpg" alt="" loading="lazy" width="240" height="135">
+    <span class="video-callout-play" aria-hidden="true">
+      <svg viewBox="0 0 68 48"><path d="M66.5,7.7c-0.8-2.9-2.5-5.2-4.7-5.9C57.8,0,34,0,34,0S10.2,0,6.2,1.8C4,2.5,2.3,4.8,1.5,7.7C0,12.1,0,24,0,24s0,11.9,1.5,16.3c0.8,2.9,2.5,5.2,4.7,5.9C10.2,48,34,48,34,48s23.8,0,27.8-1.8c2.2-0.7,3.9-3,4.7-5.9C68,35.9,68,24,68,24S68,12.1,66.5,7.7z" fill="#ff5f45"/><path d="M27,34 L45,24 27,14 Z" fill="#f4f9f7"/></svg>
+    </span>
+  </button>
+  <div class="video-callout-body">
+    <p class="video-callout-eyebrow">Watch This</p>
+    <p class="video-callout-title">{{ title }}</p>{% if creator %}
+    <p class="video-callout-creator">{{ creator }}</p>{% endif %}
+    <p class="video-callout-blurb">{{ blurb }}</p>
+    <a class="video-callout-link" href="https://www.youtube.com/watch?v={{ videoId }}" target="_blank" rel="noopener" aria-label="Watch &quot;{{ title }}&quot; on YouTube (opens in a new tab)">Watch on YouTube &rarr;</a>
+  </div>
+</div>
+{% endmacro %}
