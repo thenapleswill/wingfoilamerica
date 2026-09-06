@@ -64,6 +64,35 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  // Cheap guard against a page shipping without a link from its own section's
+  // landing page (has happened before). For each section below, every page
+  // matched by inputGlob must have its url appear somewhere in the rendered
+  // landing page's HTML — otherwise the build fails with which page(s) are
+  // missing. A plain substring check, not real HTML parsing, but enough to
+  // catch a page silently dropped from the list.
+  const sectionLandingPages = [
+    { inputGlob: "src/beginner-guide/", landingOutputPath: "/beginner-guide/index.html" },
+    { inputGlob: "src/intermediate-advanced/", landingOutputPath: "/intermediate-advanced/index.html" },
+  ];
+  eleventyConfig.on("eleventy.after", async ({ results }) => {
+    for (const { inputGlob, landingOutputPath } of sectionLandingPages) {
+      const landingPage = results.find((r) => r.outputPath.replace(/\\/g, "/").endsWith(landingOutputPath));
+      if (!landingPage) continue;
+
+      const sectionPages = results.filter(
+        (r) => r.inputPath.replace(/\\/g, "/").includes(inputGlob) && r.inputPath.endsWith(".md")
+      );
+      const unlinked = sectionPages.filter((page) => !landingPage.content.includes(page.url));
+      if (unlinked.length) {
+        throw new Error(
+          `Build check failed: ${landingOutputPath} has no link to ` +
+            unlinked.map((p) => p.inputPath).join(", ") +
+            " — every page in this section must be linked from its landing page."
+        );
+      }
+    }
+  });
+
   return {
     dir: {
       input: "src",

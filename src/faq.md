@@ -103,7 +103,7 @@ Roughly one well-written page every week or two — this is a slow-and-steady pr
 
 **I found something inaccurate — how do I let you know?**
 
-Reach out any way you already have — a dedicated contact method is coming soon. Conditions, gear, and businesses change, so we appreciate corrections.
+Email [admin@wingfoilamerica.com](mailto:admin@wingfoilamerica.com). Conditions, gear, and businesses change, so we appreciate corrections.
 
 <script type="application/ld+json">
 {
@@ -283,7 +283,7 @@ Reach out any way you already have — a dedicated contact method is coming soon
       "name": "I found something inaccurate — how do I let you know?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Reach out any way you already have — a dedicated contact method is coming soon. Conditions, gear, and businesses change, so corrections are appreciated."
+        "text": "Email admin@wingfoilamerica.com. Conditions, gear, and businesses change, so corrections are appreciated."
       }
     }
   ]

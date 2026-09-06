@@ -36,3 +36,5 @@ I've met a lot of other people through this too. It's a small community here in 
 I've been doing this since 2022, and it's changed my life. I've traveled to places I never would have gone otherwise, met people I wouldn't have met, and it's opened up more than I expected when I first watched those YouTube shorts with Paul. I'm still very much learning — I'd call myself a beginner who's a little past beginner at this point. People don't tell me I look tired out there anymore, and that feels like real progress. Jack always says there are three skills that make you a sailor: getting up on foil, going upwind, and jibing. Once you have those three, you can go sail almost anywhere.
 
 That's the short version. I've got trip stories from along the way that deserve their own space — more on those soon. For now, this project is about building the resource I wish I'd had back in 2022: a place that helps someone go from "that looks fun" on a YouTube short to actually being out on the water, with the gear, the wind knowledge, and the people to make it stick.
+
+Get in touch: [admin@wingfoilamerica.com](mailto:admin@wingfoilamerica.com)
