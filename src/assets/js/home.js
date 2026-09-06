@@ -1,18 +1,13 @@
 (function () {
-  // Only fetch the hero background video on wide-enough viewports, and only
-  // if the visitor hasn't asked for reduced motion — no <source> is ever
-  // added otherwise, so mobile/reduced-motion visitors never download it at
-  // all (CSS also hides the element as a second line of defense).
+  // Fetches the hero background video on every viewport (including mobile,
+  // in both orientations) unless the visitor has asked for reduced motion —
+  // no <source> is added in that case, so reduced-motion visitors never
+  // download it at all (CSS also hides the element as a second line of
+  // defense there).
   var heroVideo = document.getElementById("heroVideo");
   if (heroVideo) {
-    // Mirrors the CSS breakpoint that hides .hero-video: off below 700px
-    // wide, and off on short/landscape phones too (not just portrait), so
-    // JS never fetches a video CSS is about to hide anyway.
-    var isHiddenByCss = window.matchMedia(
-      "(max-width: 700px), (max-height: 700px) and (orientation: landscape)"
-    ).matches;
     var okToAnimate = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!isHiddenByCss && okToAnimate && heroVideo.dataset.src) {
+    if (okToAnimate && heroVideo.dataset.src) {
       var source = document.createElement("source");
       source.src = heroVideo.dataset.src;
       source.type = "video/mp4";
