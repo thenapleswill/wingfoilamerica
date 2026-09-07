@@ -113,18 +113,40 @@
       return;
     }
 
+    // Submitted Lat/Lng default to the spot's own existing coordinates so a
+    // plain correction still carries a location; dragging the pin during a
+    // confirmation (see initMapIfNeeded above) overrides that default.
+    var lat = spotLat;
+    var lng = spotLng;
+    if (feedbackType === "confirmation" && marker) {
+      var pos = marker.getLatLng();
+      lat = pos.lat;
+      lng = pos.lng;
+    }
+
     var params = new URLSearchParams();
     params.set("prefill_Spot ID", spotId || "");
     params.set("prefill_Spot Name", spotName || "");
     params.set("prefill_Submission Type", feedbackType === "confirmation" ? "Confirmation" : "Correction");
     params.set("prefill_Message", message);
     if (emailEl.value.trim()) params.set("prefill_Email", emailEl.value.trim());
-    if (feedbackType === "confirmation" && marker) {
-      var pos = marker.getLatLng();
-      params.set("prefill_Submitted Lat", pos.lat.toFixed(6));
-      params.set("prefill_Submitted Lng", pos.lng.toFixed(6));
+    if (!isNaN(lat) && !isNaN(lng)) {
+      params.set("prefill_Submitted Lat", lat.toFixed(6));
+      params.set("prefill_Submitted Lng", lng.toFixed(6));
     }
     params.set("prefill_Status", "New");
+
+    // Hide every field the visitor doesn't need to touch — same pattern as
+    // the Submit-a-Spot modal's hide_<Field Name> params. Only Message (and
+    // optional Email) stay visible on the embedded Airtable form.
+    params.set("hide_Spot ID", "true");
+    params.set("hide_Spot Name", "true");
+    params.set("hide_Submission Type", "true");
+    params.set("hide_Status", "true");
+    if (!isNaN(lat) && !isNaN(lng)) {
+      params.set("hide_Submitted Lat", "true");
+      params.set("hide_Submitted Lng", "true");
+    }
 
     iframe.src = "https://airtable.com/embed/" + AIRTABLE_BASE_ID + "/" + AIRTABLE_FORM_SHARE_ID + "?" + params.toString();
     formEl.hidden = true;
