@@ -1,15 +1,13 @@
 ---
 layout: layouts/guide-page.njk
 title: "Getting Started"
-description: "A plain-English introduction to wing foiling and what actually makes a good first spot to learn at."
+description: "A plain-English introduction to wing foiling — what the gear is, how it's different from kiteboarding and windsurfing, and what makes a first session safe and fun."
 order: 1
 extraJs:
   - /assets/js/video-callout.js
 ---
 
 {% from "partials/video-callout.njk" import videoCallout %}
-
-A plain-English introduction to wing foiling — what the gear is, how it's different from kiteboarding and windsurfing, why people get hooked — plus what actually makes a first session safe and fun.
 
 Wing foiling is a water sport where you hold a small inflatable wing to catch the wind, while riding a board with a hydrofoil — a wing-shaped fin — mounted underneath that lifts the board up out of the water once you're moving. No lines, no harness, no bar — you hold the wing directly in your hands.
 
