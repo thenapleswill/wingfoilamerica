@@ -11,6 +11,8 @@ extraJs:
 
 Wave riding is where wing foiling starts to feel less like a wind sport and more like surfing that happens to have a wing attached. Once you're on the wave, the wing mostly stops being your engine and starts being a balance tool — something to hold out of the way while you actually surf the face, the same way a surfer's arms help them balance without powering them down the line. It's a different skill than anything covered in flat-water riding or downwinding, and it comes with its own etiquette to learn alongside the technique.
 
+![A wing foiler riding a wave at sunset.](/assets/images/wave-riding-surfers-sunset.jpg)
+
 ## What's Different About Riding Waves
 
 On flat water, the wing is doing the work the whole time. On a wave, once you're up and riding, you actively depower it — holding it by the leading-edge handle rather than sheeted in, up over your head or off to the side — so it stops pulling and just rides along with you while the wave itself provides the speed. Steering comes from your feet and body, the same way it would on a surfboard: weight on your back foot to turn, forward and centered to hold your line, knees bent, eyes up and ahead of you rather than down at your feet.

@@ -11,6 +11,8 @@ extraJs:
 
 There's a specific moment every foiler remembers: the first time you leave the water on purpose instead of by accident. Jumping is the gateway to everything that comes after it in freestyle — spins, tweaks, combos — and the good news is the basic jump itself isn't nearly as complicated as it looks from the beach. Here's how to get there, and where it leads.
 
+![A wing foiler airborne, mid-jump above the water.](/assets/images/jumping-freestyle-airborne.jpg)
+
 ## Before You Jump
 
 Jumping isn't a beginner skill, and it shouldn't be your first goal. You want to already be comfortable riding on foil, turning with confidence, and staying up consistently without thinking about it before you start popping off bumps on purpose. If you're still working on the fundamentals, [that's Step 1 for a reason](/been-a-few-times/) — come back to this page once takeoffs, pumping, and controlled riding feel automatic rather than effortful.
