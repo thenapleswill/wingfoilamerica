@@ -73,6 +73,7 @@ module.exports = function (eleventyConfig) {
   const sectionLandingPages = [
     { inputGlob: "src/beginner-guide/", landingOutputPath: "/beginner-guide/index.html" },
     { inputGlob: "src/intermediate-advanced/", landingOutputPath: "/intermediate-advanced/index.html" },
+    { inputGlob: "src/gear-and-brands/", landingOutputPath: "/gear-and-brands/index.html" },
   ];
   eleventyConfig.on("eleventy.after", async ({ results }) => {
     for (const { inputGlob, landingOutputPath } of sectionLandingPages) {
@@ -80,7 +81,10 @@ module.exports = function (eleventyConfig) {
       if (!landingPage) continue;
 
       const sectionPages = results.filter(
-        (r) => r.inputPath.replace(/\\/g, "/").includes(inputGlob) && r.inputPath.endsWith(".md")
+        (r) =>
+          r.inputPath.replace(/\\/g, "/").includes(inputGlob) &&
+          r.inputPath.endsWith(".md") &&
+          !r.outputPath.replace(/\\/g, "/").endsWith(landingOutputPath)
       );
       const unlinked = sectionPages.filter((page) => !landingPage.content.includes(page.url));
       if (unlinked.length) {
@@ -89,6 +93,17 @@ module.exports = function (eleventyConfig) {
             unlinked.map((p) => p.inputPath).join(", ") +
             " — every page in this section must be linked from its landing page."
         );
+      }
+    }
+
+    // Softer check: warn (don't fail the build) if a top-level section landing
+    // page has fallen out of the main nav — nav changes are sometimes
+    // deliberate, so this shouldn't block a deploy, just flag it loudly.
+    const navUrls = (require("./src/_data/site.js").nav || []).map((n) => n.url);
+    for (const { landingOutputPath } of sectionLandingPages) {
+      const sectionUrl = landingOutputPath.replace(/index\.html$/, "");
+      if (!navUrls.includes(sectionUrl)) {
+        console.warn(`::warning:: ${sectionUrl} is not present in site.js's nav array — confirm this is intentional.`);
       }
     }
   });

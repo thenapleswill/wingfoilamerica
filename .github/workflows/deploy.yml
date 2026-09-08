@@ -47,3 +47,9 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: Ping IndexNow with all sitemap URLs
+        run: |
+          urls=$(curl -sS https://wingfoilamerica.com/sitemap.xml | grep -oE '<loc>[^<]+</loc>' | sed -E 's/<\/?loc>//g' | jq -R . | jq -s .)
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"wingfoilamerica.com\",\"key\":\"b1bac83bbc32d0b178ae1789c5a3b490\",\"keyLocation\":\"https://wingfoilamerica.com/b1bac83bbc32d0b178ae1789c5a3b490.txt\",\"urlList\":$urls}"
