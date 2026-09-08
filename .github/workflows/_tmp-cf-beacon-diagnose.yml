@@ -20,11 +20,12 @@ jobs:
               -H "Content-Type: application/json" \
               -d @-
           }
-          # NON_NULL/LIST wrappers mean the real named type can be nested up to
-          # two levels deep in ofType (NON_NULL -> LIST -> the actual type) --
-          # this filter unwraps whichever of the three levels first has a name.
+          # A field's type can be wrapped in an arbitrary number of NON_NULL/LIST
+          # layers (e.g. [Account!]! is three deep). Recurse through .ofType
+          # until a layer actually has a name, instead of guessing a fixed depth.
+          JQ_REALNAME='def realname: if .name != null and .name != "" then .name elif .ofType != null then (.ofType | realname) else null end;'
           unwrap() {
-            jq -r --arg field "$1" '.data.__type.fields[] | select(.name == $field) | (.type.name, .type.ofType.name, .type.ofType.ofType.name) | select(. != null and . != "")' "$2" | head -1
+            jq -r --arg field "$1" "$JQ_REALNAME"' .data.__type.fields[] | select(.name == $field) | .type | realname' "$2"
           }
 
           echo "=== root query type name ==="
@@ -32,12 +33,12 @@ jobs:
           echo "$ROOT"
 
           echo "=== viewer field's return type ==="
-          gql "{ __type(name: \"$ROOT\") { fields { name type { name kind ofType { name kind ofType { name kind } } } } } }" > root_fields.json
+          gql "{ __type(name: \"$ROOT\") { fields { name type { name kind ofType { name kind ofType { name kind ofType { name kind } } } } } } }" > root_fields.json
           VIEWER_TYPE=$(unwrap viewer root_fields.json)
           echo "viewer field type: $VIEWER_TYPE"
 
           echo "=== accounts field's return type ==="
-          gql "{ __type(name: \"$VIEWER_TYPE\") { fields { name type { name kind ofType { name kind ofType { name kind } } } } } }" > viewer_fields.json
+          gql "{ __type(name: \"$VIEWER_TYPE\") { fields { name type { name kind ofType { name kind ofType { name kind ofType { name kind } } } } } } }" > viewer_fields.json
           ACCOUNTS_TYPE=$(unwrap accounts viewer_fields.json)
           echo "accounts field type: $ACCOUNTS_TYPE"
 
