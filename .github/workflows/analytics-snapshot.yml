@@ -1,0 +1,42 @@
+name: Weekly Analytics Snapshot
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch last 7 days of Web Analytics from Cloudflare
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          mkdir -p analytics-snapshots
+          END=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          START=$(date -u -d "7 days ago" +"%Y-%m-%dT%H:%M:%SZ")
+          QUERY=$(jq -n --arg accountTag "$CF_ACCOUNT" --arg siteTag "a356302bfd584a6baf958e945583b0bc" --arg start "$START" --arg end "$END" '{
+            query: "query($accountTag: String!, $siteTag: String!, $start: Time!, $end: Time!) { viewer { accounts(filter: {accountTag: $accountTag}) { rumPageloadEventsAdaptiveGroups(limit: 100, orderBy: [count_DESC], filter: {siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end}) { count dimensions { path requestHost refererHost } } } } }",
+            variables: { accountTag: $accountTag, siteTag: $siteTag, start: $start, end: $end }
+          }')
+          curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$QUERY" -o analytics-snapshots/latest.json
+      - name: Commit snapshot if changed
+        run: |
+          git config user.name "analytics-bot"
+          git config user.email "noreply@wingfoilamerica.com"
+          git add analytics-snapshots/latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Weekly analytics snapshot"
+            git push
+          else
+            echo "No changes to commit"
+          fi
