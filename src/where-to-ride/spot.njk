@@ -105,3 +105,40 @@ extraJs:
     </div>
   </div>
 </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Place",
+  "name": {{ spot.name | jsonify | safe }},
+  "description": {{ spot.description | jsonify | safe }},
+  "url": "{{ site.siteUrl }}{{ page.url | url }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": {{ spot.city | jsonify | safe }},
+    "addressRegion": {{ spot.state | jsonify | safe }}
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": {{ spot.lat }},
+    "longitude": {{ spot.lng }}
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Water Type",
+      "value": {{ spot.waterType | jsonify | safe }}
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Wind Direction",
+      "value": {{ spot.windDirection | jsonify | safe }}
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Skill Level",
+      "value": {{ spot.skillLevel | jsonify | safe }}
+    }
+  ]
+}
+</script>
