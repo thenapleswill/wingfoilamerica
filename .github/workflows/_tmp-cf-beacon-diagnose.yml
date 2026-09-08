@@ -1,0 +1,60 @@
+name: TEMP - Diagnose Cloudflare Web Analytics beacon
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find the registered-sites field on AccountViewer/RumSiteInfo
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"query":"{ __schema { types { name fields { name } } } }"}' \
+            -o schema.json
+
+          echo "=== types whose name mentions RumSiteInfo or Site (Web Analytics site registry) ==="
+          jq -r '.data.__schema.types[]? | select(.name | test("RumSiteInfo|RumSite"; "i")) | .name' schema.json
+
+          echo "=== fields on AccountViewer that mention 'rum' or 'site' ==="
+          jq -c '.data.__schema.types[]? | select(.name == "AccountViewer") | {name, fields: [.fields[]? | select(.name | test("rum|site"; "i")) | .name]}' schema.json
+
+      - name: List registered Web Analytics sites for this account
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          QUERY=$(jq -n --arg accountTag "$CF_ACCOUNT" '{
+            query: "query($accountTag: String!) { viewer { accounts(filter: {accountTag: $accountTag}) { rumSiteInfo { siteTag siteName active } } } }",
+            variables: { accountTag: $accountTag }
+          }')
+          curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$QUERY" | tee sites.json
+          echo ""
+          echo "=== does our beacon token appear in the registered sites list? ==="
+          jq -c '.data.viewer.accounts[0].rumSiteInfo[]? | select(.siteTag == "a356302bfd584a6baf958e945583b0bc")' sites.json || true
+
+      - name: Query 30-day pageload event count for our siteTag (no dimensions, just count)
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          END=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          START=$(date -u -d "30 days ago" +"%Y-%m-%dT%H:%M:%SZ")
+          QUERY=$(jq -n --arg accountTag "$CF_ACCOUNT" --arg siteTag "a356302bfd584a6baf958e945583b0bc" --arg start "$START" --arg end "$END" '{
+            query: "query($accountTag: String!, $siteTag: String!, $start: Time!, $end: Time!) { viewer { accounts(filter: {accountTag: $accountTag}) { rumPageloadEventsAdaptiveGroups(limit: 10, filter: {siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end}) { count } } } }",
+            variables: { accountTag: $accountTag, siteTag: $siteTag, start: $start, end: $end }
+          }')
+          curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
+            -H "Authorization: Bearer $CF_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$QUERY"
