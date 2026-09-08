@@ -15,6 +15,8 @@ Wing foiling is a water sport where you hold a small inflatable wing to catch th
 
 A good first spot to learn has flat or wind-protected water, side-shore to side-onshore wind (so if you get blown around, it's toward or along the beach, not away from it), and water shallow enough to stand in while you're getting the hang of it. See the [Where to Ride](/where-to-ride/) map for real spots other riders have flagged as beginner-friendly.
 
+![A wing foiler cruising calmly across flat water.](/assets/images/getting-started-cruising.jpg)
+
 It looks like a magic trick. It isn't — it's two pieces of gear working together, and once you understand what each one does, the whole sport makes a lot more sense.
 
 ## The two things that make it work
