@@ -22,7 +22,7 @@ jobs:
           END=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           START=$(date -u -d "7 days ago" +"%Y-%m-%dT%H:%M:%SZ")
           QUERY=$(jq -n --arg accountTag "$CF_ACCOUNT" --arg siteTag "a356302bfd584a6baf958e945583b0bc" --arg start "$START" --arg end "$END" '{
-            query: "query($accountTag: String!, $siteTag: String!, $start: Time!, $end: Time!) { viewer { accounts(filter: {accountTag: $accountTag}) { rumPageloadEventsAdaptiveGroups(limit: 100, orderBy: [count_DESC], filter: {siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end}) { count dimensions { path requestHost refererHost } } } } }",
+            query: "query($accountTag: String!, $siteTag: String!, $start: Time!, $end: Time!) { viewer { accounts(filter: {accountTag: $accountTag}) { rumPageloadEventsAdaptiveGroups(limit: 100, orderBy: [count_DESC], filter: {siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end}) { count dimensions { requestPath requestHost refererHost } } } } }",
             variables: { accountTag: $accountTag, siteTag: $siteTag, start: $start, end: $end }
           }')
           curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
