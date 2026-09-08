@@ -10,51 +10,45 @@ jobs:
   diagnose:
     runs-on: ubuntu-latest
     steps:
-      - name: Find the registered-sites field on AccountViewer/RumSiteInfo
+      - name: Walk the real type chain (Query -> viewer -> accounts) to find the actual Account type's fields
         env:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
-          curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
-            -H "Authorization: Bearer $CF_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"query":"{ __schema { types { name fields { name } } } }"}' \
-            -o schema.json
+          gql() {
+            jq -n --arg q "$1" '{query: $q}' | curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
+              -H "Authorization: Bearer $CF_TOKEN" \
+              -H "Content-Type: application/json" \
+              -d @-
+          }
 
-          echo "=== types whose name mentions RumSiteInfo or Site (Web Analytics site registry) ==="
-          jq -r '.data.__schema.types[]? | select(.name | test("RumSiteInfo|RumSite"; "i")) | .name' schema.json
+          echo "=== root query type name ==="
+          ROOT=$(gql '{ __schema { queryType { name } } }' | jq -r '.data.__schema.queryType.name')
+          echo "$ROOT"
 
-          echo "=== fields on AccountViewer that mention 'rum' or 'site' ==="
-          jq -c '.data.__schema.types[]? | select(.name == "AccountViewer") | {name, fields: [.fields[]? | select(.name | test("rum|site"; "i")) | .name]}' schema.json
+          echo "=== viewer field's return type ==="
+          gql "{ __type(name: \"$ROOT\") { fields { name type { name kind ofType { name kind } } } } }" > root_fields.json
+          jq -c '.data.__type.fields[] | select(.name == "viewer")' root_fields.json
+          VIEWER_TYPE=$(jq -r '.data.__type.fields[] | select(.name == "viewer") | (.type.name // .type.ofType.name)' root_fields.json)
+          echo "viewer field type: $VIEWER_TYPE"
 
-      - name: List registered Web Analytics sites for this account
+          echo "=== accounts field's return type ==="
+          gql "{ __type(name: \"$VIEWER_TYPE\") { fields { name type { name kind ofType { name kind } } } } }" > viewer_fields.json
+          jq -c '.data.__type.fields[] | select(.name == "accounts")' viewer_fields.json
+          ACCOUNTS_TYPE=$(jq -r '.data.__type.fields[] | select(.name == "accounts") | (.type.ofType.name // .type.name)' viewer_fields.json)
+          echo "accounts field type: $ACCOUNTS_TYPE"
+
+          echo "=== ALL fields on the real Account type (ground truth, no more guessing) ==="
+          gql "{ __type(name: \"$ACCOUNTS_TYPE\") { fields { name } } }" > account_fields.json
+          jq -r '.data.__type.fields[].name' account_fields.json
+
+          echo "=== of those, which mention rum, site, or web (candidates for a site registry) ==="
+          jq -r '.data.__type.fields[].name | select(test("rum|site|web"; "i"))' account_fields.json
+
+      - name: List zones on this Cloudflare account (REST API, checks wingfoilamerica.com is even under this account)
         env:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CF_ACCOUNT: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          QUERY=$(jq -n --arg accountTag "$CF_ACCOUNT" '{
-            query: "query($accountTag: String!) { viewer { accounts(filter: {accountTag: $accountTag}) { rumSiteInfo { siteTag siteName active } } } }",
-            variables: { accountTag: $accountTag }
-          }')
-          curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
+          curl -sS "https://api.cloudflare.com/client/v4/zones?account.id=$CF_ACCOUNT" \
             -H "Authorization: Bearer $CF_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d "$QUERY" | tee sites.json
-          echo ""
-          echo "=== does our beacon token appear in the registered sites list? ==="
-          jq -c '.data.viewer.accounts[0].rumSiteInfo[]? | select(.siteTag == "a356302bfd584a6baf958e945583b0bc")' sites.json || true
-
-      - name: Query 30-day pageload event count for our siteTag (no dimensions, just count)
-        env:
-          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CF_ACCOUNT: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          END=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-          START=$(date -u -d "30 days ago" +"%Y-%m-%dT%H:%M:%SZ")
-          QUERY=$(jq -n --arg accountTag "$CF_ACCOUNT" --arg siteTag "a356302bfd584a6baf958e945583b0bc" --arg start "$START" --arg end "$END" '{
-            query: "query($accountTag: String!, $siteTag: String!, $start: Time!, $end: Time!) { viewer { accounts(filter: {accountTag: $accountTag}) { rumPageloadEventsAdaptiveGroups(limit: 10, filter: {siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end}) { count } } } }",
-            variables: { accountTag: $accountTag, siteTag: $siteTag, start: $start, end: $end }
-          }')
-          curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
-            -H "Authorization: Bearer $CF_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d "$QUERY"
+            -H "Content-Type: application/json" | jq -c '{success, errors}, (.result[]? | {name, id, status})'
