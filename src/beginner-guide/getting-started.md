@@ -11,7 +11,11 @@ extraJs:
 
 A plain-English introduction to wing foiling — what the gear is, how it's different from kiteboarding and windsurfing, why people get hooked — plus what actually makes a first session safe and fun.
 
-If you've stood on a beach and watched someone silently gliding above the water, holding what looks like a small inflatable sail with no lines or bar attached to anything, you've watched wing foiling. It looks like a magic trick. It isn't — it's two pieces of gear working together, and once you understand what each one does, the whole sport makes a lot more sense.
+Wing foiling is a water sport where you hold a small inflatable wing to catch the wind, while riding a board with a hydrofoil — a wing-shaped fin — mounted underneath that lifts the board up out of the water once you're moving. No lines, no harness, no bar — you hold the wing directly in your hands.
+
+A good first spot to learn has flat or wind-protected water, side-shore to side-onshore wind (so if you get blown around, it's toward or along the beach, not away from it), and water shallow enough to stand in while you're getting the hang of it. See the [Where to Ride](/where-to-ride/) map for real spots other riders have flagged as beginner-friendly.
+
+It looks like a magic trick. It isn't — it's two pieces of gear working together, and once you understand what each one does, the whole sport makes a lot more sense.
 
 ## The two things that make it work
 

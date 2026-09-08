@@ -286,7 +286,12 @@ img{ max-width: 100%; display: block; }
 .guide-card .go{ font-size: 0.85rem; color: var(--teal); }
 
 /* ---------- individual guide page ---------- */
-.guide-page{ padding: 60px 0 40px; max-width: 760px; }
+/* padding-top/-bottom only (not the shorthand) — a shorthand here would zero
+   out .wrap's horizontal padding via the cascade (this class loads after
+   .wrap and shares its specificity), which is invisible on desktop since
+   centering plus this max-width already inset the content, but leaves
+   mobile text running edge-to-edge once the viewport drops below 760px. */
+.guide-page{ padding-top: 60px; padding-bottom: 40px; max-width: 760px; }
 .breadcrumb{ font-size: 0.85rem; color: var(--foam-faint); margin-bottom: 28px; }
 .breadcrumb span{ margin: 0 6px; }
 .guide-page-header h1{ font-size: clamp(2.3rem, 5vw, 3.4rem); }
@@ -310,7 +315,9 @@ img{ max-width: 100%; display: block; }
 .guide-pager-link span{ font-family: var(--font-mono); font-size: 0.75rem; color: var(--teal); font-weight: 400; }
 
 /* ---------- generic long-form article page (e.g. Wind) ---------- */
-.article-page{ padding: 60px 0 90px; max-width: 760px; }
+/* padding-top/-bottom only — see .guide-page above for why the shorthand
+   would silently cancel .wrap's horizontal padding on mobile. */
+.article-page{ padding-top: 60px; padding-bottom: 90px; max-width: 760px; }
 .article-page-header h1{ font-size: clamp(2.3rem, 5vw, 3.4rem); }
 .article-page-lede{ font-size: 1.1rem; }
 .article-page-body h2{ font-size: 1.65rem; margin-top: 1.7em; color: var(--foam); }
@@ -401,7 +408,9 @@ img{ max-width: 100%; display: block; }
 /* ==========================================================================
    Coming soon
    ========================================================================== */
-.coming-soon{ padding: 90px 0 40px; max-width: 680px; }
+/* padding-top/-bottom only — see .guide-page above for why the shorthand
+   would silently cancel .wrap's horizontal padding on mobile. */
+.coming-soon{ padding-top: 90px; padding-bottom: 40px; max-width: 680px; }
 .coming-soon h1{ font-size: clamp(2.3rem, 5vw, 3.4rem); }
 .coming-soon-lede{ font-size: 1.1rem; }
 .coming-soon-card{
@@ -516,7 +525,9 @@ img{ max-width: 100%; display: block; }
 /* ==========================================================================
    404 page
    ========================================================================== */
-.error-page{ padding: 110px 0 120px; text-align: center; max-width: 560px; }
+/* padding-top/-bottom only — see .guide-page above for why the shorthand
+   would silently cancel .wrap's horizontal padding on mobile. */
+.error-page{ padding-top: 110px; padding-bottom: 120px; text-align: center; max-width: 560px; }
 .error-code{
   font-family: var(--font-display); color: var(--coral); font-size: clamp(3.5rem, 10vw, 6rem);
   line-height: 1; margin: 0 0 16px;

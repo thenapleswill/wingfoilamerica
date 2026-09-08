@@ -61,6 +61,8 @@ extraJs:
 <h2>Satellite View</h2>
 <div id="spotMap" class="spot-page-map" data-lat="{{ spot.lat }}" data-lng="{{ spot.lng }}" data-name="{{ spot.name }}"></div>
 
+<p class="spot-page-open-in-maps"><a href="https://www.google.com/maps?q={{ spot.lat }},{{ spot.lng }}" target="_blank" rel="noopener noreferrer">Open in Maps &rarr;</a></p>
+
 <p><a href="{{ '/where-to-ride/' | url }}">&larr; Back to the full map</a></p>
 
 <p class="spot-feedback-link">
