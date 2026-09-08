@@ -20,29 +20,33 @@ jobs:
               -H "Content-Type: application/json" \
               -d @-
           }
+          # NON_NULL/LIST wrappers mean the real named type can be nested up to
+          # two levels deep in ofType (NON_NULL -> LIST -> the actual type) --
+          # this filter unwraps whichever of the three levels first has a name.
+          unwrap() {
+            jq -r --arg field "$1" '.data.__type.fields[] | select(.name == $field) | (.type.name, .type.ofType.name, .type.ofType.ofType.name) | select(. != null and . != "")' "$2" | head -1
+          }
 
           echo "=== root query type name ==="
           ROOT=$(gql '{ __schema { queryType { name } } }' | jq -r '.data.__schema.queryType.name')
           echo "$ROOT"
 
           echo "=== viewer field's return type ==="
-          gql "{ __type(name: \"$ROOT\") { fields { name type { name kind ofType { name kind } } } } }" > root_fields.json
-          jq -c '.data.__type.fields[] | select(.name == "viewer")' root_fields.json
-          VIEWER_TYPE=$(jq -r '.data.__type.fields[] | select(.name == "viewer") | (.type.name // .type.ofType.name)' root_fields.json)
+          gql "{ __type(name: \"$ROOT\") { fields { name type { name kind ofType { name kind ofType { name kind } } } } } }" > root_fields.json
+          VIEWER_TYPE=$(unwrap viewer root_fields.json)
           echo "viewer field type: $VIEWER_TYPE"
 
           echo "=== accounts field's return type ==="
-          gql "{ __type(name: \"$VIEWER_TYPE\") { fields { name type { name kind ofType { name kind } } } } }" > viewer_fields.json
-          jq -c '.data.__type.fields[] | select(.name == "accounts")' viewer_fields.json
-          ACCOUNTS_TYPE=$(jq -r '.data.__type.fields[] | select(.name == "accounts") | (.type.ofType.name // .type.name)' viewer_fields.json)
+          gql "{ __type(name: \"$VIEWER_TYPE\") { fields { name type { name kind ofType { name kind ofType { name kind } } } } } }" > viewer_fields.json
+          ACCOUNTS_TYPE=$(unwrap accounts viewer_fields.json)
           echo "accounts field type: $ACCOUNTS_TYPE"
 
           echo "=== ALL fields on the real Account type (ground truth, no more guessing) ==="
           gql "{ __type(name: \"$ACCOUNTS_TYPE\") { fields { name } } }" > account_fields.json
-          jq -r '.data.__type.fields[].name' account_fields.json
+          jq -r '.data.__type.fields[]?.name' account_fields.json
 
           echo "=== of those, which mention rum, site, or web (candidates for a site registry) ==="
-          jq -r '.data.__type.fields[].name | select(test("rum|site|web"; "i"))' account_fields.json
+          jq -r '.data.__type.fields[]?.name | select(test("rum|site|web"; "i"))' account_fields.json
 
       - name: List zones on this Cloudflare account (REST API, checks wingfoilamerica.com is even under this account)
         env:
