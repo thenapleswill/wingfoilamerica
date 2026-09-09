@@ -65,11 +65,12 @@ extraJs:
 
 <p><a href="{{ '/where-to-ride/' | url }}">&larr; Back to the full map</a></p>
 
-<p class="spot-feedback-link">
-  <a href="#" id="spotFeedbackOpen"
+<div class="spot-feedback-link">
+  <p>See something wrong, or ride here yourself?</p>
+  <button type="button" class="btn btn-outline" id="spotFeedbackOpen"
     data-spot-id="{{ spot.id }}" data-spot-name="{{ spot.name }}"
-    data-spot-lat="{{ spot.lat }}" data-spot-lng="{{ spot.lng }}">See something wrong, or ride here yourself? Let us know</a>
-</p>
+    data-spot-lat="{{ spot.lat }}" data-spot-lng="{{ spot.lng }}">Let Us Know</button>
+</div>
 
 <div class="submit-spot-modal" id="spotFeedbackModal" hidden>
   <div class="submit-spot-modal-backdrop" data-modal-close></div>

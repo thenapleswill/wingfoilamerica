@@ -193,11 +193,19 @@ body.modal-open{ overflow: hidden; }
 }
 
 /* ---------- Spot feedback (Suggest a correction / Confirm this spot) ---------- */
-.spot-feedback-link{ margin: 24px 0 0; }
-.spot-feedback-link a{
-  font-size: 0.82rem; color: var(--foam-faint); text-decoration: underline; text-underline-offset: 2px;
+/* Same card treatment as .video-callout / .guide-card / .package-card — the
+   site's standard callout look, so this reads as a real prompt instead of a
+   footnote-sized link. */
+.spot-feedback-link{
+  margin: 32px 0 0; padding: 20px; background: var(--ink-2); border: 1px solid var(--line);
+  border-radius: var(--radius); display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
 }
-.spot-feedback-link a:hover{ color: var(--foam-dim); }
+.spot-feedback-link p{ margin: 0; color: var(--foam-dim); }
+.spot-feedback-link .btn{ flex: none; }
+@media (max-width: 520px){
+  .spot-feedback-link{ flex-direction: column; align-items: stretch; text-align: center; }
+}
 
 .spot-feedback-choice{ display: flex; flex-direction: column; gap: 10px; }
 .spot-feedback-choice-btn{ width: 100%; text-align: left; }
