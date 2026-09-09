@@ -121,6 +121,8 @@ Buying the three pieces separately gives you more control, but plenty of retaile
 
 A note on all three: package availability and pricing shift with stock, so if one you like is sold out, check back or browse that retailer's full package list for their next comparable option — it's still a shorter path than researching every board/foil/wing combination yourself.
 
+Once you've actually got your setup, keeping it in good shape matters too — see [Gear Maintenance & Repair Basics](/gear-and-brands/maintenance-and-repair/) for the post-session routine and basic repairs that keep a wing, board, and foil working.
+
 <h2 id="shop-brands">Shop Direct From the Brands</h2>
 
 Not every brand sells direct to consumer — some of these are better for researching specs and comparing gear than for actually checking out, but worth a look either way:
