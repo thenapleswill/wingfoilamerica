@@ -435,15 +435,15 @@
     "city": "Cabarete",
     "state": "Dominican Republic",
     "region": "Puerto Plata Province",
-    "lat": 19.752556,
-    "lng": -70.4126,
+    "lat": 19.750484684778815,
+    "lng": -70.40662270102145,
     "waterType": "Mixed — flatter water close in, with wave/swell further out; consistent cross-shore trade winds.",
     "windDirection": "Cross-shore trade winds, typically E/ESE",
     "idealWindDirections": ["E", "ESE"],
     "skillLevel": "Intermediate+ for the open bay conditions, though Vela's on-site instructors run structured lessons for beginners too",
     "description": "Cabarete Bay is a genuine international meeting place for wing foilers — sailed here on three separate trips and met riders from the US, Canada, Europe, South America, and beyond. Local tip: Vela Watersports Center (https://velawatersportscabarete.com/), run by Jens — knowledgeable, helpful, a great guy — is a full-service shop for everything wing foiling related: gear rentals, lessons, on-site gear storage (so you don't have to haul your own gear from the hotel), and repairs. There's also a public parking lot just across the street, a couple pesos for a safe place to leave your car.",
     "verified": "firsthand-verified",
-    "sourceNote": "Firsthand-verified (2026-08-29) by Will. Coordinates updated to Will's own precise pin (2026-09-02)."
+    "sourceNote": "Firsthand-verified (2026-08-29) by Will. Coordinates updated to Will's exact launch-spot pin, right at the shop (2026-09-10)."
   },
   {
     "id": "hookipa-beach-park",
@@ -565,9 +565,9 @@
     "waterType": "Shallow, flat, sandy bottom, extends out for a long way",
     "windDirection": "Onshore to side-onshore; roughly a 10-month wind season (Nov-Aug), strongest May-Aug",
     "skillLevel": "All levels, especially beginner-friendly",
-    "description": "Waist-deep water extending out a long way with no shore break, rocks, or real hazards — about as safe and forgiving a spot as exists anywhere. Open to the public, not hotel-only — parking and beach access via Shore Club Road or Long Bay Hills Road off Leeward Highway. KiteProvo, a local school, teaches kiteboarding and wing boarding lessons on the beach's eastern side on every windy day.",
+    "description": "Waist-deep water extending out a long way with no shore break, rocks, or real hazards — about as safe and forgiving a spot as exists anywhere. Open to the public, not hotel-only — parking and beach access via Shore Club Road or Long Bay Hills Road off Leeward Highway. KiteProvo, a local school, offers wing foiling lessons on the beach's eastern side on windy days.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected to the actual public beach access point — the previous pin was roughly 6km off (2026-09-02). Confirmed public (not hotel-only) with parking/access detail and KiteProvo mention added (2026-09-06) — sources: kiteprovo.com/long-bay-kite-beach/ and visittci.com/providenciales/long-bay-beach."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected to the actual public beach access point — the previous pin was roughly 6km off (2026-09-02). Confirmed public (not hotel-only) with parking/access detail and KiteProvo mention added (2026-09-06) — sources: kiteprovo.com/long-bay-kite-beach/ and visittci.com/providenciales/long-bay-beach. Kiteboarding mention trimmed back to keep description wing-foil-focused (2026-09-10)."
   },
   {
     "id": "orient-bay",
@@ -595,9 +595,9 @@
     "waterType": "Calm, flat, shallow",
     "windDirection": "Consistent trade winds, best season Nov-July",
     "skillLevel": "Beginner to intermediate, foil-friendly",
-    "description": "A calm, flat bay reported as beginner- and foil-friendly, at the public Balneario Boqueron beach facility (parking, restrooms, showers). We don't have a confirmed local wing/kite school operating here currently — if you know of one, let us know.",
+    "description": "A calm, flat bay reported as beginner- and foil-friendly, at the public Balneario Boqueron beach facility (parking, restrooms, showers). We don't have a confirmed local wing foiling school operating here currently — if you know of one, let us know.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Renamed from \"Combate / Boqueron Bay\" and re-pinned to Balneario Boqueron (2026-09-06) — the old entry conflated two separate beaches (Combate Beach and Boqueron Bay aren't the same place), and its previously-cited operator (Puerto Rico Adventure Water Sports) now shows as permanently closed; this spot also doesn't appear in Kiteforum's list of 41 Puerto Rico kite spots. Re-pinned instead to the real, government-run public Balneario Boqueron beach facility. Coordinates are approximate (from research, not GPS-confirmed) — worth a visual map check before treating as exact."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Renamed from \"Combate / Boqueron Bay\" and re-pinned to Balneario Boqueron (2026-09-06) — the old entry conflated two separate beaches (Combate Beach and Boqueron Bay aren't the same place), and its previously-cited operator (Puerto Rico Adventure Water Sports) now shows as permanently closed; this spot also doesn't appear in Kiteforum's list of 41 Puerto Rico kite spots. Re-pinned instead to the real, government-run public Balneario Boqueron beach facility. Coordinates are approximate (from research, not GPS-confirmed) — worth a visual map check before treating as exact. Kite mention trimmed back to keep description wing-foil-focused (2026-09-10)."
   },
   {
     "id": "fort-de-soto-park-east-beach",
@@ -627,9 +627,9 @@
     "windDirection": "Prevailing westerly Gorge thermal; also known to work on east-wind days when Hood River itself is blown out or clouded in",
     "idealWindDirections": ["W", "E"],
     "skillLevel": "Advanced",
-    "description": "About 20 minutes east of Hood River on Highway 14, a genuine Washington State Park and longtime windsurfing fixture increasingly drawing wing foilers chasing the same reliable thermal — a distinctly more advanced, more current-exposed scene than the more sheltered Hood River Event Site closer to town. Strong current can sweep a rider well across the river; no kite launching here at all (foil, wing, and windsurf only); requires a WA Discover Pass ($30) for parking.",
+    "description": "About 20 minutes east of Hood River on Highway 14, a genuine Washington State Park and longtime windsurfing fixture increasingly drawing wing foilers chasing the same reliable thermal — a distinctly more advanced, more current-exposed scene than the more sheltered Hood River Event Site closer to town. Strong current can sweep a rider well across the river; foil, wing, and windsurf only; requires a WA Discover Pass ($30) for parking.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. A distinct spot from the existing Hood River Event Site entry, not a duplicate."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. A distinct spot from the existing Hood River Event Site entry, not a duplicate. Kite mention trimmed back to keep description wing-foil-focused (2026-09-10)."
   },
   {
     "id": "grand-haven-state-park",
