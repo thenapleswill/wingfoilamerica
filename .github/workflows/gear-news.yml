@@ -1,0 +1,40 @@
+name: Weekly Gear News Check
+
+on:
+  schedule:
+    # Thursdays ~9am ET (13:00 UTC) — offset from the Monday analytics
+    # snapshot job so the two never pile up on the same day.
+    - cron: "0 13 * * 4"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check brand news pages for new posts
+        run: node scripts/gear-news-check.mjs
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "gear-news-bot"
+          git config user.email "noreply@wingfoilamerica.com"
+          git add src/_data/gear-news.json src/_data/gear-news-state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Weekly gear news check"
+            git push
+          else
+            echo "No changes to commit"
+          fi
