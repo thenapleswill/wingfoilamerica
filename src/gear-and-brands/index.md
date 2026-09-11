@@ -123,6 +123,8 @@ A note on all three: package availability and pricing shift with stock, so if on
 
 Once you've actually got your setup, keeping it in good shape matters too — see [Gear Maintenance & Repair Basics](/gear-and-brands/maintenance-and-repair/) for the post-session routine and basic repairs that keep a wing, board, and foil working.
 
+Curious what these brands have shipped lately? See [What's New in Gear](/gear-and-brands/whats-new/) for genuinely new wing, board, and hydrofoil releases, checked automatically every week — no filler, just real releases with real sources.
+
 <h2 id="shop-brands">Shop Direct From the Brands</h2>
 
 Not every brand sells direct to consumer — some of these are better for researching specs and comparing gear than for actually checking out, but worth a look either way:

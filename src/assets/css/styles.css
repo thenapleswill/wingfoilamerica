@@ -536,3 +536,34 @@ img{ max-width: 100%; display: block; }
 .error-sub{ font-size: 1.05rem; margin-bottom: 32px; }
 .error-actions{ margin-bottom: 24px; }
 .error-hint{ font-size: 0.9rem; color: var(--foam-dim); }
+
+/* ==========================================================================
+   What's New in Gear
+   ========================================================================== */
+.gear-news-checked-note{ font-size: 0.85rem; color: var(--foam-faint); margin: -8px 0 28px; }
+.gear-news-list{ display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+.gear-news-item{
+  background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px 24px;
+}
+.gear-news-item-head{ display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.gear-news-category{
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--teal); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px;
+}
+.gear-news-category--wing{ color: var(--teal); }
+.gear-news-category--board{ color: var(--coral-bright); }
+.gear-news-category--foil{ color: var(--foam); }
+.gear-news-category--accessory{ color: var(--foam-dim); }
+.gear-news-date{ font-size: 0.82rem; color: var(--foam-faint); white-space: nowrap; }
+.gear-news-item-title{ font-size: 1.1rem; margin: 0 0 6px; }
+.gear-news-item-summary{ margin: 0 0 8px; }
+.gear-news-item-source{ font-size: 0.85rem; margin: 0; }
+.gear-news-item-source a{ text-decoration: underline; text-underline-offset: 2px; }
+.gear-news-empty{
+  background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 32px 24px; text-align: center; margin: 24px 0;
+}
+@media (max-width: 480px){
+  .gear-news-item-head{ flex-direction: column; align-items: flex-start; gap: 6px; }
+}
