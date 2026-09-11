@@ -1,0 +1,21 @@
+name: TEMP - Gear News Diagnostic
+
+# Temporary, manual-only workflow used to inspect each brand's real news-page
+# HTML from a runner with real internet access (the dev sandbox's own egress
+# is blocked for these domains). Deleted once scripts/gear-news-check.mjs's
+# selectors are verified against real output — see scripts/gear-news-diagnostic.mjs.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node scripts/gear-news-diagnostic.mjs
