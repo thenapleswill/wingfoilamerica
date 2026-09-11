@@ -129,7 +129,10 @@ function extractPosts(html, baseUrl) {
 
   return [...byHref.values()]
     .map(({ href, text }) => ({ url: href, title: cleanTitle(text) }))
-    .filter((p) => p.title && p.title.length <= 180);
+    // A short title (e.g. "Videos", "News") is almost always a nav/category
+    // tab whose href happens to fall under the listing's own path, not a
+    // real post — real post titles run much longer than this in practice.
+    .filter((p) => p.title && p.title.length >= 10 && p.title.length <= 180);
 }
 
 async function checkBrand({ brand, url }, seenUrls) {
