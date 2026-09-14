@@ -44,7 +44,15 @@ extraJs:
 <dl class="spot-page-facts">
   <dt>Water type</dt><dd>{{ spot.waterType }}</dd>
   <dt>Best wind direction</dt><dd>{{ spot.windDirection }}</dd>
-  <dt>Skill level</dt><dd>{{ spot.skillLevel }}</dd>
+  <dt>Skill level</dt>
+  <dd>
+    {%- if spot.skillLevel == "Needs local input" -%}
+    <button type="button" class="skill-level-needs-input" data-spot-feedback-trigger
+      data-feedback-type="correction" data-feedback-prefill="I can help with the real skill level for {{ spot.name }}: ">Needs local input &rarr;</button>
+    {%- else -%}
+    {{ spot.skillLevel }}
+    {%- endif -%}
+  </dd>
 </dl>
 
 <h2>Live Wind Here</h2>
@@ -67,7 +75,7 @@ extraJs:
 
 <div class="spot-feedback-link">
   <p>See something wrong, or ride here yourself?</p>
-  <button type="button" class="btn btn-outline" id="spotFeedbackOpen"
+  <button type="button" class="btn btn-outline" id="spotFeedbackOpen" data-spot-feedback-trigger
     data-spot-id="{{ spot.id }}" data-spot-name="{{ spot.name }}"
     data-spot-lat="{{ spot.lat }}" data-spot-lng="{{ spot.lng }}">Let Us Know</button>
 </div>

@@ -42,13 +42,34 @@
     iframe.removeAttribute("src");
   }
 
-  function openModal() {
+  // presetType/presetMessage let a trigger elsewhere on the page (e.g. a
+  // "Needs local input" link on the skill level fact) skip straight to the
+  // form pre-set to a feedback type, instead of showing the choice screen.
+  function openModal(presetType, presetMessage) {
     lastFocused = document.activeElement;
     resetModal();
     modal.removeAttribute("hidden");
     document.body.classList.add("modal-open");
-    var firstBtn = choiceEl.querySelector("button");
-    if (firstBtn) firstBtn.focus();
+
+    if (presetType) {
+      feedbackType = presetType;
+      choiceEl.hidden = true;
+      formEl.hidden = false;
+      if (presetType === "confirmation") {
+        formIntro.textContent =
+          "Tell us about riding or teaching here, and drag the pin below if the launch location needs adjusting.";
+        mapWrap.hidden = false;
+        initMapIfNeeded();
+      } else {
+        formIntro.textContent = "What's wrong, and what should it say instead?";
+        mapWrap.hidden = true;
+      }
+      if (presetMessage) messageEl.value = presetMessage;
+      messageEl.focus();
+    } else {
+      var firstBtn = choiceEl.querySelector("button");
+      if (firstBtn) firstBtn.focus();
+    }
   }
 
   function closeModal() {
@@ -57,9 +78,15 @@
     if (lastFocused) lastFocused.focus();
   }
 
-  openLink.addEventListener("click", function (event) {
-    event.preventDefault();
-    openModal();
+  // Any element on the page can open this modal — the original "Let Us
+  // Know" button (no preset, shows the choice screen) plus any number of
+  // inline triggers like a "Needs local input" link (preset straight to a
+  // feedback type via data-feedback-type/-prefill).
+  document.querySelectorAll("[data-spot-feedback-trigger]").forEach(function (trigger) {
+    trigger.addEventListener("click", function (event) {
+      event.preventDefault();
+      openModal(trigger.dataset.feedbackType || null, trigger.dataset.feedbackPrefill || null);
+    });
   });
 
   modal.querySelectorAll("[data-modal-close]").forEach(function (el) {

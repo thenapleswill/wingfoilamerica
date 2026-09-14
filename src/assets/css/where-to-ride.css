@@ -101,6 +101,11 @@
 }
 .spot-page-facts dt{ color: var(--foam-faint); font-weight: 600; }
 .spot-page-facts dd{ margin: 0; color: var(--foam-dim); }
+.skill-level-needs-input{
+  background: none; border: none; padding: 0; margin: 0; font: inherit; cursor: pointer;
+  color: var(--teal); text-decoration: underline; text-underline-offset: 2px;
+}
+.skill-level-needs-input:hover{ color: var(--coral-bright); }
 
 .spot-page-wind-frame{
   position: relative; width: 100%; padding-bottom: 68%; border-radius: var(--radius); overflow: hidden;
