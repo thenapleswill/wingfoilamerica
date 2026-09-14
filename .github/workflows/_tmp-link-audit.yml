@@ -14,7 +14,7 @@ jobs:
       - run: npx pagefind --site _site
       - name: Extract and check links
         run: |
-          cat > /tmp/link-audit.mjs << 'SCRIPT'
+          cat > ./link-audit.mjs << 'SCRIPT'
           import fs from "node:fs";
           import path from "node:path";
           import * as cheerio from "cheerio";
@@ -84,4 +84,5 @@ jobs:
             console.log(`${r.ok ? "OK " : "BAD"} ${r.status ?? "ERR"}  ${r.url}`);
           }
           SCRIPT
-          node /tmp/link-audit.mjs
+          node ./link-audit.mjs
+          rm ./link-audit.mjs
