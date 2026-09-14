@@ -442,9 +442,9 @@
     "windDirection": "North-south (side-shore) or west",
     "idealWindDirections": ["N", "S", "W"],
     "skillLevel": "All levels",
-    "description": "A Bonita Springs beach access point (26082 Hickory Blvd) — the local sailing spot of Steve Fleming of Prowind Watersports (prowindsports.com).",
-    "verified": "community-reported",
-    "sourceNote": "Community-reported (2026-09-14) — based on a real local rider and shop owner's own spot, Steve Fleming of Prowind Watersports. Not yet ridden firsthand by Will."
+    "description": "A Bonita Springs beach access point (26082 Hickory Blvd). Local contact: Steve Fleming of Prowind Watersports (prowindsports.com).",
+    "verified": "firsthand-verified",
+    "sourceNote": "Firsthand-verified (2026-09-14) by Will, ridden here a couple of times. Steve Fleming of Prowind Watersports is the local contact/shop."
   },
   {
     "id": "grassy-flats-resort",
