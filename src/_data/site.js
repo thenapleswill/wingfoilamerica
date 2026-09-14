@@ -2,12 +2,8 @@ module.exports = {
   name: "Wing Foil America",
   tagline: "Learn to wing foil. Ride better. Go further.",
   // Host only (no path, no trailing slash) — used to build absolute URLs in
-  // robots.txt/sitemap.xml. Update this if/when a custom domain is added.
+  // robots.txt/sitemap.xml.
   siteUrl: "https://wingfoilamerica.com",
-  // Plausible Analytics site domain (Settings > Site Settings in Plausible).
-  // Set up a free account at plausible.io, add this site, then replace this
-  // value with the exact domain string Plausible gives you.
-  plausibleDomain: "REPLACE_WITH_YOUR_PLAUSIBLE_DOMAIN",
   nav: [
     { title: "Find a Spot", url: "/where-to-ride/" },
     { title: "Beginner Guide", url: "/beginner-guide/" },

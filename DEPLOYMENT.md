@@ -17,10 +17,14 @@ green, your site is live at:
 https://<your-github-username>.github.io/wingfoilamerica/
 ```
 
-## 2. Later: pointing your own domain at it
+(or, once step 2 below is done, at your custom domain instead.)
 
-You don't need to do this now — the free `github.io` URL above works today. Whenever you buy
-a domain (e.g. `wingfoilamerica.com`):
+## 2. Custom domain — already done
+
+`wingfoilamerica.com` is already configured as the site's custom domain (`src/CNAME`, and
+`siteUrl` in `src/_data/site.js`) and is what's live in production today. The steps below are
+kept for reference — e.g. if the domain moves to a new registrar, or a new domain gets added
+later — not as something still to do.
 
 1. **Buy the domain** from any registrar (Namecheap, Google Domains/Squarespace, GoDaddy, etc.).
 2. In this GitHub repo: **Settings** → **Pages** → under "Custom domain", type your domain

@@ -21,43 +21,35 @@ one-line description, and the actual page content below it. To edit a page:
 Do **not** delete the `---` block at the very top of a file or the `order:` number in it —
 that controls where the page shows up in the guide's navigation.
 
-## The gear calculator page
+## The gear calculator widget
 
-`src/beginner-guide/what-gear-do-you-need.md` is a placeholder shell for your HTML/CSS/JS
-gear calculator prototype. To integrate it:
-
-1. Paste the calculator's **HTML** into the `#gear-calculator-root` div in that file.
-2. Paste its **CSS** into `src/assets/css/gear-calculator.css`.
-3. Paste its **JS** into `src/assets/js/gear-calculator.js`.
-
-Both of those asset files only load on that one page, so they won't affect the rest of the
-site's styling or scripts.
+The gear calculator lives on `/gear-and-brands/` as a shared Nunjucks partial
+(`src/_includes/partials/gear-calculator-widget.njk`, rendered into the page's
+`#gear-calculator-root` div), with its own CSS/JS in `src/assets/css/gear-calculator.css`
+and `src/assets/js/gear-calculator.js`. The same partial (and asset files) also back the
+follow-up "Level Up Your Gear" tool at `/gear-and-brands/level-up/` via
+`src/_includes/partials/level-up-widget.njk` and `src/assets/js/level-up-calculator.js`.
 
 ## Analytics setup
 
-The site is wired for [Plausible Analytics](https://plausible.io) (cookieless, no
-consent banner needed), but the script only renders once it's configured:
-
-1. Create a free Plausible account and add this site — Plausible will give you a
-   domain string to use (usually just the site's domain).
-2. In `src/_data/site.js`, replace `REPLACE_WITH_YOUR_PLAUSIBLE_DOMAIN` with that value.
-3. Push the change — the analytics script tag in `src/_includes/layouts/base.njk` only
-   renders once `plausibleDomain` is no longer the placeholder, so nothing is sent
-   anywhere until it's configured.
+The site runs [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/)
+(cookieless, no consent banner needed) — already live site-wide via the script tag in
+`src/_includes/layouts/base.njk`. Nothing to configure; to point it at a different
+Cloudflare account, generate a new beacon token in the Cloudflare dashboard and swap the
+`data-cf-beacon` token in that script tag.
 
 ## Newsletter setup
 
-The signup form (`src/_includes/partials/newsletter.njk`) embeds a [Kit](https://kit.com)
-(formerly ConvertKit) inline form via Kit's own `<script>` snippet, shared across the
+The signup form (`src/_includes/partials/newsletter.njk`) embeds a
+[MailerLite](https://www.mailerlite.com) inline form (the `.ml-embedded` div, loaded by the
+MailerLite Universal script in `src/_includes/layouts/base.njk`), shared across the
 homepage, Community, and Intermediate & Advanced pages.
 
-To change the form's fields or which Kit account it points to, edit the form in your Kit
-dashboard (Audience growth > Landing pages & forms), then swap the `data-uid` and `src` in
-`src/_includes/partials/newsletter.njk` for the new form's embed code. Kit's own form editor
-(Style/Design tab) is the most reliable way to color-match the form to the site palette
-(ink `#06232c`, coral `#ff5f45`, teal `#2fd1c5`) — `src/assets/css/styles.css` also has a
-best-effort CSS override block targeting Kit's standard class names, but Kit renders its
-own markup at runtime so it's worth checking the form still looks right after any changes.
+To change the form's fields, edit the form in your MailerLite dashboard, then swap the
+`data-form` ID in `src/_includes/partials/newsletter.njk` for the new form's ID. MailerLite's
+own form editor is the most reliable way to color-match the form to the site palette (ink
+`#06232c`, coral `#ff5f45`, teal `#2fd1c5`) — check the embedded form still looks right after
+any changes, since MailerLite renders its own markup at runtime.
 
 ## Where to Ride map
 
@@ -90,15 +82,23 @@ matching files in `src/assets/vendor/leaflet/` or `src/assets/vendor/leaflet.mar
 
 ### Submit a Spot form
 
-The "Submit a Spot" section on that page embeds an Airtable form via an `<iframe>` in
-`src/where-to-ride/index.md`. Submissions land as new rows in the connected Airtable base —
-review them there before adding a spot to `src/assets/data/where-to-ride-spots.json`.
+The "Add a Spot" button on that page opens a modal (`src/where-to-ride/index.md`,
+`src/assets/js/where-to-ride.js`) that has visitors drop a pin on a map — or use their
+location or search an address — before showing an Airtable form, pre-filled with those
+coordinates, embedded via `<iframe>` as the modal's last step. Submissions land as new rows
+in the connected Airtable base — review them there before adding a spot to
+`src/assets/data/where-to-ride-spots.json`.
 
-To change the fields or where submissions go, edit the form in Airtable (Table view > your
-form view > Share form), then in Airtable's "Embed this view" panel grab the updated `src`
-URL and swap it into the `iframe` in `src/where-to-ride/index.md`.
-   Nothing on the site publishes a submitted spot automatically; you (or Claude) still add it
-   to `where-to-ride-spots.json` by hand once you've reviewed it.
+To change the form's fields, edit the form in Airtable (Table view > your form view > Share
+form), then in Airtable's "Embed this view" panel grab the updated share ID and swap it into
+the `AIRTABLE_BASE_ID`/`AIRTABLE_FORM_SHARE_ID` constants at the top of
+`src/assets/js/where-to-ride.js` (the URL and prefill params are built from those, not a
+static iframe `src`). Nothing on the site publishes a submitted spot automatically; you (or
+Claude) still add it to `where-to-ride-spots.json` by hand once you've reviewed it.
+
+The same modal pattern — pre-filled Airtable form in an iframe, triggered from a button —
+also powers per-spot correction/confirmation feedback (`src/assets/js/spot-feedback.js`) on
+each spot's detail page.
 
 ## Site search
 

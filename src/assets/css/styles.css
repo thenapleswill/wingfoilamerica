@@ -406,20 +406,6 @@ img{ max-width: 100%; display: block; }
 .article-page-body tr:last-child td{ border-bottom: none; }
 
 /* ==========================================================================
-   Coming soon
-   ========================================================================== */
-/* padding-top/-bottom only — see .guide-page above for why the shorthand
-   would silently cancel .wrap's horizontal padding on mobile. */
-.coming-soon{ padding-top: 90px; padding-bottom: 40px; max-width: 680px; }
-.coming-soon h1{ font-size: clamp(2.3rem, 5vw, 3.4rem); }
-.coming-soon-lede{ font-size: 1.1rem; }
-.coming-soon-card{
-  background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 26px; margin-top: 10px;
-}
-.coming-soon-card p{ margin: 0; }
-
-/* ==========================================================================
    Newsletter
    ========================================================================== */
 .newsletter{ padding: 56px 0 90px; }
@@ -432,40 +418,16 @@ img{ max-width: 100%; display: block; }
 .newsletter h2{ font-size: 1.5rem; margin-bottom: 8px; }
 .newsletter-embed{ margin: 20px auto 0; max-width: 480px; }
 
-/* Best-effort reskin of Kit's inline form to the site palette. Kit renders its own
-   markup/CSS at runtime (this sandbox can't reach kit.com to confirm exact class
-   names), so these target Kit's long-standing "formkit-*" classes with !important
-   to win against Kit's injected styles. If a color still shows Kit's default,
-   set it directly in Kit's own form editor (Style/Design tab) instead:
-   background #06232c, accent/button #ff5f45, text #eafaf7. */
-.newsletter-embed .formkit-input{
-  background: var(--ink) !important; color: var(--foam) !important;
-  border: 1px solid var(--line) !important; border-radius: 999px !important;
-}
-.newsletter-embed .formkit-submit,
-.newsletter-embed button[data-element="submit"]{
-  background: var(--coral) !important; color: var(--ink) !important; border: none !important;
-}
-.newsletter-embed .formkit-submit:hover,
-.newsletter-embed button[data-element="submit"]:hover{ background: var(--coral-bright) !important; }
-.newsletter-embed .formkit-alert-success{ color: var(--teal) !important; }
-
 /* ==========================================================================
-   Gear calculator placeholder
+   Gear calculator widget container
    ========================================================================== */
-.gear-calculator-shell{
-  border: 2px dashed var(--line); border-radius: var(--radius); padding: 40px 28px;
-  text-align: center; background: var(--ink-2); margin: 20px 0 40px;
-}
-.gear-calculator-shell h3{ font-size: 1.2rem; margin-bottom: 10px; }
-.gear-calculator-shell p{ max-width: 520px; margin: 0 auto 8px; }
 #gear-calculator-root{ margin-top: 24px; text-align: left; }
 
 /* ==========================================================================
    Video callout ("watch this") — reuses the site's standard card look
-   (ink-2 surface, line border, standard radius) used by guide-card,
-   package-card, coming-soon-card etc., since there's no separate
-   tip/callout box style elsewhere on the site to match instead.
+   (ink-2 surface, line border, standard radius) used by guide-card and
+   package-card, since there's no separate tip/callout box style elsewhere
+   on the site to match instead.
    ========================================================================== */
 .video-callout{
   background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
