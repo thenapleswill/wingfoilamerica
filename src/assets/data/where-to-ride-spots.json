@@ -448,7 +448,7 @@
   },
   {
     "id": "cabarete-bay",
-    "name": "Cabarete Bay",
+    "name": "Cabarete",
     "city": "Cabarete",
     "state": "Dominican Republic",
     "region": "Puerto Plata Province",
@@ -458,9 +458,9 @@
     "windDirection": "Cross-shore trade winds, typically E/ESE",
     "idealWindDirections": ["E", "ESE"],
     "skillLevel": "Intermediate+ for the open bay conditions, though Vela's on-site instructors run structured lessons for beginners too",
-    "description": "Cabarete Bay is a genuine international meeting place for wing foilers — sailed here on three separate trips and met riders from the US, Canada, Europe, South America, and beyond. Local tip: Vela Watersports Center (https://velawatersportscabarete.com/), run by Jens — knowledgeable, helpful, a great guy — is a full-service shop for everything wing foiling related: gear rentals, lessons, on-site gear storage (so you don't have to haul your own gear from the hotel), and repairs. There's also a public parking lot just across the street, a couple pesos for a safe place to leave your car.",
+    "description": "Cabarete is a genuine international meeting place for wing foilers — sailed here on three separate trips and met riders from the US, Canada, Europe, South America, and beyond. Kite Beach is the recommended launch spot — it has the cleanest swell for winging, but know which sections to launch from and which to avoid. Local tip: Vela Watersports Center (https://velawatersportscabarete.com/), run by Jens — knowledgeable, helpful, a great guy — is a full-service shop for everything wing foiling related: gear rentals, lessons, on-site gear storage (so you don't have to haul your own gear from the hotel), and repairs. There's also a public parking lot just across the street, a couple pesos for a safe place to leave your car.",
     "verified": "firsthand-verified",
-    "sourceNote": "Firsthand-verified (2026-08-29) by Will. Coordinates updated to Will's exact launch-spot pin, right at the shop (2026-09-10)."
+    "sourceNote": "Firsthand-verified (2026-08-29) by Will. Coordinates updated to Will's exact launch-spot pin, right at the shop (2026-09-10). Renamed from \"Cabarete Bay\" to \"Cabarete\" (2026-09-14) — URL/slug unchanged so existing links keep working."
   },
   {
     "id": "hookipa-beach-park",
@@ -695,5 +695,70 @@
     "description": "Known locally as the 520 Slick, this is Good Breeze Kiteboarding's home lesson site, teaching wing foil and kiteboard lessons here in shallow, jet-ski-supported water since 2007. Confirms it as a real, active launch.",
     "verified": "firsthand-verified",
     "sourceNote": "Firsthand-verified (2026-09-03) — confirmed via Good Breeze Kiteboarding's current lesson-location page; address and coordinates from the City of Cocoa Beach and OpenStreetMap."
+  },
+  {
+    "id": "cumbuco",
+    "name": "Cumbuco",
+    "city": "Cumbuco",
+    "state": "Brazil",
+    "region": "Ceará",
+    "lat": -3.6308,
+    "lng": -38.7196,
+    "waterType": "Mostly chop with small swell near the main beachfront, few clean waves; reef hazards at lower tide.",
+    "windDirection": "SE thermal sea breeze off the dunes, builds around 11am, best 12-3pm, very consistent.",
+    "idealWindDirections": ["SE"],
+    "skillLevel": "Not specified by source — inferred as general/casual riding; flag for Will to confirm.",
+    "localsMeetHere": true,
+    "description": "One of Brazil's biggest kite destinations and an easy first stop right after flying into Fortaleza, but primarily a kite beach — roughly 10 kiters per winger observed, so winging is secondary here. Food is excellent and cheaper than Cabarete; young, international, very social kite-traveler crowd. Worth visiting as an easy first stop, but a winger chasing open-ocean swell and waves will find more interesting riding elsewhere on this coast.",
+    "verified": "community-reported",
+    "sourceNote": "Community-reported (2026-09-14) — based on a firsthand trip account shared with Will, Sept 2026, from a friend touring the Ceará coast. Not yet ridden firsthand by Will. Coordinates are approximate. Skill level not stated by source — flagged for confirmation."
+  },
+  {
+    "id": "taiba",
+    "name": "Taíba",
+    "city": "Taíba",
+    "state": "Brazil",
+    "region": "Ceará",
+    "lat": -3.5043,
+    "lng": -38.9090,
+    "waterType": "Good wind and proper waves, but a shore break is the real limiting factor for launching — needs care even on smaller days, and on bigger days most intermediate riders can't launch from the main town beach. A nearby lagoon exists but isn't good enough alone to justify a visit.",
+    "windDirection": "SE (~126-138°), strongest June-September.",
+    "idealWindDirections": ["SE"],
+    "skillLevel": "Advanced/expert — most intermediate riders can't launch here on bigger days; excellent for advanced/pro riders, with major competitions held here.",
+    "description": "Great wind and proper waves, but for most riders the shore break makes it too limiting as a general destination — best suited to advanced/pro riders. A nearby lagoon exists but isn't good enough alone to justify a visit.",
+    "verified": "community-reported",
+    "sourceNote": "Community-reported (2026-09-14) — based on a firsthand trip account shared with Will, Sept 2026, from a friend touring the Ceará coast. Not yet ridden firsthand by Will. Coordinates are approximate."
+  },
+  {
+    "id": "paracuru-quebra-mar",
+    "name": "Paracuru (Quebra Mar)",
+    "city": "Paracuru",
+    "state": "Brazil",
+    "region": "Ceará",
+    "lat": -3.4012,
+    "lng": -38.9906,
+    "waterType": "Proper reef and wave spot, excellent wingfoiling conditions, plenty of space, a good beachfront restaurant.",
+    "windDirection": "E/SE trade winds, peak season July-January.",
+    "idealWindDirections": ["E", "SE"],
+    "skillLevel": "Not specified by source — inferred intermediate/advanced given reef-break conditions; flag for Will to confirm.",
+    "description": "Excellent wingfoiling, but Quebra Mar is about a 30-minute drive each way from Paracuru town, which makes it less appealing as a full-time base even though the riding itself is great. Paracuru town itself feels more authentically Brazilian than a purpose-built kite destination, with decent, reasonably varied food.",
+    "verified": "community-reported",
+    "sourceNote": "Community-reported (2026-09-14) — based on a firsthand trip account shared with Will, Sept 2026, from a friend touring the Ceará coast. Not yet ridden firsthand by Will. Coordinates are approximate and pinned at the Paracuru town/area level — Quebra Mar itself is about a 30-minute drive from town and doesn't have a confirmed exact pin. Skill level not stated by source — flagged for confirmation."
+  },
+  {
+    "id": "ilha-do-guajiru",
+    "name": "Ilha do Guajiru",
+    "city": "Itarema",
+    "state": "Brazil",
+    "region": "Ceará",
+    "lat": -2.885,
+    "lng": -39.899,
+    "waterType": "Extremely tidal lagoon, maximum around 3 hours of foilable water, often less.",
+    "windDirection": "Trade winds roughly June/July through January/February.",
+    "skillLevel": "Not specified by source — lagoon foiling with a tide-dependent window rather than a difficulty rating; flag for Will to confirm.",
+    "localsMeetHere": true,
+    "description": "An interesting, different place to wing, but the short tidal window makes it impractical for a longer dedicated stay — better as a one-or-two-night stop on the way elsewhere. The village is small, kite-oriented, and social during season, with the advantage of walking straight from your pousada to the water or restaurants (both very good). Note: distinct from a different \"Guajiru\" near Trairi, roughly 100km away — don't confuse the two.",
+    "verified": "community-reported",
+    "sourceNote": "Community-reported (2026-09-14) — based on a firsthand trip account shared with Will, Sept 2026, from a friend touring the Ceará coast. Not yet ridden firsthand by Will. Coordinates are approximate. Skill level not stated by source — flagged for confirmation."
   }
 ]
