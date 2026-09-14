@@ -47,6 +47,62 @@ const BRANDS = [
   { brand: "North", url: "https://northactionsports.com/blogs/all" },
 ];
 
+// Relevance filter, applied to every post before it's ever considered for
+// gear-news.json — not a post-hoc cleanup. This site only covers wing
+// foiling, so a brand's general news/blog page (which also covers whatever
+// else that brand sells — kites, wakeboards, windsurf gear — plus
+// competition recaps, team-rider announcements, podcasts, and magazine
+// reposts) needs real filtering, not "everything not seen before."
+//
+// Two-part rule, keyword-only (no AI, no per-post fetch):
+//   1. Any negative match (wrong sport, or a non-gear content shape) is an
+//      automatic exclude, checked first.
+//   2. Otherwise, a post must show BOTH a recognizable gear noun (wing,
+//      board, foil, mast, fuselage, stabilizer, fin, harness, boom,
+//      parawing — as its own word, not buried in a compound like
+//      "hydrofoil" or "kiteboard") AND a signal that it's substantive gear
+//      content (review, comparison, guide, how-to, a tech-talk/explainer
+//      format, a launch, or a model year) to be included. A title with
+//      neither, or with only one of the two, is excluded — a keyword
+//      script can't reliably tell a real gear post from a vague one, and
+//      showing less is better than letting more junk through.
+// parawing/downwind/prone/SUP-foil are deliberately NOT negative signals —
+// they're legitimate disciplines this site already covers elsewhere — but
+// they still need the noun+signal combination like everything else to be
+// included, same as any other post.
+const EXCLUDE_PATTERNS = [
+  // Kiteboarding/kitesurfing
+  /kiteboard|kitesurf|kite-surf|kite[- ]?foiling|twin[- ]?tip|big air|king of the air|\bgka\b|mega ?loop|kite gear|kite-specific/i,
+  // Wakeboarding/wakesurfing
+  /\bwake/i,
+  // Windsurfing
+  /windsurf/i,
+  // Competition results/recaps
+  /\b(recap|results?|championships?|world (cup|tour|title|champ)|podium|qualifiers?|wins?|winner|winning|racing|races?|slalom|gwa|red bull|sailgp|defi|m2o|molokai|top spot|top step|best trick|world record)\b/i,
+  // Athlete sponsorship / "welcome to the team" announcements
+  /\bwelcomes?\b|\bjoins?\b[\s\S]*\bteam\b|international team|team rider|signs? with/i,
+  // Team-rider interviews/profiles not about a product
+  /\bmeet [a-z]|rider check|check-?in|\bq ?& ?a\b|\binterview\b|\bathlete profile\b/i,
+  // Podcast appearances
+  /podcast/i,
+  // Event livestream announcements
+  /live ?stream|live broadcast/i,
+  // Magazine reposts
+  /magazine/i,
+];
+
+const GEAR_NOUN = /\b(wings?|boards?|foils?|masts?|fuselages?|stabilizers?|fins?|harness(?:es)?|booms?|parawings?)\b/i;
+const GEAR_SIGNAL =
+  /\b(review|comparison|versus|vs\.?|guide|walkthrough|explained|collection|quiver|overview|new|launch(?:es|ing)?|introduc(?:e|ing)|first impression|first look)\b|how to|how does|why choose|choosing|tech talk|design difference|available now|\b20\d{2}\b/i;
+
+function isRelevantGearPost({ title, url }) {
+  const text = `${title} ${url}`;
+  if (EXCLUDE_PATTERNS.some((re) => re.test(text))) return false;
+  return GEAR_NOUN.test(text) && GEAR_SIGNAL.test(text);
+}
+
+const MAX_ENTRIES = 30;
+
 function todayUTC() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -163,9 +219,16 @@ async function checkBrand({ brand, url }, seenUrls) {
     return { brand, newPosts: [], ok: false };
   }
 
-  const newPosts = posts.filter((p) => !seenUrls.has(p.url));
-  console.log(`${brand}: fetched OK, ${posts.length} post link(s) found, ${newPosts.length} new since last run`);
-  return { brand, newPosts, ok: true };
+  const relevant = posts.filter(isRelevantGearPost);
+  const filteredCount = posts.length - relevant.length;
+  const newPosts = relevant.filter((p) => !seenUrls.has(p.url));
+  console.log(
+    `${brand}: fetched OK, ${posts.length} post link(s) found, ${filteredCount} filtered out (off-topic/non-gear), ${newPosts.length} new since last run`
+  );
+  // totalFound (pre-filter) is what drives the zero-streak warning below —
+  // a brand posting only off-topic content this week is a real, expected
+  // outcome, not a sign the scraper broke.
+  return { brand, newPosts, totalFound: posts.length, ok: true };
 }
 
 async function main() {
@@ -176,26 +239,27 @@ async function main() {
 
   const allNew = [];
   for (const b of BRANDS) {
-    const { brand, newPosts } = await checkBrand(b, seenUrls);
+    const { brand, newPosts, totalFound } = await checkBrand(b, seenUrls);
 
-    if (newPosts.length > 0) {
+    if (totalFound > 0) {
       zeroStreaks[brand] = 0;
-      for (const p of newPosts) {
-        allNew.push({ brand, title: p.title, url: p.url, dateFound: todayUTC() });
-        seenUrls.add(p.url); // guard against the same brand linking the same post twice on one page
-      }
     } else {
       zeroStreaks[brand] = (zeroStreaks[brand] || 0) + 1;
       if (zeroStreaks[brand] >= ZERO_STREAK_WARNING_THRESHOLD) {
         console.log(
-          `::warning::${brand}'s gear-news scraper has found zero new posts for ${zeroStreaks[brand]} consecutive weekly runs — its page may have changed or be blocking requests. Worth a manual check.`
+          `::warning::${brand}'s gear-news scraper has found zero posts for ${zeroStreaks[brand]} consecutive weekly runs — its page may have changed or be blocking requests. Worth a manual check.`
         );
       }
+    }
+
+    for (const p of newPosts) {
+      allNew.push({ brand, title: p.title, url: p.url, dateFound: todayUTC() });
+      seenUrls.add(p.url); // guard against the same brand linking the same post twice on one page
     }
   }
 
   if (allNew.length === 0) {
-    console.log("\nNothing new across any tracked brand this run — leaving gear-news.json untouched (no commit).");
+    console.log("\nNothing new (or nothing gear-relevant) across any tracked brand this run — leaving gear-news.json untouched (no commit).");
     // Still worth persisting the zero-streak counters even when nothing is
     // new, since those are exactly what makes the 4-week warning fire —
     // losing them on a no-commit run would silently reset the count.
@@ -203,7 +267,7 @@ async function main() {
     return;
   }
 
-  const updated = [...allNew, ...existing];
+  const updated = [...allNew, ...existing].slice(0, MAX_ENTRIES);
   fs.writeFileSync(NEWS_PATH, JSON.stringify(updated, null, 2) + "\n");
   fs.writeFileSync(STATE_PATH, JSON.stringify({ lastChecked: todayUTC(), zeroStreaks }, null, 2) + "\n");
 
