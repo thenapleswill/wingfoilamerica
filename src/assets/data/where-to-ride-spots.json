@@ -308,11 +308,28 @@
     "waterType": "Sand beach with shallow reef both east and west of the sailing area — open water in between. Waves can be good for wave riding depending on swell orientation.",
     "windDirection": "NE and E (trade winds) — side-shore in this direction; best season roughly April through September",
     "idealWindDirections": ["NE", "E"],
-    "skillLevel": "Advanced/expert only",
+    "skillLevel": "Beginner to advanced depending on the season and daily conditions.",
     "localsMeetHere": true,
-    "description": "An advanced-only spot on a sandy beach in Las Terrenas, bordered by shallow reef to the east and west with open water in between — good wave riding depending on swell direction, but not a place to learn the basics. The reefs sit downwind of the sailing area, so a mistake here compounds: if you get in trouble, you're getting swept toward the hazard, not away from it. Know exactly where you are relative to both reefs at all times. Met Julian, a local kiteboarding and wing foiling instructor, while sailing here — didn't take a lesson from him, but he was generous with advice and pointers. Find him at wingfoil-lasterrenas.com.",
+    "description": "A sandy beach in Las Terrenas, bordered by shallow reef to the east and west with open water in between, where conditions vary a lot by season. From roughly December through April, north and northwest swells make the water more technical — good for intermediate/advanced riders, including first freefly runs on open ocean swell rather than a single breaking wave. From May through September, especially June through August, the water close to shore is generally much flatter and can be very suitable for beginners with local instruction. Either way, know exactly where the reef zones sit to the east and west and avoid them — the central riding area works well when daily conditions are appropriate. Met Julien of WingFoil Las Terrenas, the local wing foiling school, while sailing here — didn't take a lesson, but he was generous with advice and pointers. Find them at wingfoil-lasterrenas.com.",
     "verified": "firsthand-verified",
-    "sourceNote": "Firsthand-verified (2026-08-29) by Will. Corrected reef direction (north/south -> east/west, in both waterType and description) and updated coordinates to exact values provided (2026-09-06)."
+    "sourceNote": "Firsthand-verified (2026-08-29) by Will. Corrected reef direction (north/south -> east/west, in both waterType and description) and updated coordinates to exact values provided (2026-09-06). Skill level and seasonal description corrected directly by WingFoil Las Terrenas (Ambre & Julien), the local wing foiling school at this spot, after they reviewed the site — also corrected the instructor's name to Julien (2026-09-14)."
+  },
+  {
+    "id": "playa-portillo",
+    "name": "Playa Portillo",
+    "city": "Las Terrenas",
+    "state": "Dominican Republic",
+    "region": "Samaná Province",
+    "lat": 19.3265,
+    "lng": -69.5015,
+    "waterType": "Sand beach, shallow and generally flat close to shore, with some reef areas present.",
+    "windDirection": "NE and E (trade winds)",
+    "idealWindDirections": ["NE", "E"],
+    "skillLevel": "Beginner-friendly flat-water spot",
+    "localsMeetHere": true,
+    "description": "WingFoil Las Terrenas's regular flatter-water backup spot when nearby Punta Popy has too much swell — suitable for beginners with local instruction when conditions are right. Local tip: Julien and Ambre of WingFoil Las Terrenas (wingfoil-lasterrenas.com) are the named local wing foiling school here.",
+    "verified": "community-reported",
+    "sourceNote": "Community-reported (2026-09-14) — sourced directly from WingFoil Las Terrenas (Ambre & Julien), the named local wing foiling school (wingfoil-lasterrenas.com), as their regular backup spot to Punta Popy. Not yet ridden firsthand by Will. Coordinates are approximate — cross-checked against two independent kite-spot guides, not a precise pin."
   },
   {
     "id": "sanibel-island-causeway",
