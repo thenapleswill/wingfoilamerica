@@ -20,6 +20,7 @@ extraJs:
   - /assets/js/conditions-badge.js
   - /assets/js/spot-page.js
   - /assets/js/spot-feedback.js
+  - /assets/js/spot-locals.js
 ---
 <nav class="breadcrumb"><a href="{{ '/where-to-ride/' | url }}">Where to Ride</a> <span>/</span> <span>{{ spot.name }}</span></nav>
 
@@ -70,6 +71,55 @@ extraJs:
 <div id="spotMap" class="spot-page-map" data-lat="{{ spot.lat }}" data-lng="{{ spot.lng }}" data-name="{{ spot.name }}"></div>
 
 <p class="spot-page-open-in-maps"><a href="https://www.google.com/maps?q={{ spot.lat }},{{ spot.lng }}" target="_blank" rel="noopener noreferrer">Open in Maps &rarr;</a></p>
+
+<h2>Locals at This Spot</h2>
+<div class="spot-locals-section">
+  {%- set locals = spotLocals[spot.id] %}
+  {%- if locals and locals.length %}
+  <ul class="spot-locals-chip-list">
+    {%- for local in locals %}
+    <li class="spot-locals-chip">
+      {%- if local.socialLink %}<a href="{{ local.socialLink }}" target="_blank" rel="noopener noreferrer">{{ local.name }}</a>{%- else %}{{ local.name }}{%- endif -%}
+      {%- if local.shortNote %} &mdash; <span class="spot-locals-chip-note">{{ local.shortNote }}</span>{%- endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- else %}
+  <p class="spot-locals-empty">No locals listed here yet.</p>
+  {%- endif %}
+  <button type="button" class="btn btn-outline" id="spotLocalsOpen"
+    data-spot-id="{{ spot.id }}" data-spot-name="{{ spot.name }}">I'm a local here &mdash; add yourself</button>
+</div>
+
+<div class="submit-spot-modal" id="spotLocalsModal" hidden>
+  <div class="submit-spot-modal-backdrop" data-locals-modal-close></div>
+  <div class="submit-spot-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="spotLocalsModalTitle">
+    <div class="submit-spot-modal-header">
+      <div>
+        <p class="eyebrow submit-spot-modal-eyebrow">{{ spot.name }}</p>
+        <h2 id="spotLocalsModalTitle" class="submit-spot-modal-title">Add Yourself as a Local</h2>
+      </div>
+      <button type="button" class="submit-spot-modal-close" data-locals-modal-close aria-label="Close">&times;</button>
+    </div>
+
+    <form id="spotLocalsForm" class="spot-feedback-form">
+      <p class="spot-feedback-form-intro">Show up on this spot's local list. Will reviews every submission before it goes live &mdash; nothing publishes automatically.</p>
+      <label for="spotLocalsName">Display name or handle</label>
+      <input type="text" id="spotLocalsName" required>
+      <label for="spotLocalsSocial">Social link (optional)</label>
+      <input type="url" id="spotLocalsSocial" placeholder="https://instagram.com/...">
+      <label for="spotLocalsNote">Short note (optional, one line)</label>
+      <input type="text" id="spotLocalsNote" maxlength="120" placeholder="e.g. ride here most weekends">
+      <label for="spotLocalsEmail">Email (optional, in case we have questions)</label>
+      <input type="email" id="spotLocalsEmail">
+      <button type="submit" class="btn btn-accent">Continue to Submit</button>
+    </form>
+
+    <div id="spotLocalsAirtableWrap" hidden>
+      <iframe id="spotLocalsIframe" class="airtable-embed" title="Add yourself as a local" frameborder="0" width="100%" height="533" style="background: transparent;"></iframe>
+    </div>
+  </div>
+</div>
 
 <p><a href="{{ '/where-to-ride/' | url }}">&larr; Back to the full map</a></p>
 

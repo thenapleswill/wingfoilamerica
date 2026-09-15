@@ -1,0 +1,39 @@
+name: Spot Locals Sync
+
+on:
+  schedule:
+    # Weekly, Wednesdays ~9am ET (13:00 UTC) — offset from the Monday
+    # analytics snapshot and Thursday gear-news jobs so cron runs stay
+    # spread out.
+    - cron: "0 13 * * 3"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Pull Published Spot Locals rows from Airtable
+        env:
+          AIRTABLE_READ_TOKEN: ${{ secrets.AIRTABLE_READ_TOKEN }}
+        run: node scripts/spot-locals-sync.mjs
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "spot-locals-bot"
+          git config user.email "noreply@wingfoilamerica.com"
+          git add src/_data/spot-locals.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Weekly Spot Locals sync"
+            git push
+          else
+            echo "No changes to commit"
+          fi
