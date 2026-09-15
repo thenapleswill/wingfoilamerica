@@ -73,15 +73,16 @@ jobs:
 
             // Close modal, reset for next run
             await page.click(".submit-spot-modal-close");
-            await page.waitForSelector("#spotFeedbackModal[hidden]");
+            await page.waitForSelector("#spotFeedbackModal", { state: "hidden" });
           }
 
-          await runFlow("correction", CORRECTION_MSG, "TEST 1: Suggest a correction");
+          // Correction flow already verified in a prior run (real record landed
+          // in Airtable). Only testing confirmation this time to avoid a
+          // duplicate correction test row.
           await runFlow("confirmation", CONFIRMATION_MSG, "TEST 2: I ride/teach here — confirm this spot");
 
           await browser.close();
-          console.log("\nCORRECTION_MSG=" + CORRECTION_MSG);
-          console.log("CONFIRMATION_MSG=" + CONFIRMATION_MSG);
+          console.log("\nCONFIRMATION_MSG=" + CONFIRMATION_MSG);
           SCRIPT
           cd /tmp/pwtest && node test.mjs
 
