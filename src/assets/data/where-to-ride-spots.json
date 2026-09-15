@@ -706,6 +706,7 @@
     "lng": -80.628614,
     "waterType": "Shallow, protected water in the Banana River Lagoon between Cocoa Beach and Merritt Island",
     "windDirection": "N, NE, NW, W, and WNW, per Good Breeze Kiteboarding's own listed directions for this launch",
+    "idealWindDirections": ["N", "NE", "NW", "W", "WNW"],
     "skillLevel": "Beginner-friendly — an active jet-ski-supported lesson site",
     "localsMeetHere": true,
     "description": "Known locally as the 520 Slick, this is Good Breeze Kiteboarding's home lesson site — a shallow, glassy-flat lagoon on the Banana River side of the SR-520 causeway, created by north winds. They've taught wing foil and kiteboard lessons here in shallow, jet-ski-supported water since 2007, and welcome riders of all levels. If the wind's not cooperating for a north day, Good Breeze also points riders to other real wing spots nearby that cover different directions: Cherie Down Park to the north works on NE/E/SE with some wave action, and Jetty Park further south catches N/NNW/NE.",
