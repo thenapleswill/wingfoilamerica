@@ -5,30 +5,27 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: Check candidate feed URLs
+      - name: Check remaining candidates
         run: |
           UA="WingFoilAmericaGearNewsBot/1.0 (+https://wingfoilamerica.com)"
           for url in \
-            "https://armstrongfoils.com/blogs/news.atom" \
-            "https://slingshotsports.com/blogs/news.atom" \
-            "https://www.cabrinha.com/blogs/news.atom" \
-            "https://ozonegliders.com/blogs/news.atom" \
-            "https://axisfoils.com/blogs/news.atom" \
-            "https://www.naish.com/blogs/blog.atom" \
             "https://www.duotonesports.com/foilwing/about-us/news/index.xml" \
-            "https://northactionsports.com/blogs/all.atom" \
-            "https://www.f-one.world/feed/" \
+            "https://ozonegliders.com/blogs/wing.atom" \
+            "https://ozonegliders.com/blogs/journal.atom" \
+            "https://ozonegliders.com/wing/news/" \
+            "https://ozonegliders.com/" \
+            "https://www.f-one.world/news/?univers=foil" \
           ; do
             echo "=================================================="
             echo "URL: $url"
-            code=$(curl -s -o /tmp/feed.xml -A "$UA" --max-time 15 -w "%{http_code}" "$url")
+            code=$(curl -sL -o /tmp/feed.xml -A "$UA" --max-time 15 -w "%{http_code}" "$url")
             echo "STATUS: $code"
             size=$(wc -c < /tmp/feed.xml)
             echo "SIZE: $size bytes"
-            echo "-- first 800 chars --"
-            head -c 800 /tmp/feed.xml
+            echo "-- first 500 chars --"
+            head -c 500 /tmp/feed.xml
             echo
-            echo "-- entry/item count --"
+            echo "-- entry/item/article count --"
             grep -o -E "<entry>|<item>" /tmp/feed.xml | wc -l
             echo
           done
