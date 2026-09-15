@@ -142,6 +142,11 @@ function excerptFromHtml(html, maxLen = 220) {
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<script[\s\S]*?<\/script>/gi, " ")
     .replace(/<[^>]+>/g, " ")
+    // Some page-builder themes (seen on Cabrinha's Shopify feed) leak a raw
+    // block-config object — e.g. {"height":22,...,"blockName":"Spacer"} —
+    // into the content as plain text alongside the real copy. Strip any
+    // brace-delimited fragment that's clearly that block JSON, not prose.
+    .replace(/\{[^{}]*"blockName"[^{}]*\}/g, " ")
     .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
     .replace(/&#39;|&rsquo;/g, "'")
