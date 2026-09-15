@@ -1,4 +1,6 @@
 import { chromium } from "playwright";
+import { PNG } from "pngjs";
+import pixelmatch from "pixelmatch";
 
 const lat = "28.357";
 const lon = "-80.629";
@@ -14,34 +16,28 @@ function buildUrl(zoom) {
 }
 
 const browser = await chromium.launch();
+const shots = {};
 
 for (const zoom of [10, 11, 12, 14]) {
   const page = await browser.newPage({ viewport: { width: 650, height: 450 } });
   await page.goto(buildUrl(zoom), { waitUntil: "networkidle", timeout: 30000 });
-  await page.waitForTimeout(5000);
-
-  // Windy exposes its Leaflet map instance on window.W.map (or similar) in
-  // many builds; try a few known globals to read back the actual zoom the
-  // map settled at after Windy clamps any out-of-range requested zoom.
-  const actualZoom = await page.evaluate(() => {
-    try {
-      if (window.W && window.W.map && typeof window.W.map.getZoom === "function") {
-        return window.W.map.getZoom();
-      }
-    } catch (e) {}
-    try {
-      if (window.map && typeof window.map.getZoom === "function") {
-        return window.map.getZoom();
-      }
-    } catch (e) {}
-    // Fallback: scan for any leaflet-pane and read a data attribute, or just
-    // report undefined so we fall back to the screenshot comparison.
-    return null;
-  });
-
-  console.log("REQUESTED_ZOOM:", zoom, "ACTUAL_ZOOM_FROM_JS:", actualZoom);
-  await page.screenshot({ path: `zoom-${zoom}.png` });
+  await page.waitForTimeout(6000);
+  const buf = await page.screenshot();
+  shots[zoom] = PNG.sync.read(buf);
   await page.close();
 }
 
 await browser.close();
+
+function diffPct(a, b) {
+  const { width, height } = a;
+  const diffPng = new PNG({ width, height });
+  const diffPixels = pixelmatch(a.data, b.data, diffPng.data, width, height, { threshold: 0.1 });
+  return ((diffPixels / (width * height)) * 100).toFixed(2);
+}
+
+console.log("=== Pairwise diff (% of pixels changed) ===");
+console.log("zoom 10 vs 11:", diffPct(shots[10], shots[11]) + "%");
+console.log("zoom 11 vs 12:", diffPct(shots[11], shots[12]) + "%");
+console.log("zoom 12 vs 14:", diffPct(shots[12], shots[14]) + "%");
+console.log("zoom 10 vs 14:", diffPct(shots[10], shots[14]) + "%");

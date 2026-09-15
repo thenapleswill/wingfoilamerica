@@ -117,6 +117,18 @@
   height: 420px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--ink-2);
 }
 
+/* ---------- Wind-direction arrow (on the satellite map) ---------- */
+.wind-direction-arrow-wrap{
+  display: flex; align-items: center; gap: 6px; pointer-events: none;
+  background: rgba(11, 18, 26, 0.82); border: 1px solid var(--line); border-radius: 999px;
+  padding: 4px 10px 4px 8px; white-space: nowrap;
+}
+.wind-direction-arrow{
+  display: inline-block; font-size: 1.1rem; line-height: 1; color: var(--teal);
+  transition: transform 0.3s ease;
+}
+.wind-direction-arrow-label{ font-size: 0.72rem; color: var(--foam); }
+
 /* ---------- Add a Spot ---------- */
 .submit-spot-note{ margin: 0 0 20px; font-size: 0.92rem; color: var(--foam-dim); max-width: 640px; }
 

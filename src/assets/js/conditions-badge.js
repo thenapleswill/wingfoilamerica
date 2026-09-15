@@ -88,7 +88,14 @@
   // idealDirections may be an empty array (spot doesn't have one documented
   // yet) — never throws, never breaks the page: any failure renders the
   // neutral "unavailable" state instead of the colored badge.
-  window.WFA_renderConditionsBadge = function (container, lat, lng, idealDirections) {
+  //
+  // onWindData (optional) is called once with the raw fetched reading —
+  // { windSpeedMph, windDirectionDeg } — so callers needing the live wind
+  // for something else on the page (e.g. the spot-page wind-direction
+  // arrow) can reuse this same request instead of fetching Open-Meteo a
+  // second time. Called with null on any failure, same as the badge falling
+  // back to "unavailable".
+  window.WFA_renderConditionsBadge = function (container, lat, lng, idealDirections, onWindData) {
     if (!container) return;
     var url =
       "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lng +
@@ -104,9 +111,13 @@
           throw new Error("malformed data");
         }
         renderBadge(container, rate(current.wind_speed_10m, current.wind_direction_10m, idealDirections));
+        if (typeof onWindData === "function") {
+          onWindData({ windSpeedMph: current.wind_speed_10m, windDirectionDeg: current.wind_direction_10m });
+        }
       })
       .catch(function () {
         renderUnavailable(container);
+        if (typeof onWindData === "function") onWindData(null);
       });
   };
 
