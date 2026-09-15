@@ -118,6 +118,10 @@
 }
 
 /* ---------- Wind-direction arrow (on the satellite map) ---------- */
+/* Leaflet's .leaflet-div-icon base class adds a white background + border
+   (leaflet.css) meant for generic div icons — reset it here since this icon
+   draws its own pill background below. */
+.leaflet-div-icon.wind-direction-arrow-wrap{ background: none; border: none; }
 .wind-direction-arrow-wrap{
   display: flex; align-items: center; gap: 6px; pointer-events: none;
   background: rgba(11, 18, 26, 0.82); border: 1px solid var(--line); border-radius: 999px;
