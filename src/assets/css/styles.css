@@ -517,10 +517,20 @@ img{ max-width: 100%; display: block; }
 .gear-news-item-title{ font-size: 1.1rem; margin: 0; }
 .gear-news-item-title a{ color: var(--foam); }
 .gear-news-item-title a:hover{ color: var(--teal); }
+.gear-news-item-excerpt{ font-size: 0.92rem; color: var(--foam-dim); margin: 8px 0 0; }
 .gear-news-empty{
   background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 32px 24px; text-align: center; margin: 24px 0;
 }
+.gear-news-manual-review-note{ color: var(--foam-dim); }
+.gear-news-manual-review-list{
+  list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px;
+}
+.gear-news-manual-review-list li{
+  background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 14px 18px; font-size: 0.92rem;
+}
+.gear-news-manual-review-list a{ color: var(--teal); }
 @media (max-width: 480px){
   .gear-news-item-head{ flex-direction: column; align-items: flex-start; gap: 6px; }
 }

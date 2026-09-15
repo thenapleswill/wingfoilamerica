@@ -1,18 +1,28 @@
 #!/usr/bin/env node
 // Weekly "What's New in Gear" check. Run by .github/workflows/gear-news.yml
-// (schedule + workflow_dispatch), no human in the loop, no AI/paid API.
+// (schedule + workflow_dispatch). No AI, no API key, no paid service of any
+// kind — two free/keyless mechanisms only:
 //
-// For each tracked brand: check robots.txt, make ONE fetch of the brand's
-// own news/blog listing page, extract post title+link (+date if present),
-// and diff against every URL already recorded in gear-news.json to find
-// only what's genuinely new since the last run. Every entry's url is a
-// real link this script itself found on that page this run — nothing is
-// invented. A brand whose page fails to load, is disallowed by its own
-// robots.txt, or can't be parsed is simply skipped for that run.
+// 1. FEED_BRANDS: brands with a real, live Shopify-generated Atom feed
+//    (verified by hand against each URL — see README note in this repo's
+//    history). Each run fetches the feed directly and reads real entries:
+//    real title, real published date, a real excerpt pulled straight from
+//    the feed's own <content>/<summary> (HTML-stripped, truncated — never
+//    paraphrased), and a link back to the brand's own post. The existing
+//    keyword relevance filter still applies, since these are general brand
+//    feeds covering their whole catalog (kite, wake, wing, competition,
+//    team news), not just wing-foil gear.
+//
+// 2. DIFFCHECK_BRANDS: brands with no working feed. No scraping, no content
+//    extraction — just fetch their news page, hash it, and compare to the
+//    hash saved last run. A changed hash means "something on this page is
+//    different" and gets appended to gear-news-manual-review.json for a
+//    human to go look at; nothing about what changed is ever invented.
 
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import crypto from "node:crypto";
 import * as cheerio from "cheerio";
 import { isAllowed } from "./robots-check.mjs";
 
@@ -20,74 +30,61 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
 const NEWS_PATH = path.join(ROOT, "src/_data/gear-news.json");
 const STATE_PATH = path.join(ROOT, "src/_data/gear-news-state.json");
+const DIFFCHECK_STATE_PATH = path.join(ROOT, "src/_data/gear-news-diffcheck-state.json");
+const MANUAL_REVIEW_PATH = path.join(ROOT, "src/_data/gear-news-manual-review.json");
 
 const UA = "WingFoilAmericaGearNewsBot/1.0 (+https://wingfoilamerica.com; weekly gear-news check, contact admin@wingfoilamerica.com)";
 const ZERO_STREAK_WARNING_THRESHOLD = 4;
+const MAX_ENTRIES = 30;
+const MAX_MANUAL_REVIEW_ENTRIES = 50;
 
-// Verified against each brand's actual news-page HTML during development
-// (see scripts/gear-news-diagnostic.mjs, now removed). Duotone, F-One, and
-// Ozone are kept at the URLs given in scope even though each currently
-// fails to yield real posts (Duotone's list renders client-side, F-One's
-// URL 404s, Ozone blocks automated requests with a 403) — per the "skip
-// rather than invent" rule, they're left in so a future fix on the brand's
-// side (or a corrected URL) picks back up automatically; until then they'll
-// just repeatedly skip and get flagged by the consecutive-zero-run warning.
-// North has no dedicated "/news" path — /blogs/all is its real, working
-// news feed, confirmed via a real link on northactionsports.com's own
-// homepage nav ("See more"), not guessed.
-const BRANDS = [
-  { brand: "Naish", url: "https://www.naish.com/blogs/blog" },
-  { brand: "Armstrong Foils", url: "https://armstrongfoils.com/blogs/news" },
-  { brand: "Slingshot Sports", url: "https://slingshotsports.com/blogs/news" },
-  { brand: "Duotone", url: "https://www.duotonesports.com/foilwing/about-us/news/" },
-  { brand: "F-One", url: "https://www.f-one.world/news/?univers=foil" },
-  { brand: "Cabrinha", url: "https://www.cabrinha.com/blogs/news" },
-  { brand: "Ozone", url: "https://ozonekites.com/wing/news/" },
-  { brand: "Axis Foils", url: "https://axisfoils.com/blogs/news" },
-  { brand: "North", url: "https://northactionsports.com/blogs/all" },
+// Verified directly against each URL (fetched and inspected the real
+// response) rather than assumed. Naish's /blogs/blog.atom and North's
+// /blogs/all.atom both turned out to be real, live, current feeds even
+// though they'd been assumed not to have one — included since the actual
+// response is what matters, not the assumption. Axis Foils' feed is real
+// but stale (no post since 2023-07) — kept as a feed anyway; if they ever
+// post again it'll show up with its real date, nothing to fix here.
+const FEED_BRANDS = [
+  { brand: "Naish", feedUrl: "https://www.naish.com/blogs/blog.atom" },
+  { brand: "Armstrong Foils", feedUrl: "https://armstrongfoils.com/blogs/news.atom" },
+  { brand: "Slingshot Sports", feedUrl: "https://slingshotsports.com/blogs/news.atom" },
+  { brand: "Cabrinha", feedUrl: "https://www.cabrinha.com/blogs/news.atom" },
+  { brand: "Axis Foils", feedUrl: "https://axisfoils.com/blogs/news.atom" },
+  { brand: "North", feedUrl: "https://northactionsports.com/blogs/all.atom" },
 ];
 
-// Relevance filter, applied to every post before it's ever considered for
-// gear-news.json — not a post-hoc cleanup. This site only covers wing
-// foiling, so a brand's general news/blog page (which also covers whatever
-// else that brand sells — kites, wakeboards, windsurf gear — plus
-// competition recaps, team-rider announcements, podcasts, and magazine
-// reposts) needs real filtering, not "everything not seen before."
-//
-// Two-part rule, keyword-only (no AI, no per-post fetch):
-//   1. Any negative match (wrong sport, or a non-gear content shape) is an
-//      automatic exclude, checked first.
-//   2. Otherwise, a post must show BOTH a recognizable gear noun (wing,
-//      board, foil, mast, fuselage, stabilizer, fin, harness, boom,
-//      parawing — as its own word, not buried in a compound like
-//      "hydrofoil" or "kiteboard") AND a signal that it's substantive gear
-//      content (review, comparison, guide, how-to, a tech-talk/explainer
-//      format, a launch, or a model year) to be included. A title with
-//      neither, or with only one of the two, is excluded — a keyword
-//      script can't reliably tell a real gear post from a vague one, and
-//      showing less is better than letting more junk through.
-// parawing/downwind/prone/SUP-foil are deliberately NOT negative signals —
-// they're legitimate disciplines this site already covers elsewhere — but
-// they still need the noun+signal combination like everything else to be
-// included, same as any other post.
+// No working feed found (checked /blogs/news.atom and a few other likely
+// paths for each — see repo history). Duotone's news page is a Nuxt app
+// that renders client-side (fetching it gets an empty shell, so a content
+// hash still works as a change signal even though nothing can be parsed
+// out of it). F-One's known news URL currently 404s. Ozone's brand domain
+// (ozonegliders.com) turned out to be a bare iframe-redirect wrapper with
+// no real content at any path checked; ozonekites.com's actual news page
+// is real but blocks automated requests with a 403 — kept as the target
+// since a future unblock or URL fix picks back up automatically, same
+// "skip rather than invent" rule as before.
+const DIFFCHECK_BRANDS = [
+  { brand: "Duotone", url: "https://www.duotonesports.com/foilwing/about-us/news/" },
+  { brand: "F-One", url: "https://www.f-one.world/news/?univers=foil" },
+  { brand: "Ozone", url: "https://ozonekites.com/wing/news/" },
+];
+
+// Same relevance filter as before: negative keyword matches (wrong sport,
+// or a non-gear content shape) are excluded outright; everything else
+// needs a gear noun AND a substantive-content signal to be included.
+// Brand feeds cover a brand's whole catalog and news cycle — kiteboarding,
+// wakeboarding, competition recaps, team announcements — not just wing-foil
+// gear, so this still matters even though the source is now a real feed.
 const EXCLUDE_PATTERNS = [
-  // Kiteboarding/kitesurfing
   /kiteboard|kitesurf|kite-surf|kite[- ]?foiling|twin[- ]?tip|big air|king of the air|\bgka\b|mega ?loop|kite gear|kite-specific/i,
-  // Wakeboarding/wakesurfing
   /\bwake/i,
-  // Windsurfing
   /windsurf/i,
-  // Competition results/recaps
   /\b(recap|results?|championships?|world (cup|tour|title|champ)|podium|qualifiers?|wins?|winner|winning|racing|races?|slalom|gwa|red bull|sailgp|defi|m2o|molokai|top spot|top step|best trick|world record)\b/i,
-  // Athlete sponsorship / "welcome to the team" announcements
   /\bwelcomes?\b|\bjoins?\b[\s\S]*\bteam\b|international team|team rider|signs? with/i,
-  // Team-rider interviews/profiles not about a product
   /\bmeet [a-z]|rider check|check-?in|\bq ?& ?a\b|\binterview\b|\bathlete profile\b/i,
-  // Podcast appearances
   /podcast/i,
-  // Event livestream announcements
   /live ?stream|live broadcast/i,
-  // Magazine reposts
   /magazine/i,
 ];
 
@@ -100,8 +97,6 @@ function isRelevantGearPost({ title, url }) {
   if (EXCLUDE_PATTERNS.some((re) => re.test(text))) return false;
   return GEAR_NOUN.test(text) && GEAR_SIGNAL.test(text);
 }
-
-const MAX_ENTRIES = 30;
 
 function todayUTC() {
   return new Date().toISOString().slice(0, 10);
@@ -131,115 +126,127 @@ async function checkRobotsAllowed(pageUrl) {
   const origin = new URL(pageUrl).origin;
   try {
     const { status, text } = await fetchText(origin + "/robots.txt", 10000);
-    if (status !== 200) return true; // no robots.txt on record — nothing disallows us
+    if (status !== 200) return true;
     return isAllowed(text, new URL(pageUrl).pathname);
   } catch {
-    return true; // robots.txt itself unreachable — don't block the run over that
+    return true;
   }
 }
 
-// Clean up a raw scraped anchor text: strip a leading "DD Month YYYY" date
-// stamp some themes prepend, and a trailing "Read more" / "Read full
-// story" call-to-action some themes append to the same text node.
-function cleanTitle(raw) {
-  let t = raw.replace(/\s+/g, " ").trim();
-  t = t.replace(/^\d{1,2}\s+[A-Za-z]+\s+\d{4}\s*/, "");
-  t = t.replace(/\s*(Read\s+(full\s+story|more)\.?|→)\s*$/i, "");
-  return t.trim();
+// Strips HTML tags from a feed's <content>/<summary> and collapses
+// whitespace, for a short real excerpt — not an AI paraphrase, just the
+// feed's own text with markup removed and cut to length.
+function excerptFromHtml(html, maxLen = 220) {
+  if (!html) return "";
+  const text = html
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&#39;|&rsquo;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/\s+/g, " ")
+    .trim();
+  if (text.length <= maxLen) return text;
+  return text.slice(0, maxLen).replace(/\s+\S*$/, "") + "…";
 }
 
-// For each post-like href under the listing page's own path, prefer the
-// text of a heading element inside/around the link (themes usually wrap
-// the real title in an h1-h6 even when the whole card is one big <a>);
-// fall back to the longest plain anchor text seen for that href otherwise.
-function extractPosts(html, baseUrl) {
-  const $ = cheerio.load(html);
-  const base = new URL(baseUrl);
-  const basePath = base.pathname.endsWith("/") ? base.pathname : base.pathname + "/";
-  const byHref = new Map();
-
-  $("a[href]").each((_, el) => {
-    const href = $(el).attr("href");
-    if (!href) return;
-    let abs;
-    try {
-      abs = new URL(href, baseUrl);
-    } catch {
-      return;
-    }
-    if (abs.origin !== base.origin) return;
-    if (!(abs.pathname.startsWith(basePath) && abs.pathname !== basePath && abs.pathname !== base.pathname)) return;
-    if (/\/tagged\//i.test(abs.pathname)) return;
-
-    const heading = $(el).find("h1,h2,h3,h4,h5,h6").first().text().replace(/\s+/g, " ").trim();
-    const plain = $(el).text().replace(/\s+/g, " ").trim();
-    const key = abs.origin + abs.pathname;
-    const existing = byHref.get(key);
-
-    if (heading) {
-      if (!existing || !existing.fromHeading) byHref.set(key, { href: abs.href, text: heading, fromHeading: true });
-    } else if (!existing || (!existing.fromHeading && plain.length > existing.text.length)) {
-      byHref.set(key, { href: abs.href, text: plain, fromHeading: false });
-    }
-  });
-
-  return [...byHref.values()]
-    .map(({ href, text }) => ({ url: href, title: cleanTitle(text) }))
-    // A short title (e.g. "Videos", "News") is almost always a nav/category
-    // tab whose href happens to fall under the listing's own path, not a
-    // real post — real post titles run much longer than this in practice.
-    .filter((p) => p.title && p.title.length >= 10 && p.title.length <= 180);
-}
-
-async function checkBrand({ brand, url }, seenUrls) {
-  const allowed = await checkRobotsAllowed(url);
+async function checkFeedBrand({ brand, feedUrl }) {
+  const allowed = await checkRobotsAllowed(feedUrl);
   if (!allowed) {
     console.log(`${brand}: skipped — disallowed by robots.txt`);
-    return { brand, newPosts: [], ok: false };
+    return { brand, entries: [], totalFound: 0, ok: false };
   }
 
-  let status, finalUrl, text;
+  let status, text;
   try {
-    ({ status, finalUrl, text } = await fetchText(url));
+    ({ status, text } = await fetchText(feedUrl));
   } catch (e) {
-    console.log(`${brand}: skipped — fetch failed (${e.message || e})`);
-    return { brand, newPosts: [], ok: false };
+    console.log(`${brand}: skipped — feed fetch failed (${e.message || e})`);
+    return { brand, entries: [], totalFound: 0, ok: false };
   }
-
   if (status !== 200) {
-    console.log(`${brand}: skipped — page returned HTTP ${status}`);
-    return { brand, newPosts: [], ok: false };
+    console.log(`${brand}: skipped — feed returned HTTP ${status}`);
+    return { brand, entries: [], totalFound: 0, ok: false };
   }
 
-  let posts;
+  let entries;
   try {
-    posts = extractPosts(text, finalUrl);
+    const $ = cheerio.load(text, { xmlMode: true });
+    entries = $("entry")
+      .map((_, el) => {
+        const $el = $(el);
+        const title = $el.find("title").first().text().trim();
+        const link =
+          $el.find("link[rel=alternate]").attr("href") || $el.find("link").first().attr("href") || "";
+        const published = $el.find("published").first().text().trim() || $el.find("updated").first().text().trim();
+        const contentHtml = $el.find("content").first().html() || $el.find("summary").first().html() || "";
+        return { title, url: link, publishedDate: published, excerpt: excerptFromHtml(contentHtml) };
+      })
+      .get()
+      .filter((e) => e.title && e.url);
   } catch (e) {
-    console.log(`${brand}: skipped — could not parse page (${e.message || e})`);
-    return { brand, newPosts: [], ok: false };
+    console.log(`${brand}: skipped — could not parse feed XML (${e.message || e})`);
+    return { brand, entries: [], totalFound: 0, ok: false };
   }
 
-  const relevant = posts.filter(isRelevantGearPost);
-  const filteredCount = posts.length - relevant.length;
-  const newPosts = relevant.filter((p) => !seenUrls.has(p.url));
+  const relevant = entries.filter(isRelevantGearPost);
+  const filteredCount = entries.length - relevant.length;
   console.log(
-    `${brand}: fetched OK, ${posts.length} post link(s) found, ${filteredCount} filtered out (off-topic/non-gear), ${newPosts.length} new since last run`
+    `${brand}: fetched feed OK, ${entries.length} entr${entries.length === 1 ? "y" : "ies"} found, ${filteredCount} filtered out (off-topic/non-gear)`
   );
-  // totalFound (pre-filter) is what drives the zero-streak warning below —
-  // a brand posting only off-topic content this week is a real, expected
-  // outcome, not a sign the scraper broke.
-  return { brand, newPosts, totalFound: posts.length, ok: true };
+  return { brand, entries: relevant, totalFound: entries.length, ok: true };
+}
+
+function hashContent(text) {
+  return crypto.createHash("sha256").update(text).digest("hex");
+}
+
+async function checkDiffBrand({ brand, url }, diffState) {
+  const allowed = await checkRobotsAllowed(url);
+  if (!allowed) {
+    console.log(`${brand} (diff-check): skipped — disallowed by robots.txt`);
+    return { brand, changed: false, ok: false };
+  }
+
+  let status, text;
+  try {
+    ({ status, text } = await fetchText(url));
+  } catch (e) {
+    console.log(`${brand} (diff-check): skipped — fetch failed (${e.message || e})`);
+    return { brand, changed: false, ok: false };
+  }
+  if (status !== 200) {
+    console.log(`${brand} (diff-check): skipped — page returned HTTP ${status}`);
+    return { brand, changed: false, ok: false };
+  }
+
+  const hash = hashContent(text);
+  const prevHash = diffState[brand]?.lastHash;
+  const changed = prevHash !== undefined && prevHash !== hash;
+  if (changed) {
+    console.log(`${brand} (diff-check): page content changed since last check — flagging for manual review`);
+  } else if (prevHash === undefined) {
+    console.log(`${brand} (diff-check): first check, baseline hash saved`);
+  } else {
+    console.log(`${brand} (diff-check): unchanged since last check`);
+  }
+  diffState[brand] = { lastHash: hash, url, lastChecked: todayUTC() };
+  return { brand, url, changed, ok: true };
 }
 
 async function main() {
   const existing = readJson(NEWS_PATH, []);
   const state = readJson(STATE_PATH, { lastChecked: null, zeroStreaks: {} });
   const zeroStreaks = { ...(state.zeroStreaks || {}) };
+  const diffState = readJson(DIFFCHECK_STATE_PATH, {});
+  const manualReview = readJson(MANUAL_REVIEW_PATH, []);
   const seenUrls = new Set(existing.map((e) => e.url));
 
   const allNew = [];
-  for (const b of BRANDS) {
-    const { brand, newPosts, totalFound } = await checkBrand(b, seenUrls);
+  for (const b of FEED_BRANDS) {
+    const { brand, entries, totalFound } = await checkFeedBrand(b);
 
     if (totalFound > 0) {
       zeroStreaks[brand] = 0;
@@ -247,27 +254,44 @@ async function main() {
       zeroStreaks[brand] = (zeroStreaks[brand] || 0) + 1;
       if (zeroStreaks[brand] >= ZERO_STREAK_WARNING_THRESHOLD) {
         console.log(
-          `::warning::${brand}'s gear-news scraper has found zero posts for ${zeroStreaks[brand]} consecutive weekly runs — its page may have changed or be blocking requests. Worth a manual check.`
+          `::warning::${brand}'s gear-news feed has found zero entries for ${zeroStreaks[brand]} consecutive weekly runs — its feed may have moved or broken. Worth a manual check.`
         );
       }
     }
 
-    for (const p of newPosts) {
-      allNew.push({ brand, title: p.title, url: p.url, dateFound: todayUTC() });
-      seenUrls.add(p.url); // guard against the same brand linking the same post twice on one page
+    for (const e of entries) {
+      if (seenUrls.has(e.url)) continue;
+      seenUrls.add(e.url);
+      allNew.push({
+        brand,
+        title: e.title,
+        url: e.url,
+        publishedDate: e.publishedDate ? e.publishedDate.slice(0, 10) : null,
+        excerpt: e.excerpt,
+        dateFound: todayUTC(),
+      });
     }
   }
 
+  for (const b of DIFFCHECK_BRANDS) {
+    const { brand, url, changed } = await checkDiffBrand(b, diffState);
+    if (changed) {
+      manualReview.unshift({ brand, url, detectedAt: todayUTC() });
+    }
+  }
+  const trimmedManualReview = manualReview.slice(0, MAX_MANUAL_REVIEW_ENTRIES);
+  fs.writeFileSync(MANUAL_REVIEW_PATH, JSON.stringify(trimmedManualReview, null, 2) + "\n");
+  fs.writeFileSync(DIFFCHECK_STATE_PATH, JSON.stringify(diffState, null, 2) + "\n");
+
   if (allNew.length === 0) {
-    console.log("\nNothing new (or nothing gear-relevant) across any tracked brand this run — leaving gear-news.json untouched (no commit).");
-    // Still worth persisting the zero-streak counters even when nothing is
-    // new, since those are exactly what makes the 4-week warning fire —
-    // losing them on a no-commit run would silently reset the count.
+    console.log("\nNothing new (or nothing gear-relevant) across any feed brand this run.");
     fs.writeFileSync(STATE_PATH, JSON.stringify({ lastChecked: todayUTC(), zeroStreaks }, null, 2) + "\n");
     return;
   }
 
-  const updated = [...allNew, ...existing].slice(0, MAX_ENTRIES);
+  const updated = [...allNew, ...existing]
+    .sort((a, b) => (b.publishedDate || b.dateFound).localeCompare(a.publishedDate || a.dateFound))
+    .slice(0, MAX_ENTRIES);
   fs.writeFileSync(NEWS_PATH, JSON.stringify(updated, null, 2) + "\n");
   fs.writeFileSync(STATE_PATH, JSON.stringify({ lastChecked: todayUTC(), zeroStreaks }, null, 2) + "\n");
 

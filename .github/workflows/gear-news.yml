@@ -31,7 +31,7 @@ jobs:
         run: |
           git config user.name "gear-news-bot"
           git config user.email "noreply@wingfoilamerica.com"
-          git add src/_data/gear-news.json src/_data/gear-news-state.json
+          git add src/_data/gear-news.json src/_data/gear-news-state.json src/_data/gear-news-diffcheck-state.json src/_data/gear-news-manual-review.json
           if ! git diff --cached --quiet; then
             git commit -m "Weekly gear news check"
             git push
