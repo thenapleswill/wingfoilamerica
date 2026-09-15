@@ -21,7 +21,15 @@ jobs:
           mkdir -p analytics-snapshots
           END=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           START=$(date -u -d "7 days ago" +"%Y-%m-%dT%H:%M:%SZ")
-          QUERY=$(jq -n --arg accountTag "$CF_ACCOUNT" --arg siteTag "a356302bfd584a6baf958e945583b0bc" --arg start "$START" --arg end "$END" '{
+          # This is Cloudflare's internal Web Analytics "siteTag" as recorded on
+          # rumPageloadEventsAdaptiveGroups rows -- confirmed directly against the
+          # GraphQL API's actual data, NOT the same value as the public beacon
+          # token in the <script data-cf-beacon> tag on the site (that one is
+          # a356302bfd584a6baf958e945583b0bc). Cloudflare uses two distinct
+          # identifiers here; querying with the beacon token instead of this one
+          # silently matched zero rows for months even though the account/token
+          # and beacon were all otherwise correctly configured.
+          QUERY=$(jq -n --arg accountTag "$CF_ACCOUNT" --arg siteTag "243908f481794e2090849a5cd72f63d3" --arg start "$START" --arg end "$END" '{
             query: "query($accountTag: String!, $siteTag: String!, $start: Time!, $end: Time!) { viewer { accounts(filter: {accountTag: $accountTag}) { rumPageloadEventsAdaptiveGroups(limit: 100, orderBy: [count_DESC], filter: {siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end}) { count dimensions { requestPath requestHost refererHost } } } } }",
             variables: { accountTag: $accountTag, siteTag: $siteTag, start: $start, end: $end }
           }')
