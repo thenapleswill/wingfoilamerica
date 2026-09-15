@@ -17,14 +17,14 @@ jobs:
           cat > /tmp/pwtest/test.mjs << 'SCRIPT'
           import { chromium } from "playwright";
 
-          const URL = "https://wingfoilamerica.com/where-to-ride/cumbuco/";
+          const SPOT_URL = "https://wingfoilamerica.com/where-to-ride/cumbuco/";
           const STAMP = new Date().toISOString();
           const CORRECTION_MSG = `TEST SUBMISSION (Claude verification, correction) - ${STAMP}`;
           const CONFIRMATION_MSG = `TEST SUBMISSION (Claude verification, confirmation) - ${STAMP}`;
 
           const browser = await chromium.launch();
           const page = await browser.newPage({ viewport: { width: 1280, height: 1000 } });
-          await page.goto(URL, { waitUntil: "networkidle" });
+          await page.goto(SPOT_URL, { waitUntil: "networkidle" });
 
           async function runFlow(feedbackType, message, label) {
             console.log(`\n=== ${label} ===`);
@@ -51,16 +51,25 @@ jobs:
 
             // Now actually submit the real embedded Airtable form inside the iframe.
             const frame = page.frameLocator("#spotFeedbackIframe");
-            await page.waitForTimeout(2500); // let Airtable's embed finish rendering
+            await page.waitForTimeout(4000); // let Airtable's embed finish rendering
             await page.screenshot({ path: `/tmp/pwtest/${feedbackType}-before-submit.png`, fullPage: true });
 
-            // Airtable's public form submit button text is usually "Submit".
-            const submitBtn = frame.getByRole("button", { name: /submit/i }).first();
-            await submitBtn.waitFor({ state: "visible", timeout: 15000 });
-            await submitBtn.click();
-            await page.waitForTimeout(3000);
-            await page.screenshot({ path: `/tmp/pwtest/${feedbackType}-after-submit.png`, fullPage: true });
-            console.log(`${label}: submit button clicked, screenshot saved.`);
+            try {
+              const submitBtn = frame.getByRole("button", { name: /submit/i }).first();
+              await submitBtn.waitFor({ state: "visible", timeout: 20000 });
+              await submitBtn.click();
+              await page.waitForTimeout(3000);
+              await page.screenshot({ path: `/tmp/pwtest/${feedbackType}-after-submit.png`, fullPage: true });
+              console.log(`${label}: submit button clicked, screenshot saved.`);
+            } catch (e) {
+              console.log(`${label}: could not find/click submit button inside iframe -- ${e.message}`);
+              try {
+                const innerHtml = await frame.locator("body").innerHTML();
+                console.log("Iframe body HTML (first 3000 chars):", innerHtml.slice(0, 3000));
+              } catch (e2) {
+                console.log("Could not read iframe body HTML:", e2.message);
+              }
+            }
 
             // Close modal, reset for next run
             await page.click(".submit-spot-modal-close");
