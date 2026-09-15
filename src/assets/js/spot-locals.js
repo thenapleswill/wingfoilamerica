@@ -4,7 +4,7 @@
   // pre-filled via the form's prefill_<Field Name> URL params. Table:
   // "Spot Locals" in the same base as Submit-a-Spot/Spot Corrections.
   var AIRTABLE_BASE_ID = "appJHchIsjqLQ4gvL";
-  var AIRTABLE_FORM_SHARE_ID = "PENDING_SPOT_LOCALS_FORM_SHARE_ID"; // TODO: replace once the Spot Locals table has a shared Form view
+  var AIRTABLE_FORM_SHARE_ID = "shregq6nxacSfHaV4";
 
   var openBtn = document.getElementById("spotLocalsOpen");
   var modal = document.getElementById("spotLocalsModal");
