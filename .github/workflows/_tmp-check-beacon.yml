@@ -1,0 +1,28 @@
+name: TEMP Check Analytics Beacon
+on:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch live pages and check for the beacon
+        run: |
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+          for url in "https://wingfoilamerica.com/" "https://wingfoilamerica.com/gear-and-brands/" "https://wingfoilamerica.com/where-to-ride/cumbuco/"; do
+            echo "=================================================="
+            echo "URL: $url"
+            curl -s -L -A "$UA" --max-time 20 "$url" -o /tmp/page.html -w "STATUS:%{http_code}\n"
+            echo "-- beacon script tag(s) found --"
+            grep -o '<script[^>]*cloudflareinsights[^>]*></script>' /tmp/page.html || echo "NONE FOUND"
+            echo "-- any mention of cloudflareinsights at all --"
+            grep -c "cloudflareinsights" /tmp/page.html || echo "0"
+            echo "-- any mention of data-cf-beacon token --"
+            grep -o 'data-cf-beacon=.[^>]*' /tmp/page.html || echo "NONE FOUND"
+            echo "-- page size --"
+            wc -c /tmp/page.html
+            echo
+          done
+      - name: Also fetch robots.txt / homepage headers for caching clues
+        run: |
+          echo "-- response headers for homepage --"
+          curl -sI -L --max-time 20 "https://wingfoilamerica.com/" | head -30
