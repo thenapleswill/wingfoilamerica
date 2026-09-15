@@ -1,0 +1,46 @@
+name: TEMP Diagnose Analytics Query
+on:
+  workflow_dispatch:
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Diagnose Cloudflare GraphQL query
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          END=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          START=$(date -u -d "7 days ago" +"%Y-%m-%dT%H:%M:%SZ")
+
+          echo "Configured CLOUDFLARE_ACCOUNT_ID var (masked partially): ${CF_ACCOUNT:0:6}...${CF_ACCOUNT: -4} (length ${#CF_ACCOUNT})"
+          echo
+
+          echo "=== TEST 1: exact current workflow query, as-is ==="
+          Q1=$(jq -n --arg accountTag "$CF_ACCOUNT" --arg siteTag "a356302bfd584a6baf958e945583b0bc" --arg start "$START" --arg end "$END" '{
+            query: "query($accountTag: String!, $siteTag: String!, $start: Time!, $end: Time!) { viewer { accounts(filter: {accountTag: $accountTag}) { accountTag rumPageloadEventsAdaptiveGroups(limit: 5, orderBy: [count_DESC], filter: {siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end}) { count dimensions { requestPath requestHost refererHost } } } } }",
+            variables: { accountTag: $accountTag, siteTag: $siteTag, start: $start, end: $end }
+          }')
+          curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
+            -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" \
+            -d "$Q1" | tee /tmp/test1.json | jq .
+          echo
+
+          echo "=== TEST 2: list ALL accounts visible to this token, no accountTag filter, with siteTag+datetime filter on rumPageloadEventsAdaptiveGroups ==="
+          Q2=$(jq -n --arg siteTag "a356302bfd584a6baf958e945583b0bc" --arg start "$START" --arg end "$END" '{
+            query: "query($siteTag: String!, $start: Time!, $end: Time!) { viewer { accounts { accountTag rumPageloadEventsAdaptiveGroups(limit: 5, orderBy: [count_DESC], filter: {siteTag: $siteTag, datetime_geq: $start, datetime_leq: $end}) { count dimensions { requestPath requestHost refererHost } } } } }",
+            variables: { siteTag: $siteTag, start: $start, end: $end }
+          }')
+          curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
+            -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" \
+            -d "$Q2" | tee /tmp/test2.json | jq .
+          echo
+
+          echo "=== TEST 3: same as test 2 but NO siteTag filter either, just datetime, to see raw recorded siteTag/requestHost values across all accounts ==="
+          Q3=$(jq -n --arg start "$START" --arg end "$END" '{
+            query: "query($start: Time!, $end: Time!) { viewer { accounts { accountTag rumPageloadEventsAdaptiveGroups(limit: 10, orderBy: [count_DESC], filter: {datetime_geq: $start, datetime_leq: $end}) { count dimensions { siteTag requestHost requestPath } } } } }",
+            variables: { start: $start, end: $end }
+          }')
+          curl -sS -X POST "https://api.cloudflare.com/client/v4/graphql" \
+            -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" \
+            -d "$Q3" | tee /tmp/test3.json | jq .
