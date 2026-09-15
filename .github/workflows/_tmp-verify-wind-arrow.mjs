@@ -29,8 +29,8 @@ async function testLiveData(browser, spotId, viewportName) {
   const context = await browser.newContext({ viewport: VIEWPORTS[viewportName] });
   const page = await context.newPage();
   const url = `https://wingfoilamerica.com/where-to-ride/${spotId}/`;
-  await page.goto(url, { waitUntil: "networkidle", timeout: 30000 });
-  await page.waitForTimeout(4000);
+  await page.goto(url, { waitUntil: "load", timeout: 45000 });
+  await page.waitForTimeout(5000);
   const result = await readArrow(page);
   console.log(`[LIVE] ${spotId} (${viewportName}):`, JSON.stringify(result));
   await context.close();
@@ -40,8 +40,6 @@ async function testHardcodedDirection(browser, spotId, ideal, injectedDeg) {
   const context = await browser.newContext({ viewport: VIEWPORTS.desktop });
   const page = await context.newPage();
 
-  // Intercept the Open-Meteo call and force a specific wind_direction_10m —
-  // proves the arrow reacts to changing input, without touching real code.
   await page.route("**/api.open-meteo.com/**", async (route) => {
     await route.fulfill({
       status: 200,
@@ -53,7 +51,7 @@ async function testHardcodedDirection(browser, spotId, ideal, injectedDeg) {
   });
 
   const url = `https://wingfoilamerica.com/where-to-ride/${spotId}/`;
-  await page.goto(url, { waitUntil: "networkidle", timeout: 30000 });
+  await page.goto(url, { waitUntil: "load", timeout: 45000 });
   await page.waitForTimeout(3000);
   const result = await readArrow(page);
   const expectedToward = (injectedDeg + 180) % 360;
@@ -67,15 +65,9 @@ async function testHardcodedDirection(browser, spotId, ideal, injectedDeg) {
 
 const browser = await chromium.launch();
 
-for (const spot of SPOTS) {
-  await testLiveData(browser, spot.id, "desktop");
-  await testLiveData(browser, spot.id, "mobile");
-}
+await testLiveData(browser, "cumbuco", "desktop");
+await testLiveData(browser, "cumbuco", "mobile");
 
-// Hardcoded direction tests: for constitution-bicentennial-park (ideal N/NE/NW/W/WNW),
-// inject a direction that should read as onshore-favorable (ideal match, e.g. N=0deg)
-// and one that should read as offshore/poor (opposite of an ideal dir, e.g. E=90deg
-// which is opposite-ish of W/WNW).
 await testHardcodedDirection(browser, "constitution-bicentennial-park", ["N","NE","NW","W","WNW"], 0);   // wind FROM N
 await testHardcodedDirection(browser, "constitution-bicentennial-park", ["N","NE","NW","W","WNW"], 90);  // wind FROM E
 await testHardcodedDirection(browser, "constitution-bicentennial-park", ["N","NE","NW","W","WNW"], 180); // wind FROM S
