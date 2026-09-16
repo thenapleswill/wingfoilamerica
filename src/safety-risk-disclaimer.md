@@ -15,6 +15,8 @@ Wing foiling involves wind, open water, a rigid foil board, and a hard hydrofoil
 
 Nothing on Wing Foil America — the Beginner Guide, gear advice, wind guidance, or spot descriptions — is a substitute for in-person, certified instruction. **We strongly recommend taking lessons from a certified instructor before riding independently**, especially your first several sessions. A qualified instructor can assess real conditions, correct your technique in real time, and keep you safe in ways a website never can.
 
+Looking for certified instruction? The International Wingsports Organization ([IWO](https://iwointl.com/centers/)) maintains a directory of training centers at [iwointl.com/centers](https://iwointl.com/centers/).
+
 ## Conditions and information can be wrong or out of date
 
 Wind forecasts, spot descriptions, hazard notes, and gear specs on this site are provided as general information and may be incomplete, outdated, or inaccurate. Conditions at any spot can change quickly and can differ from what's described here or in any forecast. Always assess actual conditions yourself before entering the water, and never rely solely on this site to judge whether it's safe to ride.
