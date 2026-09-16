@@ -1,0 +1,33 @@
+name: _tmp Audit After State
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch live homepage title/og tags
+        run: |
+          curl -sS https://wingfoilamerica.com/ -o home.html
+          echo "--- TITLE ---"
+          grep -o "<title>[^<]*</title>" home.html || echo "NOT FOUND"
+          echo "--- OG:TITLE ---"
+          grep -o 'og:title" content="[^"]*"' home.html || echo "NOT FOUND"
+          echo "--- OG:DESCRIPTION ---"
+          grep -o 'og:description" content="[^"]*"' home.html || echo "NOT FOUND"
+
+      - name: Fetch live sitemap.xml
+        run: |
+          curl -sS https://wingfoilamerica.com/sitemap.xml -o sitemap.xml
+          echo "--- URL COUNT ---"
+          grep -c "<loc>" sitemap.xml
+          echo "--- OLD DOMAIN COUNT ---"
+          grep -c "thenapleswill.github.io" sitemap.xml || echo "0"
+          echo "--- NEW DOMAIN COUNT ---"
+          grep -c "wingfoilamerica.com" sitemap.xml || echo "0"
+          echo "--- SPOT URL COUNT ---"
+          grep -c "where-to-ride/[a-z]" sitemap.xml || echo "0"
+          echo "--- SPECIFIC PAGES ---"
+          grep -E "parawinging|been-a-few-times|level-up" sitemap.xml || echo "NONE FOUND"
+          echo "--- SAMPLE SPOT URLS ---"
+          grep "where-to-ride/[a-z]" sitemap.xml | head -4
