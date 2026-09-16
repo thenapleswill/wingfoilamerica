@@ -8,6 +8,7 @@ extraJs:
 ---
 
 {% from "partials/video-callout.njk" import videoCallout %}
+{% from "partials/video-embed.njk" import videoEmbed %}
 
 Wave riding is where wing foiling starts to feel less like a wind sport and more like surfing that happens to have a wing attached. Once you're on the wave, the wing mostly stops being your engine and starts being a balance tool — something to hold out of the way while you actually surf the face, the same way a surfer's arms help them balance without powering them down the line. It's a different skill than anything covered in flat-water riding or downwinding, and it comes with its own etiquette to learn alongside the technique.
 
@@ -34,6 +35,8 @@ This is not a place to bring beginner-level fundamentals. Get genuinely solid on
 4. **Steer with your feet and body, not the wing.** Bent knees, weight distributed with intent, eyes forward — this is surfboard technique more than it's wing technique at this point.
 
 5. **Manage your position on the wave face.** If you're moving faster than the wave, angle diagonally across it rather than straight down the line to bleed off speed. If you're slower, stay more perpendicular to the wave so you don't get caught by the whitewater behind you.
+
+{{ videoEmbed(videoId="8s_sd8R7xZI", title="Surfing Swell", creditLabel="Duotone Wing & Foiling", creditUrl="https://www.youtube.com/watch?v=8s_sd8R7xZI") }}
 
 ## Gear for Wave Riding
 

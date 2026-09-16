@@ -471,6 +471,19 @@ img{ max-width: 100%; display: block; }
   .video-callout-media, .video-callout-iframe{ width: 100%; }
 }
 
+/* ---------- Video embed (full-width tutorial embeds) ---------- */
+/* Fluid aspect-ratio box — no fixed pixel size, no breakpoint that hides or
+   caps it, so it scales correctly at any viewport including phone widths. */
+.video-embed{ margin: 1.6em 0; }
+.video-embed-frame{
+  width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden;
+  background: var(--ink-3); border: 1px solid var(--line);
+}
+.video-embed-frame iframe{ display: block; width: 100%; height: 100%; border: 0; }
+.video-embed-credit{ margin: 8px 0 0; font-size: 0.82rem; color: var(--foam-faint); }
+.video-embed-credit a{ color: var(--foam-faint); text-decoration: underline; }
+.video-embed-credit a:hover{ color: var(--teal); }
+
 /* ==========================================================================
    Footer
    ========================================================================== */

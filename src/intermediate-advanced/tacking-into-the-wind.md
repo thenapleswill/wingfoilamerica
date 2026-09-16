@@ -8,6 +8,7 @@ extraJs:
 ---
 
 {% from "partials/video-callout.njk" import videoCallout %}
+{% from "partials/video-embed.njk" import videoEmbed %}
 
 A gybe turns you downwind — easy, forgiving, usually the first turn people get comfortable with. A tack turns you upwind, through the wind itself, and it's a different animal entirely: less speed to work with, less margin for error, and a real chance of dropping off the foil mid-turn if your weight and timing are off. It's also one of the most useful skills you can build — being able to turn upwind cleanly means you're never stuck riding a straight line just because turning around felt too risky.
 
@@ -32,6 +33,10 @@ Get comfortable riding confidently on both tacks (both directions), controlling 
 5. **Shift your weight onto your front foot immediately.** This is the step that actually keeps you flying. The instant the wing switches, weight naturally wants to fall backward — resist that. Front-foot pressure right away keeps the nose down and the foil doing its job.
 
 6. **Pump if you feel speed dropping.** A tack costs you speed by nature — a pump or two right after the switch can be the difference between staying up and dropping off the foil.
+
+{{ videoEmbed(videoId="Vfd5vibrL2Q", title="Toe to Heel Tack", creditLabel="Duotone Wing & Foiling", creditUrl="https://www.youtube.com/watch?v=Vfd5vibrL2Q") }}
+
+{{ videoEmbed(videoId="r2U3TApX5aQ", title="Heel to Toe Tack", creditLabel="Duotone Wing & Foiling", creditUrl="https://www.youtube.com/watch?v=r2U3TApX5aQ") }}
 
 {{ videoCallout(videoId="9Nb4f6RWTOQ", title="Wing foil - How to tack / gybe (Transitions tutorial)", blurb="A visual side-by-side of the tack and gybe mechanics covered in this page.") }}
 

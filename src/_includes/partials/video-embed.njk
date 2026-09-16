@@ -1,0 +1,10 @@
+{% macro videoEmbed(videoId, title, creditLabel, creditUrl) %}
+<div class="video-embed">
+  <div class="video-embed-frame">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ videoId }}" title="{{ title }}" loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+  <p class="video-embed-credit">Video: <a href="{{ creditUrl }}" target="_blank" rel="noopener">{{ creditLabel }}</a></p>
+</div>
+{% endmacro %}

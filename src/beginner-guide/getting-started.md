@@ -8,6 +8,7 @@ extraJs:
 ---
 
 {% from "partials/video-callout.njk" import videoCallout %}
+{% from "partials/video-embed.njk" import videoEmbed %}
 
 Wing foiling is a water sport where you hold a small inflatable wing to catch the wind, while riding a board with a hydrofoil — a wing-shaped fin — mounted underneath that lifts the board up out of the water once you're moving. No lines, no harness, no bar — you hold the wing directly in your hands.
 
@@ -16,6 +17,8 @@ A good first spot to learn has flat or wind-protected water, side-shore to side-
 ![A wing foiler cruising calmly across flat water.](/assets/images/getting-started-cruising.jpg)
 
 It looks like a magic trick. It isn't — it's two pieces of gear working together, and once you understand what each one does, the whole sport makes a lot more sense.
+
+{{ videoEmbed(videoId="rGUXVZ50aM8", title="Learn To Wing Foil in 10 Minutes", creditLabel="Duotone Wing & Foiling", creditUrl="https://www.youtube.com/watch?v=rGUXVZ50aM8") }}
 
 ## The two things that make it work
 
@@ -43,6 +46,8 @@ But the real hook is the feeling once you're up on the foil: the drag drops away
 
 Here's the honest part, though: it looks effortless in videos, and it is not effortless the first few sessions. Balancing on a foil board before you're up and planing, timing when to stand, managing the wing with both hands while your legs are doing something new — there's a real learning curve, and most people eat it (literally, into the water) a fair amount early on. The good news is that it's a genuinely learnable curve, not a talent ceiling — with the right gear sized for a beginner and a sensible progression, most people get a real taste of flying within their first few sessions and keep improving from there.
 
+{{ videoEmbed(videoId="ztOgV05Rp2Q", title="First Flight", creditLabel="Duotone Wing & Foiling", creditUrl="https://www.youtube.com/watch?v=ztOgV05Rp2Q") }}
+
 {{ videoCallout(videoId="N2-k-B6GUpc", title="How to Wing Foil - Complete Beginner Tutorial", blurb="A full visual walkthrough of what a first session actually looks like, if you want to see it before you try it.") }}
 
 ## Picking where to start
@@ -64,5 +69,9 @@ Once you're sold on trying it, where you learn matters almost as much as what ge
 One more thing worth knowing before you show up: beach orientation relative to wind direction is critical, and it's covered in full on the [Safety & Mistakes](/beginner-guide/mistakes-and-safety/) page. Not every beach faces the same direction, so it's worth knowing two or three spots near you with different orientations — there's almost always one facing the right way for a given day's wind. [Find a Spot](/where-to-ride/) is built exactly for this: real, specific spots, tagged by who's actually ridden them, so you're not guessing at any of the above from scratch.
 
 These principles are a starting point, not a guarantee — local conditions, seasonality, and the specific beach you choose still matter. But get these basics right and you've already avoided most of what makes a first session frustrating instead of fun.
+
+Once straight-line riding feels comfortable, turning is the next real skill on the horizon — here's a preview of the basics you'll build toward:
+
+{{ videoEmbed(videoId="HjzLMAEZJVA", title="4 Basic Turns", creditLabel="Cabrinha", creditUrl="https://www.youtube.com/watch?v=HjzLMAEZJVA") }}
 
 If you're already sold and just want to know what to buy, keep moving through the guide — [What Gear Do You Actually Need](/beginner-guide/gear-and-budget/) is next.
