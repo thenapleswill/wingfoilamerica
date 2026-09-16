@@ -1,7 +1,7 @@
 ---
 layout: layouts/article-page.njk
 bodyClass: "gear-page"
-title: "Gear & Brands — Getting Started"
+title: "Gear & Brands"
 eyebrow: "Gear & Brands"
 description: "The three things a beginner actually needs to buy, explained simply, with direct links to buy them and to real beginner package deals."
 extraCss:
@@ -142,6 +142,11 @@ Not every brand sells direct to consumer — some of these are better for resear
   <a href="https://gofoil.com" target="_blank" rel="noopener">GO Foil</a>
   <a href="https://reedin.com" target="_blank" rel="noopener">Reedin</a>
   <a href="https://ridecore.com" target="_blank" rel="noopener">CORE</a>
+  <a href="https://www.mikeslab.com/" target="_blank" rel="noopener">Mike's Lab</a>
+  <a href="https://ensis.surf/" target="_blank" rel="noopener">Ensis</a>
+  <a href="https://uni-foil.com/" target="_blank" rel="noopener">Unifoil</a>
+  <a href="https://www.gong-galaxy.com/en/collections/wing-fr" target="_blank" rel="noopener">GONG</a>
+  <a href="https://sabfoil.com/en" target="_blank" rel="noopener">Sabfoil</a>
 </div>
 
 <script type="application/ld+json">
