@@ -1,6 +1,6 @@
 module.exports = {
   name: "Wing Foil America",
-  tagline: "Learn to wing foil. Ride better. Go further.",
+  tagline: "Find Your Spot",
   // Host only (no path, no trailing slash) — used to build absolute URLs in
   // robots.txt/sitemap.xml.
   siteUrl: "https://wingfoilamerica.com",
