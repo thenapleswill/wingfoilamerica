@@ -71,10 +71,35 @@
 
     L.control.layers({ "Satellite": satelliteLayer, "Map": darkLayer }, null, { position: "topright" }).addTo(map);
 
-    var clusterGroup = L.markerClusterGroup({ maxClusterRadius: 50 });
+    // The plugin's default cluster icon (a plain "<div><span>{count}</span></div>"
+    // with no role or label) is why clustered pins showed up with no accessible
+    // name in an accessibility audit while single pins — built by makeIcon()
+    // above — didn't: this iconCreateFunction gives every cluster bubble the
+    // same role="img" + aria-label treatment as a single spot pin, just
+    // summarizing the spots it contains instead of naming one.
+    function clusterAccessibleLabel(markers) {
+      var names = markers.map(function (m) { return m.spotName; });
+      if (names.length <= 3) return names.join(", ") + " (" + names.length + " spots)";
+      return names.slice(0, 3).join(", ") + ", and " + (names.length - 3) + " more (" + names.length + " spots)";
+    }
+
+    var clusterGroup = L.markerClusterGroup({
+      maxClusterRadius: 50,
+      iconCreateFunction: function (cluster) {
+        var count = cluster.getChildCount();
+        var label = escapeHTML(clusterAccessibleLabel(cluster.getAllChildMarkers()));
+        var sizeClass = count < 10 ? "small" : count < 100 ? "medium" : "large";
+        return L.divIcon({
+          html: '<div><span role="img" aria-label="' + label + '" title="' + label + '">' + count + "</span></div>",
+          className: "marker-cluster marker-cluster-" + sizeClass,
+          iconSize: L.point(40, 40),
+        });
+      },
+    });
 
     spots.forEach(function (spot) {
       var marker = L.marker([spot.lat, spot.lng], { icon: makeIcon(spot) });
+      marker.spotName = spot.name;
       marker.on("click", function () { goToSpot(spot); });
       clusterGroup.addLayer(marker);
     });
