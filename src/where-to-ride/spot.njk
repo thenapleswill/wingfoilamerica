@@ -9,7 +9,7 @@ layout: layouts/article-page.njk
 eleventyComputed:
   title: "{{ spot.name }}"
   eyebrow: "Where to Ride"
-  description: "{{ spot.city }}, {{ spot.state }} — {{ spot.description | excerpt(150) }}"
+  description: "{{ spot.city }}, {{ spot.state }} — {{ spot.description | excerpt(150) | safe }}"
 extraCss:
   - /assets/vendor/leaflet/leaflet.css
   - /assets/css/where-to-ride.css
