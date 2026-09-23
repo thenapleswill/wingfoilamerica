@@ -3,13 +3,19 @@ layout: layouts/article-page.njk
 title: "Gear Maintenance & Repair Basics"
 eyebrow: "Gear & Brands"
 description: "The post-session habits, storage routine, and basic repairs that keep a wing, board, and hydrofoil working — and keep you from replacing gear that just needed a rinse."
+extraJs:
+- /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 A wing, board, and foil represent real money, and none of them are designed to be rinsed, dried, and put away carefully — a couple of bad habits repeated all season are what actually shorten a setup's life, not one hard landing. None of this is complicated. It's mostly rinsing things properly and not leaving gear somewhere it can slowly cook or corrode.
 
 ## The One Habit That Matters Most: Rinse Everything, Every Time
 
 Fresh water, after every session, on everything — the wing, the board, and especially the foil's mast base, fuselage, and stabilizer bolts, where salt and sand collect and corrosion actually starts. Clear sand out of the board's footstrap tracks while you're at it. Then dry everything fully before it goes back in a bag or a car. Storing gear wet and assembled is the single most common way people ruin hardware and grow mildew in a wing bladder — far more damage happens sitting in a garage than out on the water.
+
+{{ videoCallout(videoId="gfxhxlv_qfE", title="Gear Maintenance Tips", creator="Damien LeRoy", blurb="A rundown of the post-session habits that actually keep a wing, board, and foil lasting.") }}
 
 ## Wing Care
 
