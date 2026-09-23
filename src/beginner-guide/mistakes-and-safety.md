@@ -35,8 +35,6 @@ Everyone who's ever stood on a beach staring at a wing and a foilboard has made 
 
 {{ videoCallout(videoId="3FnCakezwOQ", title="Fly Your Wing on the Beach", creator="Duotone Wing & Foiling", blurb="Wing handling on the beach is the step most new riders are tempted to skip — see it done right before you’re doing it in the water too.") }}
 
-{{ videoCallout(videoId="3FnCakezwOQ", title="Fly Your Wing on the Beach", creator="Duotone Wing & Foiling", blurb="Wing handling on the beach is the step most new riders are tempted to skip — see it done right before you’re doing it in the water too.") }}
-
 ### Safety mistakes
 
 - **No leash, or the wrong leash setup.** Covered in full below — see "Wear your leashes."
