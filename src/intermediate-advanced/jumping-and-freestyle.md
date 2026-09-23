@@ -3,11 +3,8 @@ layout: layouts/intermediate-page.njk
 title: "Jumping & Freestyle"
 description: "Taking it to the air — the basic jump, foot straps, and the progression path into freestyle tricks."
 order: 1
-extraJs:
-  - /assets/js/video-callout.js
 ---
 
-{% from "partials/video-callout.njk" import videoCallout %}
 {% from "partials/video-embed.njk" import videoEmbed %}
 
 There's a specific moment every foiler remembers: the first time you leave the water on purpose instead of by accident. Jumping is the gateway to everything that comes after it in freestyle — spins, tweaks, combos — and the good news is the basic jump itself isn't nearly as complicated as it looks from the beach. Here's how to get there, and where it leads.
@@ -32,8 +29,6 @@ Jumping isn't a beginner skill, and it shouldn't be your first goal. You want to
 Give yourself real space before you try this — clear water, no other riders, boats, or obstacles anywhere near your landing zone. A bad landing with company nearby is a real hazard, not just an embarrassing wipeout.
 
 {{ videoEmbed(videoId="-Ij_IpABKGA", title="8 Steps On How To Jump WINGSURFING - Ep.5", creditLabel="Cabrinha", creditUrl="https://www.youtube.com/watch?v=-Ij_IpABKGA") }}
-
-{{ videoCallout(videoId="AVhW2weG89Y", title="Wing Foil - Learn to Jump With 4 Top Tips", blurb="Visual breakdown of the jump technique described above.") }}
 
 ## Foot Straps: A Real Gear Decision
 
@@ -60,51 +55,51 @@ Give every trick room before you try it — clear water, no one in your landing 
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "The Basic Jump",
-  "description": "How to do a basic wing foil jump, from building speed to landing clean.",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Build speed on a crosswind line",
-      "text": "You need real speed before you try to leave the water — approach the jump moving across the wind, not upwind or downwind."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Sheet the wing in and angle slightly upwind",
-      "text": "As you set up, load the wing with power right before takeoff."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Bend your knees and keep your weight on your front foot",
-      "text": "As you approach, keep the nose of the board angled down slightly — don't lean too far forward."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Shift your weight to your back foot and lift the foil out of the water",
-      "text": "This is the actual pop. It's a weight-transfer move, not a big muscular jump."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Keep the wing pulled in close once you're airborne",
-      "text": "The wing wants to rise naturally as you leave the water — let it, but keep control of it rather than letting it float away from you."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Stay centered and upright in the air",
-      "text": "Don't lean back or throw your weight around trying to gain height — a stable, centered body position is what keeps the landing clean."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Spot your landing before you touch down",
-      "text": "Look at where you're aiming, and start tilting the nose slightly down as you descend so you land nose-first rather than flat."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Bend your knees on impact to absorb the landing",
-      "text": "Keep your weight balanced evenly across both feet rather than dumped onto one side."
-    }
-  ]
+"@context": "https://schema.org",
+"@type": "HowTo",
+"name": "The Basic Jump",
+"description": "How to do a basic wing foil jump, from building speed to landing clean.",
+"step": [
+{
+"@type": "HowToStep",
+"name": "Build speed on a crosswind line",
+"text": "You need real speed before you try to leave the water — approach the jump moving across the wind, not upwind or downwind."
+},
+{
+"@type": "HowToStep",
+"name": "Sheet the wing in and angle slightly upwind",
+"text": "As you set up, load the wing with power right before takeoff."
+},
+{
+"@type": "HowToStep",
+"name": "Bend your knees and keep your weight on your front foot",
+"text": "As you approach, keep the nose of the board angled down slightly — don't lean too far forward."
+},
+{
+"@type": "HowToStep",
+"name": "Shift your weight to your back foot and lift the foil out of the water",
+"text": "This is the actual pop. It's a weight-transfer move, not a big muscular jump."
+},
+{
+"@type": "HowToStep",
+"name": "Keep the wing pulled in close once you're airborne",
+"text": "The wing wants to rise naturally as you leave the water — let it, but keep control of it rather than letting it float away from you."
+},
+{
+"@type": "HowToStep",
+"name": "Stay centered and upright in the air",
+"text": "Don't lean back or throw your weight around trying to gain height — a stable, centered body position is what keeps the landing clean."
+},
+{
+"@type": "HowToStep",
+"name": "Spot your landing before you touch down",
+"text": "Look at where you're aiming, and start tilting the nose slightly down as you descend so you land nose-first rather than flat."
+},
+{
+"@type": "HowToStep",
+"name": "Bend your knees on impact to absorb the landing",
+"text": "Keep your weight balanced evenly across both feet rather than dumped onto one side."
+}
+]
 }
 </script>
