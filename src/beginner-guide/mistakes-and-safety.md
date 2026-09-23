@@ -33,6 +33,10 @@ Everyone who's ever stood on a beach staring at a wing and a foilboard has made 
 - **Trying to foil before you're comfortable riding the board flat and low.** Getting up on the foil early feels like progress, but if you haven't built comfort riding low and flat first — feeling how the board responds to your weight, falling off it safely — you're stacking an unstable skill (foiling) on one you haven't mastered yet (board control). That combination produces the scary, unpredictable falls, not foiling itself.
 - **Over-gripping and fighting the wing instead of using it efficiently.** New riders white-knuckle the boom or handles and muscle the wing around, which burns your arms out in twenty minutes and makes fine adjustments nearly impossible. The wing is meant to be flown with light hands and small movements — you're steering air pressure, not wrestling an opponent. Relaxing your grip almost always improves control, even though it feels backwards at first.
 
+{{ videoCallout(videoId="3FnCakezwOQ", title="Fly Your Wing on the Beach", creator="Duotone Wing & Foiling", blurb="Wing handling on the beach is the step most new riders are tempted to skip — see it done right before you’re doing it in the water too.") }}
+
+{{ videoCallout(videoId="3FnCakezwOQ", title="Fly Your Wing on the Beach", creator="Duotone Wing & Foiling", blurb="Wing handling on the beach is the step most new riders are tempted to skip — see it done right before you’re doing it in the water too.") }}
+
 ### Safety mistakes
 
 - **No leash, or the wrong leash setup.** Covered in full below — see "Wear your leashes."
