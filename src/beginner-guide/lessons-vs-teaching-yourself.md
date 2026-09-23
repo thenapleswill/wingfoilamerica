@@ -3,7 +3,11 @@ layout: layouts/guide-page.njk
 title: "Lessons vs. Teaching Yourself"
 description: "An honest, balanced look at whether to pay for wing foiling instruction or learn on your own — what each path actually costs you in money, time, and risk."
 order: 5
+extraJs:
+- /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 Every wing foiler faces the same question before they ever pump up a wing: pay for lessons, or figure it out yourself? There's no universally correct answer, and anyone who tells you otherwise is probably selling something. What follows is a straight look at both paths — what you gain, what you risk, and where the real trade-offs are, so you can decide based on your own budget, temperament, and local options.
 
@@ -14,6 +18,8 @@ The single biggest argument for lessons is speed. Wing foiling asks you to coord
 An instructor also puts you in the right spot immediately. They know which beach has the right combination of wind direction, water depth, and open space for a first session, and they'll have gear sized correctly for your weight and the day's conditions — a wing that's the wrong size for the wind, or a foil with too much lift for a beginner, can make the first few sessions needlessly miserable or dangerous. Because many schools include gear in the lesson price (or rent it at a reasonable add-on), you also get to try wing foiling before committing thousands of dollars to equipment you don't yet know how to evaluate.
 
 Just as important, an instructor corrects bad habits while they're still cheap to fix. Wing handling technique, where you stand on the board, how you initiate a foil rise — these become muscle memory fast, and muscle memory formed badly is genuinely hard to undo later. Catching those habits in lesson one or two is far easier than retraining them after fifty self-taught sessions. Lessons also meaningfully cut down on the injury and near-miss risk that clusters in a rider's first few outings: getting dragged by an overpowered wing, foil strikes to the shins or feet, and getting swept into hazards by wind or current are common early mistakes, and having someone on the beach who can call off a session before it turns into a rescue is a real safety margin.
+
+{{ videoCallout(videoId="t9hG0MaHENI", title="Need to Know: First Session Lesson", creator="Slingshot Sports", blurb="A look at what an actual first lesson covers — useful context for weighing this decision.") }}
 
 ## The Real Cost of Lessons
 
