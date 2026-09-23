@@ -5,16 +5,19 @@ title: "Gear & Brands"
 eyebrow: "Gear & Brands"
 description: "The three things a beginner actually needs to buy, explained simply, with direct links to buy them and to real beginner package deals."
 extraCss:
-  - /assets/css/gear-calculator.css
+- /assets/css/gear-calculator.css
 extraJs:
-  - /assets/js/gear-calculator.js
+- /assets/js/gear-calculator.js
+- /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 There are dozens of brands, a hundred board shapes, and an overwhelming amount of gear talk out there. None of that matters yet. You need three things — a board, a hydrofoil, and a wing — and this page gets you to a real number for each one in about five minutes.
 
 <div class="step-header">
-  <span class="step-num">1</span>
-  <h2>Use the Calculator</h2>
+<span class="step-num">1</span>
+<h2>Use the Calculator</h2>
 </div>
 
 {% include "partials/gear-calculator-widget.njk" %}
@@ -22,8 +25,8 @@ There are dozens of brands, a hundred board shapes, and an overwhelming amount o
 Enter your weight, the wind you'll usually ride in, and your budget, and it'll spit out a starting size for all three pieces of gear. Treat the result as a smart starting point, not a locked-in answer — the explanations below tell you why those numbers matter so you're not just trusting a black box.
 
 <div class="step-header" id="shop-gear">
-  <span class="step-num">2</span>
-  <h2>Understand What You're Buying</h2>
+<span class="step-num">2</span>
+<h2>Understand What You're Buying</h2>
 </div>
 
 Three pieces of gear, three quick explanations. Read these once and you'll understand more about wing foil sizing than most people do after a full season.
@@ -45,20 +48,22 @@ As a rough starting point by rider weight:
 When in doubt, size up — a bigger board costs you nothing once you're foiling, but a too-small board can cost you weeks of struggling just to balance.
 
 <div class="gear-photo-row">
-  <img class="gear-photo" src="/assets/images/gear/board-naish-hover-standing.jpg" alt="Naish Hover wing foil board" width="200" height="260" loading="lazy">
-  <img class="gear-photo" src="/assets/images/gear/board-cabrinha-swift-standing.jpg" alt="Cabrinha Swift wing foil board" width="200" height="260" loading="lazy">
+<img class="gear-photo" src="/assets/images/gear/board-naish-hover-standing.jpg" alt="Naish Hover wing foil board" width="200" height="260" loading="lazy">
+<img class="gear-photo" src="/assets/images/gear/board-cabrinha-swift-standing.jpg" alt="Cabrinha Swift wing foil board" width="200" height="260" loading="lazy">
 </div>
 
 **Beginner board vs. midlength board.** The Naish Hover above is what I started on, and it's still what I'd point a first-timer toward — its size and volume make it stable and forgiving while you're just learning to balance and get up. The Cabrinha Swift next to it is the board I've since moved to: narrower, with noticeably less volume and stability, but its shape gets you up on foil faster once you've actually got your balance dialed in. It's a natural next step once the basics are solid, not a first board — see [Level Up Your Gear](/gear-and-brands/level-up/) for more on when and how to make that jump.
 
 <img class="gear-photo" src="/assets/images/gear/boards-naish-cabrinha-lineup.jpg" alt="Naish Hover and Cabrinha Swift wing foil boards side by side" width="200" height="260" loading="lazy">
 
+{{ videoCallout(videoId="z-nIUGoxd1M", title="Starting with a Small Board", creator="Duotone Wing & Foiling", blurb="A look at when and why to size down once your basics are solid — the same board progression covered above.") }}
+
 <p class="shop-at-label">Shop wing foil boards at:</p>
 <div class="brand-links">
-  <a href="https://www.mackiteboarding.com/wing-foil-boards/" target="_blank" rel="noopener">MACkite</a>
-  <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a>
-  <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a>
-  <a href="https://adventuresportsusa.com/collections/wing-boards" target="_blank" rel="noopener">Adventure Sports USA</a>
+<a href="https://www.mackiteboarding.com/wing-foil-boards/" target="_blank" rel="noopener">MACkite</a>
+<a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a>
+<a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a>
+<a href="https://adventuresportsusa.com/collections/wing-boards" target="_blank" rel="noopener">Adventure Sports USA</a>
 </div>
 
 ### Hydrofoil (front wing size)
@@ -69,10 +74,10 @@ For your first foil, look for a front wing in the **1,500–2,000 cm²** range. 
 
 <p class="shop-at-label">Shop hydrofoils at:</p>
 <div class="brand-links">
-  <a href="https://www.mackiteboarding.com/hydrofoil/" target="_blank" rel="noopener">MACkite</a>
-  <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a>
-  <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a>
-  <a href="https://adventuresportsusa.com/collections/foils" target="_blank" rel="noopener">Adventure Sports USA</a>
+<a href="https://www.mackiteboarding.com/hydrofoil/" target="_blank" rel="noopener">MACkite</a>
+<a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a>
+<a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a>
+<a href="https://adventuresportsusa.com/collections/foils" target="_blank" rel="noopener">Adventure Sports USA</a>
 </div>
 
 ### Wing (measured in square meters)
@@ -83,40 +88,40 @@ Handheld wings are sized in square meters (m²), and the size you need depends o
 
 <p class="shop-at-label">Shop wings at:</p>
 <div class="brand-links">
-  <a href="https://www.mackiteboarding.com/foil-wings/" target="_blank" rel="noopener">MACkite</a>
-  <a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a>
-  <a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a>
-  <a href="https://adventuresportsusa.com/collections/wings" target="_blank" rel="noopener">Adventure Sports USA</a>
+<a href="https://www.mackiteboarding.com/foil-wings/" target="_blank" rel="noopener">MACkite</a>
+<a href="https://www.realwatersports.com/collections/armstrong" target="_blank" rel="noopener">Real Watersports</a>
+<a href="https://www.windance.com/pages/wing-foiling-gear-equipment" target="_blank" rel="noopener">Windance</a>
+<a href="https://adventuresportsusa.com/collections/wings" target="_blank" rel="noopener">Adventure Sports USA</a>
 </div>
 
 <div class="step-header">
-  <span class="step-num">3</span>
-  <h2>Choose a Beginner Package</h2>
+<span class="step-num">3</span>
+<h2>Choose a Beginner Package</h2>
 </div>
 
 Buying the three pieces separately gives you more control, but plenty of retailers sell complete beginner packages — board, foil, and wing bundled together at one price, built to work together out of the box. To keep this simple, here are a few real options instead of an endless list:
 
 <div class="package-grid">
-  <div class="package-card">
-    <h3><a href="https://www.mackiteboarding.com/wing-foil-packages/" target="_blank" rel="noopener">MACkite — Wing Foil Beginner Packages</a></h3>
-    <p>Several complete packages including one built specifically for first-timers (board + foil + wing).</p>
-    <a class="btn btn-outline" href="https://www.mackiteboarding.com/wing-foil-packages/" target="_blank" rel="noopener" aria-label="View MACkite wing foil beginner packages (opens in a new tab)">View packages &rarr;</a>
-  </div>
-  <div class="package-card">
-    <h3><a href="https://www.windance.com/collections/wing-foil-packages" target="_blank" rel="noopener">Windance — Wing Foil Packages</a></h3>
-    <p>Multiple packages tagged "Beginner Friendly," bundling board, foil, and wing together.</p>
-    <a class="btn btn-outline" href="https://www.windance.com/collections/wing-foil-packages" target="_blank" rel="noopener" aria-label="View Windance wing foil packages (opens in a new tab)">View packages &rarr;</a>
-  </div>
-  <div class="package-card">
-    <h3><a href="https://houstonkiteboarding.com/collections/wingfoil-complete-packages" target="_blank" rel="noopener">Houston Kiteboarding — Wing Foil Starter Package</a></h3>
-    <p>A complete starter set (board, wing, foil, pump, and both leashes) built for someone starting from zero.</p>
-    <a class="btn btn-outline" href="https://houstonkiteboarding.com/collections/wingfoil-complete-packages" target="_blank" rel="noopener" aria-label="View Houston Kiteboarding wing foil starter package (opens in a new tab)">View package &rarr;</a>
-  </div>
-  <div class="package-card">
-    <h3><a href="https://adventuresportsusa.com/collections/wing-foils" target="_blank" rel="noopener">Adventure Sports USA — Wing + Foil</a></h3>
-    <p>A South Florida wing foil shop (Doral, Jupiter/Tequesta, Coconut Grove). Shop wings, boards & foils individually — no pre-bundled package here.</p>
-    <a class="btn btn-outline" href="https://adventuresportsusa.com/collections/wing-foils" target="_blank" rel="noopener" aria-label="View Adventure Sports USA Wing + Foil gear (opens in a new tab)">View gear &rarr;</a>
-  </div>
+<div class="package-card">
+<h3><a href="https://www.mackiteboarding.com/wing-foil-packages/" target="_blank" rel="noopener">MACkite — Wing Foil Beginner Packages</a></h3>
+<p>Several complete packages including one built specifically for first-timers (board + foil + wing).</p>
+<a class="btn btn-outline" href="https://www.mackiteboarding.com/wing-foil-packages/" target="_blank" rel="noopener" aria-label="View MACkite wing foil beginner packages (opens in a new tab)">View packages &rarr;</a>
+</div>
+<div class="package-card">
+<h3><a href="https://www.windance.com/collections/wing-foil-packages" target="_blank" rel="noopener">Windance — Wing Foil Packages</a></h3>
+<p>Multiple packages tagged "Beginner Friendly," bundling board, foil, and wing together.</p>
+<a class="btn btn-outline" href="https://www.windance.com/collections/wing-foil-packages" target="_blank" rel="noopener" aria-label="View Windance wing foil packages (opens in a new tab)">View packages &rarr;</a>
+</div>
+<div class="package-card">
+<h3><a href="https://houstonkiteboarding.com/collections/wingfoil-complete-packages" target="_blank" rel="noopener">Houston Kiteboarding — Wing Foil Starter Package</a></h3>
+<p>A complete starter set (board, wing, foil, pump, and both leashes) built for someone starting from zero.</p>
+<a class="btn btn-outline" href="https://houstonkiteboarding.com/collections/wingfoil-complete-packages" target="_blank" rel="noopener" aria-label="View Houston Kiteboarding wing foil starter package (opens in a new tab)">View package &rarr;</a>
+</div>
+<div class="package-card">
+<h3><a href="https://adventuresportsusa.com/collections/wing-foils" target="_blank" rel="noopener">Adventure Sports USA — Wing + Foil</a></h3>
+<p>A South Florida wing foil shop (Doral, Jupiter/Tequesta, Coconut Grove). Shop wings, boards & foils individually — no pre-bundled package here.</p>
+<a class="btn btn-outline" href="https://adventuresportsusa.com/collections/wing-foils" target="_blank" rel="noopener" aria-label="View Adventure Sports USA Wing + Foil gear (opens in a new tab)">View gear &rarr;</a>
+</div>
 </div>
 
 A note on all three: package availability and pricing shift with stock, so if one you like is sold out, check back or browse that retailer's full package list for their next comparable option — it's still a shorter path than researching every board/foil/wing combination yourself.
@@ -130,47 +135,47 @@ Curious what these brands have shipped lately? See [What's New in Gear](/gear-an
 Not every brand sells direct to consumer — some of these are better for researching specs and comparing gear than for actually checking out, but worth a look either way:
 
 <div class="brand-links">
-  <a href="https://armstrongfoils.com/" target="_blank" rel="noopener">Armstrong Foils</a>
-  <a href="https://slingshotsports.com/pages/foil" target="_blank" rel="noopener">Slingshot Sports</a>
-  <a href="https://www.duotonesports.com/" target="_blank" rel="noopener">Duotone</a>
-  <a href="https://www.f-one.world/" target="_blank" rel="noopener">F-One</a>
-  <a href="https://www.naish.com/" target="_blank" rel="noopener">Naish</a>
-  <a href="https://northactionsports.com/" target="_blank" rel="noopener">North</a>
-  <a href="https://www.cabrinha.com/" target="_blank" rel="noopener">Cabrinha</a>
-  <a href="https://ozonekites.com/wing/" target="_blank" rel="noopener">Ozone</a>
-  <a href="https://www.axisfoils.com/" target="_blank" rel="noopener">Axis Foils</a>
-  <a href="https://gofoil.com" target="_blank" rel="noopener">GO Foil</a>
-  <a href="https://reedin.com" target="_blank" rel="noopener">Reedin</a>
-  <a href="https://ridecore.com" target="_blank" rel="noopener">CORE</a>
-  <a href="https://www.mikeslab.com/" target="_blank" rel="noopener">Mike's Lab</a>
-  <a href="https://ensis.surf/" target="_blank" rel="noopener">Ensis</a>
-  <a href="https://uni-foil.com/" target="_blank" rel="noopener">Unifoil</a>
-  <a href="https://www.gong-galaxy.com/en/collections/wing-fr" target="_blank" rel="noopener">GONG</a>
-  <a href="https://sabfoil.com/en" target="_blank" rel="noopener">Sabfoil</a>
+<a href="https://armstrongfoils.com/" target="_blank" rel="noopener">Armstrong Foils</a>
+<a href="https://slingshotsports.com/pages/foil" target="_blank" rel="noopener">Slingshot Sports</a>
+<a href="https://www.duotonesports.com/" target="_blank" rel="noopener">Duotone</a>
+<a href="https://www.f-one.world/" target="_blank" rel="noopener">F-One</a>
+<a href="https://www.naish.com/" target="_blank" rel="noopener">Naish</a>
+<a href="https://northactionsports.com/" target="_blank" rel="noopener">North</a>
+<a href="https://www.cabrinha.com/" target="_blank" rel="noopener">Cabrinha</a>
+<a href="https://ozonekites.com/wing/" target="_blank" rel="noopener">Ozone</a>
+<a href="https://www.axisfoils.com/" target="_blank" rel="noopener">Axis Foils</a>
+<a href="https://gofoil.com" target="_blank" rel="noopener">GO Foil</a>
+<a href="https://reedin.com" target="_blank" rel="noopener">Reedin</a>
+<a href="https://ridecore.com" target="_blank" rel="noopener">CORE</a>
+<a href="https://www.mikeslab.com/" target="_blank" rel="noopener">Mike's Lab</a>
+<a href="https://ensis.surf/" target="_blank" rel="noopener">Ensis</a>
+<a href="https://uni-foil.com/" target="_blank" rel="noopener">Unifoil</a>
+<a href="https://www.gong-galaxy.com/en/collections/wing-fr" target="_blank" rel="noopener">GONG</a>
+<a href="https://sabfoil.com/en" target="_blank" rel="noopener">Sabfoil</a>
 </div>
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "How to Get Your Beginner Wing Foil Gear",
-  "description": "The three things a beginner actually needs to buy, and how to get from zero to a starting gear setup.",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Use the Calculator",
-      "text": "Enter your weight, the wind you'll usually ride in, and your budget, and it'll spit out a starting size for all three pieces of gear — a wing, a board, and a hydrofoil."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Understand What You're Buying",
-      "text": "Learn what the numbers mean: board volume measured in liters, hydrofoil front wing size measured in cm², and wing size measured in square meters."
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Choose a Beginner Package",
-      "text": "Buy the three pieces separately for more control, or choose a complete beginner package that bundles board, foil, and wing together at one price."
-    }
-  ]
+"@context": "https://schema.org",
+"@type": "HowTo",
+"name": "How to Get Your Beginner Wing Foil Gear",
+"description": "The three things a beginner actually needs to buy, and how to get from zero to a starting gear setup.",
+"step": [
+{
+"@type": "HowToStep",
+"name": "Use the Calculator",
+"text": "Enter your weight, the wind you'll usually ride in, and your budget, and it'll spit out a starting size for all three pieces of gear — a wing, a board, and a hydrofoil."
+},
+{
+"@type": "HowToStep",
+"name": "Understand What You're Buying",
+"text": "Learn what the numbers mean: board volume measured in liters, hydrofoil front wing size measured in cm², and wing size measured in square meters."
+},
+{
+"@type": "HowToStep",
+"name": "Choose a Beginner Package",
+"text": "Buy the three pieces separately for more control, or choose a complete beginner package that bundles board, foil, and wing together at one price."
+}
+]
 }
 </script>
