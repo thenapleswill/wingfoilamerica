@@ -12,7 +12,10 @@ extraJs:
   - /assets/js/conditions-badge.js
   - /assets/js/wind-checker.js
   - /assets/js/wind-tabs.js
+  - /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 ## Check the Wind Right Now
 
@@ -116,6 +119,8 @@ Steady 10–20 mph without big gusts is about as good as it gets for a beginner.
 This is also why wing **size** is a real tradeoff. A bigger wing makes more power in light or lulling wind, but becomes a handful once it builds. A smaller wing stays calm in strong, gusty wind, but won't get you going when it's light — which is why most riders who stick with the sport end up owning two or three.
 
 **Thermal vs. gradient wind:** Thermal wind (a sea breeze) is driven by the daily heating cycle — it builds through late morning, peaks in the afternoon, and fades at sunset, so check the forecast for *time*, not just day. Gradient wind (driven by weather systems) can blow at any hour and is often steadier, but less predictable day-to-day. Some of the best spots get a boost from both lining up at once.
+
+{{ videoCallout(videoId="MWGqrB618W8", title="Wind and Courses", creator="Duotone Wing & Foiling", blurb="A closer look at reading wind and courses on the water — useful context for everything above.") }}
 
   </div>
 </div>
