@@ -3,7 +3,11 @@ layout: layouts/intermediate-page.njk
 title: "Assisted Foiling"
 description: "Electric foil-assist systems like Foil Drive and Duotone Foil Assist — what they actually are, how they're different from an e-foil, and where they genuinely help."
 order: 8
+extraJs:
+- /assets/js/video-callout.js
 ---
+
+{% from "partials/video-callout.njk" import videoCallout %}
 
 Assisted foiling means adding an electric motor to your existing foil setup — not replacing your wing, but giving yourself a battery-powered boost for the parts of a session that depend on wind, waves, or brute repetition. It's become one of the fastest-growing add-ons in the sport, and it solves a real, specific problem: some of the hardest parts of learning and progressing on a foil have nothing to do with skill and everything to do with waiting — for wind, for a bump, for enough energy left to try one more time.
 
@@ -12,6 +16,8 @@ Assisted foiling means adding an electric motor to your existing foil setup — 
 An assist system — Foil Drive is the best-known brand, Duotone's Foil Assist is another real option — is a small electric motor pod that mounts on your mast between the board and the foil, spins a propeller, and is controlled by a wireless handheld throttle. You still ride a real foil, you still use your wing (or don't), and you still get the actual feeling of foiling. The motor just adds thrust on demand: enough to get you up on foil without wind or a wave, or to keep a session going in conditions that would otherwise be a write-off.
 
 That's a meaningfully different thing from an e-foil, which is a fully motorized board with no wing and no wind dependency at all — a different product built for a different experience. An assist system is closer to pedal-assist on an e-bike: the effort and the skill are still yours, the motor just removes the parts that are purely about power, not technique.
+
+{{ videoCallout(videoId="Wj6xwO_FDqU", title="Duotone Foil Assist 2026", creator="Duotone Wing & Foiling", blurb="A look at the current Duotone Foil Assist system, covering exactly what’s described above.") }}
 
 ## Who Actually Uses These
 
