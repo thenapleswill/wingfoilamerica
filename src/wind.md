@@ -62,6 +62,7 @@ extraJs:
     <button type="button" class="wind-tab" id="tab-spot" role="tab" aria-selected="false" aria-controls="panel-spot" tabindex="-1">Choosing Your Spot</button>
     <button type="button" class="wind-tab" id="tab-wing" role="tab" aria-selected="false" aria-controls="panel-wing" tabindex="-1">Wind Speed &rarr; Wing Size</button>
     <button type="button" class="wind-tab" id="tab-how" role="tab" aria-selected="false" aria-controls="panel-how" tabindex="-1">How Wind Works</button>
+    <button type="button" class="wind-tab" id="tab-angles" role="tab" aria-selected="false" aria-controls="panel-angles" tabindex="-1">Wind Angles &amp; Turns</button>
   </div>
 
   <div class="wind-tab-panel" id="panel-direction" role="tabpanel" aria-labelledby="tab-direction">
@@ -123,4 +124,22 @@ This is also why wing **size** is a real tradeoff. A bigger wing makes more powe
 {{ videoCallout(videoId="MWGqrB618W8", title="Wind and Courses", creator="Duotone Wing & Foiling", blurb="A closer look at reading wind and courses on the water — useful context for everything above.") }}
 
   </div>
+
+<div class="wind-tab-panel" id="panel-angles" role="tabpanel" aria-labelledby="tab-angles" hidden>
+
+Once you're up and riding, the wind hits you at a different angle depending on which way you point the board — and each angle rides differently. Here's the full picture beginners actually need, in one diagram:
+
+![Diagram of wind angles for wing foiling: a no-go zone straight upwind you can't ride into, close reach at 45 degrees, beam reach at 90 degrees (the easiest angle to learn on), broad reach at 135 degrees, and downwind at 180 degrees, with tacking (turning the bow through the wind) and gybing (turning the stern through the wind) shown as the two ways to switch which side the wing is on.](/assets/images/wind/reading-the-wind-diagram.png)
+
+Start on a **beam reach** — wind straight on your side. It's the most stable, most forgiving angle to find your balance on before you try anything else:
+
+- **Close reach (45°)** — angled up toward the wind. Fast, but demanding to balance.
+- **Broad reach (135°)** — angled down away from the wind. Comfortable and controlled.
+- **Downwind (180°)** — running straight away from the wind.
+
+You can never point straight into the **no-go zone** (roughly 45° either side of straight upwind) — no wing craft can sail directly upwind, wing foils included. To work your way upwind, you zig-zag through a series of close reaches instead.
+
+**Tacking** turns the front of the board through the no-go zone to switch which side the wind hits you on. **Gybing** turns the back of the board through downwind to do the same thing — usually the faster, more advanced turn once you're comfortable riding downwind. Both get much easier once beam reach, close reach, and broad reach all feel natural on their own.
+
+</div>
 </div>
