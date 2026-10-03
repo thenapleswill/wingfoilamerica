@@ -1,5 +1,85 @@
 [
   {
+    "id": "old-san-juan-muelle-6",
+    "name": "Pier 6 (Muelle 6), Old San Juan",
+    "city": "San Juan",
+    "state": "PR",
+    "region": "San Juan Bay, Puerto Rico",
+    "lat": 18.4636759,
+    "lng": -66.1085297,
+    "waterType": "Bay side of Old San Juan, launching from Pier 6 (Muelle 6). No independent water-depth or bottom detail confirmed.",
+    "windDirection": "Not independently confirmed for this exact spot.",
+    "skillLevel": "Beginner-friendly — Seakindly's program starts with a personalized skills assessment and builds toward jibing, tacking, and self-rescue.",
+    "localsMeetHere": true,
+    "description": "Wing Foil America's first San Juan entry. Seakindly Foil School, run by Michael \"Mike\" Vicens, teaches wing foiling from Pier 6 on the bay side of Old San Juan — a progression from an initial assessment and winging basics through jibing, tacking, and self-rescue, with coaching from a jet ski or from the dock available. Past students describe Mike as patient but relentless about getting you better. The school's core business is eFoil lessons, with wing foiling taught alongside.",
+    "verified": "community-reported",
+    "sourceNote": "Community-reported (2026-10-03) — sourced from Seakindly Foil School's own site (seakindlyfoilschool.com wing-foil and locations pages) plus independent GetYourGuide (reviews through April 2026), TripAdvisor, and Facebook listings; see claude/instructor-research-log.md. Not yet ridden or confirmed firsthand by Will. Pin is Google Maps' listing for Muelle 6."
+  },
+  {
+    "id": "belmont-shore-long-beach",
+    "name": "Belmont Shore",
+    "city": "Long Beach",
+    "state": "CA",
+    "region": "Southern California Coast",
+    "lat": 33.7541067,
+    "lng": -118.1336019,
+    "waterType": "Belmont Shore beach on the protected side of Long Beach — described by the school as large beaches with protected waters well suited to beginners. No independent depth or hazard detail confirmed.",
+    "windDirection": "Not independently confirmed for this exact spot.",
+    "skillLevel": "Beginner through advanced — private lessons run from beach-based wing handling through water starts, jibes, and early foil control.",
+    "localsMeetHere": true,
+    "description": "Wing Foil America's first Long Beach / Los Angeles–Orange County entry. Off The Hook Kiteboarding, owned by Jesse McCourt, teaches wing foiling at Belmont Shore — a private-lesson progression starting with wing handling on the beach, then water entry, kneeling, and standing, with advanced coaching on water starts, jibes, tacks, and jumps. Lessons use two-way radio helmets for on-the-water coaching.",
+    "verified": "community-reported",
+    "sourceNote": "Community-reported (2026-10-03) — sourced from Off The Hook Kiteboarding's own site (offthehookkiteboarding.com wing-foil-lessons and contact pages) plus independent Yahoo Local, directory, Yelp (updated April 2026), and LinkedIn listings; see claude/instructor-research-log.md. Not yet ridden or confirmed firsthand by Will. Pin is E Ocean Blvd & Claremont Ave at Belmont Shore, near the shop's own address — the school names Belmont Shore generally, not one exact launch, so treat the pin as approximate."
+  },
+  {
+    "id": "tawas-bay-east-tawas-mi",
+    "name": "Tawas Bay / Tawas Point",
+    "city": "East Tawas",
+    "state": "MI",
+    "region": "Lake Huron, Northeast Michigan",
+    "lat": 44.2637925,
+    "lng": -83.4395095,
+    "waterType": "Tawas Bay on Lake Huron, sheltered behind Tawas Point. No independent depth or bottom detail confirmed.",
+    "windDirection": "Not independently confirmed for this exact spot.",
+    "skillLevel": "Beginner-friendly — a private 2-hour lesson covers wing handling, positioning and weight distribution, and board orientation.",
+    "localsMeetHere": true,
+    "description": "Wing Foil America's first Lake Huron entry. Motor City Kiteboarding, an East Tawas shop run since 2006 by Mark Kuban, offers private 2-hour wing foil lessons on Tawas Bay and at Tawas Point, with wireless instructor communication and a full wing package included. The school's season runs roughly May through October, and it also teaches kiteboarding and snowkiting.",
+    "verified": "community-reported",
+    "sourceNote": "Community-reported (2026-10-03) — sourced from Motor City Kiteboarding's own site (motorcitykiteboarding.com wing-foiling-lessons page) plus an independent Michigan tourism-board listing (modified March 2026), Yahoo Local, TripAdvisor, and an Hour Detroit feature; see claude/instructor-research-log.md. Not yet ridden or confirmed firsthand by Will. Pin is the shop's own address (542 Tawas Beach Rd), which sits on the Tawas Bay shoreline."
+  },
+  {
+    "id": "montrose-beach-chicago",
+    "name": "Montrose Beach (Chicago Lakefront)",
+    "city": "Chicago",
+    "state": "IL",
+    "region": "Lake Michigan, Chicago Lakefront",
+    "lat": 41.9667449,
+    "lng": -87.6385934,
+    "waterType": "Lake Michigan beachfront on Chicago's North Side. No independent depth or hazard detail confirmed.",
+    "windDirection": "Early-morning and thermal-wind sessions are the school's stated approach here; exact best wind directions not independently confirmed.",
+    "skillLevel": "Beginner-friendly — a Level 1 / Level 2 private-lesson progression from wing and board setup, stance, and hand placement through kneeling and standing water starts.",
+    "localsMeetHere": true,
+    "description": "Wing Foil America's first Illinois entry. Stoke Riders, owned by Chicago-raised, IKO-certified instructor Tyler Spence, teaches wing foiling along the Chicago lakefront at Montrose Beach and South Shore, plus several West Michigan beaches, with private lessons that start with wing and board setup and progress to kneeling and standing water starts. Spence has taught kiteboarding and wing sports around Lake Michigan since 2013.",
+    "verified": "community-reported",
+    "sourceNote": "Community-reported (2026-10-03) — sourced from Stoke Riders' own site (stokeriders.com wing foil lake michigan guide and lesson pages) plus independent business-association, Chamber of Commerce, LinkedIn, and Kiteboarder Magazine sources; see claude/instructor-research-log.md. Not yet ridden or confirmed firsthand by Will. Pin is Google Maps' listing for Montrose Beach; the school also names South Shore as a Chicago teaching location."
+  },
+  {
+    "id": "kite-island-waretown-nj",
+    "name": "Kite Island (Barnegat Bay, Waretown)",
+    "city": "Waretown",
+    "state": "NJ",
+    "region": "Barnegat Bay, Jersey Shore",
+    "lat": 39.7882997,
+    "lng": -74.1902316,
+    "waterType": "Shallow, flat water on Barnegat Bay — the school calls Kite Island a world-class shallow-water destination.",
+    "windDirection": "Steady thermal wind per the school's own site; exact best wind directions not independently confirmed.",
+    "skillLevel": "Beginner-friendly — wing foiling is offered for ages 12+ and needs less wind than kiteboarding.",
+    "localsMeetHere": true,
+    "description": "Kainetic Adventures, based in Waretown and run by Danny Michelson (a kiteboarding instructor of 14 years), teaches wing foiling at Kite Island in Barnegat Bay — a shallow, flat-water spot known for steady thermal wind — alongside its kiteboarding, eFoil, and prone-foil programs. A second Jersey Shore entry alongside Lakes Bay in West Atlantic City.",
+    "verified": "community-reported",
+    "sourceNote": "Community-reported (2026-10-03) — sourced from Kainetic Adventures' own site (kaineticadventures.com booking and island-rides pages) plus an independent instructor-directory listing and recent Google reviews; see claude/instructor-research-log.md. Not yet ridden or confirmed firsthand by Will. Pin is the shop's own Baltic Ave launch lot in Waretown on the bay shore, not the island itself."
+  },
+  {
     "id": "texas-city-levee",
     "name": "Texas City Levee",
     "city": "Texas City",
@@ -391,9 +471,9 @@
     ],
     "skillLevel": "Beginner-friendly",
     "localsMeetHere": true,
-    "description": "A flat-water alternative to the Gorge — strong, steady summer thermals over completely protected lake water make this one of the more forgiving strong-wind spots on the West Coast. Launch is from the lake itself (freshwater), not the ocean beach on the dune side — the pin marks the east-side boat ramp / launch area.",
+    "description": "A flat-water alternative to the Gorge — strong, steady summer thermals over completely protected lake water make this one of the more forgiving strong-wind spots on the West Coast. Launch is from the lake itself (freshwater), not the ocean beach on the dune side — the pin marks the east-side boat ramp / launch area. Floras Lake Windsports, run by the Brady family since 1990, teaches windsurfing, kiteboarding, and wing foiling here — from beginner wing handling on a SUP through hydrofoil riding, taught by Reed and Josh Brady.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand. Re-pinned from the ocean/dune side to the lake's east-side boat ramp launch area, and wind detail added (2026-09-06) — sources: Floras Lake Windsports FAQ (floraslakewindsports.com) and Kite Zombies' Floras Lake guide. Coordinates are approximate (from research, not GPS-confirmed) — worth a visual map check before treating as exact."
+    "sourceNote": "Research-sourced (2026-08-28), not yet confirmed firsthand. Re-pinned from the ocean/dune side to the lake's east-side boat ramp launch area, and wind detail added (2026-09-06) — sources: Floras Lake Windsports FAQ (floraslakewindsports.com) and Kite Zombies' Floras Lake guide. Coordinates are approximate (from research, not GPS-confirmed) — worth a visual map check before treating as exact. Instructor citation added 2026-10-03 from the Floras Lake Windsports sites and independent Oregon Coast Visitors Association and Travel Southern Oregon Coast listings; see claude/instructor-research-log.md. Does not change the verified status."
   },
   {
     "id": "coyote-point",
@@ -865,9 +945,9 @@
     "waterType": "Shallow, calm, sandy with a rocky strip nearby",
     "windDirection": "Steady trade winds, strongest around Aruba's June/July Hi-Winds season",
     "skillLevel": "All levels",
-    "description": "Aruba's most popular spot to learn wind sports — shallow and calm close to shore, with several schools right on the beach, while also hosting the annual Aruba Hi-Winds competition.",
+    "description": "Aruba's most popular spot to learn wind sports — shallow and calm close to shore, with several schools right on the beach, while also hosting the annual Aruba Hi-Winds competition. Aruba Kite Surfing School, a family-run school founded in 2004 by Lysander Loefstok and now run with his daughter Zoë, teaches wing foiling from the Fisherman's Huts here in 2-hour lessons with a certified instructor and equipment included.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected — the previous pin was significantly off; Aruba.com and Mapcarta agree on this location (2026-09-02)."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Coordinates corrected — the previous pin was significantly off; Aruba.com and Mapcarta agree on this location (2026-09-02). Instructor citation added 2026-10-03 from the school's own site plus the official Aruba tourism board page and TripAdvisor reviews; see claude/instructor-research-log.md. Does not change the verified status."
   },
   {
     "id": "bahia-salinas-playa-copal",
@@ -901,9 +981,9 @@
     "waterType": "Turquoise bay water, sheltered lagoons to a choppier open bay",
     "windDirection": "Reliable trade winds, prime season Nov-May, calmer mornings with stronger afternoon gusts",
     "skillLevel": "All levels",
-    "description": "One of the most well-known wing foiling destinations anywhere — consistently reliable wind, multiple dedicated wing shops and instruction outfits right in town, and a real international wing foiling community.",
+    "description": "One of the most well-known wing foiling destinations anywhere — consistently reliable wind, multiple dedicated wing shops and instruction outfits right in town, and a real international wing foiling community. Baja Wing & Watersports is a dedicated wingfoil school in town, co-owned by VDWS-certified instructor Ilaria De Michele (10+ years teaching) — private and semi-private lessons with radio coaching and downwind options, using different launch spots around the bay depending on conditions.",
     "verified": "community-reported",
-    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes."
+    "sourceNote": "Research-sourced (2026-08-31), not yet confirmed firsthand — see project notes. Instructor citation added 2026-10-03 from Baja Wing's own site plus The Ventana View local directory; see claude/instructor-research-log.md. Does not change the verified status."
   },
   {
     "id": "long-bay-beach",
